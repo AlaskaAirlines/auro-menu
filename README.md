@@ -1,4 +1,4 @@
-## auro-menu
+# Menu
 
 `<auro-menu>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
 
@@ -8,7 +8,7 @@ For the most up to date information on [UI development browser support](https://
 
 ## Install
 
-[![Build Status](https://img.shields.io/travis/AlaskaAirlines/auro-menu?branch=master&style=for-the-badge)](https://travis-ci.org/github/AlaskaAirlines/auro-menu)
+[![Build Status](https://img.shields.io/github/workflow/status/AlaskaAirlines/auro-menu/Test%20and%20publish?branch=master&style=for-the-badge)](https://github.com/AlaskaAirlines/auro-menu/actions?query=workflow%3A%22test+and+publish%22)
 [![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux/auro-menu?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/auro-menu)
 [![License](https://img.shields.io/npm/l/@alaskaairux/auro-menu?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -33,7 +33,7 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 Defining the component dependency within each component that is using the `<auro-menu>` component.
 
 ```javascript
-import "@alaskaairuxauro-menu";
+import "@alaskaairux/auro-menu";
 ```
 
 **Reference component in HTML**
@@ -44,26 +44,19 @@ import "@alaskaairuxauro-menu";
 
 ## Install bundled assets from CDN
 
-In cases where the project is not able to process JS assets, there are pre-processed assets available for use.
+In cases where the project is not able to process JS assets, there are pre-processed assets available for use. Two bundles are available -- `auro-menu__bundled.js` for modern browsers and `auro-menu__bundled.es5.js` for legacy browsers (including IE11).
 
-**NOTE:** Be sure to replace `:version` in the URL with the version of the asset you want.
+Since the legacy bundle includes many polyfills that are not needed by modern browsers, we recommend you load these bundles using [differential serving](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) so that the browser only loads the bundle it needs. To accomplish this, the script tag for the modern bundle should have `type="module"` and the script tag for the legacy bundle should have the `nomodule` attribute. See the example below.
+
+**NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk.
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/orion-design-tokens@:version/dist/tokens/CSSTokenProperties.css" />
-<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/orion-web-core-style-sheets@:version/dist/bundled/baseline.css" />
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
 
-<script src="https://unpkg.com/@alaskaairuxauro-menu@:version/dist/polyfills.js"></script>
-<script src="https://unpkg.com/@alaskaairuxauro-menu@:version/dist/auro-menu__bundled.js"></script>
+<script src="https://unpkg.com/@alaskaairux/auro-menu@latest/dist/auro-menu__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@alaskaairux/auro-menu@latest/dist/auro-menu__bundled.es5.js" nomodule></script>
 ```
-
-### polyfills.js
-
-The `polyfills.js` is packaged with this component, but **IT IS NOT NEEDED** to load a polyfill per component. The `polyfills.js` will work for all additional components added to the project.
-
-### IE11 Support
-
-**Displaimer:** While these components are supported in IE, there may be issues with loading the [web components polyfill](https://www.webcomponents.org/polyfills). Please consult their documentation when supporting IE11.
-
 
 ## auro-menu use cases
 
@@ -89,9 +82,7 @@ Please be sure to review the [contribution guidelines](https://auro.alaskaair.co
 
 ### Start development environment
 
-Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open three different shell sessions. One is for the **Gulp tasks**, the second is for a series of **npm tasks** and the last is to run the **Polymer server**.
-
-**Peer dependency:** Please make sure Polymer is installed globally in order to run the Polymer server. See [Auro Component Development Details](https://github.com/AlaskaAirlines/auro_docs/blob/master/src/TECH_DETAILS.md) for more information.
+Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open two different shell sessions. One is for the **npm tasks**, the second is to run the **server**.
 
 ```shell
 // shell terminal one
@@ -101,7 +92,11 @@ $ npm run dev
 $ npm run serve
 ```
 
-Open [localhost:3001](http://localhost:3001/)
+Open [localhost:8000](http://localhost:8000/)
 
 ### Testing
 Automated tests are required for every Auro component. See `.\test\auro-menu.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
+
+### Demo deployment
+
+To deploy a demo version of the component for review, run `npm run demo:build` to create a `./build` directory that can be pushed to any static server.
