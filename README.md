@@ -1,6 +1,8 @@
 # Menu
 
-`<auro-menu>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+`<auro-menu>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of letting a user select one option from a list of pre-defined options. `auro-menu` will be used with `auro-dropdown`.
+
+An auto-complete version of `auro-menu` can be found at `auro-auto-complete`.
 
 ## UI development browser support
 

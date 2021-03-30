@@ -18,9 +18,31 @@
 //   ...
 // }
 
-.testClass {
-  color:  var(--auro-color-border-error-on-light);
-  border: 1px solid var(--auro-color-border-error-on-light);
+ul {
+      color:  var(--auro-color-border-error-on-light);
+  // border: 1px solid var(--auro-color-border-error-on-light);
   display: inline-block;
   padding: var(--auro-text-body-size-default);
+
+  color: #222222;
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+  border: 1px solid #F7F7F7 ;
+  min-width: 200px;
+  background-color: var(--auro-color-background-lightest);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, .12), 0px 5px 10px 0px rgba(0, 0, 0, .1);
+  font-weight: bold;
+
+  ::slotted(li) {
+    // color: blue;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 10px 10px 10px 20px;
+    margin: 0;
+  }
+
+  ::slotted(li:hover) {
+    background-color: #F7F7F7;
+  }
 }
