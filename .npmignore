@@ -1,0 +1,14 @@
+# standard ignore
+.gitignore
+.stylelintrc
+.travis.yml
+demo/
+gulpfile.js
+index.html
+scripts/
+test/
+
+# ignore src
+src/**/*
+
+# overrides
