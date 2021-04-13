@@ -186,3 +186,10 @@ thead {
 th, td {
   padding: var(--auro-size-md);
 }
+
+
+// There are tabbable buttons above and below the <auro-menu> in demo.md. This rule helps distinguish which element on page has focus.
+button:focus {
+  background: orange;
+  border: 2px dashed black;
+}

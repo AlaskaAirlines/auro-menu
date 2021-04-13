@@ -1,7 +1,9 @@
-// Copyright (c) 2020 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
+// Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
+
+import "@alaskaairux/auro-icon";
 
 import { LitElement, html, css } from "lit-element";
 
@@ -11,21 +13,19 @@ import styleCss from "./style-css.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
- * auro-menu provides users a way to ...
- *
- * @attr {String} cssClass - Applies designated CSS class to DOM element.
+ * auro-menu provides users a way to select one option from a pre-defined list of options
  */
 
-// build the component class
 class AuroMenu extends LitElement {
-  // constructor() {
-  //   super();
-  // }
+  constructor() {
+    super();
 
-  // function to define props used within the scope of thie component
+    this.options = null;
+  }
+
   static get properties() {
     return {
-      cssClass:   { type: String }
+      options: { type: Array }
     };
   }
 
@@ -35,12 +35,70 @@ class AuroMenu extends LitElement {
     `;
   }
 
-  // function that renders the HTML and CSS into  the scope of the component
+  firstUpdated() {
+    const options = this.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+
+    const dispatchEventOptionSelected = (el) => {
+      el.dispatchEvent(new CustomEvent('optionSelected', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+        detail: {
+          index: el.getAttribute('index'),
+          value: el.getAttribute('value'),
+          displayText: el.innerText,
+        }
+      }));
+
+      options.forEach((option) => {
+        if (el.getAttribute('index') === option.getAttribute('index')) {
+          option.setAttribute('selected', true);
+        } else {
+          option.removeAttribute('selected');
+        }
+      });
+
+      const elIndex = parseInt(el.getAttribute('index'), 10);
+
+      for (let i = 0; i < options.length; i += 1) {
+        if (elIndex === i) {
+          options[i].setAttribute('selected', '');
+          options[i].querySelector('span').setAttribute('style', 'visibility: visible; margin-right: 8px;');
+        } else {
+          options[i].removeAttribute('selected');
+          options[i].querySelector('span').setAttribute('style', 'visibility: hidden; margin-right: 8px;');
+        }
+      }
+    }
+
+    const handleKeyDown = (evt) => {
+      if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
+        dispatchEventOptionSelected(evt.target);
+      }
+    };
+
+    for (let i = 0; i < options.length; i += 1) {
+      options[i].setAttribute('index', i);
+      // each option is tabbable
+      options[i].setAttribute('tabindex', '0');
+      options[i].addEventListener('keydown', (evt) => handleKeyDown(evt));
+      options[i].addEventListener('click', (evt) => dispatchEventOptionSelected(evt.target));
+
+      // insert checkmark icon into each option's li
+      const span = document.createElement('span');
+
+      span.innerHTML = '<auro-icon category="interface" name="check-sm" emphasis></auro-icon>';
+      span.style.visibility = 'hidden';
+      span.style.marginRight = '8px';
+      options[i].insertBefore(span, options[i].firstChild);
+    }
+  }
+
   render() {
     return html`
-      <div class=${this.cssClass}>
-        <slot></slot>
-      </div>
+      <ul>
+        <slot name="listOfOptions"></slot>
+      </ul>
     `;
   }
 }
