@@ -60,6 +60,7 @@ class AuroMenu extends LitElement {
 
       const elIndex = parseInt(el.getAttribute('index'), 10);
 
+      // TODO: refactor
       for (let i = 0; i < options.length; i += 1) {
         if (elIndex === i) {
           options[i].setAttribute('selected', '');

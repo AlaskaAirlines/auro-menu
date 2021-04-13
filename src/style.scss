@@ -34,10 +34,10 @@ ul {
 
   ::slotted(li) {
     width: 100%;
-    height: 32px;
+    height: var(--auro-size-xl);
     list-style-type: none;
     cursor: pointer;
-    padding: 0 8px 0 8px;
+    padding: 0 var(--auro-size-xs) 0 var(--auro-size-xs);
     margin: 0;
     outline: 0;
 
