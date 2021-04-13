@@ -26,8 +26,6 @@ An auto-complete version of `auro-menu` can be found at `auro-auto-complete`.
 
 </div>
 
-  <button id="tabbableButtonAbove" tabindex="0">tabbable button above</button>
-
   ```html
   <auro-menu>
     <li slot="listOfOptions" data-value="the value for option 1">option 1</li>
