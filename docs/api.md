@@ -1,9 +1,15 @@
 # auro-menu
 
-auro-menu provides users a way to ...
+auro-menu provides users a way to select one option from a pre-defined list of options
 
 ## Properties
 
-| Property   | Attribute  | Type     | Description                                  |
-|------------|------------|----------|----------------------------------------------|
-| `cssClass` | `cssClass` | `String` | Applies designated CSS class to DOM element. |
+| Property  | Attribute | Type    | Default |
+|-----------|-----------|---------|---------|
+| `options` | `options` | `array` | null    |
+
+## Events
+
+| Event            | Type                                             |
+|------------------|--------------------------------------------------|
+| `optionSelected` | `CustomEvent<{ index: any; value: any; displayText: any; }>` |

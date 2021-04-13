@@ -1,6 +1,8 @@
-# auro-menu
+# Menu
 
-`<auro-menu>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+`<auro-menu>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of letting a user select one option from a list of pre-defined options. `auro-menu` will be used with `auro-dropdown`.
+
+An auto-complete version of `auro-menu` can be found at `auro-auto-complete`.
 
 ## UI development browser support
 
@@ -96,3 +98,7 @@ Open [localhost:8000](http://localhost:8000/)
 
 ### Testing
 Automated tests are required for every Auro component. See `.\test\auro-menu.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
+
+### Demo deployment
+
+To deploy a demo version of the component for review, run `npm run demo:build` to create a `./build` directory that can be pushed to any static server.
