@@ -1,18 +1,124 @@
-import { fixture, html, expect, triggerFocusFor } from '@open-wc/testing';
+
+import { fixture, html, expect, triggerFocusFor, oneEvent } from '@open-wc/testing';
 import '../src/auro-menu.js';
 
 describe('auro-menu', () => {
-  let currentlySelectedValue = null;
+  let currentlySelectedIndex = null;
 
   before(() => {
     document.addEventListener('optionSelected', (evt) => {
-      currentlySelectedValue = evt.detail.value;
+      currentlySelectedIndex = evt.detail.index;
     });
   });
 
   after(() => {
-    currentlySelectedValue = null;
+    currentlySelectedIndex = null;
   });
+  
+  // selecting an option marks only that option as selected
+
+  it('clicking on an option marks only that option as selected', async () => {
+    const el = await generateDefaultFixture();
+
+    const index = 0;
+
+    let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+    options[index].click();
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+  });
+
+  it('pressing the Enter button when an option has focus marks only that option as selected', async () => {
+    const el = await generateDefaultFixture();
+
+    const index = 1;
+
+    let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+    options[index].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'Enter'
+    }));
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+  });
+
+  it('pressing the Space button when an option has focus marks only that option as selectedd', async () => {
+    const el = await generateDefaultFixture();
+
+    const index = 2;
+
+    let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+    options[index].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': ' '
+    }));
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+  });
+
+  it('clicking through different options results in only 1 option being selected at a time', async () => {
+    const el = await generateDefaultFixture();
+
+    let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+
+    let index = 0;
+
+    options[index].click();
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+
+    index = 5;
+
+    options[index].click();
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+
+    index = 3;
+
+    options[index].click();
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+  });
+
+  // selecting an option dispatches an event with information about the index of the option
 
   it('clicking on an option dispatches an event signifying the option was selected', async () => {
     const el = await generateDefaultFixture();
@@ -20,21 +126,23 @@ describe('auro-menu', () => {
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
     options[0].click();
 
-    expect(currentlySelectedValue).to.equal('the value for option 1');
+    expect(currentlySelectedIndex).to.equal('0');
   });
 
   it('pressing the Enter button when an option has focus dispatches an event signifying the option was selected', async () => {
     const el = await generateDefaultFixture();
 
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+    // let listener = oneEvent(options[1], 'keydown');
     options[1].dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
       'key': 'Enter'
     }
     ));
-
-    expect(currentlySelectedValue).to.equal('the value for option 2');
+    // await listener;
+  
+    expect(currentlySelectedIndex).to.equal('1');
   });
 
   it('pressing the Space button when an option has focus dispatches an event signifying the option was selected', async () => {
@@ -48,87 +156,7 @@ describe('auro-menu', () => {
     }
     ));
 
-    expect(currentlySelectedValue).to.equal('the value for option 3');
-  });
-
-  it('when an option is clicked, it is the only selected option', async () => {
-    const el = await generateDefaultFixture();
-    let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
-
-    for (let i = 0; i < options.length; i++) {
-      expect(options[i].hasAttribute('selected')).to.equal(false);
-    }
-
-    let lastIndexClicked = 0;
-
-    options[lastIndexClicked].click();
-
-    for (let i = 0; i < options.length; i++) {
-      if (i === lastIndexClicked) {
-        expect(options[i].hasAttribute('selected')).to.equal(true);
-      } else {
-        expect(options[i].hasAttribute('selected')).to.equal(false);
-      }
-    }
-
-    lastIndexClicked = 1;
-
-    options[lastIndexClicked].click();
-
-    for (let i = 0; i < options.length; i++) {
-      if (i === lastIndexClicked) {
-        expect(options[i].hasAttribute('selected')).to.equal(true);
-      } else {
-        expect(options[i].hasAttribute('selected')).to.equal(false);
-      }
-    }
-
-  });
-
-  it('when an option is selected by pressing Enter when the option has focus, it is the only selected option', async () => {
-    const el = await generateDefaultFixture();
-    let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
-
-    for (let i = 0; i < options.length; i++) {
-      expect(options[i].hasAttribute('selected')).to.equal(false);
-    }
-
-    let lastIndexClicked = 0;
-
-    // options[lastIndexClicked].click();
-    options[lastIndexClicked].dispatchEvent(new KeyboardEvent('keydown', {
-      bubbles: true,
-      composed: true,
-      'key': 'Enter'
-    }
-    ));
-
-    for (let i = 0; i < options.length; i++) {
-      if (i === lastIndexClicked) {
-        expect(options[i].hasAttribute('selected')).to.equal(true);
-      } else {
-        expect(options[i].hasAttribute('selected')).to.equal(false);
-      }
-    }
-
-    lastIndexClicked = 1;
-
-    options[lastIndexClicked].click();
-    // options[lastIndexClicked].dispatchEvent(new KeyboardEvent('keydown', {
-    //   bubbles: true,
-    //   composed: true,
-    //   'key': 'Enter'
-    // }
-    // ));
-
-    for (let i = 0; i < options.length; i++) {
-      if (i === lastIndexClicked) {
-        expect(options[i].hasAttribute('selected')).to.equal(true);
-      } else {
-        expect(options[i].hasAttribute('selected')).to.equal(false);
-      }
-    }
-
+    expect(currentlySelectedIndex).to.equal('2');
   });
 
   // BRENT: Browsers don't allow the Tab button to be dispatched. I left the code in for posterity.
