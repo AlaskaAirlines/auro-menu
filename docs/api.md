@@ -4,12 +4,15 @@ auro-menu provides users a way to select one option from a pre-defined list of o
 
 ## Properties
 
-| Property  | Attribute | Type    | Default |
-|-----------|-----------|---------|---------|
-| `options` | `options` | `array` | null    |
+| Property              | Attribute             | Type      | Default |
+|-----------------------|-----------------------|-----------|---------|
+| `indexSelectedOption` | `indexSelectedOption` | `number`  |         |
+| `isHidden`            | `isHidden`            | `boolean` | true    |
+| `options`             | `options`             | `array`   | null    |
 
 ## Events
 
-| Event            | Type                                             |
-|------------------|--------------------------------------------------|
-| `optionSelected` | `CustomEvent<{ index: any; value: any; displayText: any; }>` |
+| Event                  | Type                                             |
+|------------------------|--------------------------------------------------|
+| `hideOptionsContainer` | `CustomEvent<any>`                               |
+| `optionSelected`       | `CustomEvent<{ index: any; value: any; displayText: any; }>` |

@@ -138,9 +138,9 @@ class AuroMenu extends LitElement {
     for (let i = 0; i < this.options.length; i += 1) {
 
       // each option is tabbable
-      options[i].setAttribute('tabindex', '0');
-      options[i].addEventListener('keydown', (evt) => handleKeyDown(evt));
-      options[i].addEventListener('click', (evt) => dispatchEventOptionSelected(evt.target));
+      this.options[i].setAttribute('tabindex', '0');
+      this.options[i].addEventListener('keydown', (evt) => handleKeyDown(evt));
+      this.options[i].addEventListener('click', (evt) => dispatchEventOptionSelected(evt.target));
 
       // TODO
       this.options[i].addEventListener('focus', (evt) => funcFocus(evt.target));
