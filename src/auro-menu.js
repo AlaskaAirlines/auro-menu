@@ -41,7 +41,6 @@ class AuroMenu extends LitElement {
   }
 
   firstUpdated() {
-    // debugger;
     const parentIndexSelectedOption = parseInt(this.parentElement.getAttribute('indexSelectedOption'), 10);
     
     // auro-menu is the child of a parent with an indexSelectedOption attribute
@@ -142,7 +141,6 @@ class AuroMenu extends LitElement {
       this.options[i].addEventListener('keydown', (evt) => handleKeyDown(evt));
       this.options[i].addEventListener('click', (evt) => dispatchEventOptionSelected(evt.target));
 
-      // TODO
       this.options[i].addEventListener('focus', (evt) => funcFocus(evt.target));
       this.options[i].addEventListener('blur', (evt) => funcBlur(evt.target));
       this.options[i].addEventListener('mouseover', (evt) => funcMouseOver(evt.target));

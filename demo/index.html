@@ -30,6 +30,10 @@
     <script src="https://unpkg.com/@alaskaairux/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
 
     <script type="text/javascript">
+      // functions for buttons to add the attribute "isHidden" to auro-menus on the demo.md
+      // as a way to simulate an auro-menu being shown and hidden when auro-dropdown
+      // opens and closes
+
       function addAttributeIsHidden(auroMenuId) {
         document.querySelector('#' + auroMenuId).setAttribute('isHidden', '');
       }
