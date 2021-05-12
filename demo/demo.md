@@ -36,27 +36,24 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 </div>
 
-<br/>
-
-***
-
-<!-- <auro-accordion>
+<auro-accordion lowProfile justifyRight>
 
   ```html
-  <auro-menu indexSelectedOption="0">
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 1">option 1</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 2">option 2</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 3">option 3</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
+  <auro-menu id="auroMenu1" indexSelectedOption="0" ishidden>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
   </auro-menu>
   ```
 
-</auro-accordion> -->
+</auro-accordion>
 
+<br/>
 
-
+***
 
 ### &lt;auro-menu indexselectedoption="5"&gt;
 
@@ -83,20 +80,21 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 </div>
 
-<!-- <auro-accordion>
+<auro-accordion lowProfile justifyRight>
 
   ```html
-  <auro-menu id="auroMenu1" indexSelectedOption="0">
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 1">option 1</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 2">option 2</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 3">option 3</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
+  <auro-menu id="auroMenu2" indexSelectedOption="5" ishidden>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
   </auro-menu>
   ```
 
-</auro-accordion> -->
+</auro-accordion>
+
 <br/>
 
 ***
@@ -127,3 +125,20 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
   <button id="tabbableButtonBelow" tabindex="0">tabbable button below</button>
 
 </div>
+
+<auro-accordion lowProfile justifyRight>
+
+  ```html
+  <parentContainer indexSelectedOption="3">
+    <auro-menu id="auroMenu3" ishidden>
+      <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
+      <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
+      <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
+      <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
+      <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
+      <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
+    </auro-menu>
+  </parentContainer>
+  ```
+
+</auro-accordion>
