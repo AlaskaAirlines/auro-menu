@@ -189,7 +189,32 @@ th, td {
 
 
 // There are tabbable buttons above and below the <auro-menu> in demo.md. This rule helps distinguish which element on page has focus.
-button:focus {
+.tabbableButton:focus {
   background: orange;
   border: 2px dashed black;
+}
+
+.attributeChangeButton {
+  margin-right: 10px;
+  // width: 100px;
+  background: #2ecc71;
+  border-bottom: #27ae60 3px solid;
+  border-left: #27ae60 1px solid;
+  border-right: #27ae60 1px solid;
+  border-radius: 6px;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  // float: left;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.actions {
+  margin: 0 0 20px 0;
+  span {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 20px 0 0;
+  }
 }
