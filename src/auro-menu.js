@@ -15,6 +15,11 @@ import styleCss from "./style-css.js";
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
  * auro-menu provides users a way to select one option from a pre-defined list of options
+ * 
+ * @attr {Array} options - Array of auro-menu-option nodes.
+ * @attr {Boolean} isHidden - If the auro-menu is currently being shown or hidden, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden.
+ * @attr {Number} indexSelectedOption - Index of the currently selected option.
+ * @slot listOfOptions - Slot for the auro-menu-option nodes.
  */
 
 class AuroMenu extends LitElement {
@@ -30,7 +35,6 @@ class AuroMenu extends LitElement {
       options: { type: Array },
       isHidden: { type: Boolean, reflect: true },
       indexSelectedOption: { type: Number },
-
     };
   }
 
