@@ -1,6 +1,5 @@
-// The TODOs are because for some reason auro-menu's SCSS variables are coming up
-// as undfined in the browser. So I just replaced them with the real values
-// in the meantime.
+// NOTE: The variable tokens aren't hardcoded because there's some bug that causes them to be undefined in the browser
+// when auro-menu is used by auro-dropdown.
 
 // Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
@@ -30,7 +29,6 @@ ul {
   width: 100%;
   margin: 0;
   padding: 0;
-  // background-color: var(--auro-color-background-lightest); // TODO
   background-color: #FFFFFF;
 
   font-weight: 600;
