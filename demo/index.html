@@ -26,6 +26,17 @@
         });
     </script>
     <script type="module" src="../src/auro-menu.js"></script>
+    <script type="module" src="../src/auro-menu-option.js"></script>
     <script src="https://unpkg.com/@alaskaairux/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
+
+    <script type="text/javascript">
+      function addAttributeIsHidden(auroMenuId) {
+        document.querySelector('#' + auroMenuId).setAttribute('isHidden', '');
+      }
+  
+      function removeAttributeIsHidden(auroMenuId) {
+        document.querySelector('#' + auroMenuId).removeAttribute('isHidden');
+      }
+    </script>
   </body>
 </html>

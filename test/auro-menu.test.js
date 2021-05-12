@@ -1,6 +1,7 @@
 
 import { fixture, html, expect, triggerFocusFor, oneEvent } from '@open-wc/testing';
 import '../src/auro-menu.js';
+import '../src/auro-menu-option.js';
 
 describe('auro-menu', () => {
   let currentlySelectedIndex = null;
@@ -167,12 +168,12 @@ describe('auro-menu', () => {
         <button id="tabbableButtonAbove" tabindex="0">tabbable button above</button>
       
         <auro-menu>
-          <li slot="listOfOptions" data-value="the value for option 1">option 1</li>
-          <li slot="listOfOptions" data-value="the value for option 2">option 2</li>
-          <li slot="listOfOptions" data-value="the value for option 3">option 3</li>
-          <li slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</li>
-          <li slot="listOfOptions" data-value="departures">Departures</li>
-          <li slot="listOfOptions" data-value="arrivals">Arrivals</li>
+          <auro-menu-option slot="listOfOptions" data-value="the value for option 1">option 1</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="the value for option 2">option 2</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="the value for option 3">option 3</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
         </auro-menu>
       
         <button id="tabbableButtonBelow" tabindex="0">tabbable button below</button>
@@ -201,13 +202,13 @@ describe('auro-menu', () => {
 
 async function generateDefaultFixture() {
   return await fixture(html`
-      <auro-menu>
-        <li slot="listOfOptions" data-value="the value for option 1">option 1</li>
-        <li slot="listOfOptions" data-value="the value for option 2">option 2</li>
-        <li slot="listOfOptions" data-value="the value for option 3">option 3</li>
-        <li slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</li>
-        <li slot="listOfOptions" data-value="departures">Departures</li>
-        <li slot="listOfOptions" data-value="arrivals">Arrivals</li>
+      <auro-menu  indexselectedoption="0">
+        <auro-menu-option slot="listOfOptions" data-value="the value for option 1">option 1</auro-menu-option>
+        <auro-menu-option slot="listOfOptions" data-value="the value for option 2">option 2</auro-menu-option>
+        <auro-menu-option slot="listOfOptions" data-value="the value for option 3">option 3</auro-menu-option>
+        <auro-menu-option slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menu-option>
+        <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
+        <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
       </auro-menu>
   `);
 }

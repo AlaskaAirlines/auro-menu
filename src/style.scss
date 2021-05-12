@@ -1,3 +1,7 @@
+// The TODOs are because for some reason auro-menu's SCSS variables are coming up
+// as undfined in the browser. So I just replaced them with the real values
+// in the meantime.
+
 // Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
@@ -26,36 +30,12 @@ ul {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--auro-color-background-lightest);
+  // background-color: var(--auro-color-background-lightest); // TODO
+  background-color: #FFFFFF;
 
   font-weight: 600;
 
   border: 1px solid #F7F7F7 ;
-
-  ::slotted(li) {
-    width: 100%;
-    height: var(--auro-size-xl);
-    list-style-type: none;
-    cursor: pointer;
-    padding: 0 var(--auro-size-xs) 0 var(--auro-size-xs);
-    margin: 0;
-    outline: 0;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  ::slotted(li:hover) {
-    background-color: #F7F7F7;
-    border: 0;
-  }
-
-  ::slotted(li:focus) {
-    color: var(--auro-color-background-lightest); 
-    background-color: var(--auro-color-ui-default-on-light);
-    border: 0;
-  }
 
   .hidden {
     visibility: hidden;
