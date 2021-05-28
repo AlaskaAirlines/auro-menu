@@ -49,7 +49,7 @@ class AuroMenu extends LitElement {
   }
 
   handleSlotChange() {
-    const parentIndexSelectedOption = Number(this.parentElement.getAttribute('indexSelectedOption'));
+    const parentIndexSelectedOption = parseInt(this.parentElement?.getAttribute('indexSelectedOption'), 10);
 
     // auro-menu is the child of a parent with an indexSelectedOption attribute
     if (!this.indexSelectedOption) {
