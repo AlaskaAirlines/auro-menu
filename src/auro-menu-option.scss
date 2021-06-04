@@ -42,14 +42,12 @@ li {
 
   &:hover {
       background-color: #f7f7f7;
-      border: 0;
       color: black;
   }
 
   &:focus {
     color: #FFFFFF;
     background-color: #0074cb;
-    border: 0;
 
     svg {
       fill: #FFFFFF;
@@ -58,14 +56,14 @@ li {
 }
 
 .subMenu {
-  border-top: 1px solid grey;
+  border-top: 1px solid var(--auro-color-border-primary-on-light);
 }
 
 .indented {
-  padding-left: var(--auro-size-xl);
+  margin-left: var(--auro-size-xl);
 }
 
-.lastIndented {
+.indented-border {
   padding-left: var(--auro-size-xl);
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid var(--auro-color-border-primary-on-light);
 }
