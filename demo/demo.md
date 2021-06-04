@@ -22,14 +22,17 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 ### Indented Example
 <div class="exampleWrapper">
   <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
-    <auro-menu-option subMenu slot="listOfOptions" data-value="the value for option 1">Los Angeles (LA5)</auro-menu-option>
-    <auro-menu-option indented slot="listOfOptions" data-value="the value for option 2">LAX</auro-menu-option>
-    <auro-menu-option indented slot="listOfOptions" data-value="the value for option 3">BUR</auro-menu-option>
-    <auro-menu-option indentedBorder slot="listOfOptions" data-value="the value for option 4">SNA</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 5">PDX</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 6">SMF</auro-menu-option>
+    <auro-menu-option borderTop slot="listOfOptions" data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
+    <auro-menu-option indented slot="listOfOptions" data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
+    <auro-menu-option indented borderBottom slot="listOfOptions" data-value="the value for option 3">Seattle, WA (SEA-Seattle/Tacoma Intl.)</auro-menu-option>
+    <div slot="listOfOptions">____</div>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Belgrade, Serbia (BEG-Belgrade)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Mahe Island, Seychelles (SEZ-Mahe Island)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Sendair, Japan (SDJ-Sendai)</auro-menu-option>
+    <auro-menu-option borderTop slot="listOfOptions" data-value="the value for option 7">Seoul, Korea, Republic of (All Airports)</auro-menu-option>
+    <auro-menu-option indented slot="listOfOptions" data-value="the value for option 8">Seoul, Korea, Republic of (GMP-Seoul Gimpo In..</auro-menu-option>
+    <auro-menu-option indented borderBottom slot="listOfOptions" data-value="the value for option 9">Seoul, Korea, Republic of (ICN-Seoul Incheon In..)</auro-menu-option>
   </auro-menu>
-
 </div>
 
 

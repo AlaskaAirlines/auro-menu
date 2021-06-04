@@ -34,9 +34,9 @@ class AuroMenuOption extends LitElement {
       tabIndex: { type: Number },
       hasFocus: { type: Boolean},
       beingMouseOvered: { type: Boolean},
-      subMenu: { type: Boolean },
       indented: { type: Boolean },
-      indentedBorder: { type: Boolean }
+      borderTop: { type: Boolean },
+      borderBottom: { type: Boolean }
     }
   }
 
@@ -51,18 +51,21 @@ class AuroMenuOption extends LitElement {
   }
 
   render() {
-    const classes = {
-      'subMenu': this.subMenu,
+    const subMenu = {
       'indented': this.indented,
-      'indented-border': this.indentedBorder
+      'border--top': this.borderTop,
+      'border--bottom': this.borderBottom,
+      'innerDiv': true
     }
 
     return html`
-      <li class="${classMap(classes)}">
-        <span class="checkmark">
-          <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
-        </span>
-        <slot></slot>
+      <li>
+        <div class="${classMap(subMenu)}">
+          <span class="checkmark">
+            <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
+          </span>
+          <slot></slot>
+        </div>
       </li>
     `;
   }
