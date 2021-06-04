@@ -29,10 +29,10 @@ ul {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #FFFFFF;
-
-  font-weight: 600;
-
+  background-color: var(--auro-color-background-lightest);
+  size: var(--auro-text-body);
+  color: var(--auro-color-text-primary-on-light);
+  font-weight: light;
   border: 1px solid #F7F7F7 ;
 
   .hidden {
