@@ -56,3 +56,16 @@ li {
     }
   }
 }
+
+.subMenu {
+  border-top: 1px solid grey;
+}
+
+.indented {
+  padding-left: var(--auro-size-xl);
+}
+
+.lastIndented {
+  padding-left: var(--auro-size-xl);
+  border-bottom: 1px solid grey;
+}
