@@ -25,7 +25,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
     <auro-menu-option subMenu slot="listOfOptions" data-value="the value for option 1">Los Angeles (LA5)</auro-menu-option>
     <auro-menu-option indented slot="listOfOptions" data-value="the value for option 2">LAX</auro-menu-option>
     <auro-menu-option indented slot="listOfOptions" data-value="the value for option 3">BUR</auro-menu-option>
-    <auro-menu-option lastIndented slot="listOfOptions" data-value="the value for option 4">SNA</auro-menu-option>
+    <auro-menu-option indentedBorder slot="listOfOptions" data-value="the value for option 4">SNA</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 5">PDX</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 6">SMF</auro-menu-option>
   </auro-menu>

@@ -36,7 +36,7 @@ class AuroMenuOption extends LitElement {
       beingMouseOvered: { type: Boolean},
       subMenu: { type: Boolean },
       indented: { type: Boolean },
-      lastIndented: { type: Boolean }
+      indentedBorder: { type: Boolean }
     }
   }
 
@@ -54,7 +54,7 @@ class AuroMenuOption extends LitElement {
     const classes = {
       'subMenu': this.subMenu,
       'indented': this.indented,
-      'lastIndented': this.lastIndented
+      'indented-border': this.indentedBorder
     }
 
     return html`
