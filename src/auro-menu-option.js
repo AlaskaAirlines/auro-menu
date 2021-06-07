@@ -52,20 +52,15 @@ class AuroMenuOption extends LitElement {
 
   render() {
     const subMenu = {
-      'indented': this.indented,
-      'border--top': this.borderTop,
-      'border--bottom': this.borderBottom,
-      'innerDiv': true
+      'indented': this.indented
     }
 
     return html`
-      <li>
-        <div class="${classMap(subMenu)}">
-          <span class="checkmark">
-            <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
-          </span>
-          <slot></slot>
-        </div>
+      <li class="${classMap(subMenu)}">
+        <span class="checkmark">
+          <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
+        </span>
+        <slot></slot>
       </li>
     `;
   }
