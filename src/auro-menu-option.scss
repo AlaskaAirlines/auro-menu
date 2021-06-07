@@ -21,14 +21,6 @@
   }
 }
 
-:host {
-  .divider {
-    width: 100%;
-    border-top: 1px solid var(--auro-color-border-primary-on-light);
-    margin: var(--auro-size-xs) var(--auro-size-xs) var(--auro-size-xs) var(--auro-size-xl);
-  }
-}
-
 li {
   width: 100%;
   list-style-type: none;
@@ -60,14 +52,6 @@ li {
     }
   }
 }
-
-// .innerDiv {
-//   height: var(--auro-size-xxl);
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   width: 100%;
-// }
 
 .indented {
   padding-left: var(--auro-size-xl);
