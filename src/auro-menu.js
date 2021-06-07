@@ -5,7 +5,7 @@
 
 import "@alaskaairux/auro-icon";
 import './auro-menu-option';
-
+import './auro-sub-menu'
 import { LitElement, html, css } from "lit-element";
 
 // Import touch detection lib
