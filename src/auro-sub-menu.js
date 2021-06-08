@@ -26,14 +26,11 @@ class AuroSubMenu extends LitElement {
 
   render() {
     return html`
-      <div>
-        <hr class="divider" />
-        <slot></slot>
-        <hr class="divider" />
-      </div>
+      <div class="divider"></div>
+      <slot></slot>
+      <div class="divider"></div>
     `;
   }
-
 }
 
 /* istanbul ignore else */
