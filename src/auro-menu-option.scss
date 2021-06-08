@@ -28,7 +28,7 @@ li {
   padding: 0;
   margin: 0;
   outline: 0;
-  height: var(--auro-size-xxl);
+  height: var(--auro-size-xl);
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -55,4 +55,8 @@ li {
 
 .indented {
   padding-left: var(--auro-size-xl);
+}
+
+.specialOption {
+  color: #0074cb;
 }

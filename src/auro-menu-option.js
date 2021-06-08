@@ -34,9 +34,7 @@ class AuroMenuOption extends LitElement {
       tabIndex: { type: Number },
       hasFocus: { type: Boolean},
       beingMouseOvered: { type: Boolean},
-      indented: { type: Boolean },
-      borderTop: { type: Boolean },
-      borderBottom: { type: Boolean }
+      indented: { type: Boolean }
     }
   }
 

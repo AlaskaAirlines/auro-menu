@@ -56,7 +56,7 @@ class AuroMenu extends LitElement {
       }
     }
 
-    this.options = this.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+    this.options = this.querySelectorAll('auro-menu-option');
 
     this.options.forEach((option, i) => {
       option.setAttribute('index', i);
