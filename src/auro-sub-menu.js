@@ -15,7 +15,6 @@ class AuroSubMenu extends LitElement {
 
   static get properties() {
     return {
-      option: { type: String }
     }
   }
 
@@ -25,14 +24,10 @@ class AuroSubMenu extends LitElement {
     `;
   }
 
-  firstUpdated() {
-  }
-
   render() {
     return html`
       <div>
         <hr class="divider" />
-        <auro-menu-option data-value="the value for option 1">${this.option}</auro-menu-option>
         <slot></slot>
         <hr class="divider" />
       </div>

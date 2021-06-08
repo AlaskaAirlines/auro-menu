@@ -21,16 +21,18 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 <div class="exampleWrapper">
   <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 0">
-      <span style="color:#0074C8;"><auro-icon category="interface" name="location-stroke" accent></auro-icon>Use my current location</span>
+      <span class="specialOption"><auro-icon category="interface" name="location-stroke" accent></auro-icon>Use my current location</span>
     </auro-menu-option>
-    <auro-sub-menu slot="listOfOptions" data-value="the value for option 1" option="Seattle Area (All Airports)">
+    <auro-sub-menu slot="listOfOptions">
+      <auro-menu-option data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
       <auro-menu-option indented data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
       <auro-menu-option indented data-value="the value for option 3">Seattle, WA (SEA-Seattle/Tacoma Intl.)</auro-menu-option>
     </auro-sub-menu>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Belgrade, Serbia (BEG-Belgrade)</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Mahe Island, Seychelles (SEZ-Mahe Island)</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Sendair, Japan (SDJ-Sendai)</auro-menu-option>
-    <auro-sub-menu slot="listOfOptions" data-value="the value for option 7" option="Seoul, Korea, Republic of (All Airports)">
+    <auro-sub-menu slot="listOfOptions">
+      <auro-menu-option data-value="the value for option 7">Seoul, Korea, Republic of (All Airports)</auro-menu-option>
       <auro-menu-option indented data-value="the value for option 8">Seoul, Korea, Republic of (GMP-Seoul Gimpo In..</auro-menu-option>
       <auro-menu-option indented data-value="the value for option 9">Seoul, Korea, Republic of (ICN-Seoul Incheon In..)</auro-menu-option>
     </auro-sub-menu>
