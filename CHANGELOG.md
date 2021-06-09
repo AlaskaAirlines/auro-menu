@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+# [1.2.0](https://github.com/AlaskaAirlines/auro-menu/compare/v1.1.0...v1.2.0) (2021-06-09)
+
+
+### Features
+
+* added style for submenu ([09981da](https://github.com/AlaskaAirlines/auro-menu/commit/09981daf2e238661b4ee53ce40c3fbcbb96e23f4))
+* created submenu component which contains options ([146cb66](https://github.com/AlaskaAirlines/auro-menu/commit/146cb6625cc82d0ee9651fa8810e8aedb91ab4dd))
+
 # [1.1.0](https://github.com/AlaskaAirlines/auro-menu/compare/v1.0.0...v1.1.0) (2021-05-12)
 
 
