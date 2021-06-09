@@ -2,10 +2,9 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-
 import "@alaskaairux/auro-icon";
-
 import { LitElement, html, css } from "lit-element";
+import { classMap } from 'lit-html/directives/class-map.js';
 
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
@@ -20,6 +19,7 @@ import styleCss from "./auro-menu-option-css.js";
  * @attr {Number} tabIndex - Will be either -1 or 0 depending on if auro-menu is currently visible or not.
  * @attr {Boolean} hasFocus - Used to help determine if auro-menu-option is being tabbed onto. Used to help determine the color and background color of auro-menu-option.
  * @attr {Boolean} beingMouseOvered - Used to help determine the color and background color of auro-menu-option.
+ * @attr {Boolean} indented - Used to visually indicate a 'sub-menu'
  */
 class AuroMenuOption extends LitElement {
   constructor() {
@@ -34,8 +34,8 @@ class AuroMenuOption extends LitElement {
       tabIndex: { type: Number },
       hasFocus: { type: Boolean},
       beingMouseOvered: { type: Boolean},
+      indented: { type: Boolean }
     }
-
   }
 
   static get styles() {
@@ -49,16 +49,21 @@ class AuroMenuOption extends LitElement {
   }
 
   render() {
+    const subMenu = {
+      'indented': this.indented
+    }
+
     return html`
       <li>
-        <span class="checkmark">
-          <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
-        </span>
-        <slot></slot>
+        <div class="${classMap(subMenu)}">
+          <span class="checkmark">
+            <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
+          </span>
+          <slot></slot>
+        </div>
       </li>
     `;
   }
-
 }
 
 /* istanbul ignore else */

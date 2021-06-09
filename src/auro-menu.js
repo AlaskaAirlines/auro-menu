@@ -7,6 +7,7 @@ import { LitElement, html, css } from "lit-element";
 import styleCss from "./style-css.js";
 import "@alaskaairux/auro-icon";
 import './auro-menu-option';
+import './auro-sub-menu'
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 
@@ -54,7 +55,7 @@ class AuroMenu extends LitElement {
       }
     }
 
-    this.options = this.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+    this.options = this.querySelectorAll('auro-menu-option');
 
     this.options.forEach((option, i) => {
       option.setAttribute('index', i);

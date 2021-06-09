@@ -11,13 +11,66 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 ## auro-menu examples
 
-### &lt;auro-menu indexselectedoption="0"&gt;
-
 <div class="actions">
 <span>attribute "isHidden" on &lt;auro-menu&gt;</span>
 <button class="attributeChangeButton" onclick="addAttributeIsHidden('auroMenu1')" tabindex="-1">add</button>
 <button class="attributeChangeButton" onclick="removeAttributeIsHidden('auroMenu1')" tabindex="-1">remove</button>
 </div>
+
+### Submenu Example
+<div class="exampleWrapper">
+  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 0">
+      <span class="specialOption"><auro-icon category="interface" name="location-stroke" accent></auro-icon>Use my current location</span>
+    </auro-menu-option>
+    <auro-sub-menu slot="listOfOptions">
+      <auro-menu-option data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 3">Seattle, WA (SEA-Seattle/Tacoma Intl.)</auro-menu-option>
+    </auro-sub-menu>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Belgrade, Serbia (BEG-Belgrade)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Mahe Island, Seychelles (SEZ-Mahe Island)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Sendair, Japan (SDJ-Sendai)</auro-menu-option>
+    <auro-sub-menu slot="listOfOptions">
+      <auro-menu-option data-value="the value for option 7">Seoul, Korea, Republic of (All Airports)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 8">Seoul, Korea, Republic of (GMP-Seoul Gimpo In..</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 9">Seoul, Korea, Republic of (ICN-Seoul Incheon In..)</auro-menu-option>
+    </auro-sub-menu>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 9">Sacramento, CA (SMF-Sacramento Intl.)</auro-menu-option>
+  </auro-menu>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+
+  ```html
+  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
+  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 0">
+      <span class="specialOption"><auro-icon category="interface" name="location-stroke" accent></auro-icon>Use my current location</span>
+    </auro-menu-option>
+    <auro-sub-menu slot="listOfOptions">
+      <auro-menu-option data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 3">Seattle, WA (SEA-Seattle/Tacoma Intl.)</auro-menu-option>
+    </auro-sub-menu>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Belgrade, Serbia (BEG-Belgrade)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Mahe Island, Seychelles (SEZ-Mahe Island)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Sendair, Japan (SDJ-Sendai)</auro-menu-option>
+    <auro-sub-menu slot="listOfOptions">
+      <auro-menu-option data-value="the value for option 7">Seoul, Korea, Republic of (All Airports)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 8">Seoul, Korea, Republic of (GMP-Seoul Gimpo In..</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 9">Seoul, Korea, Republic of (ICN-Seoul Incheon In..)</auro-menu-option>
+    </auro-sub-menu>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 9">Sacramento, CA (SMF-Sacramento Intl.)</auro-menu-option>
+  </auro-menu>
+  </auro-menu>
+  ```
+
+</auro-accordion>
+
+<br/>
+
+### &lt;auro-menu indexselectedoption="0"&gt;
 
 <div class="exampleWrapper">
 
