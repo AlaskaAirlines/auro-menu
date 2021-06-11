@@ -44,7 +44,6 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
   ```html
   <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
-  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 0">
       <span class="specialOption"><auro-icon category="interface" name="location-stroke" accent></auro-icon>Use my current location</span>
     </auro-menu-option>
