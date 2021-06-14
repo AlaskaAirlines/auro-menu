@@ -3,14 +3,13 @@
 
 // ---------------------------------------------------------------------
 
+import { LitElement, html, css } from "lit-element";
+import styleCss from "./style-css.js";
 import "@alaskaairux/auro-icon";
 import './auro-menu-option';
 import './auro-sub-menu'
-import { LitElement, html, css } from "lit-element";
-
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./style-css.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
@@ -44,7 +43,7 @@ class AuroMenu extends LitElement {
     `;
   }
 
-  firstUpdated() {
+  handleSlotChange() {
     const parentIndexSelectedOption = parseInt(this.parentElement.getAttribute('indexSelectedOption'), 10);
     
     // auro-menu is the child of a parent with an indexSelectedOption attribute
@@ -95,6 +94,7 @@ class AuroMenu extends LitElement {
     const funcFocus = (evt) => {
       evt.setAttribute('hasfocus', '')
     }
+
     const funcBlur = (evt) => {
       evt.removeAttribute('hasfocus')
     }
@@ -102,6 +102,7 @@ class AuroMenu extends LitElement {
     const funcMouseOver = (evt) => {
       evt.setAttribute('beingMouseOvered', '')
     }
+
     const funcMouseOut = (evt) => {
       evt.removeAttribute('beingMouseOvered')
     }
@@ -144,7 +145,6 @@ class AuroMenu extends LitElement {
       this.options[i].setAttribute('tabindex', '0');
       this.options[i].addEventListener('keydown', (evt) => handleKeyDown(evt));
       this.options[i].addEventListener('click', (evt) => dispatchEventOptionSelected(evt.target));
-
       this.options[i].addEventListener('focus', (evt) => funcFocus(evt.target));
       this.options[i].addEventListener('blur', (evt) => funcBlur(evt.target));
       this.options[i].addEventListener('mouseover', (evt) => funcMouseOver(evt.target));
@@ -152,25 +152,25 @@ class AuroMenu extends LitElement {
     }
   }
 
-attributeChangedCallback(name, oldVal, newVal) {
-  if (name.toLowerCase() === 'ishidden' && this.options) {
-    if (newVal === null) {
-      for (let i = 0; i < this.options.length; i++) {
-        this.options[i].setAttribute('tabindex', 0);
-      }
-    } else {
-      for (let i = 0; i < this.options.length; i++) {
-        this.options[i].setAttribute('tabindex', -1);
-      }    }
-  }
+  attributeChangedCallback(name, oldVal, newVal) {
+    if (name.toLowerCase() === 'ishidden' && this.options) {
+      if (newVal === null) {
+        for (let i = 0; i < this.options.length; i++) {
+          this.options[i].setAttribute('tabindex', 0);
+        }
+      } else {
+        for (let i = 0; i < this.options.length; i++) {
+          this.options[i].setAttribute('tabindex', -1);
+        }    }
+    }
 
-  super.attributeChangedCallback(name, oldVal, newVal);
-}
+    super.attributeChangedCallback(name, oldVal, newVal);
+  }
 
   render() {
     return html`
       <ul>
-        <slot name="listOfOptions"></slot>
+        <slot @slotchange=${this.handleSlotChange} name="listOfOptions"></slot>
       </ul>
     `;
   }
