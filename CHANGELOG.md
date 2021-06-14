@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.1](https://github.com/AlaskaAirlines/auro-menu/compare/v1.2.0...v1.2.1) (2021-06-14)
+
+
+### Bug Fixes
+
+* handle slot change updates index on dynamic updates to options [#11](https://github.com/AlaskaAirlines/auro-menu/issues/11) ([ef53494](https://github.com/AlaskaAirlines/auro-menu/commit/ef5349468a29adc48511e2f7a0db2c336e64ffb5))
+
 # [1.2.0](https://github.com/AlaskaAirlines/auro-menu/compare/v1.1.0...v1.2.0) (2021-06-09)
 
 
