@@ -56,3 +56,15 @@ li {
 .indented {
   padding-left: var(--auro-size-xl);
 }
+
+.hideCheck {
+  padding-left: var(--auro-size-sm);
+}
+
+.indented.hideCheck {
+  padding-left: calc(var(--auro-size-xl) + var(--auro-size-sm));
+}
+
+.display--none {
+  display: none;
+}

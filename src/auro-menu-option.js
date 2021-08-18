@@ -51,17 +51,21 @@ class AuroMenuOption extends LitElement {
 
   render() {
     const subMenu = {
-      'indented': this.indented
+      'indented': this.indented,
+      'hideCheck': this.hideCheck
+    }
+
+    const checkMark = { 
+      'checkmark': true,
+      'display--none': this.hideCheck
     }
 
     return html`
       <li>
         <div class="${classMap(subMenu)}">
-          ${ this.hideCheck ? null : html`
-              <span class="checkmark">
-                <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
-              </span>
-          `}
+          <span class="${classMap(checkMark)}">
+            <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
+          </span>
           <slot></slot>
         </div>
       </li>
