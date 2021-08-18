@@ -34,7 +34,8 @@ class AuroMenuOption extends LitElement {
       tabIndex: { type: Number },
       hasFocus: { type: Boolean},
       beingMouseOvered: { type: Boolean},
-      indented: { type: Boolean }
+      indented: { type: Boolean },
+      hideCheck: { type: Boolean},
     }
   }
 
@@ -56,9 +57,11 @@ class AuroMenuOption extends LitElement {
     return html`
       <li>
         <div class="${classMap(subMenu)}">
-          <span class="checkmark">
-            <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
-          </span>
+          ${ this.hideCheck ? null : html`
+              <span class="checkmark">
+                <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
+              </span>
+          `}
           <slot></slot>
         </div>
       </li>
