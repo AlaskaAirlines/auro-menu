@@ -29,7 +29,7 @@ class AuroMenuOption extends LitElement {
 
   static get properties() {
     return {
-      index: { type: Number, },
+      index: { type: Number },
       isHidden: { type: Boolean },
       tabIndex: { type: Number },
       hasFocus: { type: Boolean},
