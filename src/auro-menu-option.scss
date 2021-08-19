@@ -57,11 +57,11 @@ li {
   padding-left: var(--auro-size-xl);
 }
 
-.hideCheck {
+.hideCheckmark {
   padding-left: var(--auro-size-sm);
 }
 
-.indented.hideCheck {
+.indented.hideCheckmark {
   padding-left: calc(var(--auro-size-xl) + var(--auro-size-sm));
 }
 

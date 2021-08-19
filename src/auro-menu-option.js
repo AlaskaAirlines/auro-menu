@@ -35,7 +35,7 @@ class AuroMenuOption extends LitElement {
       hasFocus: { type: Boolean},
       beingMouseOvered: { type: Boolean},
       indented: { type: Boolean },
-      hideCheck: { type: Boolean},
+      hideCheckmark: { type: Boolean},
     }
   }
 
@@ -47,17 +47,18 @@ class AuroMenuOption extends LitElement {
 
   firstUpdated() {
     this.tabIndex = this.parentElement.hasAttribute('ishidden') ? '-1' : '0';
+    this.hideCheckmark = this.parentElement.hasAttribute('hideCheckmark') || this.parentElement.parentElement.hasAttribute('hidecheckmark');
   }
 
   render() {
     const subMenu = {
       'indented': this.indented,
-      'hideCheck': this.hideCheck
+      'hideCheckmark': this.hideCheckmark
     }
 
     const checkMark = { 
       'checkmark': true,
-      'display--none': this.hideCheck
+      'display--none': this.hideCheckmark
     }
 
     return html`
