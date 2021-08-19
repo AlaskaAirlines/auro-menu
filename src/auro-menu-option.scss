@@ -1,6 +1,9 @@
 :host {
-  display: inline-block;
+  display: block;
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 :host([selected]) {
@@ -11,7 +14,6 @@
 
 :host(:focus) {
   outline: none;
-
   box-shadow: inset 0 0 0 3px #0074cb;
   background-color: #0074cb;
   color: #ffffff;
@@ -53,6 +55,15 @@ li {
   }
 }
 
+.content {
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  auro-icon {
+    padding: 0 var(--auro-size-xs);
+  }
+}
+
 .indented {
   padding-left: var(--auro-size-xl);
 }
@@ -68,3 +79,22 @@ li {
 .display--none {
   display: none;
 }
+
+// Mobile Styles
+@media only screen and (max-width: 660px) {
+  li {
+    height: var(--auro-size-xxl);
+  }
+
+  .indented {
+    padding-left: var(--auro-size-lg);
+  }
+  
+  .hideCheckmark {
+    padding-left: var(--auro-size-lg);
+  }
+  
+  .indented.hideCheckmark {
+    padding-left: calc(var(--auro-size-lg) + var(--auro-size-lg));
+  }
+} 

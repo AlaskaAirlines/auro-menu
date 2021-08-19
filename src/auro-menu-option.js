@@ -52,6 +52,7 @@ class AuroMenuOption extends LitElement {
 
   render() {
     const subMenu = {
+      'content': true,
       'indented': this.indented,
       'hideCheckmark': this.hideCheckmark
     }
