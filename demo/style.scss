@@ -1,17 +1,25 @@
+// Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license
+// See LICENSE in the project root for license information.
+
+// Styles in this document are standardized are NOT to be edited.
+// All styles for the custom element are located in the ./src directory.
+
+// ----------------------- DO NOT EDIT -----------------------------
+
 // Import Auro tokens
-@import './node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
-@import './node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
 
 // Import baseline library dependencies
 // Mixins
-@import './node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 
 // Creates baseline output in CSS
-@import './node_modules/@alaskaairux/webcorestylesheets/dist/fonts';
-@import './node_modules/@alaskaairux/webcorestylesheets/dist/normalize';
-@import './node_modules/@alaskaairux/webcorestylesheets/dist/headings';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/fonts';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/normalize';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/headings';
 $paragraph: true;
-@import './node_modules/@alaskaairux/webcorestylesheets/dist/essentials';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/essentials';
 
 // Import Utility classes (will produce CSS in output)
 $layout-properties: margin;
@@ -19,7 +27,7 @@ $layout-extensions: Right;
 $layout-modifiers: (
   'md': $auro-size-md
 );
-@import './node_modules/@alaskaairux/webcorestylesheets/dist/utilityMixins/layoutPropertiesGenerator';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/utilityMixins/layoutPropertiesGenerator';
 
 // Custom styles per demo pages
 body {
@@ -52,19 +60,19 @@ main {
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
+:not(pre) > code[class*='language-'], pre[class*='language-'] {
   background: #f8f8f8;
 }
 
 auro-accordion {
-  pre[class*="language-"] {
+  pre[class*='language-'] {
     background: none;
     margin-bottom: 0;
     padding: 0;
   }
 }
 
-code[class*="language-"], pre[class*="language-"] {
+code[class*='language-'], pre[class*='language-'] {
   font-family: monospace;
 }
 
@@ -185,35 +193,4 @@ thead {
 
 th, td {
   padding: var(--auro-size-md);
-}
-
-
-// There are tabbable buttons above and below the <auro-menu> in demo.md. This rule helps distinguish which element on page has focus.
-.tabbableButton:focus {
-  background: orange;
-  border: 2px dashed black;
-}
-
-.attributeChangeButton {
-  margin-right: 10px;
-  // width: 100px;
-  background: #2ecc71;
-  border-bottom: #27ae60 3px solid;
-  border-left: #27ae60 1px solid;
-  border-right: #27ae60 1px solid;
-  border-radius: 6px;
-  text-align: center;
-  color: white;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.actions {
-  margin: 0 0 20px 0;
-  span {
-    font-size: 20px;
-    font-weight: 400;
-    margin: 0 20px 0 0;
-  }
 }

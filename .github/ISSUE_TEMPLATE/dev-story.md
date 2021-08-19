@@ -1,8 +1,8 @@
 ---
 name: Development Story
-about: Crate a new user story to address the development process
+about: Create a new user story to address the development process
 title: 'auro-menu; develop [feature]'
-labels: 'Status: Backlogged'
+labels: 'auroLabs, auro-menu, Status: Proposal, not-reviewed'
 ---
 
 # User story
