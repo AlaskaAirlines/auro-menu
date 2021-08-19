@@ -3,13 +3,13 @@ repository:
   # See https://github.com/apps/settings for app settings
 
   # A short description of the repository that will show up on GitHub
-  description: Custom element to provide menu of options for the user
+  description: An auroLabs custom element w/an experimental API. You've been warned.
 
   # A URL with more information about the repository
-  homepage: https://auro.alaskaair.com/components/auro/menu
+  homepage: https://auro.alaskaair.com/components/auroLabs
 
   # A comma-separated list of topics to set on the repository
-  topics: auro, design-system, custom-element
+  topics: auro-labs, design-system, custom-element, wcgen-v3-8-1
 
   # Either `true` to enable issues for this repository, `false` to disable them.
   has_issues: true
@@ -56,138 +56,201 @@ branches:
         # Required. Require branches to be up to date before merging.
         strict: true
         # Required. The list of status checks to require in order to merge into this branch
-        contexts: ["test (11.x)""test (12.x)", "test (14.x)", "license/cla"]
+        contexts: ["test (12.x)", "test (14.x)", "license/cla"]
       # Required. Enforce all configured restrictions for administrators. Set to true to enforce required status checks for repository administrators. Set to null to disable.
       enforce_admins: false
       # Required. Restrict who can push to this branch. Team and user restrictions are only available for organization-owned repositories. Set to null to disable.
       restrictions: null
+      # Prevent merge commits from being pushed to matching branches
+      required_linear_history: true
 
 # Labels: define labels for Issues and Pull Requests
 labels:
-- name: duplicate
-  color: cde6ff
-  description: This Issue or Pull Request already exists
-- name: good first issue
-  color: 6bb7fb
-  description: Good for newcomers
-  aliases:
-  - beginner-friendly
-  - beginner
-  - good-starter-issue
-  - good for beginner
-  - Good for beginners
-  - starter-issue
-  - starter
-- name: help wanted
-  color: 2492eb
-  description: Extra attention is needed, this user requires assistance to complete
-    the work
-- name: 'Priority: High'
-  color: 'f65b7b'
-  description: Issues that need attention soon
-- name: 'Project: Version Zero'
-  color: '222222'
-  description: Issues related to the epic Project Zero
-- name: released
-  color: A9A9A9
-  description: Completed work has been released
-- name: 'Status: Abandoned'
-  color: 156fad
-  description: The issue or Pull Request is wontfix
-  aliases:
-  - wontfix
-  - invalid
-- name: 'Status: Backlogged'
-  color: e2ffcd
-  description: Backlogged item is a proposed question or solution, the user is requesting
-    feedback
-  aliases:
-  - idea
-  - Idea
-  - proposal
-  - Proposal
-  - discussion
-- name: 'Status: Blocked'
-  color: df0b37
-  description: Progress on the issue is Blocked, immediate attention is required
-  aliases:
-  - blocked
-- name: 'Status: Complete and Ready to Merge'
-  color: 5e8741
-  description: Owner has completed work and considers it ready to be merged
-- name: 'Status: Prioritized for work'
-  color: d0fba6
-  description: Proposal has been prioritized for development (issues only)
-- name: 'Status: Review Needed'
-  color: 91be62
-  description: Work is completed, user is requesting feedback
-- name: 'Status: Selected for work'
-  color: d0fba6
-  description: Proposal has been selected for development (issues only)
-- name: 'Status: Work In Progress'
-  description: Issue or Pull Request work is in Progress
-  color: c0e585
-- name: 'Type: Breaking Change'
-  color: b88624
-  description: Includes breaking changes, will require MAJOR version release
-  aliases:
-  - breaking
-  - breaking-change
-- name: 'Type: Bug'
-  color: df0b37
-  description: Bug or Bug fixes
-  aliases:
-  - bug
-- name: 'Type: CI'
-  color: b83302
-  description: Changes to CI configuration files and scripts
-  aliases:
-  - ci
-- name: 'Type: Content or data'
-  color: ffd200
-  description: Adding or editing new content or data to the repo
-  aliases:
-  - enhancement
-- name: 'Type: Dependencies'
-  color: b83302
-  description: Pull requests that update a dependency file
-  aliases:
-  - dependencies
-- name: 'Type: Design'
-  color: e5ad07
-  description: New Design
-  aliases:
-  - enhancement
-- name: 'Type: Documentation'
-  color: f26135
-  description: Documentation only changes
-  aliases:
-  - documents
-  - document
-- name: 'Type: Feature'
-  color: e5ad07
-  description: New Feature
-  aliases:
-  - enhancement
-- name: 'Type: Maintenance'
-  color: b83302
-  description: Repository Maintenance
-  aliases:
-  - greenkeeper
-  - maintenance
-- name: 'Type: Question'
-  color: b83302
-  description: Further information is requested
-  aliases:
-  - question
-- name: 'Type: Refactoring'
-  color: ffdb67
-  description: A code change that neither fixes a bug nor adds a feature
-  aliases:
-  - refactor
-- name: 'Type: Testing'
-  color: fff0cd
-  description: Adding missing tests or correcting existing tests
-  aliases:
-  - test
-  - testing
+  - name: auro-menu
+    cat: default
+    color: fa23e4
+    description: Repository name
+    process: Automatically applied to issues
+  - name: Epic
+    cat: default
+    color: 1c872e
+    description: Defines Epic scope of work
+    process: Apply to EPIC scope issues
+  - name: Story
+    cat: default
+    color: 1c872e
+    description: Defines story scope of work related to Epic
+    process: Apply to stories related to an EPIC scope issue
+  - name: duplicate
+    cat: default
+    color: cde6ff
+    description: This Issue or Pull Request already exists
+    process: When duplicate issue or pull request is discovered, please apply this label
+      and add a comment so that the repo admin can address.
+  - name: good first issue
+    cat: default
+    color: 6bb7fb
+    description: Good for newcomers
+    process: Apply label to issues deemed low complexity
+    aliases:
+    - beginner-friendly
+    - beginner
+    - good-starter-issue
+    - good for beginner
+    - Good for beginners
+    - starter-issue
+    - starter
+  - name: help wanted
+    cat: default
+    process: Apply label to issues where a team resource is not immediately available and community help is requested
+    color: 2492eb
+    description: Extra attention is needed, this user requires assistance to complete
+      the work
+  - name: 'Priority: High'
+    cat: default
+    color: f65b7b
+    description: Issues that need attention soon
+  - name: released
+    cat: default
+    color: A9A9A9
+    description: Completed work has been released
+    process: 'Automated: applied once a pull request has been merged and released'
+  - name: not-reviewed
+    cat: default
+    color: '222222'
+    description: Issue has not been reviewed by Auro team member
+    process: 'Automated: auto-applied with new issue, manually removed by reviewer'
+  - name: 'Status: Abandoned'
+    cat: default
+    color: 156fad
+    description: The issue or Pull Request is wontfix
+    process: Apply label prior to contacting author one last time before closing issue
+      or pull request
+    aliases:
+      - wontfix
+      - invalid
+  - name: 'Status: Proposal'
+    cat: status
+    color: fe58bc
+    description: Propose new custom element or feature to existing release
+    process: Apply label to issues that are proposed ideas or require discussion
+    aliases:
+      - idea
+      - proposal
+      - discussion
+  - name: 'Status: Blocked'
+    cat: status
+    color: df0b37
+    description: Immediate attention is required
+    process: Apply label to issues or pull requests that blocked from progress
+    aliases:
+      - blocked
+  - name: 'Status: Waiting on design sponsor'
+    cat: status
+    process: Apply label to issues where a designer's support is requested
+    color: df0b37
+    description: This work is waiting for a design sponsor to help define spec
+    aliases:
+      - blocked
+  - name: 'Status: Ready to merge'
+    process: Applied by author to pull requests when the work is complete and ready to merge on approval
+    cat: status
+    color: 29a329
+    description: Owner has completed work and considers it ready to be merged
+  - name: 'Status: Review Needed'
+    process: Applied by author to alert the team that a review is requested
+    cat: status
+    color: 91be62
+    description: Work is completed, user is requesting feedback
+  - name: 'Status: Work In Progress'
+    cat: status
+    description: Issue or Pull Request work is in Progress
+    color: c0e585
+    process: Applied by author to alert managers and developers that work is in progress
+  - name: 'Type: Bug'
+    cat: type
+    color: df0b37
+    description: Bug or Bug fixes
+    process: Author applies label type when reporting issue
+    aliases:
+      - bug
+  - name: 'Type: CI'
+    cat: type
+    color: b83302
+    description: Changes to CI configuration files and scripts
+    process: Author applies label type when reporting issue
+    aliases:
+      - travis
+      - ci
+      - circleci
+  - name: 'Type: Content or data'
+    cat: type
+    color: ffd200
+    description: Adding or editing new content or data to the repo
+    process: Author applies label type when reporting issue
+    aliases:
+      - enhancement
+  - name: 'Type: Dependencies'
+    cat: type
+    color: b83302
+    description: Pull requests that update a dependency file
+    process: Author applies label type when reporting issue
+    aliases:
+      - dependencies
+  - name: 'Type: Design'
+    cat: type
+    color: e5ad07
+    description: New Design
+    process: Author applies label type when reporting issue
+    aliases:
+      - enhancement
+  - name: 'Type: Documentation'
+    cat: type
+    color: f26135
+    description: Documentation only changes
+    process: Author applies label type when reporting issue
+    aliases:
+      - documents
+      - document
+  - name: 'Type: Feature'
+    cat: type
+    color: e5ad07
+    description: New Feature
+    process: Author applies label type when reporting issue
+    aliases:
+      - enhancement
+  - name: 'Type: Maintenance'
+    cat: type
+    color: b83302
+    description: Repository Maintenance
+    process: Author applies label type when reporting issue
+    aliases:
+      - greenkeeper
+      - maintenance
+  - name: 'Type: Question'
+    cat: type
+    color: b83302
+    description: Further information is requested
+    process: Author applies label type when reporting issue
+    aliases:
+      - question
+  - name: 'Type: Refactoring'
+    cat: type
+    color: ffdb67
+    description: A code change that neither fixes a bug nor adds a feature
+    process: Author applies label type when reporting issue
+    aliases:
+      - refactor
+  - name: 'Type: Testing'
+    cat: type
+    color: fff0cd
+    description: Adding missing tests or correcting existing tests
+    process: Author applies label type when reporting issue
+    aliases:
+      - test
+      - testing
+  - name: auroLabs
+    cat: default
+    color: '000000'
+    description: This is an auroLabs project
+    process: Label to be applied to all auroLabs project issues

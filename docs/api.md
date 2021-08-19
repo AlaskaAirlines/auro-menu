@@ -10,6 +10,12 @@ auro-menu provides users a way to select one option from a pre-defined list of o
 | `isHidden`            | `isHidden`            | `Boolean` | true    | If the auro-menu is currently being shown or hidden, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden. |
 | `options`             | `options`             | `Array`   | null    | Array of auro-menu-option nodes.                 |
 
+## Methods
+
+| Method             | Type       |
+|--------------------|------------|
+| `handleSlotChange` | `(): void` |
+
 ## Events
 
 | Event                  | Type                                             |
