@@ -56,7 +56,6 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
     </auro-sub-menu>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 9">Sacramento, CA (SMF-Sacramento Intl.)</auro-menu-option>
   </auro-menu>
-  </auro-menu>
   ```
 
 </auro-accordion>
