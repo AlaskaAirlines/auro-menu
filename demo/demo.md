@@ -40,21 +40,21 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 <auro-accordion lowProfile justifyRight>
 
   ```html
-  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
+  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden hideCheckmark>
     <auro-sub-menu slot="listOfOptions">
-      <auro-menu-option nocheck data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
-      <auro-menu-option nocheck indented data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
-      <auro-menu-option nocheck indented data-value="the value for option 3">Seattle, WA (SEA-Seattle/Tacoma Intl.)</auro-menu-option>
+      <auro-menu-option data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 3">Seattle, WA (SEA-Seattle/Tacoma Intl.)</auro-menu-option>
     </auro-sub-menu>
-    <auro-menu-option nocheck slot="listOfOptions" data-value="the value for option 4">Belgrade, Serbia (BEG-Belgrade)</auro-menu-option>
-    <auro-menu-option nocheck slot="listOfOptions" data-value="the value for option 5">Mahe Island, Seychelles (SEZ-Mahe Island)</auro-menu-option>
-    <auro-menu-option nocheck slot="listOfOptions" data-value="the value for option 6">Sendair, Japan (SDJ-Sendai)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Belgrade, Serbia (BEG-Belgrade)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Mahe Island, Seychelles (SEZ-Mahe Island)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Sendair, Japan (SDJ-Sendai)</auro-menu-option>
     <auro-sub-menu slot="listOfOptions">
-      <auro-menu-option nocheck data-value="the value for option 7">Seoul, Korea, Republic of (All Airports)</auro-menu-option>
-      <auro-menu-option nocheck indented data-value="the value for option 8">Seoul, Korea, Republic of (GMP-Seoul Gimpo In..</auro-menu-option>
-      <auro-menu-option nocheck indented data-value="the value for option 9">Seoul, Korea, Republic of (ICN-Seoul Incheon In..)</auro-menu-option>
+      <auro-menu-option data-value="the value for option 7">Seoul, Korea, Republic of (All Airports)</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 8">Seoul, Korea, Republic of (GMP-Seoul Gimpo In..</auro-menu-option>
+      <auro-menu-option indented data-value="the value for option 9">Seoul, Korea, Republic of (ICN-Seoul Incheon In..)</auro-menu-option>
     </auro-sub-menu>
-    <auro-menu-option nocheck slot="listOfOptions" data-value="the value for option 9">Sacramento, CA (SMF-Sacramento Intl.)</auro-menu-option>
+    <auro-menu-option slot="listOfOptions" data-value="the value for option 9">Sacramento, CA (SMF-Sacramento Intl.)</auro-menu-option>
   </auro-menu>
   </auro-menu>
   ```
