@@ -26,6 +26,12 @@ class AuroSubMenu extends LitElement {
     `;
   }
 
+  firstUpdated() {
+    // Prevent duplicate dividers, or a divider as the first or last element in the menu
+    this.hideTop = this.previousElementSibling === null || this.previousElementSibling.matches('auro-sub-menu');
+    this.hideBottom = this.nextElementSibling === null;
+  }
+
   render() {
     return html`
       ${ this.hideTop ? undefined : html`<div class="divider"></div>`}
