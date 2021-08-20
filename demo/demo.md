@@ -19,10 +19,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 ### Submenu Example
 <div class="exampleWrapper">
-  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 0">
-      <span class="specialOption"><auro-icon category="interface" name="location-stroke" accent></auro-icon>Use my current location</span>
-    </auro-menu-option>
+  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden hideCheckmark>
     <auro-sub-menu slot="listOfOptions">
       <auro-menu-option data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
       <auro-menu-option indented data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
@@ -43,10 +40,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 <auro-accordion lowProfile justifyRight>
 
   ```html
-  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 0">
-      <span class="specialOption"><auro-icon category="interface" name="location-stroke" accent></auro-icon>Use my current location</span>
-    </auro-menu-option>
+  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden hideCheckmark>
     <auro-sub-menu slot="listOfOptions">
       <auro-menu-option data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
       <auro-menu-option indented data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
@@ -61,7 +55,6 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
       <auro-menu-option indented data-value="the value for option 9">Seoul, Korea, Republic of (ICN-Seoul Incheon In..)</auro-menu-option>
     </auro-sub-menu>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 9">Sacramento, CA (SMF-Sacramento Intl.)</auro-menu-option>
-  </auro-menu>
   </auro-menu>
   ```
 

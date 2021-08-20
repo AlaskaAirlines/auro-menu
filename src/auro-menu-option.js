@@ -29,12 +29,13 @@ class AuroMenuOption extends LitElement {
 
   static get properties() {
     return {
-      index: { type: Number, },
+      index: { type: Number },
       isHidden: { type: Boolean },
       tabIndex: { type: Number },
       hasFocus: { type: Boolean},
       beingMouseOvered: { type: Boolean},
-      indented: { type: Boolean }
+      indented: { type: Boolean },
+      hideCheckmark: { type: Boolean},
     }
   }
 
@@ -46,17 +47,25 @@ class AuroMenuOption extends LitElement {
 
   firstUpdated() {
     this.tabIndex = this.parentElement.hasAttribute('ishidden') ? '-1' : '0';
+    this.hideCheckmark = this.parentElement.hasAttribute('hideCheckmark') || this.parentElement.parentElement.hasAttribute('hidecheckmark');
   }
 
   render() {
     const subMenu = {
-      'indented': this.indented
+      'content': true,
+      'indented': this.indented,
+      'hideCheckmark': this.hideCheckmark
+    }
+
+    const checkMark = { 
+      'checkmark': true,
+      'display--none': this.hideCheckmark
     }
 
     return html`
       <li>
         <div class="${classMap(subMenu)}">
-          <span class="checkmark">
+          <span class="${classMap(checkMark)}">
             <auro-icon category="interface" name="check-sm" emphasis ?ondark="${!this.beingMouseOvered && this.hasFocus}"></auro-icon>
           </span>
           <slot></slot>
