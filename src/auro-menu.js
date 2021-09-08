@@ -1,3 +1,5 @@
+/* eslint-disable no-magic-numbers */
+/* eslint-disable no-plusplus */
 // Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
@@ -7,14 +9,14 @@ import { LitElement, html, css } from "lit-element";
 import styleCss from "./style-css.js";
 import "@alaskaairux/auro-icon";
 import './auro-menu-option';
-import './auro-sub-menu'
+import './auro-sub-menu';
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
- * auro-menu provides users a way to select one option from a pre-defined list of options
- * 
+ * Auro-menu provides users a way to select one option from a pre-defined list of options.
+ *
  * @attr {Array} options - Array of auro-menu-option nodes.
  * @attr {Boolean} isHidden - If the auro-menu is currently being shown or hidden, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden.
  * @attr {Number} indexSelectedOption - Index of the currently selected option.
@@ -32,7 +34,10 @@ class AuroMenu extends LitElement {
   static get properties() {
     return {
       options: { type: Array },
-      isHidden: { type: Boolean, reflect: true },
+      isHidden: {
+        type: Boolean,
+        reflect: true
+      },
       indexSelectedOption: { type: Number },
     };
   }
@@ -44,10 +49,10 @@ class AuroMenu extends LitElement {
   }
 
   handleSlotChange() {
-    const parentIndexSelectedOption = parseInt(this.parentElement.getAttribute('indexSelectedOption'), 10);
-    
+    const parentIndexSelectedOption = Number(this.parentElement.getAttribute('indexSelectedOption'));
+
     // auro-menu is the child of a parent with an indexSelectedOption attribute
-    if (!this.indexSelectedOption ) {
+    if (!this.indexSelectedOption) {
       if (parentIndexSelectedOption >= 0) {
         this.indexSelectedOption = parentIndexSelectedOption;
       } else {
@@ -57,9 +62,9 @@ class AuroMenu extends LitElement {
 
     this.options = this.querySelectorAll('auro-menu-option');
 
-    this.options.forEach((option, i) => {
-      option.setAttribute('index', i);
-      if (this.indexSelectedOption === i) {
+    this.options.forEach((option, index) => {
+      option.setAttribute('index', index);
+      if (this.indexSelectedOption === index) {
         option.setAttribute('selected', '');
       } else {
         option.removeAttribute('selected');
@@ -81,31 +86,31 @@ class AuroMenu extends LitElement {
 
       // go through each option <li> and if it is the same index as the option that was selected
       // mark it as selected, else unmark it as selected
-      this.options.forEach((option, i) => {
-        if (parseInt(optionSelected.getAttribute('index')) === i) {
+      this.options.forEach((option, index) => {
+        if (Number(optionSelected.getAttribute('index')) === index) {
           option.setAttribute('selected', '');
           this.indexSelectedOption = optionSelected.getAttribute('index');
         } else {
           option.removeAttribute('selected');
         }
       });
-    }
+    };
 
     const funcFocus = (evt) => {
-      evt.setAttribute('hasfocus', '')
-    }
+      evt.setAttribute('hasfocus', '');
+    };
 
     const funcBlur = (evt) => {
-      evt.removeAttribute('hasfocus')
-    }
+      evt.removeAttribute('hasfocus');
+    };
 
     const funcMouseOver = (evt) => {
-      evt.setAttribute('beingMouseOvered', '')
-    }
+      evt.setAttribute('beingMouseOvered', '');
+    };
 
     const funcMouseOut = (evt) => {
-      evt.removeAttribute('beingMouseOvered')
-    }
+      evt.removeAttribute('beingMouseOvered');
+    };
 
     const handleKeyDown = (evt) => {
       if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
@@ -113,7 +118,7 @@ class AuroMenu extends LitElement {
       }
 
       // if user tabs off of last li, send a custome event 'hideOptionsContainer' to parent component
-      if (evt.key.toLowerCase() === 'tab' && !evt.shiftKey && parseInt(evt.target.getAttribute('index')) === this.options.length -1) {
+      if (evt.key.toLowerCase() === 'tab' && !evt.shiftKey && Number(evt.target.getAttribute('index')) === this.options.length - 1) {
         evt.target.dispatchEvent(new CustomEvent('hideOptionsContainer', {
           bubbles: true,
           cancelable: false,
@@ -122,46 +127,47 @@ class AuroMenu extends LitElement {
       }
 
       if (evt.key.toLowerCase() === 'arrowdown') {
-        if (parseInt(evt.target.getAttribute('index')) === this.options.length - 1) {
+        if (Number(evt.target.getAttribute('index')) === this.options.length - 1) {
           this.options[0].focus();
         } else {
-          this.options[parseInt(evt.target.getAttribute('index')) + 1].focus();
+          this.options[Number(evt.target.getAttribute('index')) + 1].focus();
         }
       }
 
       if (evt.key.toLowerCase() === 'arrowup') {
-        if (parseInt(evt.target.getAttribute('index')) === 0) {
+        if (Number(evt.target.getAttribute('index')) === 0) {
           this.options[this.options.length - 1].focus();
         } else {
-          this.options[parseInt(evt.target.getAttribute('index')) - 1].focus();
+          this.options[Number(evt.target.getAttribute('index')) - 1].focus();
         }
       }
     };
 
     // Prep each <li>. Give it an index, set its tabindex to -1, add 'keydown' and 'click' event listeners, inject a checkmark auro-icon
-    for (let i = 0; i < this.options.length; i += 1) {
+    for (let iter = 0; iter < this.options.length; iter += 1) {
 
       // each option is tabbable
-      this.options[i].setAttribute('tabindex', '0');
-      this.options[i].addEventListener('keydown', (evt) => handleKeyDown(evt));
-      this.options[i].addEventListener('click', (evt) => dispatchEventOptionSelected(evt.target));
-      this.options[i].addEventListener('focus', (evt) => funcFocus(evt.target));
-      this.options[i].addEventListener('blur', (evt) => funcBlur(evt.target));
-      this.options[i].addEventListener('mouseover', (evt) => funcMouseOver(evt.target));
-      this.options[i].addEventListener('mouseout', (evt) => funcMouseOut(evt.target));
+      this.options[iter].setAttribute('tabindex', '0');
+      this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
+      this.options[iter].addEventListener('click', (evt) => dispatchEventOptionSelected(evt.target));
+      this.options[iter].addEventListener('focus', (evt) => funcFocus(evt.target));
+      this.options[iter].addEventListener('blur', (evt) => funcBlur(evt.target));
+      this.options[iter].addEventListener('mouseover', (evt) => funcMouseOver(evt.target));
+      this.options[iter].addEventListener('mouseout', (evt) => funcMouseOut(evt.target));
     }
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
     if (name.toLowerCase() === 'ishidden' && this.options) {
       if (newVal === null) {
-        for (let i = 0; i < this.options.length; i++) {
-          this.options[i].setAttribute('tabindex', 0);
+        for (let iter = 0; iter < this.options.length; iter++) {
+          this.options[iter].setAttribute('tabindex', 0);
         }
       } else {
-        for (let i = 0; i < this.options.length; i++) {
-          this.options[i].setAttribute('tabindex', -1);
-        }    }
+        for (let iter = 0; iter < this.options.length; iter++) {
+          this.options[iter].setAttribute('tabindex', -1);
+        }
+      }
     }
 
     super.attributeChangedCallback(name, oldVal, newVal);

@@ -17,7 +17,7 @@ class AuroSubMenu extends LitElement {
     return {
       hideTop: { type: Boolean },
       hideBottom: { type: Boolean }
-    }
+    };
   }
 
   static get styles() {
@@ -26,11 +26,17 @@ class AuroSubMenu extends LitElement {
     `;
   }
 
+  firstUpdated() {
+    // Prevent duplicate dividers, or a divider as the first or last element in the menu
+    this.hideTop = this.previousElementSibling === null || this.previousElementSibling.matches('auro-sub-menu');
+    this.hideBottom = this.nextElementSibling === null;
+  }
+
   render() {
     return html`
-      ${ this.hideTop ? undefined : html`<div class="divider"></div>`}
+      ${this.hideTop ? undefined : html`<div class="divider"></div>`}
       <slot></slot>
-      ${ this.hideBottom ? undefined : html`<div class="divider"></div>`}
+      ${this.hideBottom ? undefined : html`<div class="divider"></div>`}
     `;
   }
 }

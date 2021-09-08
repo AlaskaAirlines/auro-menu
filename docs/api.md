@@ -1,6 +1,6 @@
 # auro-menu
 
-auro-menu provides users a way to select one option from a pre-defined list of options
+Auro-menu provides users a way to select one option from a pre-defined list of options.
 
 ## Properties
 
