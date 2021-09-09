@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.2.2](https://github.com/AlaskaAirlines/auro-menu/compare/v1.2.1...v1.2.2) (2021-09-09)
+
+
+### Bug Fixes
+
+* **style:** address issue with duplicate dividers [#18](https://github.com/AlaskaAirlines/auro-menu/issues/18) ([8be19ad](https://github.com/AlaskaAirlines/auro-menu/commit/8be19adce221aaa16b08945e93e5eb423159097a))
+
 ## [1.2.1](https://github.com/AlaskaAirlines/auro-menu/compare/v1.2.0...v1.2.1) (2021-06-14)
 
 
