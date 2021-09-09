@@ -17,7 +17,7 @@ class AuroSubMenu extends LitElement {
     return {
       hideTop: { type: Boolean },
       hideBottom: { type: Boolean }
-    }
+    };
   }
 
   static get styles() {
@@ -34,9 +34,9 @@ class AuroSubMenu extends LitElement {
 
   render() {
     return html`
-      ${ this.hideTop ? undefined : html`<div class="divider"></div>`}
+      ${this.hideTop ? undefined : html`<div class="divider"></div>`}
       <slot></slot>
-      ${ this.hideBottom ? undefined : html`<div class="divider"></div>`}
+      ${this.hideBottom ? undefined : html`<div class="divider"></div>`}
     `;
   }
 }
