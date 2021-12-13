@@ -30,8 +30,9 @@ li {
   outline: 0;
 
   .checkmark {
-    margin: 0 8px 0 0;
-    visibility: hidden;
+    width: var(--auro-size-lg);
+    height: var(--auro-size-lg);
+    margin-right: var(--auro-size-xs);
   }
 
   &:hover {
@@ -49,35 +50,18 @@ li {
   }
 }
 
-:host([selected]) {
-  .checkmark {
-      visibility: visible;
-  }
-}
-
 .content {
+  display: flex;
   overflow: hidden;
+  width: 100%;
+  align-items: center;
+  padding: var(--auro-size-xxs) var(--auro-size-xs);
+  line-height: 1;
   text-overflow: ellipsis;
-
-  auro-icon {
-    padding: 0 var(--auro-size-xs);
-  }
-}
-
-.hideCheckmark {
-  padding-left: var(--auro-size-sm);
 }
 
 .indented {
   padding-left: var(--auro-size-xl);
-
-  .hideCheckmark {
-    padding-left: calc(var(--auro-size-xl) + var(--auro-size-sm));
-  }
-}
-
-.display--none {
-  display: none;
 }
 
 // Mobile Styles
@@ -85,16 +69,8 @@ li {
   li {
     height: var(--auro-size-xxl);
   }
-  
-  .hideCheckmark {
-    padding-left: var(--auro-size-lg);
-  }
-  
+
   .indented {
     padding-left: var(--auro-size-lg);
-    
-    .hideCheckmark {
-      padding-left: calc(var(--auro-size-lg) + var(--auro-size-lg));
-    }
   }
-} 
+}

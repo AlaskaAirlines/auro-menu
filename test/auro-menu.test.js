@@ -15,7 +15,7 @@ describe('auro-menu', () => {
   after(() => {
     currentlySelectedIndex = null;
   });
-  
+
   // selecting an option marks only that option as selected
 
   it('clicking on an option marks only that option as selected', async () => {
@@ -142,7 +142,7 @@ describe('auro-menu', () => {
     }
     ));
     // await listener;
-  
+
     expect(currentlySelectedIndex).to.equal('1');
   });
 
@@ -166,7 +166,7 @@ describe('auro-menu', () => {
     const el = await fixture(html`
       <div>
         <button id="tabbableButtonAbove" tabindex="0">tabbable button above</button>
-      
+
         <auro-menu>
           <auro-menu-option slot="listOfOptions" data-value="the value for option 1">option 1</auro-menu-option>
           <auro-menu-option slot="listOfOptions" data-value="the value for option 2">option 2</auro-menu-option>
@@ -175,7 +175,7 @@ describe('auro-menu', () => {
           <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
           <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
         </auro-menu>
-      
+
         <button id="tabbableButtonBelow" tabindex="0">tabbable button below</button>
       </div>
     `);
@@ -202,7 +202,7 @@ describe('auro-menu', () => {
 
 async function generateDefaultFixture() {
   return await fixture(html`
-      <auro-menu  indexselectedoption="0">
+      <auro-menu indexselectedoption="0">
         <auro-menu-option slot="listOfOptions" data-value="the value for option 1">option 1</auro-menu-option>
         <auro-menu-option slot="listOfOptions" data-value="the value for option 2">option 2</auro-menu-option>
         <auro-menu-option slot="listOfOptions" data-value="the value for option 3">option 3</auro-menu-option>
