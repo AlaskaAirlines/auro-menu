@@ -4,7 +4,6 @@
 // ---------------------------------------------------------------------
 import "@alaskaairux/auro-icon";
 import { LitElement, html, css } from "lit-element";
-import { classMap } from 'lit-html/directives/class-map.js';
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./auro-menu-option-css.js";
@@ -17,7 +16,6 @@ import styleCss from "./auro-menu-option-css.js";
  * @attr {Number} tabIndex - Will be either -1 or 0 depending on if auro-menu is currently visible or not.
  * @attr {Boolean} hasFocus - Used to help determine if auro-menu-option is being tabbed onto. Used to help determine the color and background color of auro-menu-option.
  * @attr {Boolean} beingMouseOvered - Used to help determine the color and background color of auro-menu-option.
- * @attr {Boolean} indented - Used to visually indicate a 'sub-menu'
  */
 class AuroMenuOption extends LitElement {
   constructor() {
@@ -29,7 +27,6 @@ class AuroMenuOption extends LitElement {
     return {
       beingMouseOvered: { type: Boolean },
       hasFocus:         { type: Boolean },
-      indented:         { type: Boolean },
       index:            { type: Number },
       isHidden:         { type: Boolean },
       selected:         { type: Boolean },
@@ -49,14 +46,9 @@ class AuroMenuOption extends LitElement {
   }
 
   render() {
-    const subMenu = {
-      'content': true,
-      'indented': this.indented
-    };
-
     return html`
       <li>
-        <div class="${classMap(subMenu)}">
+        <div class="content">
           ${this.checkmark ? html`
             <div class="checkmark">
               ${this.selected ? html`
