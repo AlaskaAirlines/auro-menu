@@ -52,7 +52,7 @@ class AuroMenuOption extends LitElement {
           ${this.checkmark ? html`
             <div class="checkmark">
               ${this.selected ? html`
-                <auro-icon category="interface" name="check-sm" emphasis></auro-icon>
+                <auro-icon category="interface" name="check-sm" customColor></auro-icon>
               `
               : undefined}
             </div>
