@@ -34,9 +34,11 @@ class AuroSubMenu extends LitElement {
 
   render() {
     return html`
-      ${this.hideTop ? undefined : html`<div class="divider"></div>`}
-      <slot></slot>
-      ${this.hideBottom ? undefined : html`<div class="divider"></div>`}
+      <div class="subMenu">
+        ${this.hideTop ? undefined : html`<div class="divider"></div>`}
+        <slot></slot>
+        ${this.hideBottom ? undefined : html`<div class="divider"></div>`}
+      </div>
     `;
   }
 }

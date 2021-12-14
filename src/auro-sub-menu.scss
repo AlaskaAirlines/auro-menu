@@ -1,4 +1,8 @@
 .divider {
   border-top: 1px solid var(--auro-color-border-primary-on-light);
-  margin: var(--auro-size-xs) var(--auro-size-md) var(--auro-size-xs) var(--auro-size-md);
+  margin: var(--auro-size-xs) 0;
+}
+
+.subMenu {
+  margin-left: var(--auro-size-lg);
 }

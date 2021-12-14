@@ -60,17 +60,9 @@ li {
   text-overflow: ellipsis;
 }
 
-.indented {
-  padding-left: var(--auro-size-xl);
-}
-
 // Mobile Styles
 @media only screen and (max-width: 660px) {
   li {
     height: var(--auro-size-xxl);
-  }
-
-  .indented {
-    padding-left: var(--auro-size-lg);
   }
 }
