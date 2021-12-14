@@ -41,7 +41,14 @@ import "@aurolabs/auro-menu";
 **Reference component in HTML**
 
 ```html
-<auro-menu>Hello World</auro-menu>
+<auro-menu id="auroMenu1" indexSelectedOption="0" ishidden checkmark>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
+</auro-menu>
 ```
 
 ## Install bundled assets from CDN
@@ -67,7 +74,14 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 Default auro-menu
 
 ```html
-<auro-menu>Hello World</auro-menu>
+<auro-menu id="auroMenu1" indexSelectedOption="0" ishidden checkmark>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
+</auro-menu>
 ```
 
 ## Development
