@@ -1,5 +1,22 @@
 # Semantic Release Automated Changelog
 
+# [2.0.0](https://github.com/AlaskaAirlines/auro-menu/compare/v1.2.2...v2.0.0) (2021-12-14)
+
+
+### Bug Fixes
+
+* **template:** fix marked version in template index ([3534dbb](https://github.com/AlaskaAirlines/auro-menu/commit/3534dbbef7bb8b024fb59807b0ddf3aef5d4e32e))
+
+
+### Code Refactoring
+
+* **API:** doc change to log breaking change ([ba8996d](https://github.com/AlaskaAirlines/auro-menu/commit/ba8996dfe8f5c7ea668a15b12a1e3579703a4db5))
+
+
+### BREAKING CHANGES
+
+* **API:** API to dynamically control template changed.
+
 ## [1.2.2](https://github.com/AlaskaAirlines/auro-menu/compare/v1.2.1...v1.2.2) (2021-09-09)
 
 
