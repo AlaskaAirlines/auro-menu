@@ -7,7 +7,6 @@
 
 import { LitElement, html, css } from "lit-element";
 import styleCss from "./style-css.js";
-import "@alaskaairux/auro-icon";
 import './auro-menu-option';
 import './auro-sub-menu';
 // Import touch detection lib

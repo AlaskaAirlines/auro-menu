@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: 'auro-menu: [issue summary]'
-labels: 'auroLabs, auro-menu, Type: Bug, not-reviewed'
+title: '[issue summary]'
+labels: 'auro-menu, Type: Bug, not-reviewed'
 assignees: blackfalcon
 ---
 
