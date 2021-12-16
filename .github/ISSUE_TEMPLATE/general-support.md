@@ -1,8 +1,8 @@
 ---
 name: General support
 about: Suggestions that are not related to bugs or new features
-title: 'auro-menu: As a [user] I need help with [issue]'
-labels: 'auroLabs, auro-menu, Status: Proposal, not-reviewed'
+title: 'As a [user] I need help with [issue]'
+labels: 'auro-menu, not-reviewed'
 assignees: blackfalcon
 ---
 

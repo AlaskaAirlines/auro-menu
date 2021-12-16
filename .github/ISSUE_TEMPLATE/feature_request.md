@@ -1,8 +1,8 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: 'auro-menu: [feature summary]'
-labels: 'auroLabs, auro-menu, Type: Feature, not-reviewed'
+title: '[feature summary]'
+labels: 'auro-menu, Type: Feature, not-reviewed'
 assignees: blackfalcon
 ---
 
