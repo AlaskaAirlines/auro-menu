@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-config-recommended", "stylelint-config-idiomatic-order"],
+  "extends": ["stylelint-config-recommended", "stylelint-config-idiomatic-order", "stylelint-config-standard-scss"],
   "plugins": [
     "stylelint-scss"
   ],
@@ -93,15 +93,17 @@
     "scss/selector-nest-combinators": "always",
     "scss/selector-no-redundant-nesting-selector": true,
     "selector-attribute-quotes": "always",
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "selector-id-pattern": "^[a-z][a-zA-Z0-9]+$",
     "selector-list-comma-newline-before": "never-multi-line",
     "selector-list-comma-space-after": "always-single-line",
     "selector-max-attribute": 1,
-    "selector-max-class": 2,
+    "selector-max-class": 1,
     "selector-max-combinators": 1,
     "selector-max-compound-selectors": 2,
     "selector-max-id": 1,
-    "selector-max-pseudo-class": 1,
-    "selector-max-type": 2,
+    "selector-max-pseudo-class": 2,
+    "selector-max-type": 1,
     "selector-max-universal": 1,
     "selector-no-qualifying-type": true,
     "selector-pseudo-element-colon-notation": "single",

@@ -1,6 +1,8 @@
-# Menu
+# auroLabs - Menu
 
-`<auro-menu>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+`<auro-menu>` is an experimental [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) only available as a PRE RELEASE. Users of this element understand the risks of using a pre-released version of this element.
+
+It exists for the purpose of letting a user select one option from a list of pre-defined options. Example, `auro-menu` can be used with `auro-dropdown`.
 
 ## UI development browser support
 
@@ -9,11 +11,11 @@ For the most up to date information on [UI development browser support](https://
 ## Install
 
 [![Build Status](https://img.shields.io/github/workflow/status/AlaskaAirlines/auro-menu/Test%20and%20publish?branch=master&style=for-the-badge)](https://github.com/AlaskaAirlines/auro-menu/actions?query=workflow%3A%22test+and+publish%22)
-[![See it on NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-menu?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-menu)
-[![License](https://img.shields.io/npm/l/@aurodesignsystem/auro-menu?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![See it on NPM!](https://img.shields.io/npm/v/@aurolabs/auro-menu?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurolabs/auro-menu)
+[![License](https://img.shields.io/npm/l/@aurolabs/auro-menu?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```shell
-$ npm i @aurodesignsystem/auro-menu
+$ npm i @aurolabs/auro-menu
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
@@ -33,12 +35,21 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 Defining the component dependency within each component that is using the `<auro-menu>` component.
 
 ```javascript
-import "@aurodesignsystem/auro-menu";
+import "@aurolabs/auro-menu";
 ```
 
 **Reference component in HTML**
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
-<!-- AURO-GENERATED-CONTENT:END -->
+
+```html
+<auro-menu id="auroMenu1" indexSelectedOption="0" ishidden checkmark>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
+</auro-menu>
+```
 
 ## Install bundled assets from CDN
 
@@ -54,48 +65,44 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
 
-<script src="https://unpkg.com/@aurodesignsystem/auro-menu@latest/dist/auro-menu__bundled.js" type="module"></script>
-<script src="https://unpkg.com/@aurodesignsystem/auro-menu@latest/dist/auro-menu__bundled.es5.js" nomodule></script>
+<script src="https://unpkg.com/@aurolabs/auro-menu@latest/dist/auro-menu__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@aurolabs/auro-menu@latest/dist/auro-menu__bundled.es5.js" nomodule></script>
 ```
-
-## auro-menu use cases
-
-The `<auro-menu>` element should be used in situations where users may:
-
-* ...
-* ...
-* ...
 
 ## API Code Examples
 
 Default auro-menu
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
-<!-- AURO-GENERATED-CONTENT:END -->
+```html
+<auro-menu id="auroMenu1" indexSelectedOption="0" ishidden checkmark>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
+  <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
+</auro-menu>
+```
 
 ## Development
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
 
-Please be sure to review the [contribution guidelines](https://auro.alaskaair.com/contributing) for this project. Please make sure to **pay special attention** to the **conventional commits** section of the document.
+Please be sure to review the [contribution guidelines](https://auro.alaskaair.com/getting-started/developers/contributing) for this project. Please make sure to **pay special attention** to the **conventional commits** section of the document.
 
 ### Start development environment
 
-Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open a shell session to run the **dev server**.
+Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open two different shell sessions. One is for the **npm tasks**, the second is to run the **server**.
 
 ```shell
+// shell terminal one
 $ npm run dev
+
+// shell terminal two
+$ npm run serve
 ```
 
 Open [localhost:8000](http://localhost:8000/)
-
-If running separate sessions is preferred, please run the following commands in individual terminal shells.
-
-```shell
-$ npm run build:watch
-
-$ npm run serve
-```
 
 ### API generation
 
@@ -111,6 +118,6 @@ Bundled assets are only generated in the remote and not merged back to this repo
 
 ### Demo deployment
 
-To deploy a demo version of the component for review, run `npm run build:demo` to create a `./build` directory that can be pushed to any static server.
+To deploy a demo version of the component for review, run `npm run demo:build` to create a `./build` directory that can be pushed to any static server.
 
-<small>Built from WC-Generator v3.12.0</small>
+<small>Built from WC-Generator v3.8.1</small>
