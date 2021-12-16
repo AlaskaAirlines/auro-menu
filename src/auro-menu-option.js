@@ -2,7 +2,6 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-import "@alaskaairux/auro-icon";
 import { LitElement, html, css } from "lit-element";
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
