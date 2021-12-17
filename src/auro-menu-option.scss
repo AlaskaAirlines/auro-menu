@@ -1,3 +1,11 @@
+// Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
+// See LICENSE in the project root for license information.
+
+// ---------------------------------------------------------------------
+
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
+
 :host {
   display: block;
   overflow: hidden;
@@ -7,13 +15,13 @@
 }
 
 :host(:focus) {
-  background-color: #0074cb;
-  box-shadow: inset 0 0 0 3px #0074cb;
-  color: #ffffff;
+  background-color: var(--auro-color-alert-notification-on-light);
+  box-shadow: inset 0 0 0 3px var(--auro-color-alert-notification-on-light);
+  color: var(--auro-color-base-white);
   outline: none;
 
   svg {
-    fill: #ffffff;
+    fill: var(--auro-color-base-white);
   }
 }
 
@@ -35,16 +43,16 @@ li {
   }
 
   &:hover {
-    background-color: #f7f7f7;
-    color: #000000;
+    background-color: var(--auro-color-brand-neutral-100);
+    color: var(--auro-color-text-primary-on-light);
   }
 
   &:focus {
-    background-color: #0074cb;
-    color: #FFFFFF;
+    background-color: var(--auro-color-alert-notification-on-light);
+    color: var(--auro-color-base-white);
 
     svg {
-      fill: #FFFFFF;
+      fill: var(--auro-color-base-white);
     }
   }
 }
@@ -60,8 +68,8 @@ li {
   text-overflow: ellipsis;
 }
 
-// Mobile Styles
-@media only screen and (max-width: 660px) {
+// TODO: review and refactor this
+@include auro_breakpoint--sm {
   li {
     height: var(--auro-size-xxl);
   }
