@@ -155,12 +155,11 @@ describe('auro-menu', () => {
     const el = await generateDefaultFixture();
 
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
-    // let listener = oneEvent(options[1], 'keydown');
+
     options[1].dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
-      'key': 'Enter'
-    }
+      'key': 'Enter' }
     ));
     // await listener;
 
@@ -181,46 +180,10 @@ describe('auro-menu', () => {
     expect(currentlySelectedIndex).to.equal(2);
   });
 
-  // BRENT: Browsers don't allow the Tab button to be dispatched. I left the code in for posterity.
-  /*
-  it('options can be tabbed and alt-tabbed through', async () => {
-    const el = await fixture(html`
-      <div>
-        <button id="tabbableButtonAbove" tabindex="0">tabbable button above</button>
-
-        <auro-menu>
-          <auro-menu-option slot="listOfOptions" data-value="the value for option 1">option 1</auro-menu-option>
-          <auro-menu-option slot="listOfOptions" data-value="the value for option 2">option 2</auro-menu-option>
-          <auro-menu-option slot="listOfOptions" data-value="the value for option 3">option 3</auro-menu-option>
-          <auro-menu-option slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menu-option>
-          <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
-          <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
-        </auro-menu>
-
-        <button id="tabbableButtonBelow" tabindex="0">tabbable button below</button>
-      </div>
-    `);
-
-    let options = el.querySelector('auro-menu').shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
-
-    let button = document.querySelector('#tabbableButtonAbove')
-
-    button.focus()
-    button.click()
-
-    button.dispatchEvent(new KeyboardEvent('keydown', {
-      bubbles: true,
-      composed: true,
-      'key': 'Tab'
-    }));
-
-    // returns the tabbable button above the menu, not the first option like we'd want
-    document.activeElement
-  });
-  */
-
 });
 
+
+// Template fixture used in all the tests
 async function generateDefaultFixture() {
   return await fixture(html`
       <auro-menu indexselectedoption="0">
@@ -230,6 +193,10 @@ async function generateDefaultFixture() {
         <auro-menu-option slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menu-option>
         <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
         <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
+        <auro-sub-menu slot="listOfOptions">
+          <auro-menu-option data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
+          <auro-menu-option data-value="the value for option 3">Seattle, WA (SEA-Seattle/Tacoma Intl.)</auro-menu-option>
+        </auro-sub-menu>
       </auro-menu>
   `);
 }
