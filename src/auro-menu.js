@@ -9,7 +9,6 @@ import { LitElement, html, css } from "lit-element";
 import styleCss from "./style-css.js";
 import './auro-menu-option';
 import './auro-sub-menu';
-// Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
