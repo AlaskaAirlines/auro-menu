@@ -9,14 +9,6 @@ An auto-complete version of `auro-menu` can be found at `auro-auto-complete`.
 
 To simulate the showing and hiding or `auro-menu` when it is used with `auro-dropdown`, buttons to add or remove the attribute "isHidden" for `auro-menu` are provided.
 
-## auro-menu examples
-
-<div class="actions">
-<span>attribute "isHidden" on &lt;auro-menu&gt;</span>
-<button class="attributeChangeButton" onclick="addAttributeIsHidden('auroMenu1')" tabindex="-1">add</button>
-<button class="attributeChangeButton" onclick="removeAttributeIsHidden('auroMenu1')" tabindex="-1">remove</button>
-</div>
-
 ### Submenu Example
 <div class="exampleWrapper">
   <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
@@ -65,9 +57,6 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 ### &lt;auro-menu indexselectedoption="0"&gt;
 
 <div class="exampleWrapper">
-
-  <button id="tabbableButtonAbove" class="tabbableButton" tabindex="0">tabbable button above</button>
-
   <auro-menu id="auroMenu1" indexSelectedOption="0" ishidden checkmark>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
@@ -76,9 +65,6 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
     <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
   </auro-menu>
-
-  <button id="tabbableButtonBelow" class="tabbableButton" tabindex tabindex="0">tabbable button below</button>
-
 </div>
 
 <auro-accordion lowProfile justifyRight>
@@ -102,16 +88,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 ### &lt;auro-menu indexselectedoption="5"&gt;
 
-<div class="actions">
-<span>attribute "isHidden" on &lt;auro-menu&gt;</span>
-<button class="attributeChangeButton" onclick="addAttributeIsHidden('auroMenu2')" tabindex="-1">add</button>
-<button class="attributeChangeButton" onclick="removeAttributeIsHidden('auroMenu2')" tabindex="-1">remove</button>
-</div>
-
 <div class="exampleWrapper">
-
-  <button id="tabbableButtonAbove" class="tabbableButton" tabindex tabindex="0">tabbable button above</button>
-
   <auro-menu id="auroMenu2" indexSelectedOption="5" ishidden checkmark>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
@@ -120,9 +97,6 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
     <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
   </auro-menu>
-
-  <button id="tabbableButtonBelow" class="tabbableButton" tabindex tabindex="0">tabbable button below</button>
-
 </div>
 
 <auro-accordion lowProfile justifyRight>
@@ -140,23 +114,10 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 </auro-accordion>
 
-<br/>
-
-***
-
 ### &lt;aParentContainer indexselectedoption="3"&gt;<br/>&lt;auro-menu &gt;
 
-<div class="actions">
-<span>attribute "isHidden" on &lt;auro-menu&gt;</span>
-<button class="attributeChangeButton" onclick="addAttributeIsHidden('auroMenu3')" tabindex="-1">add</button>
-<button class="attributeChangeButton" onclick="removeAttributeIsHidden('auroMenu3')" tabindex="-1">remove</button>
-</div>
-
 <div class="exampleWrapper">
-
-  <button id="tabbableButtonAbove" tabindex="0">tabbable button above</button>
-
-  <parentContainer indexSelectedOption="3">
+  <div indexSelectedOption="3">
     <auro-menu id="auroMenu3" ishidden checkmark>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
@@ -165,16 +126,13 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
       <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
     </auro-menu>
-  </parentContainer>
-
-  <button id="tabbableButtonBelow" tabindex="0">tabbable button below</button>
-
+  </div>
 </div>
 
 <auro-accordion lowProfile justifyRight>
 
   ```html
-  <parentContainer indexSelectedOption="3">
+  <div indexSelectedOption="3">
     <auro-menu id="auroMenu3" ishidden checkmark>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
@@ -183,7 +141,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
       <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
     </auro-menu>
-  </parentContainer>
+  </div>
   ```
 
 </auro-accordion>
