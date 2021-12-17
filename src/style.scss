@@ -1,6 +1,3 @@
-// NOTE: The variable tokens aren't hardcoded because there's some bug that causes them to be undefined in the browser
-// when auro-menu is used by auro-dropdown.
-
 // Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
@@ -9,7 +6,6 @@
 // Import Auro tokens
 @import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
 @import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
-@import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
 // Support for auroElement styles
