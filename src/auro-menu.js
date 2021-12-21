@@ -36,7 +36,7 @@ class AuroMenu extends LitElement {
         type: Boolean,
         reflect: true
       },
-      indexSelectedOption: { type: Number },
+      indexSelectedOption:  { type: Number }
     };
   }
 
@@ -45,6 +45,10 @@ class AuroMenu extends LitElement {
       ${styleCss}
     `;
   }
+
+  /**
+   * @private
+   */
 
   handleSlotChange() {
     const parentIndexSelectedOption = Number(this.parentElement.getAttribute('indexSelectedOption'));
@@ -111,7 +115,11 @@ class AuroMenu extends LitElement {
     };
 
     const handleKeyDown = (evt) => {
-      if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
+      const isDisabled = evt.target.hasAttribute('disabled');
+      const enterKeyEvt = !isDisabled && evt.key.toLowerCase() === 'enter';
+      const spacebarEvt = !isDisabled && evt.key.toLowerCase() === ' ';
+
+      if (enterKeyEvt || spacebarEvt) {
         dispatchEventOptionSelected(evt.target);
       }
 
