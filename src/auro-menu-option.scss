@@ -74,3 +74,9 @@ li {
     height: var(--auro-size-xxl);
   }
 }
+
+:host([disabled]) {
+  color: var(--auro-color-text-disabled-on-light);
+  pointer-events: none;
+  user-select: none;
+}

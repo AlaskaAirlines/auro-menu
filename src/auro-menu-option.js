@@ -15,6 +15,7 @@ import styleCss from "./auro-menu-option-css.js";
  * @attr {Number} tabIndex - Will be either -1 or 0 depending on if auro-menu is currently visible or not.
  * @attr {Boolean} hasFocus - Used to help determine if auro-menu-option is being tabbed onto. Used to help determine the color and background color of auro-menu-option.
  * @attr {Boolean} beingMouseOvered - Used to help determine the color and background color of auro-menu-option.
+ * @attr {Boolean} disabled - When true specifies that the menu-option is disabled.
  */
 class AuroMenuOption extends LitElement {
   constructor() {
@@ -29,7 +30,8 @@ class AuroMenuOption extends LitElement {
       index:            { type: Number },
       isHidden:         { type: Boolean },
       selected:         { type: Boolean },
-      tabIndex:         { type: Number }
+      tabIndex:         { type: Number },
+      disabled:         { type: Boolean }
     };
   }
 
