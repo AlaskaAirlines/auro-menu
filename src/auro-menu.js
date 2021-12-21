@@ -36,7 +36,7 @@ class AuroMenu extends LitElement {
         type: Boolean,
         reflect: true
       },
-      indexSelectedOption: { type: Number },
+      indexSelectedOption:  { type: Number }
     };
   }
 
@@ -45,6 +45,10 @@ class AuroMenu extends LitElement {
       ${styleCss}
     `;
   }
+
+  /**
+   * @private
+   */
 
   handleSlotChange() {
     const dispatchEventOptionSelected = (indexValue, dataValue, displayText) => {

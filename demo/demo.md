@@ -86,12 +86,12 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 ***
 
-### &lt;auro-menu indexselectedoption="5"&gt;
+### index selected option 5;
 
 <div class="exampleWrapper">
   <auro-menu id="auroMenu2" indexSelectedOption="5" ishidden checkmark>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
-    <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
+    <auro-menu-option disabled slot="listOfOptions" data-value="the value for option 2">(disabled) Price</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
