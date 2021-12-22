@@ -36,7 +36,7 @@ class AuroMenu extends LitElement {
         type: Boolean,
         reflect: true
       },
-      indexSelectedOption:  { type: Number }
+      indexSelectedOption: { type: Number }
     };
   }
 
