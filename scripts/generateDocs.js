@@ -10,5 +10,5 @@ const callback = function(updatedContent, outputConfig) {
   console.log(chalk.green('Finished compiling documentation.'));
 }
 
-const markdownPath = path.join(__dirname, '../**/*.md')
+const markdownPath = path.join(__dirname, 'README.md')
 markdownMagic(markdownPath, config, callback)
