@@ -16,6 +16,27 @@ describe('auro-menu', () => {
     currentlySelectedIndex = null;
   });
 
+  it('Preset value is selected', async () => {
+    const el = await generateFixtureWithParentIndex();
+
+    const index = 0;
+
+    const menuEl = el.querySelector('auro-menu');
+
+    console.warn(menuEl);
+
+    let options = menuEl.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
+    options[index].click();
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+  });
+
   // selecting an option marks only that option as selected
 
   it('clicking on an option marks only that option as selected', async () => {
@@ -56,7 +77,7 @@ describe('auro-menu', () => {
     }
   });
 
-  it('pressing the Space button when an option has focus marks only that option as selectedd', async () => {
+  it('pressing the Space button when an option has focus marks only that option as selected', async () => {
     const el = await generateDefaultFixture();
 
     const index = 2;
@@ -127,7 +148,7 @@ describe('auro-menu', () => {
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
     options[0].click();
 
-    expect(currentlySelectedIndex).to.equal('0');
+    expect(currentlySelectedIndex).to.equal(0);
   });
 
   it('pressing the Enter button when an option has focus dispatches an event signifying the option was selected', async () => {
@@ -143,7 +164,7 @@ describe('auro-menu', () => {
     ));
     // await listener;
 
-    expect(currentlySelectedIndex).to.equal('1');
+    expect(currentlySelectedIndex).to.equal(1);
   });
 
   it('pressing the Space button when an option has focus dispatches an event signifying the option was selected', async () => {
@@ -157,7 +178,7 @@ describe('auro-menu', () => {
     }
     ));
 
-    expect(currentlySelectedIndex).to.equal('2');
+    expect(currentlySelectedIndex).to.equal(2);
   });
 
   // BRENT: Browsers don't allow the Tab button to be dispatched. I left the code in for posterity.
@@ -210,5 +231,20 @@ async function generateDefaultFixture() {
         <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
         <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
       </auro-menu>
+  `);
+}
+
+async function generateFixtureWithParentIndex() {
+  return await fixture(html`
+      <div indexSelectedOption="0">
+        <auro-menu>
+          <auro-menu-option slot="listOfOptions" data-value="the value for option 1">option 1</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="the value for option 2">option 2</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="the value for option 3">option 3</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="departures">Departures</auro-menu-option>
+          <auro-menu-option slot="listOfOptions" data-value="arrivals">Arrivals</auro-menu-option>
+        </auro-menu>
+      </div>
   `);
 }
