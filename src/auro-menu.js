@@ -49,18 +49,50 @@ class AuroMenu extends LitElement {
   }
 
   handleSlotChange() {
-    const parentIndexSelectedOption = Number(this.parentElement.getAttribute('indexSelectedOption'));
+    const dispatchEventOptionSelected = (indexValue, dataValue, displayText) => {
+      this.dispatchEvent(new CustomEvent('optionSelected', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+        detail: {
+          index: indexValue,
+          value: dataValue,
+          displayText,
+        }
+      }));
 
-    // auro-menu is the child of a parent with an indexSelectedOption attribute
-    if (!this.indexSelectedOption) {
-      if (parentIndexSelectedOption >= 0) {
-        this.indexSelectedOption = parentIndexSelectedOption;
-      } else {
-        this.indexSelectedOption = 0;
-      }
-    }
+      // go through each option <li> and if it is the same index as the option that was selected
+      // mark it as selected, else un-mark it as selected
+      this.options.forEach((option, index) => {
+        if (indexValue === index) {
+          option.setAttribute('selected', '');
+          this.indexSelectedOption = index;
+        } else {
+          option.removeAttribute('selected');
+        }
+      });
+    };
 
     this.options = this.querySelectorAll('auro-menu-option');
+
+    /**
+     * When auro-menu does not declare it's on selected index value
+     * check to see if the parent element does and handle it the
+     * same as if a selection is manually made.
+     */
+    if (!this.indexSelectedOption) {
+      // Check if the parent has a declared indexSelectedOption
+      if (this.parentElement.hasAttribute('indexSelectedOption')) {
+        // Get the declared index value
+        const parentIndexSelectedOption = Number(this.parentElement.getAttribute('indexSelectedOption'));
+
+        // If the index value is a valid index declaration select the value
+        if (parentIndexSelectedOption >= 0) {
+          this.indexSelectedOption = parentIndexSelectedOption;
+          dispatchEventOptionSelected(this.indexSelectedOption, this.options[this.indexSelectedOption].attributes['data-value'].value, this.options[this.indexSelectedOption].innerText);
+        }
+      }
+    }
 
     this.options.forEach((option, index) => {
       option.setAttribute('index', index);
@@ -70,31 +102,6 @@ class AuroMenu extends LitElement {
         option.removeAttribute('selected');
       }
     });
-
-    const dispatchEventOptionSelected = (optionSelected) => {
-      // lets a parent component, perhaps auro-dropdown, that an option was selected
-      optionSelected.dispatchEvent(new CustomEvent('optionSelected', {
-        bubbles: true,
-        cancelable: false,
-        composed: true,
-        detail: {
-          index: optionSelected.getAttribute('index'),
-          value: optionSelected.getAttribute('data-value'),
-          displayText: optionSelected.innerText,
-        }
-      }));
-
-      // go through each option <li> and if it is the same index as the option that was selected
-      // mark it as selected, else unmark it as selected
-      this.options.forEach((option, index) => {
-        if (Number(optionSelected.getAttribute('index')) === index) {
-          option.setAttribute('selected', '');
-          this.indexSelectedOption = optionSelected.getAttribute('index');
-        } else {
-          option.removeAttribute('selected');
-        }
-      });
-    };
 
     const funcFocus = (evt) => {
       evt.setAttribute('hasfocus', '');
@@ -114,7 +121,7 @@ class AuroMenu extends LitElement {
 
     const handleKeyDown = (evt) => {
       if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
-        dispatchEventOptionSelected(evt.target);
+        dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
       }
 
       // if user tabs off of last li, send a custome event 'hideOptionsContainer' to parent component
@@ -149,7 +156,7 @@ class AuroMenu extends LitElement {
       // each option is tabbable
       this.options[iter].setAttribute('tabindex', '0');
       this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
-      this.options[iter].addEventListener('click', (evt) => dispatchEventOptionSelected(evt.target));
+      this.options[iter].addEventListener('click', (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText));
       this.options[iter].addEventListener('focus', (evt) => funcFocus(evt.target));
       this.options[iter].addEventListener('blur', (evt) => funcBlur(evt.target));
       this.options[iter].addEventListener('mouseover', (evt) => funcMouseOver(evt.target));
