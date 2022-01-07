@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [2.1.0](https://github.com/AlaskaAirlines/auro-menu/compare/v2.0.0...v2.1.0) (2022-01-07)
+
+
+### Features
+
+* **preset:** better handling of presetting value ([f43e85d](https://github.com/AlaskaAirlines/auro-menu/commit/f43e85df8c9a14f1f70d5320b7ac39c5ddb05fe1))
+
 # [2.0.0](https://github.com/AlaskaAirlines/auro-menu/compare/v1.2.2...v2.0.0) (2021-12-14)
 
 
