@@ -18,13 +18,8 @@ describe('auro-menu', () => {
 
   it('Preset value is selected', async () => {
     const el = await generateFixtureWithParentIndex();
-
     const index = 0;
-
     const menuEl = el.querySelector('auro-menu');
-
-    console.warn(menuEl);
-
     let options = menuEl.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
     options[index].click();
 
@@ -41,9 +36,7 @@ describe('auro-menu', () => {
 
   it('clicking on an option marks only that option as selected', async () => {
     const el = await generateDefaultFixture();
-
     const index = 0;
-
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
     options[index].click();
 
@@ -58,9 +51,7 @@ describe('auro-menu', () => {
 
   it('pressing the Enter button when an option has focus marks only that option as selected', async () => {
     const el = await generateDefaultFixture();
-
     const index = 1;
-
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
     options[index].dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
@@ -79,9 +70,7 @@ describe('auro-menu', () => {
 
   it('pressing the Space button when an option has focus marks only that option as selected', async () => {
     const el = await generateDefaultFixture();
-
     const index = 2;
-
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
     options[index].dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
@@ -100,9 +89,7 @@ describe('auro-menu', () => {
 
   it('clicking through different options results in only 1 option being selected at a time', async () => {
     const el = await generateDefaultFixture();
-
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
-
     let index = 0;
 
     options[index].click();
@@ -144,7 +131,6 @@ describe('auro-menu', () => {
 
   it('clicking on an option dispatches an event signifying the option was selected', async () => {
     const el = await generateDefaultFixture();
-
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
     options[0].click();
 
@@ -153,7 +139,6 @@ describe('auro-menu', () => {
 
   it('pressing the Enter button when an option has focus dispatches an event signifying the option was selected', async () => {
     const el = await generateDefaultFixture();
-
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
 
     options[1].dispatchEvent(new KeyboardEvent('keydown', {
@@ -168,7 +153,6 @@ describe('auro-menu', () => {
 
   it('pressing the Space button when an option has focus dispatches an event signifying the option was selected', async () => {
     const el = await generateDefaultFixture();
-
     let options = el.shadowRoot.querySelector('slot[name=listOfOptions]').assignedNodes();
     options[2].dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
