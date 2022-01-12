@@ -2,15 +2,16 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html } from "lit-element";
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./auro-menu-option-css.js";
+import styleCss from "./style-menu-option-css.js";
+import styleCssFixed from "./style-menu-option-fixed-css.js";
 
 /**
  * Auro-menu provides users a way to select one option from a pre-defined list of options.
  *
- * @attr {Number} index - Index of the individual auro-menu-otion.
+ * @attr {Number} index - Index of the individual auro-menu-option.
  * @attr {Boolean} isHidden - If the auro-menu-option is currently visible or not, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden.
  * @attr {Number} tabIndex - Will be either -1 or 0 depending on if auro-menu is currently visible or not.
  * @attr {Boolean} hasFocus - Used to help determine if auro-menu-option is being tabbed onto. Used to help determine the color and background color of auro-menu-option.
@@ -36,9 +37,10 @@ class AuroMenuOption extends LitElement {
   }
 
   static get styles() {
-    return css`
-      ${styleCss}
-    `;
+    return [
+      styleCss,
+      styleCssFixed
+    ];
   }
 
   firstUpdated() {
