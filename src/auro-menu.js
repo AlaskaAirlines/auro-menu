@@ -5,8 +5,9 @@
 
 // ---------------------------------------------------------------------
 
-import { LitElement, html, css } from "lit-element";
-import styleCss from "./style-css.js";
+import { LitElement, html } from "lit-element";
+import styleCss from "./style-base-css.js";
+import styleCssFixed from "./style-base-fixed-css.js";
 import './auro-menu-option';
 import './auro-sub-menu';
 import "focus-visible/dist/focus-visible.min.js";
@@ -41,9 +42,10 @@ class AuroMenu extends LitElement {
   }
 
   static get styles() {
-    return css`
-      ${styleCss}
-    `;
+    return [
+      styleCss,
+      styleCssFixed
+    ];
   }
 
   /**

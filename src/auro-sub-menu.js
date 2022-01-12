@@ -2,8 +2,9 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
-import { LitElement, html, css } from "lit-element";
-import styleCss from "./auro-sub-menu-css.js";
+import { LitElement, html } from "lit-element";
+import styleCss from "./style-sub-menu-css.js";
+import styleCssFixed from "./style-sub-menu-fixed-css.js";
 import "focus-visible/dist/focus-visible.min.js";
 
 class AuroSubMenu extends LitElement {
@@ -20,9 +21,10 @@ class AuroSubMenu extends LitElement {
   }
 
   static get styles() {
-    return css`
-      ${styleCss}
-    `;
+    return [
+      styleCss,
+      styleCssFixed
+    ];
   }
 
   firstUpdated() {
