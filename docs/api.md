@@ -9,7 +9,7 @@ Auro-menu provides users a way to select one option from a pre-defined list of o
 | `beingMouseOvered` | `beingMouseOvered` | `Boolean` |         | Used to help determine the color and background color of auro-menu-option. |
 | `disabled`         | `disabled`         | `Boolean` |         | When true specifies that the menu-option is disabled. |
 | `hasFocus`         | `hasFocus`         | `Boolean` | false   | Used to help determine if auro-menu-option is being tabbed onto. Used to help determine the color and background color of auro-menu-option. |
-| `index`            | `index`            | `Number`  |         | Index of the individual auro-menu-otion.         |
+| `index`            | `index`            | `Number`  |         | Index of the individual auro-menu-option.        |
 | `isHidden`         | `isHidden`         | `Boolean` |         | If the auro-menu-option is currently visible or not, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden. |
 | `selected`         | `selected`         | `boolean` |         |                                                  |
 | `tabIndex`         | `tabIndex`         | `Number`  |         | Will be either -1 or 0 depending on if auro-menu is currently visible or not. |
