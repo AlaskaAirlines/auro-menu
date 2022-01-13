@@ -82,11 +82,12 @@ class AuroMenu extends LitElement {
       // Check if the parent has a declared indexSelectedOption
       if (this.parentElement.hasAttribute('indexSelectedOption')) {
         // Get the declared index value
-        const parentIndexSelectedOption = Number(this.parentElement.getAttribute('indexSelectedOption'));
+        const parentIndexSelectedOption = this.indexSelectedOption;
 
         // If the index value is a valid index declaration select the value
         if (parentIndexSelectedOption >= 0) {
           this.indexSelectedOption = parentIndexSelectedOption;
+
           dispatchEventOptionSelected(this.indexSelectedOption, this.options[this.indexSelectedOption].attributes['data-value'].value, this.options[this.indexSelectedOption].innerText);
         }
       }
