@@ -2,6 +2,12 @@
 
 Auro-menu provides users a way to select one option from a pre-defined list of options.
 
+## Attributes
+
+| Attribute  | Type     | Description                                      |
+|------------|----------|--------------------------------------------------|
+| `tabIndex` | `Number` | Will be either -1 or 0 depending on if auro-menu is currently visible or not. |
+
 ## Properties
 
 | Property           | Attribute          | Type      | Default | Description                                      |
@@ -12,7 +18,6 @@ Auro-menu provides users a way to select one option from a pre-defined list of o
 | `index`            | `index`            | `Number`  |         | Index of the individual auro-menu-option.        |
 | `isHidden`         | `isHidden`         | `Boolean` |         | If the auro-menu-option is currently visible or not, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden. |
 | `selected`         | `selected`         | `boolean` |         |                                                  |
-| `tabIndex`         | `tabIndex`         | `Number`  |         | Will be either -1 or 0 depending on if auro-menu is currently visible or not. |
 
 
 # auro-menu
@@ -21,11 +26,10 @@ Auro-menu provides users a way to select one option from a pre-defined list of o
 
 ## Properties
 
-| Property              | Attribute             | Type      | Default | Description                                      |
-|-----------------------|-----------------------|-----------|---------|--------------------------------------------------|
-| `indexSelectedOption` | `indexSelectedOption` | `Number`  |         | Index of the currently selected option.          |
-| `isHidden`            | `isHidden`            | `Boolean` | true    | If the auro-menu is currently being shown or hidden, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden. |
-| `options`             | `options`             | `Array`   | null    | Array of auro-menu-option nodes.                 |
+| Property              | Attribute             | Type     | Default | Description                             |
+|-----------------------|-----------------------|----------|---------|-----------------------------------------|
+| `indexSelectedOption` | `indexSelectedOption` | `Number` |         | Index of the currently selected option. |
+| `options`             | `options`             | `Array`  | null    | Array of auro-menu-option nodes.        |
 
 ## Events
 

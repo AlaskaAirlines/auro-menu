@@ -17,7 +17,6 @@ import "focus-visible/dist/focus-visible.min.js";
  * Auro-menu provides users a way to select one option from a pre-defined list of options.
  *
  * @attr {Array} options - Array of auro-menu-option nodes.
- * @attr {Boolean} isHidden - If the auro-menu is currently being shown or hidden, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden.
  * @attr {Number} indexSelectedOption - Index of the currently selected option.
  * @slot listOfOptions - Slot for the auro-menu-option nodes.
  */
@@ -26,17 +25,12 @@ class AuroMenu extends LitElement {
   constructor() {
     super();
 
-    this.isHidden = true;
     this.options = null;
   }
 
   static get properties() {
     return {
       options: { type: Array },
-      isHidden: {
-        type: Boolean,
-        reflect: true
-      },
       indexSelectedOption: { type: Number }
     };
   }
@@ -128,7 +122,7 @@ class AuroMenu extends LitElement {
         dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
       }
 
-      // if user tabs off of last li, send a custome event 'hideOptionsContainer' to parent component
+      // if user tabs off of last li, send a custom event 'hideOptionsContainer' to parent component
       if (evt.key.toLowerCase() === 'tab' && !evt.shiftKey && Number(evt.target.getAttribute('index')) === this.options.length - 1) {
         evt.target.dispatchEvent(new CustomEvent('hideOptionsContainer', {
           bubbles: true,
@@ -169,7 +163,7 @@ class AuroMenu extends LitElement {
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    if (name.toLowerCase() === 'ishidden' && this.options) {
+    if (name.toLowerCase() === this.options) {
       if (newVal === null) {
         for (let iter = 0; iter < this.options.length; iter++) {
           this.options[iter].setAttribute('tabindex', 0);

@@ -11,7 +11,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 ### Submenu Example
 <div class="exampleWrapper">
-  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
+  <auro-menu id="auroMenu0" indexSelectedOption="5">
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
     <auro-sub-menu slot="listOfOptions">
       <auro-menu-option data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
@@ -32,7 +32,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 <auro-accordion lowProfile justifyRight>
 
   ```html
-  <auro-menu id="auroMenu0" indexSelectedOption="5" ishidden>
+  <auro-menu id="auroMenu0" indexSelectedOption="5">
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Seattle Area (All Airports)</auro-menu-option>
     <auro-sub-menu slot="listOfOptions">
       <auro-menu-option data-value="the value for option 2">Everett, WA (PAE-Paine Field)</auro-menu-option>
@@ -57,7 +57,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 ### &lt;auro-menu indexselectedoption="0"&gt;
 
 <div class="exampleWrapper">
-  <auro-menu id="auroMenu1" indexSelectedOption="0" ishidden checkmark>
+  <auro-menu id="auroMenu1" indexSelectedOption="0" checkmark>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
@@ -70,7 +70,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 <auro-accordion lowProfile justifyRight>
 
   ```html
-  <auro-menu id="auroMenu1" indexSelectedOption="0" ishidden checkmark>
+  <auro-menu id="auroMenu1" indexSelectedOption="0" checkmark>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
@@ -89,7 +89,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 ### index selected option 5;
 
 <div class="exampleWrapper">
-  <auro-menu id="auroMenu2" indexSelectedOption="5" ishidden checkmark>
+  <auro-menu id="auroMenu2" indexSelectedOption="5" checkmark>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
     <auro-menu-option disabled slot="listOfOptions" data-value="the value for option 2">(disabled) Price</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
@@ -102,7 +102,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 <auro-accordion lowProfile justifyRight>
 
   ```html
-  <auro-menu id="auroMenu2" indexSelectedOption="5" ishidden checkmark>
+  <auro-menu id="auroMenu2" indexSelectedOption="5" checkmark>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
     <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
@@ -118,7 +118,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
 <div class="exampleWrapper">
   <div indexSelectedOption="3">
-    <auro-menu id="auroMenu3" ishidden checkmark>
+    <auro-menu id="auroMenu3" checkmark>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
@@ -133,7 +133,7 @@ To simulate the showing and hiding or `auro-menu` when it is used with `auro-dro
 
   ```html
   <div indexSelectedOption="3">
-    <auro-menu id="auroMenu3" ishidden checkmark>
+    <auro-menu id="auroMenu3" checkmark>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
       <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
