@@ -29,9 +29,7 @@ class AuroMenuOption extends LitElement {
       beingMouseOvered: { type: Boolean },
       hasFocus:         { type: Boolean },
       index:            { type: Number },
-      isHidden:         { type: Boolean },
       selected:         { type: Boolean },
-      tabIndex:         { type: Number },
       disabled:         { type: Boolean }
     };
   }
@@ -44,7 +42,6 @@ class AuroMenuOption extends LitElement {
   }
 
   firstUpdated() {
-    this.tabIndex = this.parentElement.hasAttribute('ishidden') ? '-1' : '0';
     this.checkmark = this.closest('auro-menu').hasAttribute('checkmark');
   }
 
