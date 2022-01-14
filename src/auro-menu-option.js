@@ -3,16 +3,15 @@
 
 // ---------------------------------------------------------------------
 import { LitElement, html } from "lit-element";
-// Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-menu-option-css.js";
 import styleCssFixed from "./style-menu-option-fixed-css.js";
+import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 
 /**
  * Auro-menu provides users a way to select one option from a pre-defined list of options.
  *
  * @attr {Number} index - Index of the individual auro-menu-option.
- * @attr {Boolean} isHidden - If the auro-menu-option is currently visible or not, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden.
  * @attr {Number} tabIndex - Will be either -1 or 0 depending on if auro-menu is currently visible or not.
  * @attr {Boolean} hasFocus - Used to help determine if auro-menu-option is being tabbed onto. Used to help determine the color and background color of auro-menu-option.
  * @attr {Boolean} beingMouseOvered - Used to help determine the color and background color of auro-menu-option.
@@ -22,6 +21,16 @@ class AuroMenuOption extends LitElement {
   constructor() {
     super();
     this.hasFocus = false;
+
+    /**
+     * @private
+     */
+    this.dom = new DOMParser().parseFromString(check.svg, 'text/html');
+
+    /**
+     * @private
+     */
+    this.svg = this.dom.body.firstChild;
   }
 
   static get properties() {
@@ -52,7 +61,7 @@ class AuroMenuOption extends LitElement {
           ${this.checkmark ? html`
             <div class="checkmark">
               ${this.selected ? html`
-                <auro-icon category="interface" name="check-sm" customColor></auro-icon>
+                ${this.svg}
               `
               : undefined}
             </div>
