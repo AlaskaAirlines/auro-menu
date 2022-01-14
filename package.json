@@ -27,7 +27,6 @@
     "@alaskaairux/design-tokens": "^3.5.0",
     "@alaskaairux/icons": "^4.10.1",
     "@alaskaairux/webcorestylesheets": "^3.7.3",
-    "@webcomponents/webcomponentsjs": "^2.6.0",
     "focus-visible": "^5.2.0"
   },
   "devDependencies": {
@@ -45,7 +44,6 @@
     "@semantic-release/npm": "^8.0.3",
     "@web/dev-server": "^0.1.28",
     "@web/test-runner": "^0.13.22",
-    "@webcomponents/webcomponentsjs": "^2.6.0",
     "autoprefixer": "^10.4.0",
     "babel-loader": "^8.2.3",
     "compression": "^1.7.4",
