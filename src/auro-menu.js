@@ -182,7 +182,7 @@ class AuroMenu extends LitElement {
   render() {
     return html`
       <ul>
-        <slot @slotchange=${this.handleSlotChange} name="listOfOptions"></slot>
+        <slot @slotchange=${this.handleSlotChange}></slot>
       </ul>
     `;
   }
