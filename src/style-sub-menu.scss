@@ -9,5 +9,8 @@
 }
 
 .subMenu {
-  margin-left: var(--auro-size-lg);
+  slot {
+    display: block;
+    padding-left: var(--auro-size-md);
+  }
 }

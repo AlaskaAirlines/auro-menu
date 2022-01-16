@@ -2,21 +2,14 @@
 
 Auro-menu provides users a way to select one option from a pre-defined list of options.
 
-## Attributes
-
-| Attribute  | Type     | Description                                      |
-|------------|----------|--------------------------------------------------|
-| `tabIndex` | `Number` | Will be either -1 or 0 depending on if auro-menu is currently visible or not. |
-
 ## Properties
 
 | Property           | Attribute          | Type      | Default | Description                                      |
 |--------------------|--------------------|-----------|---------|--------------------------------------------------|
-| `beingMouseOvered` | `beingMouseOvered` | `Boolean` |         | Used to help determine the color and background color of auro-menu-option. |
+| `beingMouseOvered` | `beingMouseOvered` | `boolean` |         |                                                  |
 | `disabled`         | `disabled`         | `Boolean` |         | When true specifies that the menu-option is disabled. |
-| `hasFocus`         | `hasFocus`         | `Boolean` | false   | Used to help determine if auro-menu-option is being tabbed onto. Used to help determine the color and background color of auro-menu-option. |
-| `index`            | `index`            | `Number`  |         | Index of the individual auro-menu-option.        |
-| `isHidden`         | `isHidden`         | `Boolean` |         | If the auro-menu-option is currently visible or not, perhaps because auro-dropdown is controlling whether or not auro-menu is visible or hidden. |
+| `hasFocus`         | `hasFocus`         | `boolean` | false   |                                                  |
+| `index`            | `index`            | `number`  |         |                                                  |
 | `selected`         | `selected`         | `boolean` |         |                                                  |
 
 
@@ -24,12 +17,18 @@ Auro-menu provides users a way to select one option from a pre-defined list of o
 
 Auro-menu provides users a way to select one option from a pre-defined list of options.
 
+## Attributes
+
+| Attribute   | Type      | Description              |
+|-------------|-----------|--------------------------|
+| `checkmark` | `Boolean` | Designates checkamrk UI. |
+
 ## Properties
 
-| Property              | Attribute             | Type     | Default | Description                             |
-|-----------------------|-----------------------|----------|---------|-----------------------------------------|
-| `indexSelectedOption` | `indexSelectedOption` | `Number` |         | Index of the currently selected option. |
-| `options`             | `options`             | `Array`  | null    | Array of auro-menu-option nodes.        |
+| Property              | Attribute             | Type     | Default |
+|-----------------------|-----------------------|----------|---------|
+| `indexSelectedOption` | `indexSelectedOption` | `number` |         |
+| `options`             | `options`             | `array`  | null    |
 
 ## Events
 
@@ -40,9 +39,9 @@ Auro-menu provides users a way to select one option from a pre-defined list of o
 
 ## Slots
 
-| Name            | Description                          |
-|-----------------|--------------------------------------|
-| `listOfOptions` | Slot for the auro-menu-option nodes. |
+| Name | Description                              |
+|------|------------------------------------------|
+|      | Open slot for insertion of menu options. |
 
 
 # auro-sub-menu

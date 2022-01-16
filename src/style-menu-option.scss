@@ -14,64 +14,17 @@
   white-space: nowrap;
 }
 
+:host(:hover) {
+  background-color: var(--auro-color-brand-neutral-100);
+  color: var(--auro-color-text-primary-on-light);
+}
+
 :host(:focus) {
   background-color: var(--auro-color-alert-notification-on-light);
-  box-shadow: inset 0 0 0 3px var(--auro-color-alert-notification-on-light);
   color: var(--auro-color-base-white);
-  outline: none;
 
   svg {
     fill: var(--auro-color-base-white);
-  }
-}
-
-li {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  list-style-type: none;
-  outline: 0;
-
-  .checkmark {
-    width: var(--auro-size-lg);
-    height: 100%;
-    margin-right: var(--auro-size-xs);
-  }
-
-  &:hover {
-    background-color: var(--auro-color-brand-neutral-100);
-    color: var(--auro-color-text-primary-on-light);
-  }
-
-  &:focus {
-    background-color: var(--auro-color-alert-notification-on-light);
-    color: var(--auro-color-base-white);
-
-    svg {
-      fill: var(--auro-color-base-white);
-    }
-  }
-}
-
-.content {
-  display: flex;
-  overflow: hidden;
-  height: var(--auro-size-lg);
-  flex: 1;
-  align-items: center;
-  padding: var(--auro-size-xxs) var(--auro-size-xs);
-  line-height: 1;
-  text-overflow: ellipsis;
-}
-
-// TODO: review and refactor this
-@include auro_breakpoint--sm {
-  li {
-    height: var(--auro-size-xxl);
   }
 }
 
@@ -79,4 +32,21 @@ li {
   color: var(--auro-color-text-disabled-on-light);
   pointer-events: none;
   user-select: none;
+}
+
+.menuOption {
+  display: flex;
+  overflow: hidden;
+  height: var(--auro-size-lg);
+  flex: 1;
+  align-items: center;
+  padding: var(--auro-size-xxs) var(--auro-size-xs);
+  cursor: pointer;
+  line-height: 1;
+  list-style-type: none;
+  text-overflow: ellipsis;
+
+  svg {
+    margin-right: var(--auro-size-xs);
+  }
 }
