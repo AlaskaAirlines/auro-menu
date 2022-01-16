@@ -16,9 +16,8 @@ import "focus-visible/dist/focus-visible.min.js";
 /**
  * Auro-menu provides users a way to select one option from a pre-defined list of options.
  *
- * @attr {Array} options - Array of auro-menu-option nodes.
- * @attr {Number} indexSelectedOption - Index of the currently selected option.
- * @slot listOfOptions - Slot for the auro-menu-option nodes.
+ * @attr {Boolean} icon - Designates icon UI.
+ * @slot Open slot for insertion of menu options.
  */
 
 class AuroMenu extends LitElement {

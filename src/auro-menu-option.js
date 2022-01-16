@@ -11,10 +11,6 @@ import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 /**
  * Auro-menu provides users a way to select one option from a pre-defined list of options.
  *
- * @attr {Number} index - Index of the individual auro-menu-option.
- * @attr {Number} tabIndex - Will be either -1 or 0 depending on if auro-menu is currently visible or not.
- * @attr {Boolean} hasFocus - Used to help determine if auro-menu-option is being tabbed onto. Used to help determine the color and background color of auro-menu-option.
- * @attr {Boolean} beingMouseOvered - Used to help determine the color and background color of auro-menu-option.
  * @attr {Boolean} disabled - When true specifies that the menu-option is disabled.
  */
 class AuroMenuOption extends LitElement {
@@ -51,23 +47,16 @@ class AuroMenuOption extends LitElement {
   }
 
   firstUpdated() {
-    this.checkmark = this.closest('auro-menu').hasAttribute('checkmark');
+    this.icon = this.closest('auro-menu').hasAttribute('icon');
   }
 
   render() {
     return html`
-      <li>
-        <div class="content">
-          ${this.checkmark ? html`
-            <div class="checkmark">
-              ${this.selected ? html`
-                ${this.svg}
-              `
-              : undefined}
-            </div>
-          ` : undefined}
+      <li class="menuOption" part="menuOption">
+        ${this.icon ? html`
+          ${this.selected ? html`${this.svg}` : undefined}
+        ` : undefined}
         <slot></slot>
-        </div>
       </li>
     `;
   }
