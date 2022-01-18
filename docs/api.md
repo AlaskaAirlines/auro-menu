@@ -1,34 +1,30 @@
 # auro-menu-option
 
-Auro-menu provides users a way to select one option from a pre-defined list of options.
+The auro-menu element provides users a way to select one option from a pre-defined list of options.
 
 ## Properties
 
-| Property           | Attribute          | Type      | Default | Description                                      |
-|--------------------|--------------------|-----------|---------|--------------------------------------------------|
-| `beingMouseOvered` | `beingMouseOvered` | `boolean` |         |                                                  |
-| `disabled`         | `disabled`         | `Boolean` |         | When true specifies that the menu-option is disabled. |
-| `hasFocus`         | `hasFocus`         | `boolean` | false   |                                                  |
-| `index`            | `index`            | `number`  |         |                                                  |
-| `selected`         | `selected`         | `boolean` |         |                                                  |
+| Property   | Attribute  | Type      | Description                                      |
+|------------|------------|-----------|--------------------------------------------------|
+| `disabled` | `disabled` | `Boolean` | When true specifies that the menu-option is disabled. |
+| `selected` | `selected` | `boolean` |                                                  |
 
 
 # auro-menu
 
-Auro-menu provides users a way to select one option from a pre-defined list of options.
+The auro-menu element provides users a way to select one option from a pre-defined list of options.
 
 ## Attributes
 
-| Attribute   | Type      | Description              |
-|-------------|-----------|--------------------------|
-| `checkmark` | `Boolean` | Designates checkamrk UI. |
+| Attribute | Type      | Description         |
+|-----------|-----------|---------------------|
+| `icon`    | `Boolean` | Designates icon UI. |
 
 ## Properties
 
-| Property              | Attribute             | Type     | Default |
-|-----------------------|-----------------------|----------|---------|
-| `indexSelectedOption` | `indexSelectedOption` | `number` |         |
-| `options`             | `options`             | `array`  | null    |
+| Property              | Attribute             | Type     |
+|-----------------------|-----------------------|----------|
+| `indexSelectedOption` | `indexSelectedOption` | `number` |
 
 ## Events
 
@@ -46,10 +42,11 @@ Auro-menu provides users a way to select one option from a pre-defined list of o
 
 # auro-sub-menu
 
+The auro-sub-menu provides users a way to ....
+
 ## Properties
 
-| Property     | Attribute    | Type      | Default |
-|--------------|--------------|-----------|---------|
-| `hasFocus`   |              | `boolean` | false   |
-| `hideBottom` | `hideBottom` | `boolean` |         |
-| `hideTop`    | `hideTop`    | `boolean` |         |
+| Property     | Attribute    | Type      | Description                              |
+|--------------|--------------|-----------|------------------------------------------|
+| `hideBottom` | `hideBottom` | `Boolean` | Removes hr line from bottom of sub-menu. |
+| `hideTop`    | `hideTop`    | `Boolean` | Removes hr line from top of sub-menu     |

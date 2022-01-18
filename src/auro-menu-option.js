@@ -9,14 +9,13 @@ import styleCssFixed from "./style-menu-option-fixed-css.js";
 import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 
 /**
- * Auro-menu provides users a way to select one option from a pre-defined list of options.
+ * The auro-menu element provides users a way to select one option from a pre-defined list of options.
  *
  * @attr {Boolean} disabled - When true specifies that the menu-option is disabled.
  */
 class AuroMenuOption extends LitElement {
   constructor() {
     super();
-    this.hasFocus = false;
 
     /**
      * @private
@@ -31,9 +30,12 @@ class AuroMenuOption extends LitElement {
 
   static get properties() {
     return {
-      beingMouseOvered: { type: Boolean },
-      hasFocus:         { type: Boolean },
+
+      /**
+       * @private
+       */
       index:            { type: Number },
+
       selected:         { type: Boolean },
       disabled:         { type: Boolean }
     };
