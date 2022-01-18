@@ -147,22 +147,6 @@ class AuroMenu extends LitElement {
     }
   }
 
-  attributeChangedCallback(name, oldVal, newVal) {
-    if (name.toLowerCase() === this.options) {
-      if (newVal === null) {
-        for (let iter = 0; iter < this.options.length; iter++) {
-          this.options[iter].setAttribute('tabindex', 0);
-        }
-      } else {
-        for (let iter = 0; iter < this.options.length; iter++) {
-          this.options[iter].setAttribute('tabindex', -1);
-        }
-      }
-    }
-
-    super.attributeChangedCallback(name, oldVal, newVal);
-  }
-
   render() {
     return html`
       <ul>
