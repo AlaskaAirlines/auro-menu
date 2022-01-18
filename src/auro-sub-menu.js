@@ -7,11 +7,17 @@ import styleCss from "./style-sub-menu-css.js";
 import styleCssFixed from "./style-sub-menu-fixed-css.js";
 import "focus-visible/dist/focus-visible.min.js";
 
+/**
+ * The auro-sub-menu provides users a way to ....
+ *
+ * @attr {Boolean} hideTop - Removes hr line from top of sub-menu
+ * @attr {Boolean} hideBottom - Removes hr line from bottom of sub-menu.
+ */
+
 class AuroSubMenu extends LitElement {
-  constructor() {
-    super();
-    this.hasFocus = false;
-  }
+  // constructor() {
+  //   super();
+  // }
 
   static get properties() {
     return {

@@ -14,7 +14,7 @@ import "focus-visible/dist/focus-visible.min.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
- * Auro-menu provides users a way to select one option from a pre-defined list of options.
+ * The auro-menu element provides users a way to select one option from a pre-defined list of options.
  *
  * @attr {Boolean} icon - Designates icon UI.
  * @slot Open slot for insertion of menu options.
@@ -29,8 +29,12 @@ class AuroMenu extends LitElement {
 
   static get properties() {
     return {
-      options: { type: Array },
-      indexSelectedOption: { type: Number }
+      indexSelectedOption: { type: Number },
+
+      /**
+       * @private
+       */
+      options: { type: Array }
     };
   }
 
@@ -102,22 +106,6 @@ class AuroMenu extends LitElement {
       }
     });
 
-    const funcFocus = (evt) => {
-      evt.setAttribute('hasfocus', '');
-    };
-
-    const funcBlur = (evt) => {
-      evt.removeAttribute('hasfocus');
-    };
-
-    const funcMouseOver = (evt) => {
-      evt.setAttribute('beingMouseOvered', '');
-    };
-
-    const funcMouseOut = (evt) => {
-      evt.removeAttribute('beingMouseOvered');
-    };
-
     const handleKeyDown = (evt) => {
       if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
         dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
@@ -149,17 +137,13 @@ class AuroMenu extends LitElement {
       }
     };
 
-    // Prep each <li>. Give it an index, set its tabindex to -1, add 'keydown' and 'click' event listeners, inject a checkmark auro-icon
+    // Prep each <li>. Give it an index, set its tabindex to -1, add 'keydown' and 'click' event listeners, inject a check mark icon
     for (let iter = 0; iter < this.options.length; iter += 1) {
 
       // each option is tabbable
       this.options[iter].setAttribute('tabindex', '0');
       this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
       this.options[iter].addEventListener('click', (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText));
-      this.options[iter].addEventListener('focus', (evt) => funcFocus(evt.target));
-      this.options[iter].addEventListener('blur', (evt) => funcBlur(evt.target));
-      this.options[iter].addEventListener('mouseover', (evt) => funcMouseOver(evt.target));
-      this.options[iter].addEventListener('mouseout', (evt) => funcMouseOut(evt.target));
     }
   }
 
