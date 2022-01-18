@@ -73,15 +73,16 @@ class AuroMenu extends LitElement {
     this.options = this.querySelectorAll('auro-menu-option');
 
     /**
-     * When auro-menu does not declare it's on selected index value
-     * check to see if the parent element does and handle it the
-     * same as if a selection is manually made.
+     * Checks to see if indexSelectedOption is set on element.
+     * If indexSelectedOption is not set, looks to see if parent element has indexSelectedOption defined
+     * Use case: TBD.
      */
     if (!this.indexSelectedOption) {
+
       // Check if the parent has a declared indexSelectedOption
       if (this.parentElement.hasAttribute('indexSelectedOption')) {
         // Get the declared index value
-        const parentIndexSelectedOption = this.indexSelectedOption;
+        const parentIndexSelectedOption = Number(this.parentElement.getAttribute('indexSelectedOption'));
 
         // If the index value is a valid index declaration select the value
         if (parentIndexSelectedOption >= 0) {
