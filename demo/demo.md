@@ -6,7 +6,21 @@ The `auro-menu` element should be used in situations where users will select one
 `auro-menu` will be used with `auro-dropdown`.
 
 
-### index selected option 2, checkmark;
+###  pre-selected option on unknown parent element; icon;
+
+<div class="exampleWrapper">
+  <auro-thing indexSelectedOption="3">
+    <auro-menu id="auroMenu2" icon>
+      <auro-menu-option data-value="Stops">Stops</auro-menu-option>
+      <auro-menu-option disabled data-value="Price">(disabled) Price</auro-menu-option>
+      <auro-menu-option data-value="Duration">Duration</auro-menu-option>
+      <auro-menu-option data-value="Departure">Departure</auro-menu-option>
+      <auro-menu-option data-value="Arrival">Arrival</auro-menu-option>
+    </auro-menu>
+  </auro-thing>
+</div>
+
+### pre-selected option on element, icon;
 
 <div class="exampleWrapper">
   <auro-menu id="auroMenu2" indexSelectedOption="2" icon>
@@ -18,7 +32,7 @@ The `auro-menu` element should be used in situations where users will select one
   </auro-menu>
 </div>
 
-### index selected option 2;
+### pre-selected option on element; no icon
 
 <div class="exampleWrapper">
   <auro-menu id="auroMenu2" indexSelectedOption="2">
