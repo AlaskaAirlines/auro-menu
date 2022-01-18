@@ -121,6 +121,8 @@ class AuroMenu extends LitElement {
       }
 
       if (evt.key.toLowerCase() === 'arrowdown') {
+        evt.preventDefault();
+
         if (Number(evt.target.getAttribute('index')) === this.options.length - 1) {
           this.options[0].focus();
         } else {
@@ -129,6 +131,8 @@ class AuroMenu extends LitElement {
       }
 
       if (evt.key.toLowerCase() === 'arrowup') {
+        evt.preventDefault();
+
         if (Number(evt.target.getAttribute('index')) === 0) {
           this.options[this.options.length - 1].focus();
         } else {
