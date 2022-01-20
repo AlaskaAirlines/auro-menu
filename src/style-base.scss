@@ -15,10 +15,8 @@
 :host {
   display: inline-block;
   width: 100%;
-}
 
-:host([icon]) {
-  ::slotted(auro-menu-option) {
+  ::slotted(auro-menuoption) {
     padding-left: 2rem;
   }
 

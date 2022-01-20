@@ -1,24 +1,6 @@
-# auro-menu-option
-
-The auro-menu element provides users a way to select one option from a pre-defined list of options.
-
-## Properties
-
-| Property   | Attribute  | Type      | Description                                      |
-|------------|------------|-----------|--------------------------------------------------|
-| `disabled` | `disabled` | `Boolean` | When true specifies that the menu-option is disabled. |
-| `selected` | `selected` | `boolean` |                                                  |
-
-
 # auro-menu
 
 The auro-menu element provides users a way to select one option from a pre-defined list of options.
-
-## Attributes
-
-| Attribute | Type      | Description         |
-|-----------|-----------|---------------------|
-| `icon`    | `Boolean` | Designates icon UI. |
 
 ## Properties
 
@@ -40,13 +22,13 @@ The auro-menu element provides users a way to select one option from a pre-defin
 |      | Open slot for insertion of menu options. |
 
 
-# auro-sub-menu
+# auro-menuoption
 
-The auro-sub-menu provides users a way to ....
+The auro-menu element provides users a way to select one option from a pre-defined list of options.
 
 ## Properties
 
-| Property     | Attribute    | Type      | Description                              |
-|--------------|--------------|-----------|------------------------------------------|
-| `hideBottom` | `hideBottom` | `Boolean` | Removes hr line from bottom of sub-menu. |
-| `hideTop`    | `hideTop`    | `Boolean` | Removes hr line from top of sub-menu     |
+| Property   | Attribute  | Type      | Description                                      |
+|------------|------------|-----------|--------------------------------------------------|
+| `disabled` | `disabled` | `Boolean` | When true specifies that the menu-option is disabled. |
+| `selected` | `selected` | `boolean` |                                                  |
