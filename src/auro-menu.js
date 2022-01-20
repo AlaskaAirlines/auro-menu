@@ -8,15 +8,13 @@
 import { LitElement, html } from "lit-element";
 import styleCss from "./style-base-css.js";
 import styleCssFixed from "./style-base-fixed-css.js";
-import './auro-menu-option';
-import './auro-sub-menu';
+import './auro-menuoption';
 import "focus-visible/dist/focus-visible.min.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
  * The auro-menu element provides users a way to select one option from a pre-defined list of options.
  *
- * @attr {Boolean} icon - Designates icon UI.
  * @slot Open slot for insertion of menu options.
  */
 
@@ -74,7 +72,7 @@ class AuroMenu extends LitElement {
       });
     };
 
-    this.options = this.querySelectorAll('auro-menu-option');
+    this.options = this.querySelectorAll('auro-menuoption');
 
     /**
      * Checks to see if indexSelectedOption is set on element.
