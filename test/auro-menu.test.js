@@ -1,7 +1,7 @@
 
 import { fixture, html, expect, triggerFocusFor, oneEvent } from '@open-wc/testing';
 import '../src/auro-menu.js';
-import '../src/auro-menu-option.js';
+import '../src/auro-menuoption.js';
 
 describe('auro-menu', () => {
   let currentlySelectedIndex = null;
@@ -83,7 +83,7 @@ describe('auro-menu', () => {
 async function defaultFixture() {
   return await fixture(html`
       <div>
-        <auro-menu><auro-menu-option data-value="option 1">option 1</auro-menu-option><auro-menu-option data-value="option 2">option 2</auro-menu-option><auro-menu-option data-value="option 3">option 3</auro-menu-option><auro-menu-option data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menu-option><auro-menu-option data-value="departures">Departures</auro-menu-option><auro-menu-option data-value="arrivals">Arrivals</auro-menu-option><auro-sub-menu><auro-menu-option data-value="option 4">option 4</auro-menu-option><auro-menu-option data-value="option 5">option 5</auro-menu-option></auro-sub-menu></auro-menu>
+        <auro-menu><auro-menuoption data-value="option 1">option 1</auro-menuoption><auro-menuoption data-value="option 2">option 2</auro-menuoption><auro-menuoption data-value="option 3">option 3</auro-menuoption><auro-menuoption data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption data-value="departures">Departures</auro-menuoption><auro-menuoption data-value="arrivals">Arrivals</auro-menuoption></auro-menu>
       </div>
   `);
 }

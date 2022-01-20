@@ -4,8 +4,8 @@
 // ---------------------------------------------------------------------
 import { LitElement, html } from "lit-element";
 import "focus-visible/dist/focus-visible.min.js";
-import styleCss from "./style-menu-option-css.js";
-import styleCssFixed from "./style-menu-option-fixed-css.js";
+import styleCss from "./style-menuoption-css.js";
+import styleCssFixed from "./style-menuoption-fixed-css.js";
 import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 
 /**
@@ -48,16 +48,10 @@ class AuroMenuOption extends LitElement {
     ];
   }
 
-  firstUpdated() {
-    this.icon = this.closest('auro-menu').hasAttribute('icon');
-  }
-
   render() {
     return html`
       <li class="menuOption" part="menuOption">
-        ${this.icon ? html`
-          ${this.selected ? html`${this.svg}` : undefined}
-        ` : undefined}
+        ${this.selected ? html`${this.svg}` : undefined}
         <slot></slot>
       </li>
     `;
@@ -66,6 +60,6 @@ class AuroMenuOption extends LitElement {
 
 /* istanbul ignore else */
 // define the name of the custom component
-if (!customElements.get("auro-menu-option")) {
-  customElements.define("auro-menu-option", AuroMenuOption);
+if (!customElements.get("auro-menuoption")) {
+  customElements.define("auro-menuoption", AuroMenuOption);
 }
