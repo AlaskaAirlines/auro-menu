@@ -187,3 +187,52 @@ The `auro-menu` element supports a pre-selected menu option via the `selectOptio
   <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
+
+## Menu with restricted width and long option
+
+The `auro-menu` element supports scenarios where the outer parent element of the menu constrains its width and there are options with text longer than the pull down menu will support. Truncated content will be illustrated with an ellipsis.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/restrictedWidth.html) -->
+  <!-- The below content is automatically added from ./partials/restrictedWidth.html -->
+  <auro-menu style="width: 300px">
+    <auro-menuoption data-value="New tab">New tab</auro-menuoption>
+    <auro-menuoption data-value="New window">New window</auro-menuoption>
+    <auro-menuoption data-value="Open file">Open file</auro-menuoption>
+    <auro-menuoption data-value="Open location">Open location</auro-menuoption>
+    <hr>
+    <auro-menuoption data-value="Close window">Close window</auro-menuoption>
+    <auro-menuoption data-value="Close tab">Close tab</auro-menuoption>
+    <auro-menuoption data-value="Save page as...">Save page as 'option_10_redevelopment_hover_scenario.png'</auro-menuoption>
+    <hr>
+    <auro-menuoption data-value="Share">Share</auro-menuoption>
+    <hr>
+    <auro-menuoption data-value="Print">Print</auro-menuoption>
+  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/restrictedWidth.html) -->
+  <!-- The below code snippet is automatically added from ./partials/restrictedWidth.html -->
+  ```html
+  <auro-menu style="width: 300px">
+    <auro-menuoption data-value="New tab">New tab</auro-menuoption>
+    <auro-menuoption data-value="New window">New window</auro-menuoption>
+    <auro-menuoption data-value="Open file">Open file</auro-menuoption>
+    <auro-menuoption data-value="Open location">Open location</auro-menuoption>
+    <hr>
+    <auro-menuoption data-value="Close window">Close window</auro-menuoption>
+    <auro-menuoption data-value="Close tab">Close tab</auro-menuoption>
+    <auro-menuoption data-value="Save page as...">Save page as 'option_10_redevelopment_hover_scenario.png'</auro-menuoption>
+    <hr>
+    <auro-menuoption data-value="Share">Share</auro-menuoption>
+    <hr>
+    <auro-menuoption data-value="Print">Print</auro-menuoption>
+  </auro-menu>
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>

@@ -15,9 +15,12 @@
 :host {
   display: inline-block;
   width: 100%;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
 
   ::slotted(auro-menuoption) {
-    padding-left: 2rem;
+    padding-left: var(--auro-size-xl);
   }
 
   ::slotted([selected]) {
@@ -34,17 +37,5 @@
     border-width: 0 !important;
     border-top: 1px solid var(--auro-color-border-primary-on-light) !important;
     margin: var(--auro-size-xs) 0 !important;
-  }
-}
-
-ul {
-  display: inline-block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  vertical-align: middle;
-
-  .hidden {
-    visibility: hidden;
   }
 }
