@@ -20,7 +20,7 @@
   vertical-align: middle;
 
   ::slotted(auro-menuoption) {
-    padding-left: var(--auro-size-xl);
+    padding-left: calc(var(--auro-size-sm) + 24px + var(--auro-size-xs));
   }
 
   ::slotted([selected]) {
@@ -35,7 +35,7 @@
     height: 0 !important;
     box-sizing: content-box !important;
     border-width: 0 !important;
-    border-top: 1px solid var(--auro-color-border-primary-on-light) !important;
+    border-top: 1px solid var(--auro-color-border-divider-on-light) !important;
     margin: var(--auro-size-xs) 0 !important;
   }
 }

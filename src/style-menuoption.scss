@@ -6,11 +6,13 @@
 @import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 
+/* stylelint-disable declaration-no-important */
 :host {
   display: flex;
   align-items: center;
   padding: var(--auro-size-xxs) var(--auro-size-md) var(--auro-size-xxs) 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   slot {
     display: block;
@@ -21,6 +23,8 @@
 
   svg {
     margin-right: var(--auro-size-xs);
+    margin-left: var(--auro-size-sm);
+    fill: var(--auro-color-icon-primary-on-light) !important;
   }
 }
 
@@ -34,7 +38,7 @@
   color: var(--auro-color-base-white);
 
   svg {
-    fill: var(--auro-color-base-white);
+    fill: var(--auro-color-base-white) !important;
   }
 }
 
