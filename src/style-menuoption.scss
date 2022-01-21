@@ -7,11 +7,21 @@
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
 
 :host {
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  padding: var(--auro-size-xxs) var(--auro-size-md) var(--auro-size-xxs) 0;
+  cursor: pointer;
+
+  slot {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  svg {
+    margin-right: var(--auro-size-xs);
+  }
 }
 
 :host(:hover) {
@@ -32,21 +42,4 @@
   color: var(--auro-color-text-disabled-on-light);
   pointer-events: none;
   user-select: none;
-}
-
-.menuOption {
-  display: flex;
-  overflow: hidden;
-  height: var(--auro-size-lg);
-  flex: 1;
-  align-items: center;
-  padding: var(--auro-size-xxs) var(--auro-size-xs);
-  cursor: pointer;
-  line-height: 1;
-  list-style-type: none;
-  text-overflow: ellipsis;
-
-  svg {
-    margin-right: var(--auro-size-xs);
-  }
 }
