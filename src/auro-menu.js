@@ -140,12 +140,15 @@ class AuroMenu extends LitElement {
     };
 
     // Prep each <li>. Give it an index, set its tabindex to -1, add 'keydown' and 'click' event listeners, inject a check mark icon
+    const triggerEvent = (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
+
     for (let iter = 0; iter < this.options.length; iter += 1) {
 
       // each option is tabbable
       this.options[iter].setAttribute('tabindex', '0');
       this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
-      this.options[iter].addEventListener('click', (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText));
+      this.options[iter].addEventListener('click', triggerEvent);
+      this.options[iter].addEventListener('mousedown', triggerEvent);
     }
   }
 
