@@ -12,7 +12,7 @@ The auro-menu element provides users a way to select from a list of options.
 
 | Event            | Type                           | Description                                      |
 |------------------|--------------------------------|--------------------------------------------------|
-| `optionSelected` | `CustomEvent<{ index: any; }>` | Value for pre-selected menu option. This value may be places on the `auro-menu` element specifically or on a outer parent element. |
+| `optionSelected` | `CustomEvent<{ index: any; }>` | Value for pre-selected menu option. This value may be placed on the `auro-menu` element specifically or on a outer parent element. |
 
 ## Slots
 
