@@ -12,6 +12,7 @@ The `auro-menu` element should be used in situations where users will select one
       <auro-menuoption data-value="Stops">Stops</auro-menuoption>
       <auro-menuoption data-value="Price" selected>Price</auro-menuoption>
       <auro-menuoption data-value="Duration">Duration</auro-menuoption>
+      <hr>
       <auro-menuoption data-value="Departure">Departure</auro-menuoption>
       <auro-menuoption data-value="Arrival">Arrival</auro-menuoption>
     </auro-menu>
