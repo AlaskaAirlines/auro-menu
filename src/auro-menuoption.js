@@ -9,9 +9,10 @@ import styleCssFixed from "./style-menuoption-fixed-css.js";
 import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 
 /**
- * The auro-menu element provides users a way to select one option from a pre-defined list of options.
+ * The auro-menu element provides users a way to define a menu option.
  *
- * @attr {Boolean} disabled - When true specifies that the menu-option is disabled.
+ * @attr {Boolean} disabled - When true specifies that the menuoption is disabled.
+ * @attr {Boolean} selected - When true designates the selected menuoption. This attribute is only applied via the `optionSelected` event. If manually added without the `optionSelected` event, the attribute will be removed.
  */
 class AuroMenuOption extends LitElement {
   constructor() {
