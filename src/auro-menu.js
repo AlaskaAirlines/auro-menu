@@ -13,8 +13,10 @@ import "focus-visible/dist/focus-visible.min.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
- * The auro-menu element provides users a way to select one option from a pre-defined list of options.
+ * The auro-menu element provides users a way to select from a list of options.
  *
+ * @attr {Number} selectOption - Predefine selected option from menu. Index starts at 0.
+ * @fires optionSelected - Value for pre-selected menu option.
  * @slot Open slot for insertion of menu options.
  */
 
@@ -27,7 +29,7 @@ class AuroMenu extends LitElement {
 
   static get properties() {
     return {
-      indexSelectedOption: { type: Number },
+      selectOption: { type: Number },
 
       /**
        * @private
@@ -46,26 +48,26 @@ class AuroMenu extends LitElement {
   /**
    * @private
    */
-
   handleSlotChange() {
-    const dispatchEventOptionSelected = (indexValue, dataValue, displayText) => {
+    const dispatchEventOptionSelected = (indexValue) => {
+
       this.dispatchEvent(new CustomEvent('optionSelected', {
         bubbles: true,
         cancelable: false,
         composed: true,
         detail: {
-          index: indexValue,
-          value: dataValue,
-          displayText,
+          index: indexValue
         }
       }));
 
-      // go through each option <li> and if it is the same index as the option that was selected
-      // mark it as selected, else un-mark it as selected
+      /**
+       * Specifically for use case where the `selectOption`
+       * is set on an anonymous parent element.
+       */
       this.options.forEach((option, index) => {
         if (indexValue === index) {
           option.setAttribute('selected', '');
-          this.indexSelectedOption = index;
+          this.selectOption = index;
         } else {
           option.removeAttribute('selected');
         }
@@ -75,47 +77,44 @@ class AuroMenu extends LitElement {
     this.options = this.querySelectorAll('auro-menuoption');
 
     /**
-     * Checks to see if indexSelectedOption is set on element.
-     * If indexSelectedOption is not set, looks to see if parent element has indexSelectedOption defined
-     * Use case: TBD.
+     * Loop to apply index attribute and value to menuoption elements.
+     * If this.selectOption has a value, use that to pre-apply
+     * the `selected` attribute.
      */
-    if (!this.indexSelectedOption) {
-
-      // Check if the parent has a declared indexSelectedOption
-      if (this.parentElement.hasAttribute('indexSelectedOption')) {
-        // Get the declared index value
-        const parentIndexSelectedOption = Number(this.parentElement.getAttribute('indexSelectedOption'));
-
-        // If the index value is a valid index declaration select the value
-        if (parentIndexSelectedOption >= 0) {
-          this.indexSelectedOption = parentIndexSelectedOption;
-
-          dispatchEventOptionSelected(this.indexSelectedOption, this.options[this.indexSelectedOption].attributes['data-value'].value, this.options[this.indexSelectedOption].innerText);
-        }
-      }
-    }
-
     this.options.forEach((option, index) => {
       option.setAttribute('index', index);
-      if (this.indexSelectedOption === index) {
+
+      if (this.selectOption === index) {
         option.setAttribute('selected', '');
       } else {
         option.removeAttribute('selected');
       }
     });
 
+    /**
+     * Checks to see if `this.selectOption` is set on the menu element.
+     * If `selectOption` is not set, looks to see if
+     * parent element has `selectOption` defined.
+     */
+    if (!this.selectOption) {
+
+      // Check if the parent has a declared `this.selectOption`
+      if (this.parentElement.hasAttribute('selectOption')) {
+        // Get the declared index value
+        const parentSelectOption = Number(this.parentElement.getAttribute('selectOption'));
+
+        // If the index value is a valid index declaration select the value
+        if (parentSelectOption >= 0) {
+          this.selectOption = parentSelectOption;
+
+          dispatchEventOptionSelected(this.selectOption, this.options[this.selectOption].attributes['data-value'].value, this.options[this.selectOption].innerText);
+        }
+      }
+    }
+
     const handleKeyDown = (evt) => {
       if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
         dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
-      }
-
-      // if user tabs off of last li, send a custom event 'hideOptionsContainer' to parent component
-      if (evt.key.toLowerCase() === 'tab' && !evt.shiftKey && Number(evt.target.getAttribute('index')) === this.options.length - 1) {
-        evt.target.dispatchEvent(new CustomEvent('hideOptionsContainer', {
-          bubbles: true,
-          cancelable: false,
-          composed: true,
-        }));
       }
 
       if (evt.key.toLowerCase() === 'arrowdown') {
