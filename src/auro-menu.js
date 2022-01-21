@@ -113,8 +113,13 @@ class AuroMenu extends LitElement {
     }
 
     const handleKeyDown = (evt) => {
-      if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
-        dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
+      if (!evt.target.hasAttribute('disabled')) {
+        if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
+          if (evt.key.toLowerCase() === ' ') {
+            evt.preventDefault();
+          }
+          dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
+        }
       }
 
       if (evt.key.toLowerCase() === 'arrowdown') {
