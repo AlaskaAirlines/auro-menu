@@ -16,7 +16,7 @@ import "focus-visible/dist/focus-visible.min.js";
  * The auro-menu element provides users a way to select from a list of options.
  *
  * @attr {Number} selectOption - Predefine selected option from menu. Index starts at 0.
- * @fires optionSelected - Value for pre-selected menu option.
+ * @fires optionSelected - Value for pre-selected menu option. This value may be places on the `auro-menu` element specifically or on a outer parent element.
  * @slot Open slot for insertion of menu options.
  */
 
@@ -145,9 +145,9 @@ class AuroMenu extends LitElement {
 
       // each option is tabbable
       this.options[iter].setAttribute('tabindex', '0');
-      this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
       this.options[iter].addEventListener('click', triggerEvent);
       this.options[iter].addEventListener('mousedown', triggerEvent);
+      this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
     }
   }
 
