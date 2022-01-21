@@ -76,13 +76,59 @@ describe('auro-menu', () => {
       }
     }
   });
+
+  it('Preselected option is true', async () => {
+    const el = await preSelectFixture();
+    const index = 2;
+    const menuEl = el.querySelector('auro-menu');
+    let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+  });
+
+  it('Preselected option is true from outer parent', async () => {
+    const el = await outerParentPreSelectFixture();
+    const index = 2;
+    const menuEl = el.querySelector('auro-menu');
+    let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
+
+    for (let i = 0; i < options.length; i++) {
+      if (index === i) {
+        expect(options[i].hasAttribute('selected')).to.equal(true);
+      } else {
+        expect(options[i].hasAttribute('selected')).to.equal(false);
+      }
+    }
+  });
 });
 
 
-// Template fixture used in all the tests
+// Template fixtures used in tests
 async function defaultFixture() {
   return await fixture(html`
       <div>
+        <auro-menu><auro-menuoption data-value="option 1">option 1</auro-menuoption><auro-menuoption data-value="option 2">option 2</auro-menuoption><auro-menuoption data-value="option 3">option 3</auro-menuoption><auro-menuoption data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption data-value="departures">Departures</auro-menuoption><auro-menuoption data-value="arrivals">Arrivals</auro-menuoption></auro-menu>
+      </div>
+  `);
+}
+
+async function preSelectFixture() {
+  return await fixture(html`
+      <div>
+        <auro-menu selectOption="2"><auro-menuoption data-value="option 1">option 1</auro-menuoption><auro-menuoption data-value="option 2">option 2</auro-menuoption><auro-menuoption data-value="option 3">option 3</auro-menuoption><auro-menuoption data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption data-value="departures">Departures</auro-menuoption><auro-menuoption data-value="arrivals">Arrivals</auro-menuoption></auro-menu>
+      </div>
+  `);
+}
+
+async function outerParentPreSelectFixture() {
+  return await fixture(html`
+      <div selectOption="2">
         <auro-menu><auro-menuoption data-value="option 1">option 1</auro-menuoption><auro-menuoption data-value="option 2">option 2</auro-menuoption><auro-menuoption data-value="option 3">option 3</auro-menuoption><auro-menuoption data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption data-value="departures">Departures</auro-menuoption><auro-menuoption data-value="arrivals">Arrivals</auro-menuoption></auro-menu>
       </div>
   `);
