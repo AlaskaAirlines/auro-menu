@@ -40,13 +40,13 @@ import "@aurodesignsystem/auro-menu";
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
 <!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 ```html
-<auro-menu id="auroMenu1" indexSelectedOption="0" ishidden checkmark>
-  <auro-menu-option slot="listOfOptions" data-value="the value for option 1">Stops</auro-menu-option>
-  <auro-menu-option slot="listOfOptions" data-value="the value for option 2">Price</auro-menu-option>
-  <auro-menu-option slot="listOfOptions" data-value="the value for option 3">Duration</auro-menu-option>
-  <auro-menu-option slot="listOfOptions" data-value="the value for option 4">Departure</auro-menu-option>
-  <auro-menu-option slot="listOfOptions" data-value="the value for option 5">Arrival</auro-menu-option>
-  <auro-menu-option slot="listOfOptions" data-value="the value for option 6">Prefer Alaska</auro-menu-option>
+<auro-menu>
+  <auro-menu-option data-value="Stops">Stops</auro-menu-option>
+  <auro-menu-option data-value="Price">Price</auro-menu-option>
+  <auro-menu-option data-value="Duration">Duration</auro-menu-option>
+  <auro-menu-option data-value="Departure">Departure</auro-menu-option>
+  <auro-menu-option data-value="Arrival">Arrival</auro-menu-option>
+  <auro-menu-option data-value="Prefer Alaska">Prefer Alaska</auro-menu-option>
 </auro-menu>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
