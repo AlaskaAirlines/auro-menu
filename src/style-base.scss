@@ -23,6 +23,18 @@
   ::slotted([selected]) {
     padding-left: 0;
   }
+
+  // Styles are set to `important` to ensure they over-ride any styles
+  // set in the user's global scope.
+  /* stylelint-disable declaration-no-important */
+  ::slotted(hr) {
+    overflow: visible !important;
+    height: 0 !important;
+    box-sizing: content-box !important;
+    border-width: 0 !important;
+    border-top: 1px solid var(--auro-color-border-primary-on-light) !important;
+    margin: var(--auro-size-xs) 0 !important;
+  }
 }
 
 ul {
