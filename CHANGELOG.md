@@ -1,5 +1,27 @@
 # Semantic Release Automated Changelog
 
+# [2.2.0](https://github.com/AlaskaAirlines/auro-menu/compare/v2.1.0...v2.2.0) (2022-01-22)
+
+
+### Bug Fixes
+
+* **a11y:** address event firing from keyboard ([d4fbe92](https://github.com/AlaskaAirlines/auro-menu/commit/d4fbe92a876816b335ec98eebbd67dbc3b558b02))
+* **css:** address ui issues from review ([bfe54ff](https://github.com/AlaskaAirlines/auro-menu/commit/bfe54ffa3e49d44e1b505db6f8f43aec7630a8b1))
+* **dom template:** remove unnecessary DOM; address ellipsis feature ([20cf785](https://github.com/AlaskaAirlines/auro-menu/commit/20cf785fd08f552a8f036f6477f8c26fcd0970a0))
+* **style:** adjust font weight [#6](https://github.com/AlaskaAirlines/auro-menu/issues/6) ([d652c82](https://github.com/AlaskaAirlines/auro-menu/commit/d652c8214e9f5e4da5c8d7ee5b2aa517e0ad4529))
+
+
+### Features
+
+* **disabled:** add support for disabled menu option [#25](https://github.com/AlaskaAirlines/auro-menu/issues/25) ([1cc08d4](https://github.com/AlaskaAirlines/auro-menu/commit/1cc08d4509f19202504d78f472f808ef42c417ce))
+* **hr:** add support for hr ui [#70](https://github.com/AlaskaAirlines/auro-menu/issues/70) ([c7f89da](https://github.com/AlaskaAirlines/auro-menu/commit/c7f89da61f8898cf64245729e74935e8f34402c0))
+
+
+### Performance Improvements
+
+* **icon:** update to support direct dependency with icon ([e50de2b](https://github.com/AlaskaAirlines/auro-menu/commit/e50de2b31e88f17b6c841d52b13ff85b5a4f7062))
+* **mdmagic:** reduce scope of mdmagic docs ([cac8a84](https://github.com/AlaskaAirlines/auro-menu/commit/cac8a8458113fad51e22bb784713414de7e31842))
+
 # [2.1.0](https://github.com/AlaskaAirlines/auro-menu/compare/v2.0.0...v2.1.0) (2022-01-07)
 
 
