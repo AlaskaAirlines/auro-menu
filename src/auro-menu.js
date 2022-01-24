@@ -49,14 +49,16 @@ class AuroMenu extends LitElement {
    * @private
    */
   handleSlotChange() {
-    const dispatchEventOptionSelected = (indexValue) => {
+    const dispatchEventOptionSelected = (indexValue, value, displayValue) => {
 
       this.dispatchEvent(new CustomEvent('optionSelected', {
         bubbles: true,
         cancelable: false,
         composed: true,
         detail: {
-          index: indexValue
+          index: indexValue,
+          value,
+          displayValue
         }
       }));
 
