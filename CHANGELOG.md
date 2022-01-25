@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.2.1](https://github.com/AlaskaAirlines/auro-menu/compare/v2.2.0...v2.2.1) (2022-01-25)
+
+
+### Bug Fixes
+
+* **API:** include value data in optionSelected event ([406649f](https://github.com/AlaskaAirlines/auro-menu/commit/406649fc202913956d7df76fd89cf1135f8fb695))
+
 # [2.2.0](https://github.com/AlaskaAirlines/auro-menu/compare/v2.1.0...v2.2.0) (2022-01-22)
 
 
