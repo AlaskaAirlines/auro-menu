@@ -1,5 +1,22 @@
 # Semantic Release Automated Changelog
 
+# [3.0.0](https://github.com/AlaskaAirlines/auro-menu/compare/v2.2.1...v3.0.0) (2022-01-26)
+
+
+### chore
+
+* **deps:** update dependencies and vulnerabilities ([823de79](https://github.com/AlaskaAirlines/auro-menu/commit/823de7954808d45a66b55825dd964728c85778b5))
+
+
+### BREAKING CHANGES
+
+* **deps:** retroactive MAJOR release tag
+New version was accidentally released under v2.2 tag
+
+Changes to be committed:
+modified:   package-lock.json
+modified:   package.json
+
 ## [2.2.1](https://github.com/AlaskaAirlines/auro-menu/compare/v2.2.0...v2.2.1) (2022-01-25)
 
 
