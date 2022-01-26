@@ -90,7 +90,7 @@ To create a natural separation between options, simply use a `<hr>` element.
 
 </auro-accordion>
 
-## Am auro-menuoption element w/disabled state
+## An auro-menuoption element w/disabled state
 
 The `auro-menuoption` element supports the placement of the `disabled` attribute per option. A fully disabled list would be managed in an outer wrapping drop down menu element.
 
