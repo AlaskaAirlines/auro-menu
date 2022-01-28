@@ -16,18 +16,30 @@ The auro-menu element provides users a way to select from a list of options.
 
 ## Slots
 
-| Name | Description                              |
-|------|------------------------------------------|
-|      | Open slot for insertion of menu options. |
+| Name | Description                         |
+|------|-------------------------------------|
+|      | Slot for insertion of menu options. |
 
 
 # auro-menuoption
 
 The auro-menu element provides users a way to define a menu option.
 
+## Attributes
+
+| Attribute | Type     | Description                                 |
+|-----------|----------|---------------------------------------------|
+| `value`   | `String` | Specifies the value to be sent to a server. |
+
 ## Properties
 
 | Property   | Attribute  | Type      | Description                                      |
 |------------|------------|-----------|--------------------------------------------------|
 | `disabled` | `disabled` | `Boolean` | When true specifies that the menuoption is disabled. |
-| `selected` | `selected` | `Boolean` | When true designates the selected menuoption. This attribute is only applied via the `optionSelected` event. If manually added without the `optionSelected` event, the attribute will be removed. |
+| `selected` | `selected` | `Boolean` | Specifies that an option is selected. Attribute is applied via the `optionSelected` event for selection at page load. |
+
+## Slots
+
+| Name | Description                                      |
+|------|--------------------------------------------------|
+|      | Specifies text for an option, but is not the value. |
