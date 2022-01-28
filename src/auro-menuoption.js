@@ -11,8 +11,10 @@ import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 /**
  * The auro-menu element provides users a way to define a menu option.
  *
+ * @attr {String} value - Specifies the value to be sent to a server.
  * @attr {Boolean} disabled - When true specifies that the menuoption is disabled.
- * @attr {Boolean} selected - When true designates the selected menuoption. This attribute is only applied via the `optionSelected` event. If manually added without the `optionSelected` event, the attribute will be removed.
+ * @attr {Boolean} selected - Specifies that an option is selected. Attribute is applied via the `optionSelected` event for selection at page load.
+ * @slot Specifies text for an option, but is not the value.
  */
 class AuroMenuOption extends LitElement {
   constructor() {
