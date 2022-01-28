@@ -17,7 +17,7 @@ import "focus-visible/dist/focus-visible.min.js";
  *
  * @attr {Number} selectOption - Predefine selected option from menu. Index starts at 0.
  * @fires optionSelected - Value for pre-selected menu option. This value may be placed on the `auro-menu` element specifically or on a outer parent element.
- * @slot Open slot for insertion of menu options.
+ * @slot Slot for insertion of menu options.
  */
 
 class AuroMenu extends LitElement {
@@ -109,7 +109,11 @@ class AuroMenu extends LitElement {
         if (parentSelectOption >= 0) {
           this.selectOption = parentSelectOption;
 
-          dispatchEventOptionSelected(this.selectOption, this.options[this.selectOption].attributes['data-value'].value, this.options[this.selectOption].innerText);
+          dispatchEventOptionSelected(
+            this.selectOption,
+            this.options[this.selectOption].value,
+            this.options[this.selectOption].innerText
+          );
         }
       }
     }
@@ -120,7 +124,7 @@ class AuroMenu extends LitElement {
           if (evt.key.toLowerCase() === ' ') {
             evt.preventDefault();
           }
-          dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
+          dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.value, evt.target.innerText);
         }
       }
 
@@ -146,7 +150,7 @@ class AuroMenu extends LitElement {
     };
 
     // Prep each <li>. Give it an index, set its tabindex to -1, add 'keydown' and 'click' event listeners, inject a check mark icon
-    const triggerEvent = (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('data-value'), evt.target.innerText);
+    const triggerEvent = (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('value'), evt.target.innerText);
 
     for (let iter = 0; iter < this.options.length; iter += 1) {
 

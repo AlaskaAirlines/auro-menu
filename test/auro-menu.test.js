@@ -113,7 +113,7 @@ describe('auro-menu', () => {
 async function defaultFixture() {
   return await fixture(html`
       <div>
-        <auro-menu><auro-menuoption data-value="option 1">option 1</auro-menuoption><auro-menuoption data-value="option 2">option 2</auro-menuoption><auro-menuoption data-value="option 3">option 3</auro-menuoption><auro-menuoption data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption data-value="departures">Departures</auro-menuoption><auro-menuoption data-value="arrivals">Arrivals</auro-menuoption></auro-menu>
+        <auro-menu><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
       </div>
   `);
 }
@@ -121,7 +121,7 @@ async function defaultFixture() {
 async function preSelectFixture() {
   return await fixture(html`
       <div>
-        <auro-menu selectOption="2"><auro-menuoption data-value="option 1">option 1</auro-menuoption><auro-menuoption data-value="option 2">option 2</auro-menuoption><auro-menuoption data-value="option 3">option 3</auro-menuoption><auro-menuoption data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption data-value="departures">Departures</auro-menuoption><auro-menuoption data-value="arrivals">Arrivals</auro-menuoption></auro-menu>
+        <auro-menu selectOption="2"><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
       </div>
   `);
 }
@@ -129,7 +129,7 @@ async function preSelectFixture() {
 async function outerParentPreSelectFixture() {
   return await fixture(html`
       <div selectOption="2">
-        <auro-menu><auro-menuoption data-value="option 1">option 1</auro-menuoption><auro-menuoption data-value="option 2">option 2</auro-menuoption><auro-menuoption data-value="option 3">option 3</auro-menuoption><auro-menuoption data-value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption data-value="departures">Departures</auro-menuoption><auro-menuoption data-value="arrivals">Arrivals</auro-menuoption></auro-menu>
+        <auro-menu><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
       </div>
   `);
 }
