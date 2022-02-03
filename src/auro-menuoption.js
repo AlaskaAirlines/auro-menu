@@ -13,7 +13,7 @@ import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
  *
  * @attr {String} value - Specifies the value to be sent to a server.
  * @attr {Boolean} disabled - When true specifies that the menuoption is disabled.
- * @attr {Boolean} selected - Specifies that an option is selected. Attribute is applied via the `optionSelected` event for selection at page load.
+ * @attr {Boolean} selected - Specifies that an option is selected.
  * @slot Specifies text for an option, but is not the value.
  */
 class AuroMenuOption extends LitElement {
@@ -38,10 +38,6 @@ class AuroMenuOption extends LitElement {
 
   static get properties() {
     return {
-
-      /**
-       * @private
-       */
       selected:         { type: Boolean },
       disabled:         { type: Boolean },
       value: {
