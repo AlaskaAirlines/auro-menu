@@ -28,12 +28,12 @@
   }
 }
 
-:host(:hover) {
+:host(:hover:not([disabled])) {
   background-color: var(--auro-color-brand-neutral-100);
   color: var(--auro-color-text-primary-on-light);
 }
 
-:host(:focus) {
+:host(:focus:not([disabled])) {
   background-color: var(--auro-color-alert-notification-on-light);
   color: var(--auro-color-base-white);
 
@@ -42,8 +42,11 @@
   }
 }
 
+:host([disabled]:hover) {
+  cursor: auto;
+}
+
 :host([disabled]) {
   color: var(--auro-color-text-disabled-on-light);
-  pointer-events: none;
   user-select: none;
 }
