@@ -4,16 +4,20 @@ import '../src/auro-menu.js';
 import '../src/auro-menuoption.js';
 
 describe('auro-menu', () => {
-  let currentlySelectedIndex = null;
+  it('auro-menu custom element is defined', async () => {
+    const el = await !!customElements.get("auro-menu");
 
-  before(() => {
-    document.addEventListener('optionSelected', (evt) => {
-      currentlySelectedIndex = evt.detail.index;
-    });
+    await expect(el).to.be.true;
   });
 
-  after(() => {
-    currentlySelectedIndex = null;
+  it('auro-menu is accessible', async () => {
+    const el = await fixture(html`
+      <auro-menu>
+        <auro-menuoption value="foo">Foo</auro-menuoption>
+      </auro-menu>
+    `);
+
+    await expect(el).to.be.accessible();
   });
 
   it('Preset value is selected', async () => {
@@ -24,11 +28,18 @@ describe('auro-menu', () => {
 
     options[index].click();
 
+    options[index].dispatchEvent(new Event('mousedown', {
+      bubbles: true,
+      composed: true
+    }));
+
     for (let i = 0; i < options.length; i++) {
       if (index === i) {
         expect(options[i].hasAttribute('selected')).to.equal(true);
+        expect(options[i].hasAttribute('aria-selected')).to.equal(true);
       } else {
         expect(options[i].hasAttribute('selected')).to.equal(false);
+        expect(options[i].hasAttribute('aria-selected')).to.equal(false);
       }
     }
   });
@@ -49,62 +60,112 @@ describe('auro-menu', () => {
     for (let i = 0; i < options.length; i++) {
       if (index === i) {
         expect(options[i].hasAttribute('selected')).to.equal(true);
+        expect(options[i].hasAttribute('aria-selected')).to.equal(true);
       } else {
         expect(options[i].hasAttribute('selected')).to.equal(false);
+        expect(options[i].hasAttribute('aria-selected')).to.equal(false);
       }
     }
   });
 
-  it('Spacebar keyboardEvent marks option as selected', async () => {
+  it('Enter ArrowDown marks option as selected', async () => {
     const el = await defaultFixture();
-    const index = 2;
     const menuEl = el.querySelector('auro-menu');
     let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
+
+    options[0].dispatchEvent(new Event('mousedown', {
+      bubbles: true,
+      composed: true
+    }));
+
+    options[0].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'ArrowDown'
+    }));
+
+    options[1].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'Enter'
+    }));
+
+    expect(options[1].hasAttribute('selected')).to.equal(true);
+  });
+
+  it('ArrowDown loops to 1st option in slot', async () => {
+    const el = await defaultFixture();
+    const menuEl = el.querySelector('auro-menu');
+    let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
+
+    options[5].dispatchEvent(new Event('mousedown', {
+      bubbles: true,
+      composed: true
+    }));
+
+    options[5].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'ArrowDown'
+    }));
+
+    options[0].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'Enter'
+    }));
+
+    expect(options[0].hasAttribute('selected')).to.equal(true);
+  });
+
+  it('Enter ArrowUp marks option as selected', async () => {
+    const el = await defaultFixture();
+    const menuEl = el.querySelector('auro-menu');
+    let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
+
+    options[2].dispatchEvent(new Event('mousedown', {
+      bubbles: true,
+      composed: true
+    }));
 
     options[2].dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
-      'key': ' '
-    }
-    ));
+      'key': 'ArrowUp'
+    }));
 
-    for (let i = 0; i < options.length; i++) {
-      if (index === i) {
-        expect(options[i].hasAttribute('selected')).to.equal(true);
-      } else {
-        expect(options[i].hasAttribute('selected')).to.equal(false);
-      }
-    }
+    options[1].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'Enter'
+    }));
+
+    expect(options[1].hasAttribute('selected')).to.equal(true);
   });
 
-  it('Preselected option is true', async () => {
-    const el = await preSelectFixture();
-    const index = 2;
+  it('ArrowUp moves to last option in slot', async () => {
+    const el = await defaultFixture();
     const menuEl = el.querySelector('auro-menu');
     let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
 
-    for (let i = 0; i < options.length; i++) {
-      if (index === i) {
-        expect(options[i].hasAttribute('selected')).to.equal(true);
-      } else {
-        expect(options[i].hasAttribute('selected')).to.equal(false);
-      }
-    }
-  });
+    options[0].dispatchEvent(new Event('mousedown', {
+      bubbles: true,
+      composed: true
+    }));
 
-  it('Preselected option is true from outer parent', async () => {
-    const el = await outerParentPreSelectFixture();
-    const index = 2;
-    const menuEl = el.querySelector('auro-menu');
-    let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
+    options[0].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'ArrowUp'
+    }));
 
-    for (let i = 0; i < options.length; i++) {
-      if (index === i) {
-        expect(options[i].hasAttribute('selected')).to.equal(true);
-      } else {
-        expect(options[i].hasAttribute('selected')).to.equal(false);
-      }
-    }
+    options[5].dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'Enter'
+    }));
+
+    expect(options[5].hasAttribute('selected')).to.equal(true);
   });
 });
 
@@ -113,23 +174,7 @@ describe('auro-menu', () => {
 async function defaultFixture() {
   return await fixture(html`
       <div>
-        <auro-menu><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
-      </div>
-  `);
-}
-
-async function preSelectFixture() {
-  return await fixture(html`
-      <div>
-        <auro-menu selectOption="2"><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
-      </div>
-  `);
-}
-
-async function outerParentPreSelectFixture() {
-  return await fixture(html`
-      <div selectOption="2">
-        <auro-menu><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
+        <auro-menu><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption disabled value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
       </div>
   `);
 }

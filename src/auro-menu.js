@@ -1,5 +1,4 @@
 /* eslint-disable no-magic-numbers */
-/* eslint-disable no-plusplus */
 // Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
@@ -14,29 +13,22 @@ import "focus-visible/dist/focus-visible.min.js";
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
  * The auro-menu element provides users a way to select from a list of options.
- *
- * @attr {Number} selectOption - Predefine selected option from menu. Index starts at 0.
- * @fires optionSelected - Value for pre-selected menu option. This value may be placed on the `auro-menu` element specifically or on a outer parent element.
+ * @attr {String} value - Specifies the value to be sent to a server.
+ * @fires selectedOption - Value for selected menu option.
  * @slot Slot for insertion of menu options.
  */
 
 class AuroMenu extends LitElement {
   constructor() {
     super();
-
-    this.options = null;
+    this.value = undefined;
   }
 
-  static get properties() {
-    return {
-      selectOption: { type: Number },
+  // static get properties() {
+  //   return {
 
-      /**
-       * @private
-       */
-      options: { type: Array }
-    };
-  }
+  //   };
+  // }
 
   static get styles() {
     return [
@@ -45,126 +37,154 @@ class AuroMenu extends LitElement {
     ];
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener('keydown', this.handleKeyDown);
+    this.addEventListener('mousedown', this.handleClick);
+  }
+
   /**
+   * Manage click events.
+   * Event fires, but attributes are not changed on elements with the disabled attribute.
    * @private
+   * @param {Object} event - Event object from the browser.
    */
-  handleSlotChange() {
-    const dispatchEventOptionSelected = (indexValue, value, displayValue) => {
+  handleClick(event) {
 
-      this.dispatchEvent(new CustomEvent('optionSelected', {
-        bubbles: true,
-        cancelable: false,
-        composed: true,
-        detail: {
-          index: indexValue,
-          value,
-          displayValue
-        }
-      }));
+    this.index = this.items.indexOf(event.target);
 
-      /**
-       * Specifically for use case where the `selectOption`
-       * is set on an anonymous parent element.
-       */
-      this.options.forEach((option, index) => {
-        if (indexValue === index) {
-          option.setAttribute('selected', '');
-          this.selectOption = index;
-        } else {
-          option.removeAttribute('selected');
-        }
+    if (!event.target.disabled) {
+      this.items.forEach((item) => {
+        item.tabIndex = -1;
+        item.removeAttribute('selected');
+        item.removeAttribute('aria-selected');
       });
-    };
 
-    this.options = this.querySelectorAll('auro-menuoption');
+      event.target.tabIndex = 0;
+      event.target.setAttribute('selected', '');
+      event.target.ariaSelected = true;
+      this.value = event.target.value;
+    }
+  }
 
-    /**
-     * Loop to apply index attribute and value to menuoption elements.
-     * If this.selectOption has a value, use that to pre-apply
-     * the `selected` attribute.
-     */
-    this.options.forEach((option, index) => {
-      option.setAttribute('index', index);
+  /**
+   * Manage ArrowDown, ArrowUp and Enter keyboard events.
+   * @private
+   * @param {Object} event - Event object from the browser.
+   */
+  handleKeyDown(event) {
+    event.preventDefault();
 
-      if (this.selectOption === index) {
-        option.setAttribute('selected', '');
-      } else {
-        option.removeAttribute('selected');
+    // With each keyboard 'enter' event, reset attr settings on options.
+    this.items.forEach((item) => {
+      if (event.key === `Enter`) {
+        item.removeAttribute('selected');
+        item.removeAttribute('aria-selected');
       }
     });
 
-    /**
-     * Checks to see if `this.selectOption` is set on the menu element.
-     * If `selectOption` is not set, looks to see if
-     * parent element has `selectOption` defined.
-     */
-    if (!this.selectOption) {
+    // With ArrowDown/ArrowUp events, pass new value to selectNextItem()
+    // With Enter event, set value and apply attrs
+    switch (event.key) {
+      case "ArrowDown":
+        event.target.tabIndex = -1;
+        this.selectNextItem(this.index === this.items.length - 1 ? 0 : this.index + 1, "Down");
+        break;
 
-      // Check if the parent has a declared `this.selectOption`
-      if (this.parentElement.hasAttribute('selectOption')) {
-        // Get the declared index value
-        const parentSelectOption = Number(this.parentElement.getAttribute('selectOption'));
+      case "ArrowUp":
+        event.target.tabIndex = -1;
+        this.selectNextItem(this.index === 0 ? this.items.length - 1 : this.index - 1, "Up");
+        break;
 
-        // If the index value is a valid index declaration select the value
-        if (parentSelectOption >= 0) {
-          this.selectOption = parentSelectOption;
+      case "Enter":
+        event.target.setAttribute('selected', '');
+        event.target.ariaSelected = true;
+        this.value = event.target.value;
+        break;
+      default:
+        break;
+    }
+  }
 
-          dispatchEventOptionSelected(
-            this.selectOption,
-            this.options[this.selectOption].value,
-            this.options[this.selectOption].innerText
-          );
-        }
+  /**
+   * Using value of current this.index, on keyboard event, evaluates index
+   * of next :focus to set based on array of this.items ignoring items
+   * with disabled attr.
+   *
+   * The event.target is not used as the function needs to know where to go,
+   * versus knowing where it is.
+   * @private
+   * @param {Number} index - Index value from array of elements.
+   * @param {String} moveDirection - Up or Down based on keyboard event.
+   */
+  selectNextItem(index, moveDirection) {
+    let currentIndex = index;
+
+    for (currentIndex; currentIndex < this.items.length; moveDirection === "Down" ? currentIndex += 1 : currentIndex -= 1) {
+      currentIndex = currentIndex === -1 ? this.items.length - 1 : currentIndex;
+      const selectedItem = this.items[currentIndex];
+
+      if (!selectedItem.disabled) {
+        selectedItem.click();
+        selectedItem.focus();
+        selectedItem.tabIndex = 0;
+        this.index = currentIndex;
+        break;
       }
     }
+  }
 
-    const handleKeyDown = (evt) => {
-      if (!evt.target.hasAttribute('disabled')) {
-        if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
-          if (evt.key.toLowerCase() === ' ') {
-            evt.preventDefault();
-          }
-          dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.value, evt.target.innerText);
-        }
+  /**
+   * Custom event that returns the selected option's value.
+   * Use event to trigger the state of wrapping elements.
+   * @private
+   */
+  selectedOption() {
+    this.dispatchEvent(new CustomEvent('selectedOption', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+      detail: {
+        value: this.value
       }
+    }));
+  }
 
-      if (evt.key.toLowerCase() === 'arrowdown') {
-        evt.preventDefault();
+  /**
+   * Used for @slotchange event on slotted element.
+   * @private
+   */
+  handleSlotItems() {
+    this.items = Array.from(this.querySelectorAll('auro-menuoption'));
+    this.initializeIndex();
+    this.selectedOption();
+  }
 
-        if (Number(evt.target.getAttribute('index')) === this.options.length - 1) {
-          this.options[0].focus();
-        } else {
-          this.options[Number(evt.target.getAttribute('index')) + 1].focus();
-        }
-      }
+  /**
+   * This function will iterate over the array of items in the slot find the selected
+   * option that is not disabled and apply tabindex='0' to set tab order.
+   * @private
+   */
+  initializeIndex() {
+    const index = this.items.findIndex((item) => item.hasAttribute('selected') && !item.hasAttribute('disabled'));
+    const nextEnabledIndex = this.items.findIndex((item) => !item.hasAttribute('disabled'));
+    this.index = index >= 0 ? index : nextEnabledIndex;
+    this.setAttribute('role', 'menu');
+    this.items.map((item) => item.setAttribute('role', 'menuitem'));
 
-      if (evt.key.toLowerCase() === 'arrowup') {
-        evt.preventDefault();
+    if (this.index >= 0) {
+      this.items[this.index].tabIndex = 0;
+    }
 
-        if (Number(evt.target.getAttribute('index')) === 0) {
-          this.options[this.options.length - 1].focus();
-        } else {
-          this.options[Number(evt.target.getAttribute('index')) - 1].focus();
-        }
-      }
-    };
-
-    // Prep each <li>. Give it an index, set its tabindex to -1, add 'keydown' and 'click' event listeners, inject a check mark icon
-    const triggerEvent = (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('value'), evt.target.innerText);
-
-    for (let iter = 0; iter < this.options.length; iter += 1) {
-
-      // each option is tabbable
-      this.options[iter].setAttribute('tabindex', '0');
-      this.options[iter].addEventListener('click', triggerEvent);
-      this.options[iter].addEventListener('mousedown', triggerEvent);
-      this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
+    if (this.items[this.index].selected) {
+      this.items[this.index].ariaSelected = true;
+      this.value = this.items[this.index].value;
     }
   }
 
   render() {
     return html`
-      <slot @slotchange=${this.handleSlotChange}></slot>
+      <slot @slotchange=${this.handleSlotItems}></slot>
     `;
   }
 }
