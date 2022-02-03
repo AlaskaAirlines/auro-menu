@@ -30,6 +30,7 @@ The auro-menu element provides users a way to define a menu option.
 | Property   | Attribute  | Type      | Description                                      |
 |------------|------------|-----------|--------------------------------------------------|
 | `disabled` | `disabled` | `Boolean` | When true specifies that the menuoption is disabled. |
+| `selected` | `selected` | `Boolean` | Specifies that an option is selected.            |
 | `value`    | `value`    | `String`  | Specifies the value to be sent to a server.      |
 
 ## Slots
