@@ -23,6 +23,11 @@ class AuroMenuOption extends LitElement {
     /**
      * @private
      */
+    this.tabIndex = -1;
+
+    /**
+     * @private
+     */
     this.dom = new DOMParser().parseFromString(check.svg, 'text/html');
 
     /**
@@ -37,10 +42,16 @@ class AuroMenuOption extends LitElement {
       /**
        * @private
        */
-      index:            { type: Number },
-
       selected:         { type: Boolean },
-      disabled:         { type: Boolean }
+      disabled:         { type: Boolean },
+      value: {
+        type: String,
+        reflect: true
+      },
+      tabIndex: {
+        type: Number,
+        reflect: true
+      }
     };
   }
 
