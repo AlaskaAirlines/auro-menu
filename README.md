@@ -37,16 +37,15 @@ import "@aurodesignsystem/auro-menu";
 ```
 
 **Reference component in HTML**
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./demo/partials/default.html) -->
+<!-- The below code snippet is automatically added from ./demo/partials/default.html -->
 ```html
 <auro-menu>
-  <auro-menu-option data-value="Stops">Stops</auro-menu-option>
-  <auro-menu-option data-value="Price">Price</auro-menu-option>
-  <auro-menu-option data-value="Duration">Duration</auro-menu-option>
-  <auro-menu-option data-value="Departure">Departure</auro-menu-option>
-  <auro-menu-option data-value="Arrival">Arrival</auro-menu-option>
-  <auro-menu-option data-value="Prefer Alaska">Prefer Alaska</auro-menu-option>
+  <auro-menuoption value="stops">Stops</auro-menuoption>
+  <auro-menuoption value="price">Price</auro-menuoption>
+  <auro-menuoption value="duration">Duration</auro-menuoption>
+  <auro-menuoption value="departure">Departure</auro-menuoption>
+  <auro-menuoption value="arrival">Arrival</auro-menuoption>
 </auro-menu>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
