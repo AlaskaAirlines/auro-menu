@@ -14,11 +14,11 @@ A default `auro-menu` element with nested `auro-menuoption` elements to generate
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/default.html) -->
   <!-- The below content is automatically added from ./partials/default.html -->
   <auro-menu>
-    <auro-menuoption value="Stops">Stops</auro-menuoption>
-    <auro-menuoption value="Price">Price</auro-menuoption>
-    <auro-menuoption value="Duration">Duration</auro-menuoption>
-    <auro-menuoption value="Departure">Departure</auro-menuoption>
-    <auro-menuoption value="Arrival">Arrival</auro-menuoption>
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
@@ -30,11 +30,11 @@ A default `auro-menu` element with nested `auro-menuoption` elements to generate
   <!-- The below code snippet is automatically added from ./partials/default.html -->
   ```html
   <auro-menu>
-    <auro-menuoption value="Stops">Stops</auro-menuoption>
-    <auro-menuoption value="Price">Price</auro-menuoption>
-    <auro-menuoption value="Duration">Duration</auro-menuoption>
-    <auro-menuoption value="Departure">Departure</auro-menuoption>
-    <auro-menuoption value="Arrival">Arrival</auro-menuoption>
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
   </auro-menu>
   ```
   <!-- AURO-GENERATED-CONTENT:END -->
@@ -49,18 +49,18 @@ To create a natural separation between options, simply use a `<hr>` element.
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/hr.html) -->
   <!-- The below content is automatically added from ./partials/hr.html -->
   <auro-menu>
-    <auro-menuoption value="New tab">New tab</auro-menuoption>
-    <auro-menuoption value="New window">New window</auro-menuoption>
-    <auro-menuoption value="Open file">Open file</auro-menuoption>
-    <auro-menuoption value="Open location">Open location</auro-menuoption>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
     <hr>
-    <auro-menuoption value="Close window">Close window</auro-menuoption>
-    <auro-menuoption value="Close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="Save page as...">Save page as...</auro-menuoption>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab">Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
     <hr>
-    <auro-menuoption value="Share">Share</auro-menuoption>
+    <auro-menuoption value="share">Share</auro-menuoption>
     <hr>
-    <auro-menuoption value="Print">Print</auro-menuoption>
+    <auro-menuoption value="print">Print</auro-menuoption>
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
@@ -72,18 +72,18 @@ To create a natural separation between options, simply use a `<hr>` element.
   <!-- The below code snippet is automatically added from ./partials/hr.html -->
   ```html
   <auro-menu>
-    <auro-menuoption value="New tab">New tab</auro-menuoption>
-    <auro-menuoption value="New window">New window</auro-menuoption>
-    <auro-menuoption value="Open file">Open file</auro-menuoption>
-    <auro-menuoption value="Open location">Open location</auro-menuoption>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
     <hr>
-    <auro-menuoption value="Close window">Close window</auro-menuoption>
-    <auro-menuoption value="Close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="Save page as...">Save page as...</auro-menuoption>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab">Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
     <hr>
-    <auro-menuoption value="Share">Share</auro-menuoption>
+    <auro-menuoption value="share">Share</auro-menuoption>
     <hr>
-    <auro-menuoption value="Print">Print</auro-menuoption>
+    <auro-menuoption value="print">Print</auro-menuoption>
   </auro-menu>
   ```
   <!-- AURO-GENERATED-CONTENT:END -->
@@ -98,18 +98,18 @@ The `auro-menuoption` element supports the placement of the `disabled` attribute
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/disabled.html) -->
   <!-- The below content is automatically added from ./partials/disabled.html -->
   <auro-menu>
-    <auro-menuoption value="New tab">New tab</auro-menuoption>
-    <auro-menuoption value="New window">New window</auro-menuoption>
-    <auro-menuoption value="Open file">Open file</auro-menuoption>
-    <auro-menuoption value="Open location">Open location</auro-menuoption>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
     <hr>
-    <auro-menuoption value="Close window">Close window</auro-menuoption>
-    <auro-menuoption value="Close tab" disabled>Close tab</auro-menuoption>
-    <auro-menuoption value="Save page as...">Save page as...</auro-menuoption>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab" disabled>Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
     <hr>
-    <auro-menuoption value="Share" disabled>Share</auro-menuoption>
+    <auro-menuoption value="share" disabled>Share</auro-menuoption>
     <hr>
-    <auro-menuoption value="Print">Print</auro-menuoption>
+    <auro-menuoption value="print">Print</auro-menuoption>
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
@@ -121,18 +121,18 @@ The `auro-menuoption` element supports the placement of the `disabled` attribute
   <!-- The below code snippet is automatically added from ./partials/disabled.html -->
   ```html
   <auro-menu>
-    <auro-menuoption value="New tab">New tab</auro-menuoption>
-    <auro-menuoption value="New window">New window</auro-menuoption>
-    <auro-menuoption value="Open file">Open file</auro-menuoption>
-    <auro-menuoption value="Open location">Open location</auro-menuoption>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
     <hr>
-    <auro-menuoption value="Close window">Close window</auro-menuoption>
-    <auro-menuoption value="Close tab" disabled>Close tab</auro-menuoption>
-    <auro-menuoption value="Save page as...">Save page as...</auro-menuoption>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab" disabled>Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
     <hr>
-    <auro-menuoption value="Share" disabled>Share</auro-menuoption>
+    <auro-menuoption value="share" disabled>Share</auro-menuoption>
     <hr>
-    <auro-menuoption value="Print">Print</auro-menuoption>
+    <auro-menuoption value="print">Print</auro-menuoption>
   </auro-menu>
   ```
   <!-- AURO-GENERATED-CONTENT:END -->
@@ -141,24 +141,24 @@ The `auro-menuoption` element supports the placement of the `disabled` attribute
 
 ## Menu with pre-selected menu option
 
-The `auro-menu` element supports a pre-selected menu option via the `selectOption` attribute. NOTE: The value of the pre-selected node is based on a `0` index.
+The `auro-menu` element supports a pre-selected option via the `selected` attribute on the `auro-menuoption` element.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/preselect.html) -->
   <!-- The below content is automatically added from ./partials/preselect.html -->
-  <auro-menu selectOption="2">
-    <auro-menuoption value="New tab">New tab</auro-menuoption>
-    <auro-menuoption value="New window">New window</auro-menuoption>
-    <auro-menuoption value="Open file">Open file</auro-menuoption>
-    <auro-menuoption value="Open location">Open location</auro-menuoption>
+  <auro-menu>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window" selected>New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
     <hr>
-    <auro-menuoption value="Close window">Close window</auro-menuoption>
-    <auro-menuoption value="Close tab" disabled>Close tab</auro-menuoption>
-    <auro-menuoption value="Save page as...">Save page as...</auro-menuoption>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab" disabled>Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
     <hr>
-    <auro-menuoption value="Share" disabled>Share</auro-menuoption>
+    <auro-menuoption value="share" disabled>Share</auro-menuoption>
     <hr>
-    <auro-menuoption value="Print">Print</auro-menuoption>
+    <auro-menuoption value="print">Print</auro-menuoption>
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
@@ -169,19 +169,19 @@ The `auro-menu` element supports a pre-selected menu option via the `selectOptio
   <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/preselect.html) -->
   <!-- The below code snippet is automatically added from ./partials/preselect.html -->
   ```html
-  <auro-menu selectOption="2">
-    <auro-menuoption value="New tab">New tab</auro-menuoption>
-    <auro-menuoption value="New window">New window</auro-menuoption>
-    <auro-menuoption value="Open file">Open file</auro-menuoption>
-    <auro-menuoption value="Open location">Open location</auro-menuoption>
+  <auro-menu>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window" selected>New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
     <hr>
-    <auro-menuoption value="Close window">Close window</auro-menuoption>
-    <auro-menuoption value="Close tab" disabled>Close tab</auro-menuoption>
-    <auro-menuoption value="Save page as...">Save page as...</auro-menuoption>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab" disabled>Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
     <hr>
-    <auro-menuoption value="Share" disabled>Share</auro-menuoption>
+    <auro-menuoption value="share" disabled>Share</auro-menuoption>
     <hr>
-    <auro-menuoption value="Print">Print</auro-menuoption>
+    <auro-menuoption value="print">Print</auro-menuoption>
   </auro-menu>
   ```
   <!-- AURO-GENERATED-CONTENT:END -->
@@ -196,18 +196,18 @@ The `auro-menu` element supports scenarios where the outer parent element of the
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/restrictedWidth.html) -->
   <!-- The below content is automatically added from ./partials/restrictedWidth.html -->
   <auro-menu style="width: 300px">
-    <auro-menuoption value="New tab">New tab</auro-menuoption>
-    <auro-menuoption value="New window">New window</auro-menuoption>
-    <auro-menuoption value="Open file">Open file</auro-menuoption>
-    <auro-menuoption value="Open location">Open location</auro-menuoption>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
     <hr>
-    <auro-menuoption value="Close window">Close window</auro-menuoption>
-    <auro-menuoption value="Close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="Save page as...">Save page as 'option_10_redevelopment_hover_scenario.png'</auro-menuoption>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab">Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as 'option_10_redevelopment_hover_scenario.png'</auro-menuoption>
     <hr>
-    <auro-menuoption value="Share">Share</auro-menuoption>
+    <auro-menuoption value="share">Share</auro-menuoption>
     <hr>
-    <auro-menuoption value="Print">Print</auro-menuoption>
+    <auro-menuoption value="print">Print</auro-menuoption>
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
@@ -219,18 +219,18 @@ The `auro-menu` element supports scenarios where the outer parent element of the
   <!-- The below code snippet is automatically added from ./partials/restrictedWidth.html -->
   ```html
   <auro-menu style="width: 300px">
-    <auro-menuoption value="New tab">New tab</auro-menuoption>
-    <auro-menuoption value="New window">New window</auro-menuoption>
-    <auro-menuoption value="Open file">Open file</auro-menuoption>
-    <auro-menuoption value="Open location">Open location</auro-menuoption>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
     <hr>
-    <auro-menuoption value="Close window">Close window</auro-menuoption>
-    <auro-menuoption value="Close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="Save page as...">Save page as 'option_10_redevelopment_hover_scenario.png'</auro-menuoption>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab">Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as 'option_10_redevelopment_hover_scenario.png'</auro-menuoption>
     <hr>
-    <auro-menuoption value="Share">Share</auro-menuoption>
+    <auro-menuoption value="share">Share</auro-menuoption>
     <hr>
-    <auro-menuoption value="Print">Print</auro-menuoption>
+    <auro-menuoption value="print">Print</auro-menuoption>
   </auro-menu>
   ```
   <!-- AURO-GENERATED-CONTENT:END -->
