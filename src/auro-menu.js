@@ -37,10 +37,10 @@ class AuroMenu extends LitElement {
     ];
   }
 
-  connectedCallback() {
-    super.connectedCallback();
+  firstUpdated() {
     this.addEventListener('keydown', this.handleKeyDown);
     this.addEventListener('mousedown', this.handleClick);
+    this.addEventListener('click', this.selectedOption);
   }
 
   /**
@@ -80,6 +80,7 @@ class AuroMenu extends LitElement {
       if (event.key === `Enter`) {
         item.removeAttribute('selected');
         item.removeAttribute('aria-selected');
+        item.tabIndex = -1;
       }
     });
 
@@ -87,18 +88,17 @@ class AuroMenu extends LitElement {
     // With Enter event, set value and apply attrs
     switch (event.key) {
       case "ArrowDown":
-        event.target.tabIndex = -1;
         this.selectNextItem(this.index === this.items.length - 1 ? 0 : this.index + 1, "Down");
         break;
 
       case "ArrowUp":
-        event.target.tabIndex = -1;
         this.selectNextItem(this.index === 0 ? this.items.length - 1 : this.index - 1, "Up");
         break;
 
       case "Enter":
         event.target.setAttribute('selected', '');
         event.target.ariaSelected = true;
+        event.target.tabIndex = 0;
         this.value = event.target.value;
         break;
       default:
@@ -127,7 +127,6 @@ class AuroMenu extends LitElement {
       if (!selectedItem.disabled) {
         selectedItem.click();
         selectedItem.focus();
-        selectedItem.tabIndex = 0;
         this.index = currentIndex;
         break;
       }
