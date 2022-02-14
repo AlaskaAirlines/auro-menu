@@ -1,5 +1,5 @@
 
-import { fixture, html, expect, triggerFocusFor, oneEvent } from '@open-wc/testing';
+import { fixture, html, expect } from '@open-wc/testing';
 import '../src/auro-menu.js';
 import '../src/auro-menuoption.js';
 
