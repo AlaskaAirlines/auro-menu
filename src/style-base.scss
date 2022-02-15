@@ -19,13 +19,13 @@
   margin: 0;
   vertical-align: middle;
 
-  ::slotted(auro-menuoption) {
-    padding-left: calc(var(--auro-size-sm) + 24px + var(--auro-size-xs));
-  }
+  // ::slotted(auro-menuoption) {
+  //   padding-left: calc(var(--auro-size-sm) + 24px + var(--auro-size-xs));
+  // }
 
-  ::slotted([selected]) {
-    padding-left: 0;
-  }
+  // ::slotted([selected]) {
+  //   padding-left: 0;
+  // }
 
   // Styles are set to `important` to ensure they over-ride any styles
   // set in the user's global scope.

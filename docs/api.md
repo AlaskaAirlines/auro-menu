@@ -2,17 +2,17 @@
 
 The auro-menu element provides users a way to select from a list of options.
 
-## Properties
+## Attributes
 
-| Property       | Attribute      | Type     | Description                                      |
-|----------------|----------------|----------|--------------------------------------------------|
-| `selectOption` | `selectOption` | `Number` | Predefine selected option from menu. Index starts at 0. |
+| Attribute      | Type     | Description                                      |
+|----------------|----------|--------------------------------------------------|
+| `selectOption` | `Number` | Predefine selected option from menu. Index starts at 0. |
 
 ## Events
 
-| Event            | Type                                             | Description                                      |
-|------------------|--------------------------------------------------|--------------------------------------------------|
-| `optionSelected` | `CustomEvent<{ index: any; value: any; displayValue: any; }>` | Value for pre-selected menu option. This value may be placed on the `auro-menu` element specifically or on a outer parent element. |
+| Event            | Description                                      |
+|------------------|--------------------------------------------------|
+| `optionSelected` | Value for pre-selected menu option. This value may be placed on the `auro-menu` element specifically or on a outer parent element. |
 
 ## Slots
 

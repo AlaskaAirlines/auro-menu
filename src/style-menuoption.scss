@@ -10,7 +10,7 @@
 :host {
   display: flex;
   align-items: center;
-  padding: var(--auro-size-xxs) var(--auro-size-md) var(--auro-size-xxs) 0;
+  padding: var(--auro-size-xxs) var(--auro-size-md); //  var(--auro-size-xxs) 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 
@@ -46,4 +46,13 @@
   color: var(--auro-color-text-disabled-on-light);
   pointer-events: none;
   user-select: none;
+}
+
+:host(.selected) {
+  background-color: var(--auro-color-alert-notification-on-light);
+  color: var(--auro-color-base-white);
+}
+
+:host(.hidden) {
+  display:  none;
 }

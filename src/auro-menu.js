@@ -24,17 +24,17 @@ class AuroMenu extends LitElement {
   constructor() {
     super();
 
-    this.options = null;
+    // this.options = null;
   }
 
   static get properties() {
     return {
-      selectOption: { type: Number },
+      // selectOption: { type: Number },
 
-      /**
-       * @private
-       */
-      options: { type: Array }
+      // /**
+      //  * @private
+      //  */
+      // options: { type: Array }
     };
   }
 
@@ -45,126 +45,127 @@ class AuroMenu extends LitElement {
     ];
   }
 
-  /**
-   * @private
-   */
-  handleSlotChange() {
-    const dispatchEventOptionSelected = (indexValue, value, displayValue) => {
+  // /**
+  //  * @private
+  //  */
+  // handleSlotChange() {
+  //   // const dispatchEventOptionSelected = (indexValue, value, displayValue) => {
 
-      this.dispatchEvent(new CustomEvent('optionSelected', {
-        bubbles: true,
-        cancelable: false,
-        composed: true,
-        detail: {
-          index: indexValue,
-          value,
-          displayValue
-        }
-      }));
+  //   //   this.dispatchEvent(new CustomEvent('optionSelected', {
+  //   //     bubbles: true,
+  //   //     cancelable: false,
+  //   //     composed: true,
+  //   //     detail: {
+  //   //       index: indexValue,
+  //   //       value,
+  //   //       displayValue
+  //   //     }
+  //   //   }));
 
-      /**
-       * Specifically for use case where the `selectOption`
-       * is set on an anonymous parent element.
-       */
-      this.options.forEach((option, index) => {
-        if (indexValue === index) {
-          option.setAttribute('selected', '');
-          this.selectOption = index;
-        } else {
-          option.removeAttribute('selected');
-        }
-      });
-    };
+  //   //   /**
+  //   //    * Specifically for use case where the `selectOption`
+  //   //    * is set on an anonymous parent element.
+  //   //    */
+  //   //   this.options.forEach((option, index) => {
+  //   //     if (indexValue === index) {
+  //   //       option.setAttribute('selected', '');
+  //   //       this.selectOption = index;
+  //   //     } else {
+  //   //       option.removeAttribute('selected');
+  //   //     }
+  //   //   });
+  //   // };
 
-    this.options = this.querySelectorAll('auro-menuoption');
+  //   // this.options = this.querySelectorAll('auro-menuoption');
 
-    /**
-     * Loop to apply index attribute and value to menuoption elements.
-     * If this.selectOption has a value, use that to pre-apply
-     * the `selected` attribute.
-     */
-    this.options.forEach((option, index) => {
-      option.setAttribute('index', index);
+  //   /**
+  //    * Loop to apply index attribute and value to menuoption elements.
+  //    * If this.selectOption has a value, use that to pre-apply
+  //    * the `selected` attribute.
+  //    */
+  //   // this.options.forEach((option, index) => {
+  //   //   option.setAttribute('index', index);
 
-      if (this.selectOption === index) {
-        option.setAttribute('selected', '');
-      } else {
-        option.removeAttribute('selected');
-      }
-    });
+  //   //   if (this.selectOption === index) {
+  //   //     option.setAttribute('selected', '');
+  //   //   } else {
+  //   //     option.removeAttribute('selected');
+  //   //   }
+  //   // });
 
-    /**
-     * Checks to see if `this.selectOption` is set on the menu element.
-     * If `selectOption` is not set, looks to see if
-     * parent element has `selectOption` defined.
-     */
-    if (!this.selectOption) {
+  //   /**
+  //    * Checks to see if `this.selectOption` is set on the menu element.
+  //    * If `selectOption` is not set, looks to see if
+  //    * parent element has `selectOption` defined.
+  //    */
+  //   // if (!this.selectOption) {
 
-      // Check if the parent has a declared `this.selectOption`
-      if (this.parentElement.hasAttribute('selectOption')) {
-        // Get the declared index value
-        const parentSelectOption = Number(this.parentElement.getAttribute('selectOption'));
+  //   //   // Check if the parent has a declared `this.selectOption`
+  //   //   if (this.parentElement.hasAttribute('selectOption')) {
+  //   //     // Get the declared index value
+  //   //     const parentSelectOption = Number(this.parentElement.getAttribute('selectOption'));
 
-        // If the index value is a valid index declaration select the value
-        if (parentSelectOption >= 0) {
-          this.selectOption = parentSelectOption;
+  //   //     // If the index value is a valid index declaration select the value
+  //   //     if (parentSelectOption >= 0) {
+  //   //       this.selectOption = parentSelectOption;
 
-          dispatchEventOptionSelected(
-            this.selectOption,
-            this.options[this.selectOption].value,
-            this.options[this.selectOption].innerText
-          );
-        }
-      }
-    }
+  //   //       dispatchEventOptionSelected(
+  //   //         this.selectOption,
+  //   //         this.options[this.selectOption].value,
+  //   //         this.options[this.selectOption].innerText
+  //   //       );
+  //   //     }
+  //   //   }
+  //   // }
 
-    const handleKeyDown = (evt) => {
-      if (!evt.target.hasAttribute('disabled')) {
-        if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
-          if (evt.key.toLowerCase() === ' ') {
-            evt.preventDefault();
-          }
-          dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.value, evt.target.innerText);
-        }
-      }
+  //   // const handleKeyDown = (evt) => {
+  //   //   if (!evt.target.hasAttribute('disabled')) {
+  //   //     if (evt.key.toLowerCase() === 'enter' || evt.key.toLowerCase() === ' ') {
+  //   //       if (evt.key.toLowerCase() === ' ') {
+  //   //         evt.preventDefault();
+  //   //       }
+  //   //       dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.value, evt.target.innerText);
+  //   //     }
+  //   //   }
 
-      if (evt.key.toLowerCase() === 'arrowdown') {
-        evt.preventDefault();
+  //   //   if (evt.key.toLowerCase() === 'arrowdown') {
+  //   //     evt.preventDefault();
 
-        if (Number(evt.target.getAttribute('index')) === this.options.length - 1) {
-          this.options[0].focus();
-        } else {
-          this.options[Number(evt.target.getAttribute('index')) + 1].focus();
-        }
-      }
+  //   //     if (Number(evt.target.getAttribute('index')) === this.options.length - 1) {
+  //   //       this.options[0].focus();
+  //   //     } else {
+  //   //       this.options[Number(evt.target.getAttribute('index')) + 1].focus();
+  //   //     }
+  //   //   }
 
-      if (evt.key.toLowerCase() === 'arrowup') {
-        evt.preventDefault();
+  //   //   if (evt.key.toLowerCase() === 'arrowup') {
+  //   //     evt.preventDefault();
 
-        if (Number(evt.target.getAttribute('index')) === 0) {
-          this.options[this.options.length - 1].focus();
-        } else {
-          this.options[Number(evt.target.getAttribute('index')) - 1].focus();
-        }
-      }
-    };
+  //   //     if (Number(evt.target.getAttribute('index')) === 0) {
+  //   //       this.options[this.options.length - 1].focus();
+  //   //     } else {
+  //   //       this.options[Number(evt.target.getAttribute('index')) - 1].focus();
+  //   //     }
+  //   //   }
+  //   // };
 
-    // Prep each <li>. Give it an index, set its tabindex to -1, add 'keydown' and 'click' event listeners, inject a check mark icon
-    const triggerEvent = (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('value'), evt.target.innerText);
+  //   // Prep each <li>. Give it an index, set its tabindex to -1, add 'keydown' and 'click' event listeners, inject a check mark icon
+  //   // const triggerEvent = (evt) => dispatchEventOptionSelected(Number(evt.target.getAttribute('index')), evt.target.getAttribute('value'), evt.target.innerText);
 
-    for (let iter = 0; iter < this.options.length; iter += 1) {
+  //   // for (let iter = 0; iter < this.options.length; iter += 1) {
 
-      // each option is tabbable
-      this.options[iter].setAttribute('tabindex', '0');
-      this.options[iter].addEventListener('click', triggerEvent);
-      this.options[iter].addEventListener('mousedown', triggerEvent);
-      this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
-    }
-  }
+  //     // each option is tabbable
+  //     // this.options[iter].setAttribute('tabindex', '0');
+  //     // this.options[iter].addEventListener('click', triggerEvent);
+  //     // this.options[iter].addEventListener('mousedown', triggerEvent);
+  //     // this.options[iter].addEventListener('keydown', (evt) => handleKeyDown(evt));
+  //   // }
+  // }
 
   render() {
     return html`
-      <slot @slotchange=${this.handleSlotChange}></slot>
+      <slot></slot>
+      <!-- <slot @slotchange=${this.handleSlotChange}></slot> -->
     `;
   }
 }

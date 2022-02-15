@@ -53,7 +53,7 @@ class AuroMenuOption extends LitElement {
 
   render() {
     return html`
-      ${this.selected ? html`${this.svg}` : undefined}
+      <!-- ${this.selected ? html`${this.svg}` : undefined} -->
       <slot></slot>
     `;
   }
