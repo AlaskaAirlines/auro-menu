@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [3.1.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.0.0...v3.1.0) (2022-03-01)
+
+
+### Features
+
+* **a11y:** increase interactive keyboard experience [#55](https://github.com/AlaskaAirlines/auro-menu/issues/55) [#64](https://github.com/AlaskaAirlines/auro-menu/issues/64) ([405e033](https://github.com/AlaskaAirlines/auro-menu/commit/405e03365f109be8f83e05d2d5d876787eb8b112))
+
 # [3.0.0](https://github.com/AlaskaAirlines/auro-menu/compare/v2.2.1...v3.0.0) (2022-01-26)
 
 
