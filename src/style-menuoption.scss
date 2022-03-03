@@ -29,7 +29,15 @@
   }
 }
 
-:host(.active:not([disabled])),
+:host([disabled]:hover) {
+  cursor: auto;
+}
+
+:host([disabled]) {
+  color: var(--auro-color-text-disabled-on-light);
+  user-select: none;
+}
+
 :host(:hover:not([disabled])) {
   background-color: var(--auro-color-ui-bkg-hover-on-light);
   color: var(--auro-color-text-primary-on-light);
@@ -45,21 +53,5 @@
 
   svg {
     fill: var(--auro-color-base-white) !important;
-  }
-}
-
-:host([disabled]:hover) {
-  cursor: auto;
-}
-
-:host([disabled]) {
-  color: var(--auro-color-text-disabled-on-light);
-  user-select: none;
-}
-
-:host {
-  ::slotted(.nestingSpacer) {
-    display: inline-block;
-    width: var(--auro-size-lg);
   }
 }
