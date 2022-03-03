@@ -8,12 +8,14 @@ import { LitElement, html } from "lit-element";
 import styleCss from "./style-base-css.js";
 import styleCssFixed from "./style-base-fixed-css.js";
 import './auro-menuoption';
+import "mark.js/dist/mark.min";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
  * The auro-menu element provides users a way to select from a list of options.
  * @attr {String} value - Specifies the value to be sent to a server.
  * @attr {Object} optionSelected - Specifies the current selected menuOption.
+ * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
  * @fires selectedOption - Value for selected menu option.
  * @slot Slot for insertion of menu options.
  */
@@ -32,7 +34,8 @@ class AuroMenu extends LitElement {
 
   static get properties() {
     return {
-      optionSelected: { type: Object }
+      optionSelected: { type: Object },
+      matchWord: { type: String }
     };
   }
 
@@ -41,6 +44,35 @@ class AuroMenu extends LitElement {
       styleCss,
       styleCssFixed
     ];
+  }
+
+  firstUpdated() {
+    this.addEventListener('keydown', this.handleKeyDown);
+    this.addEventListener('mousedown', this.makeSelection);
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('matchWord')) {
+      this.markOptions();
+    }
+  }
+
+  /**
+   * @private
+   * @returns {void} When called will update the DOM with visible suggest text matches.
+   */
+  markOptions() {
+    const markInstance = new Mark(this.items); // eslint-disable-line
+
+    markInstance.unmark();
+
+    if (this.matchWord && this.matchWord.length > 0) {
+      markInstance.mark(this.matchWord, {
+        'element': 'strong',
+        'separateWordSearch': false,
+        'acrossElements': true
+      });
+    }
   }
 
   /**
@@ -228,6 +260,7 @@ class AuroMenu extends LitElement {
       this.handleNestedMenus(this);
       this.getSelectedIndex();
       this.selectNextItem();
+      this.markOptions();
 
       this.addEventListener('keydown', this.handleKeyDown);
       this.addEventListener('mousedown', this.makeSelection);
