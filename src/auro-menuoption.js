@@ -58,6 +58,10 @@ class AuroMenuOption extends LitElement {
     ];
   }
 
+  firstUpdated() {
+    this.setAttribute('role', 'menuitem');
+  }
+
   render() {
     return html`
       ${this.selected ? html`${this.svg}` : undefined}
