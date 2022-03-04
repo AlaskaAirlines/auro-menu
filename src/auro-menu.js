@@ -14,6 +14,7 @@ import "focus-visible/dist/focus-visible.min.js";
 /**
  * The auro-menu element provides users a way to select from a list of options.
  * @attr {String} value - Specifies the value to be sent to a server.
+ * @attr {Object} optionSelected - Specifies the current selected menuOption.
  * @fires selectedOption - Value for selected menu option.
  * @slot Slot for insertion of menu options.
  */
@@ -22,13 +23,14 @@ class AuroMenu extends LitElement {
   constructor() {
     super();
     this.value = undefined;
+    this.optionSelected = undefined;
   }
 
-  // static get properties() {
-  //   return {
-
-  //   };
-  // }
+  static get properties() {
+    return {
+      optionSelected: { type: Object }
+    };
+  }
 
   static get styles() {
     return [
@@ -39,31 +41,57 @@ class AuroMenu extends LitElement {
 
   firstUpdated() {
     this.addEventListener('keydown', this.handleKeyDown);
-    this.addEventListener('mousedown', this.handleClick);
-    this.addEventListener('click', this.selectedOption);
+    this.addEventListener('click', this.makeSelection);
   }
 
   /**
-   * Manage click events.
-   * Event fires, but attributes are not changed on elements with the disabled attribute.
+   * Reset all attributes on all menuoptions
    * @private
-   * @param {Object} event - Event object from the browser.
    */
-  handleClick(event) {
+  resetOptionsStates() {
+    this.items.forEach((item) => {
+      item.tabIndex = -1;
+      item.removeAttribute('selected');
+      item.removeAttribute('aria-selected');
+    });
+  }
 
-    this.index = this.items.indexOf(event.target);
+  /**
+   * Set the attributes on the selected menuoption, the menu value and stored option
+   * @private
+   */
+  handleLocalSelectState(option) {
+    option.tabIndex = 0;
+    option.setAttribute('selected', '');
+    option.ariaSelected = true;
 
-    if (!event.target.disabled) {
-      this.items.forEach((item) => {
-        item.tabIndex = -1;
-        item.removeAttribute('selected');
-        item.removeAttribute('aria-selected');
-      });
+    this.value = option.value;
+    this.optionSelected = option;
+  }
 
-      event.target.tabIndex = 0;
-      event.target.setAttribute('selected', '');
-      event.target.ariaSelected = true;
-      this.value = event.target.value;
+  /**
+   * Process actions for making making a menuoption selection
+   * @private
+   */
+  makeSelection(evt) {
+    // Handle if a click/key event is passed or if the target is directly passed
+    let option;
+
+    if (evt.target) {
+      option = evt.target;
+    } else {
+      option = evt;
+    }
+
+    // only handle options that are not disabled
+    if (!option.disabled) {
+      this.resetOptionsStates();
+      this.handleLocalSelectState(option);
+      this.dispatchEvent(new CustomEvent('selectedOption', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+      }));
     }
   }
 
@@ -74,15 +102,6 @@ class AuroMenu extends LitElement {
    */
   handleKeyDown(event) {
     event.preventDefault();
-
-    // With each keyboard 'enter' event, reset attr settings on options.
-    this.items.forEach((item) => {
-      if (event.key === `Enter`) {
-        item.removeAttribute('selected');
-        item.removeAttribute('aria-selected');
-        item.tabIndex = -1;
-      }
-    });
 
     // With ArrowDown/ArrowUp events, pass new value to selectNextItem()
     // With Enter event, set value and apply attrs
@@ -96,14 +115,31 @@ class AuroMenu extends LitElement {
         break;
 
       case "Enter":
-        event.target.setAttribute('selected', '');
-        event.target.ariaSelected = true;
-        event.target.tabIndex = 0;
-        this.value = event.target.value;
+        this.makeSelection(event.target);
         break;
       default:
         break;
     }
+  }
+
+  /**
+   * @private
+   * @returns { Number } Returns the index value of the selected item or first non-disabled menuoption.
+   */
+  getSelectedIndex() {
+    // find the first `selected` and not `disabled` option
+    let index = this.items.findIndex((item) => item.hasAttribute('selected') && !item.hasAttribute('disabled'));
+
+    if (index === -1) {
+      // make index be the next non-`disabled` option
+      index = this.items.findIndex((item) => !item.hasAttribute('disabled'));
+    }
+
+    if (index >= 0) {
+      this.index = index;
+    }
+
+    return index;
   }
 
   /**
@@ -124,29 +160,10 @@ class AuroMenu extends LitElement {
       currentIndex = currentIndex === -1 ? this.items.length - 1 : currentIndex;
       const selectedItem = this.items[currentIndex];
 
-      if (!selectedItem.disabled) {
-        selectedItem.click();
-        selectedItem.focus();
-        this.index = currentIndex;
-        break;
-      }
+      selectedItem.click();
+      this.index = currentIndex;
+      break;
     }
-  }
-
-  /**
-   * Custom event that returns the selected option's value.
-   * Use event to trigger the state of wrapping elements.
-   * @private
-   */
-  selectedOption() {
-    this.dispatchEvent(new CustomEvent('selectedOption', {
-      bubbles: true,
-      cancelable: false,
-      composed: true,
-      detail: {
-        value: this.value
-      }
-    }));
   }
 
   /**
@@ -154,9 +171,9 @@ class AuroMenu extends LitElement {
    * @private
    */
   handleSlotItems() {
+    this.setAttribute('role', 'menu');
     this.items = Array.from(this.querySelectorAll('auro-menuoption'));
     this.initializeIndex();
-    this.selectedOption();
   }
 
   /**
@@ -165,20 +182,8 @@ class AuroMenu extends LitElement {
    * @private
    */
   initializeIndex() {
-    const index = this.items.findIndex((item) => item.hasAttribute('selected') && !item.hasAttribute('disabled'));
-    const nextEnabledIndex = this.items.findIndex((item) => !item.hasAttribute('disabled'));
-    this.index = index >= 0 ? index : nextEnabledIndex;
-    this.setAttribute('role', 'menu');
-    this.items.map((item) => item.setAttribute('role', 'menuitem'));
-
-    if (this.index >= 0) {
-      this.items[this.index].tabIndex = 0;
-    }
-
-    if (this.items[this.index].selected) {
-      this.items[this.index].ariaSelected = true;
-      this.value = this.items[this.index].value;
-    }
+    this.getSelectedIndex();
+    this.makeSelection(this.items[this.index]);
   }
 
   render() {

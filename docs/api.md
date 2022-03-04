@@ -4,15 +4,16 @@ The auro-menu element provides users a way to select from a list of options.
 
 ## Properties
 
-| Property | Attribute | Type     | Default     | Description                                 |
-|----------|-----------|----------|-------------|---------------------------------------------|
-| `value`  | `value`   | `String` | "undefined" | Specifies the value to be sent to a server. |
+| Property         | Attribute        | Type     | Default     | Description                                 |
+|------------------|------------------|----------|-------------|---------------------------------------------|
+| `optionSelected` | `optionSelected` | `Object` | "undefined" | Specifies the current selected menuOption.  |
+| `value`          | `value`          | `String` | "undefined" | Specifies the value to be sent to a server. |
 
 ## Events
 
-| Event            | Type                           | Description                     |
-|------------------|--------------------------------|---------------------------------|
-| `selectedOption` | `CustomEvent<{ value: any; }>` | Value for selected menu option. |
+| Event            | Type               | Description                     |
+|------------------|--------------------|---------------------------------|
+| `selectedOption` | `CustomEvent<any>` | Value for selected menu option. |
 
 ## Slots
 
