@@ -175,15 +175,6 @@ class AuroMenu extends LitElement {
   handleSlotItems() {
     this.setAttribute('role', 'tablist');
     this.items = Array.from(this.querySelectorAll('auro-menuoption'));
-    this.initializeIndex();
-  }
-
-  /**
-   * This function will iterate over the array of items in the slot find the selected
-   * option that is not disabled and apply tabindex='0' to set tab order.
-   * @private
-   */
-  initializeIndex() {
     this.getSelectedIndex();
     this.makeSelection(this.items[this.index]);
   }
