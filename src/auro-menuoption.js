@@ -59,7 +59,7 @@ class AuroMenuOption extends LitElement {
   }
 
   firstUpdated() {
-    this.setAttribute('role', 'menuitem');
+    this.setAttribute('role', 'tab');
   }
 
   render() {

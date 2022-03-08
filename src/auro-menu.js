@@ -45,7 +45,7 @@ class AuroMenu extends LitElement {
   }
 
   /**
-   * Reset all attributes on all menuoptions
+   * Reset all attributes on all menuoptions.
    * @private
    */
   resetOptionsStates() {
@@ -57,7 +57,8 @@ class AuroMenu extends LitElement {
   }
 
   /**
-   * Set the attributes on the selected menuoption, the menu value and stored option
+   * Set the attributes on the selected menuoption, the menu value and stored option.
+   * @param {Object} option - The menuoption to be selected.
    * @private
    */
   handleLocalSelectState(option) {
@@ -70,12 +71,13 @@ class AuroMenu extends LitElement {
   }
 
   /**
-   * Process actions for making making a menuoption selection
+   * Process actions for making making a menuoption selection.
+   * @param {Object} evt - The event or option to be selected.
    * @private
    */
   makeSelection(evt) {
     // Handle if a click/key event is passed or if the target is directly passed
-    let option;
+    let option = {};
 
     if (evt.target) {
       option = evt.target;
@@ -171,7 +173,7 @@ class AuroMenu extends LitElement {
    * @private
    */
   handleSlotItems() {
-    this.setAttribute('role', 'menu');
+    this.setAttribute('role', 'tablist');
     this.items = Array.from(this.querySelectorAll('auro-menuoption'));
     this.initializeIndex();
   }
