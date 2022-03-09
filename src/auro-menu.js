@@ -41,7 +41,7 @@ class AuroMenu extends LitElement {
 
   firstUpdated() {
     this.addEventListener('keydown', this.handleKeyDown);
-    this.addEventListener('click', this.makeSelection);
+    this.addEventListener('mousedown', this.makeSelection);
   }
 
   /**
@@ -64,10 +64,13 @@ class AuroMenu extends LitElement {
   handleLocalSelectState(option) {
     option.tabIndex = 0;
     option.setAttribute('selected', '');
+    option.classList.add('focus-visible');
     option.ariaSelected = true;
+    option.focus();
 
     this.value = option.value;
     this.optionSelected = option;
+    this.index = this.items.indexOf(option);
   }
 
   /**
@@ -109,11 +112,11 @@ class AuroMenu extends LitElement {
     // With Enter event, set value and apply attrs
     switch (event.key) {
       case "ArrowDown":
-        this.selectNextItem(this.index === this.items.length - 1 ? 0 : this.index + 1, "Down");
+        this.selectNextItem('down');
         break;
 
       case "ArrowUp":
-        this.selectNextItem(this.index === 0 ? this.items.length - 1 : this.index - 1, "Up");
+        this.selectNextItem('up');
         break;
 
       case "Enter":
@@ -145,26 +148,44 @@ class AuroMenu extends LitElement {
   }
 
   /**
-   * Using value of current this.index, on keyboard event, evaluates index
+   * Using value of current this.index evaluates index
    * of next :focus to set based on array of this.items ignoring items
    * with disabled attr.
    *
    * The event.target is not used as the function needs to know where to go,
    * versus knowing where it is.
    * @private
-   * @param {Number} index - Index value from array of elements.
    * @param {String} moveDirection - Up or Down based on keyboard event.
    */
-  selectNextItem(index, moveDirection) {
-    let currentIndex = index;
+  selectNextItem(moveDirection) {
+    // remove focus-visible from current selection
+    this.items[this.index].classList.remove('focus-visible');
 
-    for (currentIndex; currentIndex < this.items.length; moveDirection === "Down" ? currentIndex += 1 : currentIndex -= 1) {
-      currentIndex = currentIndex === -1 ? this.items.length - 1 : currentIndex;
-      const selectedItem = this.items[currentIndex];
+    // calculate which is the selection we should focus next
+    let increment = 0;
 
-      selectedItem.click();
-      this.index = currentIndex;
-      break;
+    if (moveDirection === 'down') {
+      increment = 1;
+    } else if (moveDirection === 'up') {
+      increment = -1;
+    }
+
+    this.index += increment;
+
+    // keep looping inside the array of options
+    if (this.index > this.items.length - 1) {
+      this.index = 0;
+    } else if (this.index < 0) {
+      this.index = this.items.length - 1;
+    }
+
+    // check if new index is disabled, if so, execute again
+    if (this.items[this.index].disabled) {
+      this.selectNextItem(moveDirection);
+    } else {
+      // apply focus to new index
+      this.items[this.index].classList.add('focus-visible');
+      this.items[this.index].focus();
     }
   }
 
@@ -173,10 +194,10 @@ class AuroMenu extends LitElement {
    * @private
    */
   handleSlotItems() {
-    this.setAttribute('role', 'tablist');
+    this.setAttribute('role', 'listbox');
     this.items = Array.from(this.querySelectorAll('auro-menuoption'));
     this.getSelectedIndex();
-    this.makeSelection(this.items[this.index]);
+    this.selectNextItem();
   }
 
   render() {
