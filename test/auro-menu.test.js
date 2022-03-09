@@ -12,7 +12,7 @@ describe('auro-menu', () => {
 
   it('auro-menu is accessible', async () => {
     const el = await fixture(html`
-      <auro-menu>
+      <auro-menu aria-label="test">
         <auro-menuoption value="foo">Foo</auro-menuoption>
       </auro-menu>
     `);
