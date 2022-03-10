@@ -33,7 +33,7 @@
   color: var(--auro-color-text-primary-on-light);
 }
 
-:host(:focus:not([disabled])) {
+:host(.active:not([disabled])) {
   background-color: var(--auro-color-alert-notification-on-light);
   color: var(--auro-color-base-white);
 
