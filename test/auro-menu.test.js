@@ -47,7 +47,7 @@ describe('auro-menu', () => {
 
   it('Enter keyboardEvent marks option as selected', async () => {
     const el = await defaultFixture();
-    const index = 1;
+    const index = 0;
     const menuEl = el.querySelector('auro-menu');
     let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
 
@@ -118,20 +118,22 @@ describe('auro-menu', () => {
     expect(options[0].hasAttribute('selected')).to.equal(true);
   });
 
-  it('Enter ArrowUp marks option as selected', async () => {
+  it('Enter ArrowUp marks option as active', async () => {
     const el = await defaultFixture();
     const menuEl = el.querySelector('auro-menu');
     let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
 
-    options[2].dispatchEvent(new Event('mousedown', {
+    options[0].dispatchEvent(new Event('mousedown', {
       bubbles: true,
       composed: true
     }));
 
-    options[2].dispatchEvent(new KeyboardEvent('keydown', {
+    expect(options[0].classList['0']).to.equal('active');
+
+    options[0].dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
-      'key': 'ArrowUp'
+      'key': 'ArrowDown'
     }));
 
     options[1].dispatchEvent(new KeyboardEvent('keydown', {
@@ -140,7 +142,7 @@ describe('auro-menu', () => {
       'key': 'Enter'
     }));
 
-    expect(options[1].hasAttribute('selected')).to.equal(true);
+    expect(options[1].classList['0']).to.equal('active');
   });
 
   it('ArrowUp moves to last option in slot', async () => {
@@ -165,7 +167,7 @@ describe('auro-menu', () => {
       'key': 'Enter'
     }));
 
-    expect(options[5].hasAttribute('selected')).to.equal(true);
+    expect(options[5].classList['0']).to.equal('active');
   });
 });
 
