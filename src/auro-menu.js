@@ -8,7 +8,6 @@ import { LitElement, html } from "lit-element";
 import styleCss from "./style-base-css.js";
 import styleCssFixed from "./style-base-fixed-css.js";
 import './auro-menuoption';
-import "focus-visible/dist/focus-visible.min.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
@@ -50,7 +49,7 @@ class AuroMenu extends LitElement {
    */
   resetOptionsStates() {
     this.items.forEach((item) => {
-      item.tabIndex = -1;
+      item.classList.remove('active');
       item.removeAttribute('selected');
       item.removeAttribute('aria-selected');
     });
@@ -62,11 +61,9 @@ class AuroMenu extends LitElement {
    * @private
    */
   handleLocalSelectState(option) {
-    option.tabIndex = 0;
     option.setAttribute('selected', '');
-    option.classList.add('focus-visible');
+    option.classList.add('active');
     option.ariaSelected = true;
-    option.focus();
 
     this.value = option.value;
     this.optionSelected = option;
@@ -120,7 +117,7 @@ class AuroMenu extends LitElement {
         break;
 
       case "Enter":
-        this.makeSelection(event.target);
+        this.makeSelection(this.items[this.index]);
         break;
       default:
         break;
@@ -159,7 +156,7 @@ class AuroMenu extends LitElement {
    */
   selectNextItem(moveDirection) {
     // remove focus-visible from current selection
-    this.items[this.index].classList.remove('focus-visible');
+    this.items[this.index].classList.remove('active');
 
     // calculate which is the selection we should focus next
     let increment = 0;
@@ -184,8 +181,7 @@ class AuroMenu extends LitElement {
       this.selectNextItem(moveDirection);
     } else {
       // apply focus to new index
-      this.items[this.index].classList.add('focus-visible');
-      this.items[this.index].focus();
+      this.items[this.index].classList.add('active');
     }
   }
 
