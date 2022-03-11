@@ -190,7 +190,7 @@ class AuroMenu extends LitElement {
    * @private
    */
   handleNestedMenus(menu) {
-    const nestedMenus = menu.querySelectorAll(':scope auro-menu');
+    const nestedMenus = menu.querySelectorAll('auro-menu');
 
     if (nestedMenus.length === 0) return;
 
