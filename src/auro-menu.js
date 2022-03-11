@@ -23,6 +23,11 @@ class AuroMenu extends LitElement {
     super();
     this.value = undefined;
     this.optionSelected = undefined;
+
+    /**
+     * @private
+     */
+    this.rootMenu = true;
   }
 
   static get properties() {
@@ -36,11 +41,6 @@ class AuroMenu extends LitElement {
       styleCss,
       styleCssFixed
     ];
-  }
-
-  firstUpdated() {
-    this.addEventListener('keydown', this.handleKeyDown);
-    this.addEventListener('mousedown', this.makeSelection);
   }
 
   /**
@@ -186,14 +186,52 @@ class AuroMenu extends LitElement {
   }
 
   /**
+   * Used for applying indentation to each level of nested menu.
+   * @private
+   */
+  handleNestedMenus(menu) {
+    const nestedMenus = menu.querySelectorAll(':scope auro-menu');
+
+    if (nestedMenus.length === 0) return;
+
+    nestedMenus.forEach((nestedMenu) => {
+      const options = nestedMenu.querySelectorAll(':scope > auro-menuoption');
+
+      options.forEach((option) => {
+        option.innerHTML = '<span class="nestingSpacer"></span>' + option.innerHTML;
+      })
+
+      this.handleNestedMenus(nestedMenu);
+    });
+  }
+
+  /**
    * Used for @slotchange event on slotted element.
    * @private
    */
   handleSlotItems() {
-    this.setAttribute('role', 'listbox');
-    this.items = Array.from(this.querySelectorAll('auro-menuoption'));
-    this.getSelectedIndex();
-    this.selectNextItem();
+    /**
+     * Determine if this is the root of the menu/submenu layout
+     */
+    if (this.parentElement.closest('auro-menu')) {
+      this.rootMenu = false;
+    }
+
+    /**
+     * If this is the root menu (not a nested menu)
+     * handle events, states and styling
+     */
+    if (this.rootMenu) {
+      this.items = Array.from(this.querySelectorAll('auro-menuoption'));
+
+      this.setAttribute('role', 'listbox');
+      this.handleNestedMenus(this);
+      this.getSelectedIndex();
+      this.selectNextItem();
+
+      this.addEventListener('keydown', this.handleKeyDown);
+      this.addEventListener('mousedown', this.makeSelection);
+    }
   }
 
   render() {

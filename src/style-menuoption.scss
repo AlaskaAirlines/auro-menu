@@ -51,3 +51,10 @@
   color: var(--auro-color-text-disabled-on-light);
   user-select: none;
 }
+
+:host {
+  ::slotted(.nestingSpacer) {
+    display: inline-block;
+    width: var(--auro-size-lg);
+  }
+}
