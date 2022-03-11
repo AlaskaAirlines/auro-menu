@@ -29,12 +29,17 @@
   }
 }
 
+:host(.active:not([disabled])),
 :host(:hover:not([disabled])) {
-  background-color: var(--auro-color-brand-neutral-100);
+  background-color: var(--auro-color-ui-bkg-hover-on-light);
   color: var(--auro-color-text-primary-on-light);
+
+  svg {
+    fill: var(--auro-color-icon-primary-on-light) !important;
+  }
 }
 
-:host(.active:not([disabled])) {
+:host([selected]:not([disabled])) {
   background-color: var(--auro-color-alert-notification-on-light);
   color: var(--auro-color-base-white);
 
