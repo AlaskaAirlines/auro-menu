@@ -258,9 +258,9 @@ class AuroMenu extends LitElement {
 
       this.setAttribute('role', 'listbox');
       this.handleNestedMenus(this);
+      this.markOptions();
       this.getSelectedIndex();
       this.selectNextItem();
-      this.markOptions();
 
       this.addEventListener('keydown', this.handleKeyDown);
       this.addEventListener('mousedown', this.makeSelection);
