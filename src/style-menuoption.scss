@@ -27,6 +27,15 @@
     margin-left: var(--auro-size-xs);
     fill: var(--auro-color-icon-primary-on-light) !important;
   }
+
+  ::slotted(.nestingSpacer) {
+    display: inline-block;
+    width: var(--auro-size-lg);
+  }
+
+  ::slotted(strong) {
+    font-weight: 700;
+  }
 }
 
 :host([disabled]:hover) {
@@ -38,7 +47,8 @@
   user-select: none;
 }
 
-:host(:hover:not([disabled])) {
+:host(:hover:not([disabled])),
+:host(.active:not([disabled])) {
   background-color: var(--auro-color-ui-bkg-hover-on-light);
   color: var(--auro-color-text-primary-on-light);
 

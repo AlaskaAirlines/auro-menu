@@ -25,11 +25,16 @@
           const rawHtml = marked.parse(text);
           document.querySelector('main').innerHTML = rawHtml;
           Prism.highlightAll();
+        })
+        .then(() => {
+          matchWords();
         });
     </script>
     <script type="module" src="../src/auro-menu.js"></script>
     <script type="module" src="../src/auro-menuoption.js"></script>
     <script src="https://unpkg.com/@alaskaairux/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
     <script src="https://unpkg.com/@alaskaairux/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
+    <script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
+    <script src="./partials/matchWord.js"></script>
   </body>
 </html>
