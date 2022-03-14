@@ -41,6 +41,78 @@ A default `auro-menu` element with nested `auro-menuoption` elements to generate
 
 </auro-accordion>
 
+## Using matchWord to highlight displayValue string parts
+
+The `auro-menu` component supports the use of the `matchWord` attribute to highlight string parts of each menuoption that are equal to `matchWord`. The matching algorithm is case insensitive (e.g., `n` matches `N`).
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/matchWord.html) -->
+  <!-- The below content is automatically added from ./partials/matchWord.html -->
+  <auro-input id="matchWordInput" required>
+    <span slot="label">Enter a value to match in the menu</span>
+  </auro-input>
+  <br />
+  <auro-menu id="matchWordMenu">
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menu>
+      <auro-menuoption value="apples">Apples</auro-menuoption>
+      <auro-menuoption value="oranges">Oranges</auro-menuoption>
+      <auro-menuoption value="peaches">Peaches</auro-menuoption>
+    </auro-menu>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/matchWord.js) -->
+  <!-- The below code snippet is automatically added from ./partials/matchWord.js -->
+  ```js
+  let matchWordInput;
+  let matchWordMenu;
+  
+  function matchWords() {
+    matchWordInput = document.querySelector('#matchWordInput');
+    matchWordMenu = document.querySelector('#matchWordMenu');
+  
+    matchWordInput.addEventListener('keyup', updateMatch);
+  }
+  
+  function updateMatch() {
+    matchWordMenu.matchWord = matchWordInput.value;
+  }
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/matchWord.html) -->
+  <!-- The below code snippet is automatically added from ./partials/matchWord.html -->
+  ```html
+  <auro-input id="matchWordInput" required>
+    <span slot="label">Enter a value to match in the menu</span>
+  </auro-input>
+  <br />
+  <auro-menu id="matchWordMenu">
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menu>
+      <auro-menuoption value="apples">Apples</auro-menuoption>
+      <auro-menuoption value="oranges">Oranges</auro-menuoption>
+      <auro-menuoption value="peaches">Peaches</auro-menuoption>
+    </auro-menu>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+  </auro-menu>
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
 ## Options with horizontal separator
 
 To create a natural separation between options, simply use a `<hr>` element.
