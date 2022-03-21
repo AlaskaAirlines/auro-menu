@@ -10,6 +10,13 @@ The auro-menu element provides users a way to select from a list of options.
 | `optionSelected` | `optionSelected` | `Object` | "undefined" | Specifies the current selected menuOption.       |
 | `value`          | `value`          | `String` | "undefined" | Specifies the value to be sent to a server.      |
 
+## Methods
+
+| Method           | Type                            | Description                                      |
+|------------------|---------------------------------|--------------------------------------------------|
+| `makeSelection`  | `(): void`                      | Process actions for making making a menuoption selection. |
+| `selectNextItem` | `(moveDirection: string): void` | Using value of current this.index evaluates index<br />of next :focus to set based on array of this.items ignoring items<br />with disabled attr.<br /><br />The event.target is not used as the function needs to know where to go,<br />versus knowing where it is.<br /><br />**moveDirection**: Up or Down based on keyboard event. |
+
 ## Events
 
 | Event            | Type               | Description                     |
