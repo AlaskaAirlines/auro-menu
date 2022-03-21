@@ -240,6 +240,12 @@ class AuroMenu extends LitElement {
     });
   }
 
+  updateActiveOption(evt) {
+    this.items[this.index].classList.remove('active');
+    this.index = this.items.indexOf(evt.target);
+    evt.target.classList.add('active');
+  }
+
   /**
    * Used for @slotchange event on slotted element.
    * @private
@@ -267,6 +273,7 @@ class AuroMenu extends LitElement {
 
       this.addEventListener('keydown', this.handleKeyDown);
       this.addEventListener('mousedown', this.makeSelection);
+      this.addEventListener('mouseover', this.updateActiveOption);
     }
   }
 
