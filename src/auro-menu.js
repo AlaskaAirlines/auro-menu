@@ -220,18 +220,21 @@ class AuroMenu extends LitElement {
   /**
    * Used for applying indentation to each level of nested menu.
    * @private
+   * @param {String} menu - Root level menu object.
    */
   handleNestedMenus(menu) {
     const nestedMenus = menu.querySelectorAll('auro-menu');
 
-    if (nestedMenus.length === 0) return;
+    if (nestedMenus.length === 0) {
+      return;
+    }
 
     nestedMenus.forEach((nestedMenu) => {
       const options = nestedMenu.querySelectorAll(':scope > auro-menuoption');
 
       options.forEach((option) => {
-        option.innerHTML = '<span class="nestingSpacer"></span>' + option.innerHTML;
-      })
+        option.innerHTML = `<span class="nestingSpacer"></span> ${option.innerHTML}`;
+      });
 
       this.handleNestedMenus(nestedMenu);
     });
@@ -242,16 +245,16 @@ class AuroMenu extends LitElement {
    * @private
    */
   handleSlotItems() {
+
     /**
-     * Determine if this is the root of the menu/submenu layout
+     * Determine if this is the root of the menu/submenu layout.
      */
     if (this.parentElement.closest('auro-menu')) {
       this.rootMenu = false;
     }
 
     /**
-     * If this is the root menu (not a nested menu)
-     * handle events, states and styling
+     * If this is the root menu (not a nested menu) handle events, states and styling.
      */
     if (this.rootMenu) {
       this.items = Array.from(this.querySelectorAll('auro-menuoption'));
