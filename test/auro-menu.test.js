@@ -11,11 +11,7 @@ describe('auro-menu', () => {
   });
 
   it('auro-menu is accessible', async () => {
-    const el = await fixture(html`
-      <auro-menu aria-label="test">
-        <auro-menuoption value="foo">Foo</auro-menuoption>
-      </auro-menu>
-    `);
+    const el = await nestedMenuFixture();
 
     await expect(el).to.be.accessible();
   });
@@ -43,7 +39,6 @@ describe('auro-menu', () => {
       }
     }
   });
-
 
   it('Enter keyboardEvent marks option as selected', async () => {
     const el = await defaultFixture();
@@ -176,7 +171,22 @@ describe('auro-menu', () => {
 async function defaultFixture() {
   return await fixture(html`
       <div>
-        <auro-menu><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption disabled value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
+        <auro-menu aria-label="test"><auro-menuoption value="option 1">option 1</auro-menuoption><auro-menuoption value="option 2">option 2</auro-menuoption><auro-menuoption disabled value="option 3">option 3</auro-menuoption><auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption><auro-menuoption value="departures">Departures</auro-menuoption><auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
+      </div>
+  `);
+}
+
+async function nestedMenuFixture() {
+  return await fixture(html`
+      <div>
+        <auro-menu aria-label="test">
+          <auro-menuoption value="option 1">option 1</auro-menuoption>
+          <auro-menu>
+            <auro-menuoption value="option a">option a</auro-menuoption>
+            <auro-menuoption value="option b">option b</auro-menuoption>
+          </auro-menu>
+          <auro-menuoption value="option 2">option 2</auro-menuoption>
+        </auro-menu>
       </div>
   `);
 }
