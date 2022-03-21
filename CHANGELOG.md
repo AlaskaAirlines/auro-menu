@@ -1,5 +1,20 @@
 # Semantic Release Automated Changelog
 
+# [3.2.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.1.0...v3.2.0) (2022-03-21)
+
+
+### Bug Fixes
+
+* **aria:** correct invalid use of aria-selected ([c84e1f1](https://github.com/AlaskaAirlines/auro-menu/commit/c84e1f19002c8076a7e65ddf1ed18a0810c319f7))
+* **styles:** all menuoptions prevent text selection ([8240bdc](https://github.com/AlaskaAirlines/auro-menu/commit/8240bdc63d659df7d8ee378c851fef2a11036e34))
+
+
+### Features
+
+* **API:** add optionSelected property ([56f0415](https://github.com/AlaskaAirlines/auro-menu/commit/56f041557c4e83ad2cece5d5fd18fbdc99788dfd))
+* **matching:** highlight matched string parts in options ([ccf6f12](https://github.com/AlaskaAirlines/auro-menu/commit/ccf6f12c4e9a999a6136306b25170bf6b067a192))
+* **nesting:** support nested menus ([2dd3433](https://github.com/AlaskaAirlines/auro-menu/commit/2dd34334d8d90457fa32d41f66615d9ce85e67fc))
+
 # [3.1.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.0.0...v3.1.0) (2022-03-01)
 
 
