@@ -48,7 +48,7 @@ class AuroMenu extends LitElement {
 
   firstUpdated() {
     this.addEventListener('keydown', this.handleKeyDown);
-    this.addEventListener('mousedown', this.makeSelection);
+    this.addEventListener('mousedown', this.clickOption);
   }
 
   updated(changedProperties) {
@@ -103,19 +103,18 @@ class AuroMenu extends LitElement {
   }
 
   /**
-   * Process actions for making making a menuoption selection.
-   * @param {Object} evt - The event or option to be selected.
    * @private
+   * @param {Object} evt - Event passed in from the click eventListener.
    */
-  makeSelection(evt) {
-    // Handle if a click/key event is passed or if the target is directly passed
-    let option = {};
+  clickOption(evt) {
+    this.index = this.items.indexOf(evt.target);
+  }
 
-    if (evt.target) {
-      option = evt.target;
-    } else {
-      option = evt;
-    }
+  /**
+   * Process actions for making making a menuoption selection.
+   */
+  makeSelection() {
+    const option = this.items[this.index];
 
     // only handle options that are not disabled
     if (!option.disabled) {
@@ -149,7 +148,7 @@ class AuroMenu extends LitElement {
         break;
 
       case "Enter":
-        this.makeSelection(this.items[this.index]);
+        this.makeSelection();
         break;
       default:
         break;
@@ -157,23 +156,22 @@ class AuroMenu extends LitElement {
   }
 
   /**
+   * Sets the index value of the selected item or first non-disabled menuoption.
    * @private
-   * @returns { Number } Returns the index value of the selected item or first non-disabled menuoption.
    */
   getSelectedIndex() {
     // find the first `selected` and not `disabled` option
     let index = this.items.findIndex((item) => item.hasAttribute('selected') && !item.hasAttribute('disabled'));
 
+    if (index >= 0) {
+      this.index = index;
+      this.makeSelection();
+    }
+
     if (index === -1) {
       // make index be the next non-`disabled` option
       index = this.items.findIndex((item) => !item.hasAttribute('disabled'));
     }
-
-    if (index >= 0) {
-      this.index = index;
-    }
-
-    return index;
   }
 
   /**
@@ -183,37 +181,41 @@ class AuroMenu extends LitElement {
    *
    * The event.target is not used as the function needs to know where to go,
    * versus knowing where it is.
-   * @private
    * @param {String} moveDirection - Up or Down based on keyboard event.
    */
   selectNextItem(moveDirection) {
     // remove focus-visible from current selection
-    this.items[this.index].classList.remove('active');
+    if (this.index >= 0) {
+      this.items[this.index].classList.remove('active');
 
-    // calculate which is the selection we should focus next
-    let increment = 0;
+      // calculate which is the selection we should focus next
+      let increment = 0;
 
-    if (moveDirection === 'down') {
-      increment = 1;
-    } else if (moveDirection === 'up') {
-      increment = -1;
-    }
+      if (moveDirection === 'down') {
+        increment = 1;
+      } else if (moveDirection === 'up') {
+        increment = -1;
+      }
 
-    this.index += increment;
+      this.index += increment;
 
-    // keep looping inside the array of options
-    if (this.index > this.items.length - 1) {
-      this.index = 0;
-    } else if (this.index < 0) {
-      this.index = this.items.length - 1;
-    }
+      // keep looping inside the array of options
+      if (this.index > this.items.length - 1) {
+        this.index = 0;
+      } else if (this.index < 0) {
+        this.index = this.items.length - 1;
+      }
 
-    // check if new index is disabled, if so, execute again
-    if (this.items[this.index].disabled) {
-      this.selectNextItem(moveDirection);
+      // check if new index is disabled, if so, execute again
+      if (this.items[this.index].disabled) {
+        this.selectNextItem(moveDirection);
+      } else {
+        // apply focus to new index
+        this.items[this.index].classList.add('active');
+      }
     } else {
-      // apply focus to new index
-      this.items[this.index].classList.add('active');
+      this.items[0].classList.add('active');
+      this.index = 0;
     }
   }
 
