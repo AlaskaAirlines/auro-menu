@@ -393,3 +393,52 @@ The `auro-menu` element supports scenarios where the outer parent element of the
   <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
+
+## Menu with hidden options
+
+The `auro-menuoption` element supports scenarios where the menu option needs to be displayed. e.g. the only visible menu options contain the `matchWord`.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/hidden.html) -->
+  <!-- The below content is automatically added from ./partials/hidden.html -->
+  <auro-menu>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
+    <hr>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab" hidden>Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
+    <hr>
+    <auro-menuoption value="share" disabled>Share</auro-menuoption>
+    <hr>
+    <auro-menuoption value="print">Print</auro-menuoption>
+  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/hidden.html) -->
+  <!-- The below code snippet is automatically added from ./partials/hidden.html -->
+  ```html
+  <auro-menu>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
+    <hr>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab" hidden>Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
+    <hr>
+    <auro-menuoption value="share" disabled>Share</auro-menuoption>
+    <hr>
+    <auro-menuoption value="print">Print</auro-menuoption>
+  </auro-menu>
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>

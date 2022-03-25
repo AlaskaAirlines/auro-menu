@@ -38,6 +38,10 @@
   }
 }
 
+:host([hidden]) {
+  display: none;
+}
+
 :host([disabled]:hover) {
   cursor: auto;
 }
