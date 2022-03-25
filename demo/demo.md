@@ -75,14 +75,14 @@ The `auro-menu` component supports the use of the `matchWord` attribute to highl
   ```js
   let matchWordInput;
   let matchWordMenu;
-  
+
   function matchWords() {
     matchWordInput = document.querySelector('#matchWordInput');
     matchWordMenu = document.querySelector('#matchWordMenu');
-  
+
     matchWordInput.addEventListener('keyup', updateMatch);
   }
-  
+
   function updateMatch() {
     matchWordMenu.matchWord = matchWordInput.value;
   }
@@ -396,7 +396,7 @@ The `auro-menu` element supports scenarios where the outer parent element of the
 
 ## Menu with hidden options
 
-The `auro-menuoption` element supports scenarios where the menu option needs to be displayed. e.g. the only visible menu options contain the `matchWord`.
+The `auro-menuoption` element supports scenarios where the menu option needs to be hidden. e.g. the only visible menu options contain the `matchWord`.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/hidden.html) -->

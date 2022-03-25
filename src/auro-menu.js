@@ -76,10 +76,10 @@ class AuroMenu extends LitElement {
   }
 
   /**
-   * Reset all attributes on all menuoptions.
-   * @private
+   * Reset the menu and all options.
    */
   resetOptionsStates() {
+    this.optionSelected = null;
     this.items.forEach((item) => {
       item.classList.remove('active');
       item.removeAttribute('selected');
@@ -207,7 +207,7 @@ class AuroMenu extends LitElement {
       }
 
       // check if new index is disabled, if so, execute again
-      if (this.items[this.index].disabled) {
+      if (this.items[this.index].disabled || this.items[this.index].hidden) {
         this.selectNextItem(moveDirection);
       } else {
         // apply focus to new index
@@ -242,6 +242,11 @@ class AuroMenu extends LitElement {
     });
   }
 
+  /**
+   * Used to make the active state for options follow mouseover.
+   * @private
+   * @param {Object} evt - Browser event passed in to identify the option hovered over.
+   */
   updateActiveOption(evt) {
     this.items[this.index].classList.remove('active');
     this.index = this.items.indexOf(evt.target);
