@@ -117,7 +117,7 @@ class AuroMenu extends LitElement {
     const option = this.items[this.index];
 
     // only handle options that are not disabled
-    if (!option.disabled) {
+    if (!option.disabled && !option.hidden) {
       this.resetOptionsStates();
       this.handleLocalSelectState(option);
       this.dispatchEvent(new CustomEvent('selectedOption', {
@@ -207,7 +207,7 @@ class AuroMenu extends LitElement {
       }
 
       // check if new index is disabled, if so, execute again
-      if (this.items[this.index].disabled) {
+      if (this.items[this.index].disabled || this.items[this.index].hidden) {
         this.selectNextItem(moveDirection);
       } else {
         // apply focus to new index
