@@ -1,5 +1,15 @@
 # Semantic Release Automated Changelog
 
+# [3.3.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.2.0...v3.3.0) (2022-03-28)
+
+
+### Features
+
+* **API:** apply API updates [#112](https://github.com/AlaskaAirlines/auro-menu/issues/112) ([260aea7](https://github.com/AlaskaAirlines/auro-menu/commit/260aea71116df3535245117cdcceeb213a394ee8))
+* **API:** expose selectNextItem() and makeSelection() [#106](https://github.com/AlaskaAirlines/auro-menu/issues/106) ([9320837](https://github.com/AlaskaAirlines/auro-menu/commit/932083747608903a21e89aebcb616906db5c584c))
+* **hidden:** add support for hidden menuoptions [#111](https://github.com/AlaskaAirlines/auro-menu/issues/111) ([387356d](https://github.com/AlaskaAirlines/auro-menu/commit/387356df46379119943c437984914044c1f0f6ae))
+* **hover:**  state now follows mouseover ([a55ab11](https://github.com/AlaskaAirlines/auro-menu/commit/a55ab118fe85ada5d5dea8e0a09b110ce1efe838))
+
 # [3.2.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.1.0...v3.2.0) (2022-03-21)
 
 
