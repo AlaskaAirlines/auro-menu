@@ -117,7 +117,7 @@ class AuroMenu extends LitElement {
     const option = this.items[this.index];
 
     // only handle options that are not disabled
-    if (!option.disabled) {
+    if (!option.disabled && !option.hidden) {
       this.resetOptionsStates();
       this.handleLocalSelectState(option);
       this.dispatchEvent(new CustomEvent('selectedOption', {
