@@ -16,13 +16,15 @@ The auro-menu element provides users a way to select from a list of options.
 |----------------------|---------------------------------|--------------------------------------------------|
 | `makeSelection`      | `(): void`                      | Process actions for making making a menuoption selection. |
 | `resetOptionsStates` | `(): void`                      | Reset the menu and all options.                  |
+| `selectByValue`      | `(value: string): void`         | Method to apply `selected` attribute to `menuoption` via `value`.<br /><br />**value**: Must match a unique `menuoption` value. |
 | `selectNextItem`     | `(moveDirection: string): void` | Using value of current this.index evaluates index<br />of next :focus to set based on array of this.items ignoring items<br />with disabled attr.<br /><br />The event.target is not used as the function needs to know where to go,<br />versus knowing where it is.<br /><br />**moveDirection**: Up or Down based on keyboard event. |
 
 ## Events
 
-| Event            | Type               | Description                     |
-|------------------|--------------------|---------------------------------|
-| `selectedOption` | `CustomEvent<any>` | Value for selected menu option. |
+| Event                        | Type               | Description                                      |
+|------------------------------|--------------------|--------------------------------------------------|
+| `auroMenuSelectValueFailure` | `CustomEvent<any>` | Notifies that a an attempt to select a menuoption by matching a value has failed. |
+| `selectedOption`             | `CustomEvent<any>` | Notifies that a new menuoption selection has been made. |
 
 ## Slots
 

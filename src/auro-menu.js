@@ -1,4 +1,4 @@
-/* eslint-disable no-magic-numbers */
+/* eslint-disable no-magic-numbers, max-lines */
 // Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
@@ -16,7 +16,8 @@ import "mark.js/dist/mark.min";
  * @attr {String} value - Specifies the value to be sent to a server.
  * @attr {Object} optionSelected - Specifies the current selected menuOption.
  * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
- * @fires selectedOption - Value for selected menu option.
+ * @fires selectedOption - Notifies that a new menuoption selection has been made.
+ * @fires auroMenuSelectValueFailure - Notifies that a an attempt to select a menuoption by matching a value has failed.
  * @slot Slot for insertion of menu options.
  */
 
@@ -240,6 +241,30 @@ class AuroMenu extends LitElement {
 
       this.handleNestedMenus(nestedMenu);
     });
+  }
+
+  /**
+   * Method to apply `selected` attribute to `menuoption` via `value`.
+   * @param {String} value - Must match a unique `menuoption` value.
+   */
+  selectByValue(value) {
+    let valueMatch = false;
+
+    for (let index = 0; index < this.items.length; index += 1) {
+      if (this.items[index].value === value) {
+        valueMatch = true;
+        this.index = index;
+        this.makeSelection();
+      }
+    }
+
+    if (!valueMatch) {
+      this.dispatchEvent(new CustomEvent('auroMenuSelectValueFailure', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+      }));
+    }
   }
 
   /**
