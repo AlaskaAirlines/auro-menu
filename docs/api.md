@@ -21,10 +21,11 @@ The auro-menu element provides users a way to select from a list of options.
 
 ## Events
 
-| Event                        | Type               | Description                                      |
-|------------------------------|--------------------|--------------------------------------------------|
-| `auroMenuSelectValueFailure` | `CustomEvent<any>` | Notifies that a an attempt to select a menuoption by matching a value has failed. |
-| `selectedOption`             | `CustomEvent<any>` | Notifies that a new menuoption selection has been made. |
+| Event                        | Type                   | Description                                      |
+|------------------------------|------------------------|--------------------------------------------------|
+| `auroMenuActivatedOption`    | `CustomEvent<Element>` | Notifies that a menuoption has been made `active`. |
+| `auroMenuSelectValueFailure` | `CustomEvent<any>`     | Notifies that a an attempt to select a menuoption by matching a value has failed. |
+| `selectedOption`             | `CustomEvent<any>`     | Notifies that a new menuoption selection has been made. |
 
 ## Slots
 
@@ -44,6 +45,12 @@ The auro-menu element provides users a way to define a menu option.
 | `disabled` | `disabled` | `Boolean` | When true specifies that the menuoption is disabled. |
 | `selected` | `selected` | `Boolean` | Specifies that an option is selected.            |
 | `value`    | `value`    | `String`  | Specifies the value to be sent to a server.      |
+
+## Events
+
+| Event                     | Type                | Description                                      |
+|---------------------------|---------------------|--------------------------------------------------|
+| `auroMenuOptionMouseover` | `CustomEvent<this>` | Notifies that this option has been hovered over. |
 
 ## Slots
 
