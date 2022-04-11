@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [3.4.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.3.1...v3.4.0) (2022-04-11)
+
+
+### Features
+
+* **preselect:** add new selectByValue public method [#118](https://github.com/AlaskaAirlines/auro-menu/issues/118) ([3876c91](https://github.com/AlaskaAirlines/auro-menu/commit/3876c917d6e93b4d61c1e2ee7b715a60fcd8d3e3))
+
 ## [3.3.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.3.0...v3.3.1) (2022-03-29)
 
 
