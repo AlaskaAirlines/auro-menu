@@ -46,6 +46,8 @@ describe('auro-menu', () => {
     const menuEl = el.querySelector('auro-menu');
     let options = menuEl.shadowRoot.querySelector('slot').assignedNodes();
 
+    menuEl.selectNextItem('down');
+
     options[index].dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,

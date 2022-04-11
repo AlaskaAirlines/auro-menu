@@ -17,6 +17,7 @@ import "mark.js/dist/mark.min";
  * @attr {Object} optionSelected - Specifies the current selected menuOption.
  * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
  * @fires selectedOption - Notifies that a new menuoption selection has been made.
+ * @fires auroMenuActivatedOption - Notifies that a menuoption has been made `active`.
  * @fires auroMenuSelectValueFailure - Notifies that a an attempt to select a menuoption by matching a value has failed.
  * @slot Slot for insertion of menu options.
  */
@@ -118,7 +119,7 @@ class AuroMenu extends LitElement {
     const option = this.items[this.index];
 
     // only handle options that are not disabled
-    if (!option.disabled && !option.hidden) {
+    if (option && !option.disabled && !option.hidden) {
       this.resetOptionsStates();
       this.handleLocalSelectState(option);
       this.dispatchEvent(new CustomEvent('selectedOption', {
@@ -162,16 +163,11 @@ class AuroMenu extends LitElement {
    */
   getSelectedIndex() {
     // find the first `selected` and not `disabled` option
-    let index = this.items.findIndex((item) => item.hasAttribute('selected') && !item.hasAttribute('disabled'));
+    const index = this.items.findIndex((item) => item.hasAttribute('selected') && !item.hasAttribute('disabled'));
 
     if (index >= 0) {
       this.index = index;
       this.makeSelection();
-    }
-
-    if (index === -1) {
-      // make index be the next non-`disabled` option
-      index = this.items.findIndex((item) => !item.hasAttribute('disabled'));
     }
   }
 
@@ -207,16 +203,20 @@ class AuroMenu extends LitElement {
         this.index = this.items.length - 1;
       }
 
-      // check if new index is disabled, if so, execute again
+      // check if new index is disabled or hidden, if so, execute again
       if (this.items[this.index].disabled || this.items[this.index].hidden) {
         this.selectNextItem(moveDirection);
       } else {
         // apply focus to new index
-        this.items[this.index].classList.add('active');
+        this.updateActiveOption(this.index);
       }
     } else {
-      this.items[0].classList.add('active');
       this.index = 0;
+      if (this.items[this.index].hasAttribute('hidden') || this.items[this.index].hasAttribute('disabled')) {
+        this.selectNextItem(moveDirection);
+      } else {
+        this.updateActiveOption(this.index);
+      }
     }
   }
 
@@ -269,13 +269,21 @@ class AuroMenu extends LitElement {
 
   /**
    * Used to make the active state for options follow mouseover.
+   * @param {Number} index - Index of the menuoption that will be made active.
    * @private
-   * @param {Object} evt - Browser event passed in to identify the option hovered over.
    */
-  updateActiveOption(evt) {
-    this.items[this.index].classList.remove('active');
-    this.index = this.items.indexOf(evt.target);
-    evt.target.classList.add('active');
+  updateActiveOption(index) {
+    this.items.forEach((item) => {
+      item.classList.remove('active');
+    });
+    this.items[index].classList.add('active');
+
+    this.dispatchEvent(new CustomEvent('auroMenuActivatedOption', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+      detail: this.items[index]
+    }));
   }
 
   /**
@@ -300,12 +308,15 @@ class AuroMenu extends LitElement {
       this.setAttribute('role', 'listbox');
       this.handleNestedMenus(this);
       this.markOptions();
+      this.index = -1;
       this.getSelectedIndex();
-      this.selectNextItem();
 
       this.addEventListener('keydown', this.handleKeyDown);
       this.addEventListener('mousedown', this.makeSelection);
-      this.addEventListener('mouseover', this.updateActiveOption);
+      this.addEventListener('auroMenuOptionMouseover', (evt) => {
+        this.index = this.items.indexOf(evt.target);
+        this.updateActiveOption(this.index);
+      });
     }
   }
 

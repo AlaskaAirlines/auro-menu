@@ -14,6 +14,7 @@ import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
  * @attr {String} value - Specifies the value to be sent to a server.
  * @attr {Boolean} disabled - When true specifies that the menuoption is disabled.
  * @attr {Boolean} selected - Specifies that an option is selected.
+ * @fires auroMenuOptionMouseover - Notifies that this option has been hovered over.
  * @slot Specifies text for an option, but is not the value.
  */
 class AuroMenuOption extends LitElement {
@@ -60,6 +61,15 @@ class AuroMenuOption extends LitElement {
 
   firstUpdated() {
     this.setAttribute('role', 'option');
+
+    this.addEventListener('mouseover', () => {
+      this.dispatchEvent(new CustomEvent('auroMenuOptionMouseover', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+        detail: this
+      }));
+    });
   }
 
   render() {
