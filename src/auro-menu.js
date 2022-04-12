@@ -61,10 +61,27 @@ class AuroMenu extends LitElement {
 
   /**
    * @private
+   * @param {Object} option - The menuoption to check for interactive state.
+   * @returns {Boolean} Returns true if the option is interactive.
+   */
+  optionInteractive(option) {
+    return !option.hasAttribute('disabled') && !option.hasAttribute('hidden') && !option.hasAttribute('static');
+  }
+
+  /**
+   * @private
    * @returns {void} When called will update the DOM with visible suggest text matches.
    */
   markOptions() {
-    const markInstance = new Mark(this.items); // eslint-disable-line
+    let itemsToMark = []; // eslint-disable-line prefer-const
+
+    this.items.forEach((item) => {
+      if (this.optionInteractive(item)) {
+        itemsToMark.push(item);
+      }
+    });
+
+    const markInstance = new Mark(itemsToMark); // eslint-disable-line
 
     markInstance.unmark();
 
@@ -118,8 +135,8 @@ class AuroMenu extends LitElement {
   makeSelection() {
     const option = this.items[this.index];
 
-    // only handle options that are not disabled
-    if (option && !option.disabled && !option.hidden) {
+    // only handle options that are not disabled, hidden or static
+    if (option && this.optionInteractive(option)) {
       this.resetOptionsStates();
       this.handleLocalSelectState(option);
       this.dispatchEvent(new CustomEvent('selectedOption', {
@@ -162,8 +179,8 @@ class AuroMenu extends LitElement {
    * @private
    */
   getSelectedIndex() {
-    // find the first `selected` and not `disabled` option
-    const index = this.items.findIndex((item) => item.hasAttribute('selected') && !item.hasAttribute('disabled'));
+    // find the first `selected` and not `disabled`, `hidden` or `static` option
+    const index = this.items.findIndex((option) => option.hasAttribute('selected') && this.optionInteractive(option));
 
     if (index >= 0) {
       this.index = index;
@@ -203,8 +220,8 @@ class AuroMenu extends LitElement {
         this.index = this.items.length - 1;
       }
 
-      // check if new index is disabled or hidden, if so, execute again
-      if (this.items[this.index].disabled || this.items[this.index].hidden) {
+      // check if new index is disabled, static or hidden, if so, execute again
+      if (!this.optionInteractive(this.items[this.index])) {
         this.selectNextItem(moveDirection);
       } else {
         // apply focus to new index
