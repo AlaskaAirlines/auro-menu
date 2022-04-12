@@ -42,6 +42,10 @@
   display: none;
 }
 
+:host([static]) {
+  pointer-events: none;
+}
+
 :host([disabled]:hover) {
   cursor: auto;
 }
