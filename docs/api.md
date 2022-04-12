@@ -25,6 +25,7 @@ The auro-menu element provides users a way to select from a list of options.
 |------------------------------|------------------------|--------------------------------------------------|
 | `auroMenuActivatedOption`    | `CustomEvent<Element>` | Notifies that a menuoption has been made `active`. |
 | `auroMenuSelectValueFailure` | `CustomEvent<any>`     | Notifies that a an attempt to select a menuoption by matching a value has failed. |
+| `customEventFired`           | `CustomEvent<any>`     | Notifies that a custom event has been fired.     |
 | `selectedOption`             | `CustomEvent<any>`     | Notifies that a new menuoption selection has been made. |
 
 ## Slots
