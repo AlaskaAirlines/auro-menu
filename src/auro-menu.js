@@ -76,7 +76,7 @@ class AuroMenu extends LitElement {
     let itemsToMark = []; // eslint-disable-line prefer-const
 
     this.items.forEach((item) => {
-      if (this.optionInteractive(item)) {
+      if (this.optionInteractive(item) && !item.hasAttribute('persistent')) {
         itemsToMark.push(item);
       }
     });
@@ -137,13 +137,23 @@ class AuroMenu extends LitElement {
 
     // only handle options that are not disabled, hidden or static
     if (option && this.optionInteractive(option)) {
-      this.resetOptionsStates();
-      this.handleLocalSelectState(option);
-      this.dispatchEvent(new CustomEvent('selectedOption', {
-        bubbles: true,
-        cancelable: false,
-        composed: true,
-      }));
+      // fire custom event if defined otherwise make selection
+      if (option.hasAttribute('event')) {
+        this.dispatchEvent(new CustomEvent(option.getAttribute('event'), {
+          bubbles: true,
+          cancelable: false,
+          composed: true,
+        }));
+      } else {
+        this.resetOptionsStates();
+        this.handleLocalSelectState(option);
+
+        this.dispatchEvent(new CustomEvent('selectedOption', {
+          bubbles: true,
+          cancelable: false,
+          composed: true,
+        }));
+      }
     }
   }
 

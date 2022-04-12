@@ -442,3 +442,51 @@ The `auro-menuoption` element supports scenarios where the menu option needs to 
   <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
+
+
+## Menuoption with custom event
+
+The `auro-menuoption` element supports scenarios where a custom event should be fired in place of the standard `selectedOption`.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/customEvent.html) -->
+  <!-- The below content is automatically added from ./partials/customEvent.html -->
+  <auro-menu id="customEvent">
+    <auro-menuoption value="stops">555 Address Way Seattle, WA 99999</auro-menuoption>
+    <auro-menuoption value="price">333 Some Street Seattle, WA 99999</auro-menuoption>
+    <auro-menuoption event="mycustomevent">Add new address</auro-menuoption>
+  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/customEvent.js) -->
+  <!-- The below code snippet is automatically added from ./partials/customEvent.js -->
+  ```js
+  setTimeout(() => {
+    let menuCustomEventEl = document.querySelector('auro-menu#customEvent');
+  
+    if (menuCustomEventEl) {
+      menuCustomEventEl.addEventListener('mycustomevent', () => {
+        console.warn('My Custom Event Fired');
+        alert(`My Custom Event Fired`);
+      });
+    }
+  }, 1000);
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/customEvent.html) -->
+  <!-- The below code snippet is automatically added from ./partials/customEvent.html -->
+  ```html
+  <auro-menu id="customEvent">
+    <auro-menuoption value="stops">555 Address Way Seattle, WA 99999</auro-menuoption>
+    <auro-menuoption value="price">333 Some Street Seattle, WA 99999</auro-menuoption>
+    <auro-menuoption event="mycustomevent">Add new address</auro-menuoption>
+  </auro-menu>
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
