@@ -19,6 +19,7 @@ import "mark.js/dist/mark.min";
  * @fires selectedOption - Notifies that a new menuoption selection has been made.
  * @fires auroMenuActivatedOption - Notifies that a menuoption has been made `active`.
  * @fires auroMenuSelectValueFailure - Notifies that a an attempt to select a menuoption by matching a value has failed.
+ * @fires customEventFired - Notifies that a custom event has been fired.
  * @slot Slot for insertion of menu options.
  */
 
@@ -140,6 +141,12 @@ class AuroMenu extends LitElement {
       // fire custom event if defined otherwise make selection
       if (option.hasAttribute('event')) {
         this.dispatchEvent(new CustomEvent(option.getAttribute('event'), {
+          bubbles: true,
+          cancelable: false,
+          composed: true,
+        }));
+
+        this.dispatchEvent(new CustomEvent('customEventFired', {
           bubbles: true,
           cancelable: false,
           composed: true,
