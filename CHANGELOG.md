@@ -1,5 +1,14 @@
 # Semantic Release Automated Changelog
 
+# [3.5.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.4.0...v3.5.0) (2022-04-14)
+
+
+### Features
+
+* **active:** new handling for marking options as active [#120](https://github.com/AlaskaAirlines/auro-menu/issues/120) ([c43d3bc](https://github.com/AlaskaAirlines/auro-menu/commit/c43d3bc40bc6f6d983ecb47294eb83b92c68c04d))
+* **customevent:** support a custom event fired from a menu option [#35](https://github.com/AlaskaAirlines/auro-menu/issues/35) ([39baaea](https://github.com/AlaskaAirlines/auro-menu/commit/39baaeadf3deffe0b728eaedd960a26a65acab45))
+* **event:** send consistent event notifying that a custom event was fired ([0d570cc](https://github.com/AlaskaAirlines/auro-menu/commit/0d570cce46be1cf81f4f92d6772100875262e965))
+
 # [3.4.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.3.1...v3.4.0) (2022-04-11)
 
 
