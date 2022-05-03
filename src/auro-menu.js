@@ -289,6 +289,7 @@ class AuroMenu extends LitElement {
   }
 
   /**
+   * @private
    * Method to apply `selected` attribute to `menuoption` via `value`.
    * @param {String} value - Must match a unique `menuoption` value.
    */
