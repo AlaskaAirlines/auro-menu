@@ -13,9 +13,9 @@ import "mark.js/dist/mark.min";
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
  * The auro-menu element provides users a way to select from a list of options.
- * @attr {String} value - Specifies the value to be sent to a server.
  * @attr {Object} optionSelected - Specifies the current selected menuOption.
  * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
+ * @attr {String} value - Value selected for the menu.
  * @fires selectedOption - Notifies that a new menuoption selection has been made.
  * @fires auroMenuActivatedOption - Notifies that a menuoption has been made `active`.
  * @fires auroMenuSelectValueFailure - Notifies that a an attempt to select a menuoption by matching a value has failed.
@@ -38,7 +38,8 @@ class AuroMenu extends LitElement {
   static get properties() {
     return {
       optionSelected: { type: Object },
-      matchWord: { type: String }
+      matchWord: { type: String },
+      value: { type: String }
     };
   }
 
@@ -57,6 +58,12 @@ class AuroMenu extends LitElement {
   updated(changedProperties) {
     if (changedProperties.has('matchWord')) {
       this.markOptions();
+    }
+
+    if (changedProperties.has('value')) {
+      if (this.value && (!this.optionSelected || this.value !== this.optionSelected.value)) {
+        this.selectByValue(this.value);
+      }
     }
   }
 
@@ -134,6 +141,10 @@ class AuroMenu extends LitElement {
    * Process actions for making making a menuoption selection.
    */
   makeSelection() {
+    if (!this.items) {
+      this.items = Array.from(this.querySelectorAll('auro-menuoption'));
+    }
+
     const option = this.items[this.index];
 
     // only handle options that are not disabled, hidden or static
@@ -283,6 +294,10 @@ class AuroMenu extends LitElement {
    */
   selectByValue(value) {
     let valueMatch = false;
+
+    if (!this.items) {
+      this.items = Array.from(this.querySelectorAll('auro-menuoption'));
+    }
 
     for (let index = 0; index < this.items.length; index += 1) {
       if (this.items[index].value === value) {

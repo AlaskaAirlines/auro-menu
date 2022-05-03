@@ -8,7 +8,7 @@ The auro-menu element provides users a way to select from a list of options.
 |------------------|------------------|----------|-------------|--------------------------------------------------|
 | `matchWord`      | `matchWord`      | `String` |             | Specifies the a string used to highlight matched string parts in options. |
 | `optionSelected` | `optionSelected` | `Object` | "undefined" | Specifies the current selected menuOption.       |
-| `value`          | `value`          | `String` | "undefined" | Specifies the value to be sent to a server.      |
+| `value`          | `value`          | `String` | "undefined" | Value selected for the menu.                     |
 
 ## Methods
 
