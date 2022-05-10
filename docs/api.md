@@ -20,12 +20,16 @@ The auro-menu element provides users a way to select from a list of options.
 
 ## Events
 
-| Event                        | Type                   | Description                                      |
-|------------------------------|------------------------|--------------------------------------------------|
-| `auroMenuActivatedOption`    | `CustomEvent<Element>` | Notifies that a menuoption has been made `active`. |
-| `auroMenuCustomEventFired`   | `CustomEvent<any>`     | Notifies that a custom event has been fired.     |
-| `auroMenuSelectValueFailure` | `CustomEvent<any>`     | Notifies that a an attempt to select a menuoption by matching a value has failed. |
-| `selectedOption`             | `CustomEvent<any>`     | Notifies that a new menuoption selection has been made. |
+| Event                         | Type                   | Description                                      |
+|-------------------------------|------------------------|--------------------------------------------------|
+| `auroMenu-activatedOption`    | `CustomEvent<Element>` | Notifies that a menuoption has been made `active`. |
+| `auroMenu-customEventFired`   | `CustomEvent<any>`     | Notifies that a custom event has been fired.     |
+| `auroMenu-selectValueFailure` | `CustomEvent<any>`     | Notifies that a an attempt to select a menuoption by matching a value has failed. |
+| `auroMenu-selectedOption`     | `CustomEvent<any>`     | Notifies that a new menuoption selection has been made. |
+| `auroMenuActivatedOption`     | `CustomEvent<Element>` | (DEPRECATED) Notifies that a menuoption has been made `active`. |
+| `auroMenuCustomEventFired`    | `CustomEvent<any>`     | (DEPRECATED) Notifies that a custom event has been fired. |
+| `auroMenuSelectValueFailure`  | `CustomEvent<any>`     | (DEPRECATED) Notifies that a an attempt to select a menuoption by matching a value has failed. |
+| `selectedOption`              | `CustomEvent<any>`     | (DEPRECATED) Notifies that a new menuoption selection has been made. |
 
 ## Slots
 
@@ -48,9 +52,9 @@ The auro-menu element provides users a way to define a menu option.
 
 ## Events
 
-| Event                     | Type                | Description                                      |
-|---------------------------|---------------------|--------------------------------------------------|
-| `auroMenuOptionMouseover` | `CustomEvent<this>` | Notifies that this option has been hovered over. |
+| Event                      | Type                | Description                                      |
+|----------------------------|---------------------|--------------------------------------------------|
+| `auroMenuOption-mouseover` | `CustomEvent<this>` | Notifies that this option has been hovered over. |
 
 ## Slots
 

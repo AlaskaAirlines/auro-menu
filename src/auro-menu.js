@@ -16,10 +16,14 @@ import "mark.js/dist/mark.min";
  * @attr {Object} optionSelected - Specifies the current selected menuOption.
  * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
  * @attr {String} value - Value selected for the menu.
- * @fires selectedOption - Notifies that a new menuoption selection has been made.
- * @fires auroMenuActivatedOption - Notifies that a menuoption has been made `active`.
- * @fires auroMenuSelectValueFailure - Notifies that a an attempt to select a menuoption by matching a value has failed.
- * @fires auroMenuCustomEventFired - Notifies that a custom event has been fired.
+ * @fires auroMenu-selectedOption - Notifies that a new menuoption selection has been made.
+ * @fires selectedOption - (DEPRECATED) Notifies that a new menuoption selection has been made.
+ * @fires auroMenu-activatedOption - Notifies that a menuoption has been made `active`.
+ * @fires auroMenuActivatedOption - (DEPRECATED) Notifies that a menuoption has been made `active`.
+ * @fires auroMenu-selectValueFailure - Notifies that a an attempt to select a menuoption by matching a value has failed.
+ * @fires auroMenuSelectValueFailure - (DEPRECATED) Notifies that a an attempt to select a menuoption by matching a value has failed.
+ * @fires auroMenu-customEventFired - Notifies that a custom event has been fired.
+ * @fires auroMenuCustomEventFired - (DEPRECATED) Notifies that a custom event has been fired.
  * @slot Slot for insertion of menu options.
  */
 
@@ -157,7 +161,14 @@ class AuroMenu extends LitElement {
           composed: true,
         }));
 
+        // this event needs to be removed after select and combobox are updated to use the new standard name
         this.dispatchEvent(new CustomEvent('auroMenuCustomEventFired', {
+          bubbles: true,
+          cancelable: false,
+          composed: true,
+        }));
+
+        this.dispatchEvent(new CustomEvent('auroMenu-customEventFired', {
           bubbles: true,
           cancelable: false,
           composed: true,
@@ -166,7 +177,14 @@ class AuroMenu extends LitElement {
         this.resetOptionsStates();
         this.handleLocalSelectState(option);
 
+        // this event needs to be removed after select and combobox are updated to use the new standard name
         this.dispatchEvent(new CustomEvent('selectedOption', {
+          bubbles: true,
+          cancelable: false,
+          composed: true,
+        }));
+
+        this.dispatchEvent(new CustomEvent('auroMenu-selectedOption', {
           bubbles: true,
           cancelable: false,
           composed: true,
@@ -309,7 +327,14 @@ class AuroMenu extends LitElement {
     }
 
     if (!valueMatch) {
+      // this event needs to be removed after select and combobox are updated to use the new standard name
       this.dispatchEvent(new CustomEvent('auroMenuSelectValueFailure', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+      }));
+
+      this.dispatchEvent(new CustomEvent('auroMenu-selectValueFailure', {
         bubbles: true,
         cancelable: false,
         composed: true,
@@ -329,6 +354,13 @@ class AuroMenu extends LitElement {
     this.items[index].classList.add('active');
 
     this.dispatchEvent(new CustomEvent('auroMenuActivatedOption', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+      detail: this.items[index]
+    }));
+
+    this.dispatchEvent(new CustomEvent('auroMenu-activatedOption', {
       bubbles: true,
       cancelable: false,
       composed: true,
@@ -363,7 +395,7 @@ class AuroMenu extends LitElement {
 
       this.addEventListener('keydown', this.handleKeyDown);
       this.addEventListener('mousedown', this.makeSelection);
-      this.addEventListener('auroMenuOptionMouseover', (evt) => {
+      this.addEventListener('auroMenuOption-mouseover', (evt) => {
         this.index = this.items.indexOf(evt.target);
         this.updateActiveOption(this.index);
       });
