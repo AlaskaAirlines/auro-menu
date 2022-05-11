@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [3.5.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.5.0...v3.5.1) (2022-05-11)
+
+
+### Bug Fixes
+
+* **value:** auro-menu now handles when to call selectByValue [#125](https://github.com/AlaskaAirlines/auro-menu/issues/125) ([09b8372](https://github.com/AlaskaAirlines/auro-menu/commit/09b8372524e15aa305b8c15d94c29d31012b5991))
+* **value:** auro-menu now handles when to call selectByValue [#125](https://github.com/AlaskaAirlines/auro-menu/issues/125) ([0541c4b](https://github.com/AlaskaAirlines/auro-menu/commit/0541c4b1181c5345ce3273a8d3be2eadea263933))
+
 # [3.5.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.4.0...v3.5.0) (2022-04-14)
 
 
