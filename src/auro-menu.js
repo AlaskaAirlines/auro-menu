@@ -16,6 +16,7 @@ import "mark.js/dist/mark.min";
  * @attr {Object} optionSelected - Specifies the current selected menuOption.
  * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
  * @attr {String} value - Value selected for the menu.
+ * @prop {Boolean} ready - When false the component API should not be called.
  * @fires auroMenu-selectedOption - Notifies that a new menuoption selection has been made.
  * @fires selectedOption - (DEPRECATED) Notifies that a new menuoption selection has been made.
  * @fires auroMenu-activatedOption - Notifies that a menuoption has been made `active`.
@@ -24,6 +25,7 @@ import "mark.js/dist/mark.min";
  * @fires auroMenuSelectValueFailure - (DEPRECATED) Notifies that a an attempt to select a menuoption by matching a value has failed.
  * @fires auroMenu-customEventFired - Notifies that a custom event has been fired.
  * @fires auroMenuCustomEventFired - (DEPRECATED) Notifies that a custom event has been fired.
+ * @fires auroMenu-ready - Notifies that the component has finished initializing.
  * @slot Slot for insertion of menu options.
  */
 
@@ -32,6 +34,7 @@ class AuroMenu extends LitElement {
     super();
     this.value = undefined;
     this.optionSelected = undefined;
+    this.ready = false;
 
     /**
      * @private
@@ -43,6 +46,7 @@ class AuroMenu extends LitElement {
     return {
       optionSelected: { type: Object },
       matchWord: { type: String },
+      ready: { type: Boolean },
       value: { type: String }
     };
   }
@@ -399,7 +403,23 @@ class AuroMenu extends LitElement {
         this.index = this.items.indexOf(evt.target);
         this.updateActiveOption(this.index);
       });
+
+      this.notifyReady();
     }
+  }
+
+  /**
+   * @private
+   * @returns {void} Marks the component as ready and sends event.
+   */
+  notifyReady() {
+    this.ready = true;
+
+    this.dispatchEvent(new CustomEvent('auroMenu-ready', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+    }));
   }
 
   render() {

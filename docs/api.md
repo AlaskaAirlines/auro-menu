@@ -4,11 +4,12 @@ The auro-menu element provides users a way to select from a list of options.
 
 ## Properties
 
-| Property         | Attribute        | Type     | Default     | Description                                      |
-|------------------|------------------|----------|-------------|--------------------------------------------------|
-| `matchWord`      | `matchWord`      | `String` |             | Specifies the a string used to highlight matched string parts in options. |
-| `optionSelected` | `optionSelected` | `Object` | "undefined" | Specifies the current selected menuOption.       |
-| `value`          | `value`          | `String` | "undefined" | Value selected for the menu.                     |
+| Property         | Attribute        | Type      | Default     | Description                                      |
+|------------------|------------------|-----------|-------------|--------------------------------------------------|
+| `matchWord`      | `matchWord`      | `String`  |             | Specifies the a string used to highlight matched string parts in options. |
+| `optionSelected` | `optionSelected` | `Object`  | "undefined" | Specifies the current selected menuOption.       |
+| `ready`          | `ready`          | `Boolean` | false       | When false the component API should not be called. |
+| `value`          | `value`          | `String`  | "undefined" | Value selected for the menu.                     |
 
 ## Methods
 
@@ -24,6 +25,7 @@ The auro-menu element provides users a way to select from a list of options.
 |-------------------------------|------------------------|--------------------------------------------------|
 | `auroMenu-activatedOption`    | `CustomEvent<Element>` | Notifies that a menuoption has been made `active`. |
 | `auroMenu-customEventFired`   | `CustomEvent<any>`     | Notifies that a custom event has been fired.     |
+| `auroMenu-ready`              | `CustomEvent<any>`     | Notifies that the component has finished initializing. |
 | `auroMenu-selectValueFailure` | `CustomEvent<any>`     | Notifies that a an attempt to select a menuoption by matching a value has failed. |
 | `auroMenu-selectedOption`     | `CustomEvent<any>`     | Notifies that a new menuoption selection has been made. |
 | `auroMenuActivatedOption`     | `CustomEvent<Element>` | (DEPRECATED) Notifies that a menuoption has been made `active`. |
