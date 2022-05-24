@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [3.6.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.5.1...v3.6.0) (2022-05-24)
+
+
+### Features
+
+* **ready:** save and event notify readiness of component [#128](https://github.com/AlaskaAirlines/auro-menu/issues/128) ([7dc0606](https://github.com/AlaskaAirlines/auro-menu/commit/7dc0606d20fd07a6f4f5432f20ef854b03502b80))
+
 ## [3.5.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.5.0...v3.5.1) (2022-05-11)
 
 
