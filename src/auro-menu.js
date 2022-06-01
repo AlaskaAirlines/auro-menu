@@ -142,7 +142,7 @@ class AuroMenu extends LitElement {
    * @param {Object} evt - Event passed in from the click eventListener.
    */
   clickOption(evt) {
-    this.index = this.items.indexOf(evt.target);
+    this.index = this.items.indexOf(evt.target.closest('auro-menuoption'));
   }
 
   /**
