@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.6.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.6.0...v3.6.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* **click:** click uses closest menuoption [#130](https://github.com/AlaskaAirlines/auro-menu/issues/130) ([82af407](https://github.com/AlaskaAirlines/auro-menu/commit/82af407d5a47ec76f8bdafc975f0dd44a4202562))
+
 # [3.6.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.5.1...v3.6.0) (2022-05-24)
 
 
