@@ -60,7 +60,6 @@ class AuroMenu extends LitElement {
 
   firstUpdated() {
     this.addEventListener('keydown', this.handleKeyDown);
-    this.addEventListener('mousedown', this.clickOption);
   }
 
   updated(changedProperties) {
@@ -138,19 +137,11 @@ class AuroMenu extends LitElement {
   }
 
   /**
-   * @private
-   * @param {Object} evt - Event passed in from the click eventListener.
-   */
-  clickOption(evt) {
-    this.index = this.items.indexOf(evt.target.closest('auro-menuoption'));
-  }
-
-  /**
    * Process actions for making making a menuoption selection.
    */
   makeSelection() {
     if (!this.items) {
-      this.items = Array.from(this.querySelectorAll('auro-menuoption'));
+      this.initItems();
     }
 
     const option = this.items[this.index];
@@ -222,6 +213,14 @@ class AuroMenu extends LitElement {
       default:
         break;
     }
+  }
+
+  /**
+   * Initializes all menu options in the DOM. This must be re-run every time the options are changed.
+   * @private
+   */
+  initItems() {
+    this.items = Array.from(this.querySelectorAll('auro-menuoption'));
   }
 
   /**
@@ -311,15 +310,15 @@ class AuroMenu extends LitElement {
   }
 
   /**
-   * @private
    * Method to apply `selected` attribute to `menuoption` via `value`.
+   * @private
    * @param {String} value - Must match a unique `menuoption` value.
    */
   selectByValue(value) {
     let valueMatch = false;
 
     if (!this.items) {
-      this.items = Array.from(this.querySelectorAll('auro-menuoption'));
+      this.initItems();
     }
 
     for (let index = 0; index < this.items.length; index += 1) {
@@ -381,7 +380,7 @@ class AuroMenu extends LitElement {
     /**
      * Determine if this is the root of the menu/submenu layout.
      */
-    if (this.parentElement.closest('auro-menu')) {
+    if (this.parentElement && this.parentElement.closest('auro-menu')) {
       this.rootMenu = false;
     }
 
@@ -389,8 +388,7 @@ class AuroMenu extends LitElement {
      * If this is the root menu (not a nested menu) handle events, states and styling.
      */
     if (this.rootMenu) {
-      this.items = Array.from(this.querySelectorAll('auro-menuoption'));
-
+      this.initItems();
       this.setAttribute('role', 'listbox');
       this.handleNestedMenus(this);
       this.markOptions();
