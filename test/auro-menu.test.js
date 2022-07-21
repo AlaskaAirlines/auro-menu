@@ -58,7 +58,7 @@ describe('auro-menu', () => {
 
     menuEl.selectNextItem('down');
 
-    options[index].dispatchEvent(new KeyboardEvent('keydown', {
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
       'key': 'Enter'
@@ -80,18 +80,15 @@ describe('auro-menu', () => {
     const menuEl = el.querySelector('auro-menu');
     const options = getOptions(menuEl);
 
-    options[0].dispatchEvent(new Event('mousedown', {
-      bubbles: true,
-      composed: true
-    }));
+    menuEl.selectNextItem('down');
 
-    options[0].dispatchEvent(new KeyboardEvent('keydown', {
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
       'key': 'ArrowDown'
     }));
 
-    options[1].dispatchEvent(new KeyboardEvent('keydown', {
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
       'key': 'Enter'
@@ -105,24 +102,16 @@ describe('auro-menu', () => {
     const menuEl = el.querySelector('auro-menu');
     const options = getOptions(menuEl);
 
-    options[5].dispatchEvent(new Event('mousedown', {
-      bubbles: true,
-      composed: true
-    }));
+    menuEl.selectNextItem('down');
+    menuEl.selectNextItem('up');
 
-    options[5].dispatchEvent(new KeyboardEvent('keydown', {
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
       'key': 'ArrowDown'
     }));
 
-    options[0].dispatchEvent(new KeyboardEvent('keydown', {
-      bubbles: true,
-      composed: true,
-      'key': 'Enter'
-    }));
-
-    expect(options[0].hasAttribute('selected')).to.equal(true);
+    expect(options[0].classList['0']).to.equal('active');
   });
 
   it('Enter ArrowUp marks option as active', async () => {
@@ -130,23 +119,12 @@ describe('auro-menu', () => {
     const menuEl = el.querySelector('auro-menu');
     const options = getOptions(menuEl);
 
-    options[0].dispatchEvent(new Event('mousedown', {
-      bubbles: true,
-      composed: true
-    }));
+    menuEl.selectNextItem('down');
 
-    expect(options[0].classList['0']).to.equal('active');
-
-    options[0].dispatchEvent(new KeyboardEvent('keydown', {
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
       'key': 'ArrowDown'
-    }));
-
-    options[1].dispatchEvent(new KeyboardEvent('keydown', {
-      bubbles: true,
-      composed: true,
-      'key': 'Enter'
     }));
 
     expect(options[1].classList['0']).to.equal('active');
@@ -157,21 +135,13 @@ describe('auro-menu', () => {
     const menuEl = el.querySelector('auro-menu');
     const options = getOptions(menuEl);
 
-    options[0].dispatchEvent(new Event('mousedown', {
-      bubbles: true,
-      composed: true
-    }));
 
-    options[0].dispatchEvent(new KeyboardEvent('keydown', {
+    menuEl.selectNextItem('down');
+
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
       composed: true,
       'key': 'ArrowUp'
-    }));
-
-    options[5].dispatchEvent(new KeyboardEvent('keydown', {
-      bubbles: true,
-      composed: true,
-      'key': 'Enter'
     }));
 
     expect(options[5].classList['0']).to.equal('active');
@@ -185,9 +155,12 @@ describe('auro-menu', () => {
     const listener1 = oneEvent(el, 'auroMenu-customEventFired');
     const listener2 = oneEvent(el, options[0].getAttribute('event'));
 
-    options[0].dispatchEvent(new Event('mousedown', {
+    menuEl.selectNextItem('down');
+
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
       bubbles: true,
-      composed: true
+      composed: true,
+      'key': 'Enter'
     }));
 
     const { result1 } = await listener1;
