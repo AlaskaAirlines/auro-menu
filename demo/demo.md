@@ -41,6 +41,91 @@ A default `auro-menu` element with nested `auro-menuoption` elements to generate
 
 </auro-accordion>
 
+## noCheckmark
+
+Applying the `noCheckmark` attribute will prevent the check icon from being shown on the selected option. The left padding to reserve space for the checkmark is also removed.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/nocheckmark.html) -->
+  <!-- The below content is automatically added from ./partials/nocheckmark.html -->
+  <auro-menu nocheckmark>
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <hr>
+    <auro-menu>
+      <auro-menuoption value="apples">Apples</auro-menuoption>
+      <auro-menuoption value="oranges">Oranges</auro-menuoption>
+      <auro-menuoption value="pears">Pears</auro-menuoption>
+      <auro-menuoption value="grapes">Grapes</auro-menuoption>
+      <auro-menuoption value="kiwi">Kiwi</auro-menuoption>
+      <hr>
+      <auro-menu>
+        <auro-menuoption value="person">Person</auro-menuoption>
+        <auro-menuoption value="woman">Woman</auro-menuoption>
+        <auro-menuoption value="man">Man</auro-menuoption>
+        <auro-menuoption value="camera">Camera</auro-menuoption>
+        <auro-menuoption value="tv">TV</auro-menuoption>
+      </auro-menu>
+    </auro-menu>
+    <hr>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+    <hr>
+    <auro-menu>
+      <auro-menuoption value="cars">Cars</auro-menuoption>
+      <auro-menuoption value="trucks">Trucks</auro-menuoption>
+      <auro-menuoption value="boats">Boats</auro-menuoption>
+      <auro-menuoption value="planes">Planes</auro-menuoption>
+      <auro-menuoption value="motorcycles">Motorcycles</auro-menuoption>
+    </auro-menu>
+  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/nocheckmark.html) -->
+  <!-- The below code snippet is automatically added from ./partials/nocheckmark.html -->
+  ```html
+  <auro-menu nocheckmark>
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <hr>
+    <auro-menu>
+      <auro-menuoption value="apples">Apples</auro-menuoption>
+      <auro-menuoption value="oranges">Oranges</auro-menuoption>
+      <auro-menuoption value="pears">Pears</auro-menuoption>
+      <auro-menuoption value="grapes">Grapes</auro-menuoption>
+      <auro-menuoption value="kiwi">Kiwi</auro-menuoption>
+      <hr>
+      <auro-menu>
+        <auro-menuoption value="person">Person</auro-menuoption>
+        <auro-menuoption value="woman">Woman</auro-menuoption>
+        <auro-menuoption value="man">Man</auro-menuoption>
+        <auro-menuoption value="camera">Camera</auro-menuoption>
+        <auro-menuoption value="tv">TV</auro-menuoption>
+      </auro-menu>
+    </auro-menu>
+    <hr>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+    <hr>
+    <auro-menu>
+      <auro-menuoption value="cars">Cars</auro-menuoption>
+      <auro-menuoption value="trucks">Trucks</auro-menuoption>
+      <auro-menuoption value="boats">Boats</auro-menuoption>
+      <auro-menuoption value="planes">Planes</auro-menuoption>
+      <auro-menuoption value="motorcycles">Motorcycles</auro-menuoption>
+    </auro-menu>
+  </auro-menu>
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
 ## Using matchWord to highlight displayValue string parts
 
 The `auro-menu` component supports the use of the `matchWord` attribute to highlight string parts of each menuoption that are equal to `matchWord`. The matching algorithm is case insensitive (e.g., `n` matches `N`).

@@ -12,6 +12,7 @@ import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
  * The auro-menu element provides users a way to define a menu option.
  *
  * @attr {String} value - Specifies the value to be sent to a server.
+ * @attr {String} noCheckmark - When true, selected option will not show the checkmark.
  * @attr {Boolean} disabled - When true specifies that the menuoption is disabled.
  * @attr {Boolean} selected - Specifies that an option is selected.
  * @fires auroMenuOption-mouseover - Notifies that this option has been hovered over.
@@ -20,6 +21,10 @@ import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 class AuroMenuOption extends LitElement {
   constructor() {
     super();
+
+    this.nocheckmark = false;
+    this.disabled = false;
+    this.selected = false;
 
     /**
      * @private
@@ -39,8 +44,18 @@ class AuroMenuOption extends LitElement {
 
   static get properties() {
     return {
-      selected:         { type: Boolean },
-      disabled:         { type: Boolean },
+      nocheckmark: {
+        type: Boolean,
+        reflect: true
+      },
+      selected:  {
+        type: Boolean,
+        reflect: true
+      },
+      disabled:  {
+        type: Boolean,
+        reflect: true
+      },
       value: {
         type: String,
         reflect: true
@@ -74,7 +89,7 @@ class AuroMenuOption extends LitElement {
 
   render() {
     return html`
-      ${this.selected ? html`${this.svg}` : undefined}
+      ${this.selected && !this.nocheckmark ? html`${this.svg}` : undefined}
       <slot></slot>
     `;
   }

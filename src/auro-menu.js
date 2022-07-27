@@ -15,6 +15,7 @@ import "mark.js/dist/mark.min";
  * The auro-menu element provides users a way to select from a list of options.
  * @attr {Object} optionSelected - Specifies the current selected menuOption.
  * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
+ * @attr {Boolean} noCheckmark - When true, selected option will not show the checkmark.
  * @attr {String} value - Value selected for the menu.
  * @prop {Boolean} ready - When false the component API should not be called.
  * @fires auroMenu-selectedOption - Notifies that a new menuoption selection has been made.
@@ -34,6 +35,8 @@ class AuroMenu extends LitElement {
     super();
     this.value = undefined;
     this.optionSelected = undefined;
+    this.matchWord = undefined;
+    this.noCheckmark = false;
     this.ready = false;
     this.optionActive = undefined;
 
@@ -45,11 +48,15 @@ class AuroMenu extends LitElement {
 
   static get properties() {
     return {
+      noCheckmark:    {
+        type: Boolean,
+        reflect: true
+      },
       optionSelected: { type: Object },
-      optionActive: { type: Object },
-      matchWord: { type: String },
-      ready: { type: Boolean },
-      value: { type: String }
+      optionActive:   { type: Object },
+      matchWord:      { type: String },
+      ready:          { type: Boolean },
+      value:          { type: String }
     };
   }
 
@@ -62,6 +69,20 @@ class AuroMenu extends LitElement {
 
   firstUpdated() {
     this.addEventListener('keydown', this.handleKeyDown);
+
+    if (this.noCheckmark) {
+      const menus = this.querySelectorAll('auro-menu');
+
+      menus.forEach((menu) => {
+        menu.setAttribute('noCheckmark', '');
+      });
+
+      const options = this.querySelectorAll('auro-menuoption');
+
+      options.forEach((option) => {
+        option.setAttribute('noCheckmark', '');
+      });
+    }
   }
 
   updated(changedProperties) {
