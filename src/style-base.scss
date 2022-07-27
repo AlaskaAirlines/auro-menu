@@ -11,12 +11,16 @@
 // Support for auroElement styles
 // @import "./../node_modules/@alaskaairux/webcorestylesheets/dist/auroElement/auroElement";
 
+/* stylelint-disable declaration-no-important, order/properties-order */
+
 // container styles - defines the look of the outer custom component
 :host {
   display: inline-block;
   width: 100%;
-  padding: 0;
+
   margin: 0;
+  padding: 0;
+
   vertical-align: middle;
 
   ::slotted(auro-menuoption) {
@@ -29,13 +33,21 @@
 
   // Styles are set to `important` to ensure they over-ride any styles
   // set in the user's global scope.
-  /* stylelint-disable declaration-no-important */
   ::slotted(hr) {
-    overflow: visible !important;
-    height: 0 !important;
     box-sizing: content-box !important;
+    height: 0 !important;
+
+    overflow: visible !important;
+
+    margin: var(--auro-size-xs) 0 !important;
+
     border-width: 0 !important;
     border-top: 1px solid var(--auro-color-border-divider-on-light) !important;
-    margin: var(--auro-size-xs) 0 !important;
+  }
+}
+
+:host([nocheckmark]) {
+  ::slotted(auro-menuoption) {
+    padding-left: var(--auro-size-md);
   }
 }

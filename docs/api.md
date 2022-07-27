@@ -6,7 +6,8 @@ The auro-menu element provides users a way to select from a list of options.
 
 | Property         | Attribute        | Type      | Default     | Description                                      |
 |------------------|------------------|-----------|-------------|--------------------------------------------------|
-| `matchWord`      | `matchWord`      | `String`  |             | Specifies the a string used to highlight matched string parts in options. |
+| `matchWord`      | `matchWord`      | `String`  | "undefined" | Specifies the a string used to highlight matched string parts in options. |
+| `noCheckmark`    | `noCheckmark`    | `Boolean` | false       | When true, selected option will not show the checkmark. |
 | `optionActive`   | `optionActive`   | `object`  | "undefined" |                                                  |
 | `optionSelected` | `optionSelected` | `Object`  | "undefined" | Specifies the current selected menuOption.       |
 | `ready`          | `ready`          | `Boolean` | false       | When false the component API should not be called. |
@@ -45,13 +46,20 @@ The auro-menu element provides users a way to select from a list of options.
 
 The auro-menu element provides users a way to define a menu option.
 
+## Attributes
+
+| Attribute     | Type     | Description                                      |
+|---------------|----------|--------------------------------------------------|
+| `noCheckmark` | `String` | When true, selected option will not show the checkmark. |
+
 ## Properties
 
-| Property   | Attribute  | Type      | Description                                      |
-|------------|------------|-----------|--------------------------------------------------|
-| `disabled` | `disabled` | `Boolean` | When true specifies that the menuoption is disabled. |
-| `selected` | `selected` | `Boolean` | Specifies that an option is selected.            |
-| `value`    | `value`    | `String`  | Specifies the value to be sent to a server.      |
+| Property      | Attribute     | Type      | Default | Description                                      |
+|---------------|---------------|-----------|---------|--------------------------------------------------|
+| `disabled`    | `disabled`    | `Boolean` | false   | When true specifies that the menuoption is disabled. |
+| `nocheckmark` | `nocheckmark` | `boolean` | false   |                                                  |
+| `selected`    | `selected`    | `Boolean` | false   | Specifies that an option is selected.            |
+| `value`       | `value`       | `String`  |         | Specifies the value to be sent to a server.      |
 
 ## Events
 
