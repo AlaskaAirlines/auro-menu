@@ -35,6 +35,7 @@ class AuroMenu extends LitElement {
     this.value = undefined;
     this.optionSelected = undefined;
     this.ready = false;
+    this.optionActive = undefined;
 
     /**
      * @private
@@ -45,6 +46,7 @@ class AuroMenu extends LitElement {
   static get properties() {
     return {
       optionSelected: { type: Object },
+      optionActive: { type: Object },
       matchWord: { type: String },
       ready: { type: Boolean },
       value: { type: String }
@@ -355,6 +357,7 @@ class AuroMenu extends LitElement {
       item.classList.remove('active');
     });
     this.items[index].classList.add('active');
+    this.optionActive = this.items[index];
 
     this.dispatchEvent(new CustomEvent('auroMenuActivatedOption', {
       bubbles: true,

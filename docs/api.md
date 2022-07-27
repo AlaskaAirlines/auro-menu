@@ -7,6 +7,7 @@ The auro-menu element provides users a way to select from a list of options.
 | Property         | Attribute        | Type      | Default     | Description                                      |
 |------------------|------------------|-----------|-------------|--------------------------------------------------|
 | `matchWord`      | `matchWord`      | `String`  |             | Specifies the a string used to highlight matched string parts in options. |
+| `optionActive`   | `optionActive`   | `object`  | "undefined" |                                                  |
 | `optionSelected` | `optionSelected` | `Object`  | "undefined" | Specifies the current selected menuOption.       |
 | `ready`          | `ready`          | `Boolean` | false       | When false the component API should not be called. |
 | `value`          | `value`          | `String`  | "undefined" | Value selected for the menu.                     |
