@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+# [3.7.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.6.2...v3.7.0) (2022-08-11)
+
+
+### Features
+
+* **attribute:** store activeOption ([b8c43b9](https://github.com/AlaskaAirlines/auro-menu/commit/b8c43b997a9811765c8148f4fb48416e52a704b1))
+* **checkmark:** add attribute to toggle checkmark display [#87](https://github.com/AlaskaAirlines/auro-menu/issues/87) ([a7fb6de](https://github.com/AlaskaAirlines/auro-menu/commit/a7fb6de0ffd219bdc9fa5814e5809f6b93ac070e))
+
 ## [3.6.2](https://github.com/AlaskaAirlines/auro-menu/compare/v3.6.1...v3.6.2) (2022-07-21)
 
 
