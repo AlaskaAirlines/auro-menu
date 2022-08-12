@@ -69,7 +69,9 @@ class AuroMenu extends LitElement {
 
   firstUpdated() {
     this.addEventListener('keydown', this.handleKeyDown);
+  }
 
+  updated(changedProperties) {
     if (this.noCheckmark) {
       const menus = this.querySelectorAll('auro-menu');
 
@@ -83,9 +85,7 @@ class AuroMenu extends LitElement {
         option.setAttribute('noCheckmark', '');
       });
     }
-  }
 
-  updated(changedProperties) {
     if (changedProperties.has('matchWord')) {
       this.markOptions();
     }
