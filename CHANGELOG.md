@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.7.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.7.0...v3.7.1) (2022-08-12)
+
+
+### Bug Fixes
+
+* **nocheckmark:** update menuoptions on each update [#142](https://github.com/AlaskaAirlines/auro-menu/issues/142) ([a43ca72](https://github.com/AlaskaAirlines/auro-menu/commit/a43ca72fc86d59a1375c9b783ac8f2b75e21bd6b))
+
 # [3.7.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.6.2...v3.7.0) (2022-08-11)
 
 
