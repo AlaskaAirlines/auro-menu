@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers, max-lines */
 // Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
@@ -29,6 +28,8 @@ import "mark.js/dist/mark.min";
  * @fires auroMenu-ready - Notifies that the component has finished initializing.
  * @slot Slot for insertion of menu options.
  */
+
+/* eslint-disable no-magic-numbers, max-lines */
 
 class AuroMenu extends LitElement {
   constructor() {
@@ -91,9 +92,7 @@ class AuroMenu extends LitElement {
     }
 
     if (changedProperties.has('value')) {
-      if (this.value && (!this.optionSelected || this.value !== this.optionSelected.value)) {
-        this.selectByValue(this.value);
-      }
+      this.selectByValue(this.value);
     }
   }
 
@@ -136,7 +135,7 @@ class AuroMenu extends LitElement {
    * Reset the menu and all options.
    */
   resetOptionsStates() {
-    this.optionSelected = null;
+    this.optionSelected = undefined;
     this.items.forEach((item) => {
       item.classList.remove('active');
       item.removeAttribute('selected');
@@ -160,6 +159,26 @@ class AuroMenu extends LitElement {
   }
 
   /**
+   * Notify selection change.
+   * @private
+   * @return {void}
+   */
+  notifySelectionChange() {
+    // this event needs to be removed after select and combobox are updated to use the new standard name
+    this.dispatchEvent(new CustomEvent('selectedOption', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+    }));
+
+    this.dispatchEvent(new CustomEvent('auroMenu-selectedOption', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+    }));
+  }
+
+  /**
    * Process actions for making making a menuoption selection.
    */
   makeSelection() {
@@ -167,48 +186,40 @@ class AuroMenu extends LitElement {
       this.initItems();
     }
 
-    const option = this.items[this.index];
+    this.resetOptionsStates();
 
-    // only handle options that are not disabled, hidden or static
-    if (option && this.optionInteractive(option)) {
-      // fire custom event if defined otherwise make selection
-      if (option.hasAttribute('event')) {
-        this.dispatchEvent(new CustomEvent(option.getAttribute('event'), {
-          bubbles: true,
-          cancelable: false,
-          composed: true,
-        }));
+    if (this.index >= 0) {
+      const option = this.items[this.index];
 
-        // this event needs to be removed after select and combobox are updated to use the new standard name
-        this.dispatchEvent(new CustomEvent('auroMenuCustomEventFired', {
-          bubbles: true,
-          cancelable: false,
-          composed: true,
-        }));
+      // only handle options that are not disabled, hidden or static
+      if (option && this.optionInteractive(option)) {
+        // fire custom event if defined otherwise make selection
+        if (option.hasAttribute('event')) {
+          this.dispatchEvent(new CustomEvent(option.getAttribute('event'), {
+            bubbles: true,
+            cancelable: false,
+            composed: true,
+          }));
 
-        this.dispatchEvent(new CustomEvent('auroMenu-customEventFired', {
-          bubbles: true,
-          cancelable: false,
-          composed: true,
-        }));
-      } else {
-        this.resetOptionsStates();
-        this.handleLocalSelectState(option);
+          // this event needs to be removed after select and combobox are updated to use the new standard name
+          this.dispatchEvent(new CustomEvent('auroMenuCustomEventFired', {
+            bubbles: true,
+            cancelable: false,
+            composed: true,
+          }));
 
-        // this event needs to be removed after select and combobox are updated to use the new standard name
-        this.dispatchEvent(new CustomEvent('selectedOption', {
-          bubbles: true,
-          cancelable: false,
-          composed: true,
-        }));
-
-        this.dispatchEvent(new CustomEvent('auroMenu-selectedOption', {
-          bubbles: true,
-          cancelable: false,
-          composed: true,
-        }));
+          this.dispatchEvent(new CustomEvent('auroMenu-customEventFired', {
+            bubbles: true,
+            cancelable: false,
+            composed: true,
+          }));
+        } else {
+          this.handleLocalSelectState(option);
+        }
       }
     }
+
+    this.notifySelectionChange();
   }
 
   /**
@@ -301,6 +312,7 @@ class AuroMenu extends LitElement {
       }
     } else {
       this.index = 0;
+
       if (this.items[this.index].hasAttribute('hidden') || this.items[this.index].hasAttribute('disabled')) {
         this.selectNextItem(moveDirection);
       } else {
@@ -344,28 +356,36 @@ class AuroMenu extends LitElement {
       this.initItems();
     }
 
-    for (let index = 0; index < this.items.length; index += 1) {
-      if (this.items[index].value === value) {
-        valueMatch = true;
-        this.index = index;
-        this.makeSelection();
+    this.index = undefined;
+
+    if (this.value && this.value.length > 0) {
+      for (let index = 0; index < this.items.length; index += 1) {
+        if (this.items[index].value === value) {
+          valueMatch = true;
+          this.index = index;
+        }
+      }
+
+      if (!valueMatch) {
+        // reset the menu to no selection
+        this.index = undefined;
+
+        // this event needs to be removed after select and combobox are updated to use the new standard name
+        this.dispatchEvent(new CustomEvent('auroMenuSelectValueFailure', {
+          bubbles: true,
+          cancelable: false,
+          composed: true,
+        }));
+
+        this.dispatchEvent(new CustomEvent('auroMenu-selectValueFailure', {
+          bubbles: true,
+          cancelable: false,
+          composed: true,
+        }));
       }
     }
 
-    if (!valueMatch) {
-      // this event needs to be removed after select and combobox are updated to use the new standard name
-      this.dispatchEvent(new CustomEvent('auroMenuSelectValueFailure', {
-        bubbles: true,
-        cancelable: false,
-        composed: true,
-      }));
-
-      this.dispatchEvent(new CustomEvent('auroMenu-selectValueFailure', {
-        bubbles: true,
-        cancelable: false,
-        composed: true,
-      }));
-    }
+    this.makeSelection();
   }
 
   /**
