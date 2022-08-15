@@ -1,4 +1,3 @@
-
 import { fixture, html, expect, oneEvent } from '@open-wc/testing';
 import '../src/auro-menu.js';
 import '../src/auro-menuoption.js';
@@ -36,6 +35,27 @@ describe('auro-menu', () => {
     // validate the menu has the correct stored value/optionSelected
     expect(menuEl.getAttribute('value')).to.equal('option 3');
     expect(menuEl.optionSelected.getAttribute('value')).to.equal('option 3');
+  });
+
+  it('Reset value to undefined unmarks selected option', async () => {
+    const el = await presetValueFixture();
+    const menuEl = el.querySelector('auro-menu');
+    const options = getOptions(menuEl);
+    const valueIndex = 2;
+
+    // Validate the menuOptions have the correct attributes
+    for (let index = 0; index < options.length; index += 1) {
+      if (valueIndex === index) {
+        expect(options[index].hasAttribute('selected')).to.equal(true);
+        expect(options[index].hasAttribute('aria-selected')).to.equal(true);
+      } else {
+        expect(options[index].hasAttribute('selected')).to.equal(false);
+        expect(options[index].hasAttribute('aria-selected')).to.equal(false);
+      }
+    }
+
+    await menuEl.setAttribute('value', undefined);
+    expect(menuEl.optionSelected).to.equal(undefined);
   });
 
   it('Setting value attribute with incorrect value is handled correctly', async () => {
@@ -193,7 +213,8 @@ async function defaultFixture() {
         <auro-menuoption disabled value="option 3">option 3</auro-menuoption>
         <auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption>
         <auro-menuoption value="departures">Departures</auro-menuoption>
-        <auro-menuoption value="arrivals">Arrivals</auro-menuoption></auro-menu>
+        <auro-menuoption value="arrivals">Arrivals</auro-menuoption>
+      </auro-menu>
     </div>
   `);
 }

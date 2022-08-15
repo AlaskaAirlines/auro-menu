@@ -528,6 +528,61 @@ The `auro-menuoption` element supports scenarios where the menu option needs to 
 
 </auro-accordion>
 
+## Reset menu selection state
+
+The `auro-menu` may be reset to a state with no menuoption selected by setting the `value` to `undefined`.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/reset.html) -->
+  <!-- The below content is automatically added from ./partials/reset.html -->
+  <auro-menu id="resetExample">
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration" selected>Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+  </auro-menu>
+  <br/><br/>
+  <auro-button id="resetExampleBtn">RESET</auro-button>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/reset.html) -->
+  <!-- The below code snippet is automatically added from ./partials/reset.html -->
+  ```html
+  <auro-menu id="resetExample">
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration" selected>Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+  </auro-menu>
+  <br/><br/>
+  <auro-button id="resetExampleBtn">RESET</auro-button>
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/reset.js) -->
+  <!-- The below code snippet is automatically added from ./partials/reset.js -->
+  ```js
+  setTimeout(() => {
+    const resetExampleBtnElem = document.querySelector('#resetExampleBtn');
+    const resetExampleElem = document.querySelector('#resetExample');
+  
+    if (resetExampleElem && resetExampleBtnElem) {
+      resetExampleBtnElem.addEventListener('click', () => {
+        resetExampleElem.value = undefined;
+      })
+    }
+  }, 500);
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
 
 ## Menuoption with custom event
 
