@@ -1,4 +1,4 @@
-import { fixture, html, expect, oneEvent } from '@open-wc/testing';
+import { fixture, html, expect, oneEvent, elementUpdated } from '@open-wc/testing';
 import '../src/auro-menu.js';
 import '../src/auro-menuoption.js';
 
@@ -40,21 +40,13 @@ describe('auro-menu', () => {
   it('Reset value to undefined unmarks selected option', async () => {
     const el = await presetValueFixture();
     const menuEl = el.querySelector('auro-menu');
-    const options = getOptions(menuEl);
-    const valueIndex = 2;
+    
+    expect(menuEl.optionSelected).to.not.equal(undefined);
 
-    // Validate the menuOptions have the correct attributes
-    for (let index = 0; index < options.length; index += 1) {
-      if (valueIndex === index) {
-        expect(options[index].hasAttribute('selected')).to.equal(true);
-        expect(options[index].hasAttribute('aria-selected')).to.equal(true);
-      } else {
-        expect(options[index].hasAttribute('selected')).to.equal(false);
-        expect(options[index].hasAttribute('aria-selected')).to.equal(false);
-      }
-    }
+    menuEl.value = undefined;
 
-    await menuEl.setAttribute('value', undefined);
+    await elementUpdated(menuEl);
+
     expect(menuEl.optionSelected).to.equal(undefined);
   });
 
