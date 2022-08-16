@@ -382,10 +382,12 @@ class AuroMenu extends LitElement {
           cancelable: false,
           composed: true,
         }));
+      } else {
+        this.makeSelection();
       }
+    } else {
+      this.resetOptionsStates();
     }
-
-    this.makeSelection();
   }
 
   /**
