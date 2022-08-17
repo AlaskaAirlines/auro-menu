@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.8.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.8.0...v3.8.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* **reset:** reset selected option when value is invalid ([96147fb](https://github.com/AlaskaAirlines/auro-menu/commit/96147fb1a9398504f3de584b634f552764393a1a))
+
 # [3.8.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.7.1...v3.8.0) (2022-08-15)
 
 
