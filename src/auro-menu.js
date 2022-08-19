@@ -26,6 +26,7 @@ import "mark.js/dist/mark.min";
  * @fires auroMenu-customEventFired - Notifies that a custom event has been fired.
  * @fires auroMenuCustomEventFired - (DEPRECATED) Notifies that a custom event has been fired.
  * @fires auroMenu-ready - Notifies that the component has finished initializing.
+ * @fires auroMenu-selectValueReset - Notifies that the component value has been reset.
  * @slot Slot for insertion of menu options.
  */
 
@@ -387,6 +388,12 @@ class AuroMenu extends LitElement {
       }
     } else {
       this.resetOptionsStates();
+
+      this.dispatchEvent(new CustomEvent('auroMenu-selectValueReset', {
+        bubbles: true,
+        cancelable: false,
+        composed: true,
+      }));
     }
   }
 
