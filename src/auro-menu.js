@@ -103,7 +103,7 @@ class AuroMenu extends LitElement {
    * @returns {Boolean} Returns true if the option is interactive.
    */
   optionInteractive(option) {
-    return !option.hasAttribute('disabled') && !option.hasAttribute('hidden') && !option.hasAttribute('static');
+    return !option.hasAttribute('disabled') && !option.hasAttribute('static');
   }
 
   /**
