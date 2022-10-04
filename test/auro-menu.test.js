@@ -40,7 +40,7 @@ describe('auro-menu', () => {
   it('Reset value to undefined unmarks selected option', async () => {
     const el = await presetValueFixture();
     const menuEl = el.querySelector('auro-menu');
-    
+
     expect(menuEl.optionSelected).to.not.equal(undefined);
 
     menuEl.value = undefined;
@@ -142,6 +142,22 @@ describe('auro-menu', () => {
     expect(options[1].classList['0']).to.equal('active');
   });
 
+  it('Arrow key navigation of menu skips hidden and disabled menuoptions', async () => {
+    const el = await noninteractiveOptionsFixture();
+    const menuEl = el.querySelector('auro-menu');
+    const options = getOptions(menuEl);
+
+    menuEl.selectNextItem('down');
+
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'ArrowDown'
+    }));
+
+    expect(options[3].classList['0']).to.equal('active');
+  });
+
   it('ArrowUp moves to last option in slot', async () => {
     const el = await defaultFixture();
     const menuEl = el.querySelector('auro-menu');
@@ -203,6 +219,21 @@ async function defaultFixture() {
         <auro-menuoption value="option 1">option 1</auro-menuoption>
         <auro-menuoption value="option 2">option 2</auro-menuoption>
         <auro-menuoption disabled value="option 3">option 3</auro-menuoption>
+        <auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption>
+        <auro-menuoption value="departures">Departures</auro-menuoption>
+        <auro-menuoption value="arrivals">Arrivals</auro-menuoption>
+      </auro-menu>
+    </div>
+  `);
+}
+
+async function noninteractiveOptionsFixture() {
+  return await fixture(html`
+    <div>
+      <auro-menu aria-label="test">
+        <auro-menuoption disabled value="option 1">option 1</auro-menuoption>
+        <auro-menuoption hidden value="option 2">option 2</auro-menuoption>
+        <auro-menuoption value="option 3">option 3</auro-menuoption>
         <auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption>
         <auro-menuoption value="departures">Departures</auro-menuoption>
         <auro-menuoption value="arrivals">Arrivals</auro-menuoption>
