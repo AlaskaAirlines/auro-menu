@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.9.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.9.0...v3.9.1) (2022-10-11)
+
+
+### Bug Fixes
+
+* **nav:** keyboard nav now skips hidden options [#156](https://github.com/AlaskaAirlines/auro-menu/issues/156) ([f401ea6](https://github.com/AlaskaAirlines/auro-menu/commit/f401ea66ec6530cd3e7deacd9cea070f36ad9a9d))
+
 # [3.9.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.8.1...v3.9.0) (2022-08-19)
 
 
