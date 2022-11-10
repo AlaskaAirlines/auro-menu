@@ -425,31 +425,38 @@ class AuroMenu extends LitElement {
   }
 
   /**
+   * Used to only make a selection when a menuoption is receiving a mousedown event.
+   * @param {Event} evt - Mousedown event.
+   * @private
+   */
+  handleMenuMouseDown(evt) {
+    if (evt.target !== this) {
+      this.makeSelection();
+    }
+  }
+
+  /**
    * Used for @slotchange event on slotted element.
    * @private
    */
   handleSlotItems() {
-
-    /**
-     * Determine if this is the root of the menu/submenu layout.
-     */
+    // Determine if this is the root of the menu/submenu layout.
     if (this.parentElement && this.parentElement.closest('auro-menu')) {
       this.rootMenu = false;
     }
 
-    /**
-     * If this is the root menu (not a nested menu) handle events, states and styling.
-     */
+    // If this is the root menu (not a nested menu) handle events, states and styling.
     if (this.rootMenu) {
       this.initItems();
       this.setAttribute('role', 'listbox');
+      this.setAttribute('root', '');
       this.handleNestedMenus(this);
       this.markOptions();
       this.index = -1;
       this.getSelectedIndex();
 
       this.addEventListener('keydown', this.handleKeyDown);
-      this.addEventListener('mousedown', this.makeSelection);
+      this.addEventListener('mousedown', this.handleMenuMouseDown);
       this.addEventListener('auroMenuOption-mouseover', (evt) => {
         this.index = this.items.indexOf(evt.target);
         this.updateActiveOption(this.index);
