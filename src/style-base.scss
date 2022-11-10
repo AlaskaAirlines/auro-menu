@@ -51,3 +51,7 @@
     padding-left: var(--auro-size-md);
   }
 }
+
+:host([root]) {
+  overflow-y: auto;
+}
