@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.9.2](https://github.com/AlaskaAirlines/auro-menu/compare/v3.9.1...v3.9.2) (2022-11-15)
+
+
+### Bug Fixes
+
+* **overflow:** make overflowing content accessible via scrollbar [#162](https://github.com/AlaskaAirlines/auro-menu/issues/162) ([127464a](https://github.com/AlaskaAirlines/auro-menu/commit/127464a3a2c63dfb7eafe12438d356b759700c56))
+
 ## [3.9.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.9.0...v3.9.1) (2022-10-11)
 
 
