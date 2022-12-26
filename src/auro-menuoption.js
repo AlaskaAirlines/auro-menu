@@ -3,7 +3,6 @@
 
 // ---------------------------------------------------------------------
 import { LitElement, html } from "lit-element";
-import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-menuoption-css.js";
 import styleCssFixed from "./style-menuoption-fixed-css.js";
 import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';

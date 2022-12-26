@@ -282,7 +282,6 @@ class AuroMenu extends LitElement {
    * @param {String} moveDirection - Up or Down based on keyboard event.
    */
   selectNextItem(moveDirection) {
-    // remove focus-visible from current selection
     if (this.index >= 0) {
       this.items[this.index].classList.remove('active');
 

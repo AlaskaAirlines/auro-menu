@@ -1,7 +1,7 @@
 export default {
   files: "test/**/*.test.js",
   nodeResolve: true,
-  timeout: 10000,
+  timeout: 20000,
   coverageConfig: {
     threshold: {
       statements: 75,
