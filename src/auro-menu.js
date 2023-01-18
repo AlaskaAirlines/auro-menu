@@ -69,11 +69,12 @@ class AuroMenu extends LitElement {
     ];
   }
 
-  firstUpdated() {
-    this.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  updated(changedProperties) {
+  /**
+   * Passes the noCheckmark attribute to all nested auro-menuoptions.
+   * @private
+   * @returns {void}
+   */
+  handleNoCheckmarkAttr() {
     if (this.noCheckmark) {
       const menus = this.querySelectorAll('auro-menu');
 
@@ -87,6 +88,17 @@ class AuroMenu extends LitElement {
         option.setAttribute('noCheckmark', '');
       });
     }
+  }
+
+  firstUpdated() {
+    this.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  updated(changedProperties) {
+    this.addEventListener('slotchange', () => {
+      // make sure to update all menuoption noCheckmark attributes when the menu is dynamically changed
+      this.handleNoCheckmarkAttr();
+    });
 
     if (changedProperties.has('matchWord')) {
       this.markOptions();
@@ -258,6 +270,7 @@ class AuroMenu extends LitElement {
    */
   initItems() {
     this.items = Array.from(this.querySelectorAll('auro-menuoption'));
+    this.handleNoCheckmarkAttr();
   }
 
   /**
