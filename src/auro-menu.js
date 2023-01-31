@@ -137,11 +137,13 @@ class AuroMenu extends LitElement {
    */
   resetOptionsStates() {
     this.optionSelected = undefined;
-    this.items.forEach((item) => {
-      item.classList.remove('active');
-      item.removeAttribute('selected');
-      item.removeAttribute('aria-selected');
-    });
+    if (this.items) {
+      this.items.forEach((item) => {
+        item.classList.remove('active');
+        item.removeAttribute('selected');
+        item.removeAttribute('aria-selected');
+      });
+    }
   }
 
   /**
