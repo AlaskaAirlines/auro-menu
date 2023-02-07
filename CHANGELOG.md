@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.9.5](https://github.com/AlaskaAirlines/auro-menu/compare/v3.9.4...v3.9.5) (2023-02-07)
+
+
+### Bug Fixes
+
+* **slots:** pass noCheckmark attribute down on each slot change [#170](https://github.com/AlaskaAirlines/auro-menu/issues/170) ([782e5e5](https://github.com/AlaskaAirlines/auro-menu/commit/782e5e553b257b30274dbdd23b10e4eaa7c5ecac))
+
 ## [3.9.4](https://github.com/AlaskaAirlines/auro-menu/compare/v3.9.3...v3.9.4) (2023-02-01)
 
 
