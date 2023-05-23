@@ -6,6 +6,7 @@ The auro-menu element provides users a way to select from a list of options.
 
 | Property         | Attribute        | Type      | Default     | Description                                      |
 |------------------|------------------|-----------|-------------|--------------------------------------------------|
+| `disabled`       | `disabled`       | `Boolean` |             | When true, the entire menu and all options are disabled; |
 | `matchWord`      | `matchWord`      | `String`  | "undefined" | Specifies the a string used to highlight matched string parts in options. |
 | `noCheckmark`    | `noCheckmark`    | `Boolean` | false       | When true, selected option will not show the checkmark. |
 | `optionActive`   | `optionActive`   | `object`  | "undefined" |                                                  |

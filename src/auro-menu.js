@@ -14,6 +14,7 @@ import "mark.js/dist/mark.min";
  * The auro-menu element provides users a way to select from a list of options.
  * @attr {Object} optionSelected - Specifies the current selected menuOption.
  * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
+ * @attr {Boolean} disabled - When true, the entire menu and all options are disabled;
  * @attr {Boolean} noCheckmark - When true, selected option will not show the checkmark.
  * @attr {String} value - Value selected for the menu.
  * @prop {Boolean} ready - When false the component API should not be called.
@@ -51,6 +52,10 @@ class AuroMenu extends LitElement {
   static get properties() {
     return {
       noCheckmark:    {
+        type: Boolean,
+        reflect: true
+      },
+      disabled:    {
         type: Boolean,
         reflect: true
       },
@@ -106,6 +111,14 @@ class AuroMenu extends LitElement {
 
     if (changedProperties.has('value')) {
       this.selectByValue(this.value);
+    }
+
+    if (changedProperties.has('disabled')) {
+      const options = Array.from(this.querySelectorAll('auro-menuoption'));
+
+      for (let index = 0; index < options.length; index += 1) {
+        options[index].disabled = this.disabled;
+      }
     }
   }
 

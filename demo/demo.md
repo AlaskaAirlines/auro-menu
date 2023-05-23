@@ -211,6 +211,55 @@ Applying the `noCheckmark` attribute will prevent the check icon from being show
 
 </auro-accordion>
 
+## Disabled
+
+The `auro-menu` element with `disabled` will mark all `auro-menuoption` elements as disabled.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/disabledMenu.html) -->
+  <!-- The below content is automatically added from ./partials/disabledMenu.html -->
+  <auro-menu disabled>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
+    <hr>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab">Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
+    <hr>
+    <auro-menuoption value="share">Share</auro-menuoption>
+    <hr>
+    <auro-menuoption value="print">Print</auro-menuoption>
+  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/disabledMenu.html) -->
+  <!-- The below code snippet is automatically added from ./partials/disabledMenu.html -->
+  ```html
+  <auro-menu disabled>
+    <auro-menuoption value="new tab">New tab</auro-menuoption>
+    <auro-menuoption value="new window">New window</auro-menuoption>
+    <auro-menuoption value="open file">Open file</auro-menuoption>
+    <auro-menuoption value="open location">Open location</auro-menuoption>
+    <hr>
+    <auro-menuoption value="close window">Close window</auro-menuoption>
+    <auro-menuoption value="close tab">Close tab</auro-menuoption>
+    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
+    <hr>
+    <auro-menuoption value="share">Share</auro-menuoption>
+    <hr>
+    <auro-menuoption value="print">Print</auro-menuoption>
+  </auro-menu>
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
 ## Using matchWord to highlight displayValue string parts
 
 The `auro-menu` component supports the use of the `matchWord` attribute to highlight string parts of each menuoption that are equal to `matchWord`. The matching algorithm is case insensitive (e.g., `n` matches `N`).
