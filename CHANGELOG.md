@@ -1,5 +1,23 @@
 # Semantic Release Automated Changelog
 
+# [3.10.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.9.5...v3.10.0) (2023-05-23)
+
+
+### Bug Fixes
+
+* **layout:** correct margin on selected icon [#152](https://github.com/AlaskaAirlines/auro-menu/issues/152) ([d5c2360](https://github.com/AlaskaAirlines/auro-menu/commit/d5c23603c9dc9d5121dfb18e18a57ebb1e534b91))
+
+
+### Features
+
+* **disable:** enable disabling entire menu rather than just options individually [#175](https://github.com/AlaskaAirlines/auro-menu/issues/175) ([db507fd](https://github.com/AlaskaAirlines/auro-menu/commit/db507fdbfddd2a980e936b9c44e87d5f647a1d74))
+
+
+### Performance Improvements
+
+* **deps:** update several dependencies to latest versions ([685ee09](https://github.com/AlaskaAirlines/auro-menu/commit/685ee091f163dda4352b3eadff5a3f31a7e33970))
+* **examples:** refactor js example execution so it works on docsite [#176](https://github.com/AlaskaAirlines/auro-menu/issues/176) ([ffe429f](https://github.com/AlaskaAirlines/auro-menu/commit/ffe429f770d4efcf60ef478c9a437bafe2b4da26))
+
 ## [3.9.5](https://github.com/AlaskaAirlines/auro-menu/compare/v3.9.4...v3.9.5) (2023-02-07)
 
 
