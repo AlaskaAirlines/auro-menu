@@ -1,31 +1,18 @@
-import { terser } from 'rollup-plugin-terser';
-import commonjs from '@rollup/plugin-commonjs';
-import minifyHTML from 'rollup-plugin-minify-html-literals';
-import resolve from '@rollup/plugin-node-resolve';
+import nodeResolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
 
 const production = !process.env.ROLLUP_WATCH;
 
-const getSharedPlugins = (isLegacy) => [
-  resolve({
-    // in case of multiple lit-element versions (e.g. importing another auro component)
-    dedupe: ['lit-element', 'lit-html']
-  }),
-  commonjs(),
-  minifyHTML(),
-  terser()
-];
-
 const modernConfig = {
   input: {
-    ['auro-menu__bundled']: './src/auro-menu.js',
+    ['auro-menu__bundled']: './index.js',
   },
   output: {
     format: 'esm',
     dir: 'dist/'
   },
   plugins: [
-    ...getSharedPlugins(false),
+    nodeResolve(),
     !production &&
       serve({
         open: true,
@@ -34,4 +21,14 @@ const modernConfig = {
   ]
 };
 
-export default [ modernConfig ];
+const indexExamplesConfig = {
+  input: {
+    ['index.min']: './demo/index.js',
+  },
+  output: {
+    format: 'esm',
+    dir: 'demo/'
+  }
+};
+
+export default [modernConfig, indexExamplesConfig];
