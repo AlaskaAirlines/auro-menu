@@ -1,13 +1,11 @@
-let matchWordInput;
-let matchWordMenu;
+function updateMatch() {
+  let matchWordMenu = document.querySelector('#matchWordMenu');
 
-function matchWords() {
-  matchWordInput = document.querySelector('#matchWordInput');
-  matchWordMenu = document.querySelector('#matchWordMenu');
-
-  matchWordInput.addEventListener('keyup', updateMatch);
+  matchWordMenu.matchWord = matchWordInput.value;
 }
 
-function updateMatch() {
-  matchWordMenu.matchWord = matchWordInput.value;
+export function auroMenuMatchWordExample() {
+  let matchWordInput = document.querySelector('#matchWordInput');
+
+  matchWordInput.addEventListener('keyup', updateMatch);
 }

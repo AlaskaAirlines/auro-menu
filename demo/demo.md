@@ -243,18 +243,16 @@ The `auro-menu` component supports the use of the `matchWord` attribute to highl
   <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/matchWord.js) -->
   <!-- The below code snippet is automatically added from ./partials/matchWord.js -->
   ```js
-  let matchWordInput;
-  let matchWordMenu;
+  function updateMatch() {
+    let matchWordMenu = document.querySelector('#matchWordMenu');
   
-  function matchWords() {
-    matchWordInput = document.querySelector('#matchWordInput');
-    matchWordMenu = document.querySelector('#matchWordMenu');
-  
-    matchWordInput.addEventListener('keyup', updateMatch);
+    matchWordMenu.matchWord = matchWordInput.value;
   }
   
-  function updateMatch() {
-    matchWordMenu.matchWord = matchWordInput.value;
+  export function auroMenuMatchWordExample() {
+    let matchWordInput = document.querySelector('#matchWordInput');
+  
+    matchWordInput.addEventListener('keyup', updateMatch);
   }
   ```
   <!-- AURO-GENERATED-CONTENT:END -->
@@ -653,7 +651,7 @@ The `auro-menu` may be reset to a state with no menuoption selected by setting t
   <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/reset.js) -->
   <!-- The below code snippet is automatically added from ./partials/reset.js -->
   ```js
-  setTimeout(() => {
+  export function auroMenuResetExample() {
     const resetExampleBtnElem = document.querySelector('#resetExampleBtn');
     const resetExampleElem = document.querySelector('#resetExample');
   
@@ -662,7 +660,7 @@ The `auro-menu` may be reset to a state with no menuoption selected by setting t
         resetExampleElem.value = undefined;
       })
     }
-  }, 500);
+  }
   ```
   <!-- AURO-GENERATED-CONTENT:END -->
 
@@ -690,7 +688,7 @@ The `auro-menuoption` element supports scenarios where a custom event should be 
   <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/customEvent.js) -->
   <!-- The below code snippet is automatically added from ./partials/customEvent.js -->
   ```js
-  setTimeout(() => {
+  export function auroMenuCustomEventExample() {
     let menuCustomEventEl = document.querySelector('auro-menu#customEvent');
   
     if (menuCustomEventEl) {
@@ -699,7 +697,7 @@ The `auro-menuoption` element supports scenarios where a custom event should be 
         alert(`My Custom Event Fired`);
       });
     }
-  }, 1000);
+  }
   ```
   <!-- AURO-GENERATED-CONTENT:END -->
 

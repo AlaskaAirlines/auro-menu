@@ -1,4 +1,4 @@
-setTimeout(() => {
+export function auroMenuCustomEventExample() {
   let menuCustomEventEl = document.querySelector('auro-menu#customEvent');
 
   if (menuCustomEventEl) {
@@ -7,4 +7,4 @@ setTimeout(() => {
       alert(`My Custom Event Fired`);
     });
   }
-}, 1000);
+}

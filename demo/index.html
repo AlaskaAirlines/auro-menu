@@ -25,9 +25,6 @@
           document.querySelector('main').innerHTML = rawHtml;
           Prism.highlightAll();
         })
-        .then(() => {
-          matchWords();
-        });
     </script>
     <script type="module" src="../src/auro-menu.js"></script>
     <script type="module" src="../src/auro-menuoption.js"></script>
@@ -35,8 +32,9 @@
     <script src="https://unpkg.com/@alaskaairux/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
     <script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
     <script src="https://unpkg.com/@alaskaairux/auro-button@latest/dist/auro-button__bundled.js" type="module"></script>
-    <script src="./partials/matchWord.js"></script>
-    <script type="module" src="./partials/reset.js"></script>
-    <script type="module" src="./partials/customEvent.js"></script>
+    <script src="./index.min.js"></script>
+    <script>
+      initMenuIndexExamples();
+    </script>
   </body>
 </html>

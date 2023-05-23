@@ -1,5 +1,4 @@
-
-setTimeout(() => {
+export function auroMenuResetExample() {
   const resetExampleBtnElem = document.querySelector('#resetExampleBtn');
   const resetExampleElem = document.querySelector('#resetExample');
 
@@ -8,4 +7,4 @@ setTimeout(() => {
       resetExampleElem.value = undefined;
     })
   }
-}, 500);
+}
