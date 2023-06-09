@@ -100,11 +100,6 @@ class AuroMenu extends LitElement {
   }
 
   updated(changedProperties) {
-    this.addEventListener('slotchange', () => {
-      // make sure to update all menuoption noCheckmark attributes when the menu is dynamically changed
-      this.handleNoCheckmarkAttr();
-    });
-
     if (changedProperties.has('matchWord')) {
       this.markOptions();
     }
@@ -116,8 +111,8 @@ class AuroMenu extends LitElement {
     if (changedProperties.has('disabled')) {
       const options = Array.from(this.querySelectorAll('auro-menuoption'));
 
-      for (let index = 0; index < options.length; index += 1) {
-        options[index].disabled = this.disabled;
+      for (const element of options) {
+        element.disabled = this.disabled;
       }
     }
   }
@@ -379,7 +374,6 @@ class AuroMenu extends LitElement {
    */
   selectByValue(value) {
     let valueMatch = false;
-
     if (!this.items) {
       this.initItems();
     }
@@ -490,6 +484,9 @@ class AuroMenu extends LitElement {
       });
 
       this.notifyReady();
+    } else {
+      // make sure to update all menuoption noCheckmark attributes when the menu is dynamically changed
+      this.handleNoCheckmarkAttr();
     }
   }
 
