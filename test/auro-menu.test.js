@@ -106,6 +106,12 @@ describe('auro-menu', () => {
       'key': 'Enter'
     }));
 
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'Space'
+    }));
+
     expect(options[1].hasAttribute('selected')).to.equal(true);
   });
 
@@ -197,13 +203,74 @@ describe('auro-menu', () => {
     expect(result1).to.equal(undefined);
     expect(result2).to.equal(undefined);
   });
+
+  it('test matchWord feature functionality', async () => {
+    const el = await customEventFixture();
+    const menuEl = el.querySelector('auro-menu');
+    expect(menuEl.innerHTML.includes('<strong')).to.be.true;
+  })
+
+  it('test disabled handler', async () => {
+    const el = await customEventFixture();
+    const menuEl = el.querySelector('auro-menu');
+    menuEl.setAttribute('disabled', '');
+
+    expect(menuEl.disabled).to.be.true;
+  })
+
+  it('test empty items handler', async () => {
+    const el = await emptyItemsFixture();
+    const menuEl = el.querySelector('auro-menu');
+    menuEl.dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'Enter'
+    }));
+
+    const menuChild = menuEl.querySelector('[test-id=test-child]');
+    menuChild.dispatchEvent(new KeyboardEvent('keydown', {
+      bubbles: true,
+      composed: true,
+      'key': 'Enter'
+    }));
+
+    expect(menuEl.items.length).to.equal(0);
+    expect(menuChild.items.length).to.equal(0);
+  })
+
+  it('test mouseover and mousedown on menu option', async () => {
+    const el = await defaultFixture();
+    const menuEl = el.querySelector('auro-menu');
+    const optionEl = menuEl.querySelector('auro-menuoption');
+    
+    optionEl.dispatchEvent(new KeyboardEvent('mouseover', {
+      bubbles: true,
+      composed: true
+    }));
+
+    optionEl.dispatchEvent(new KeyboardEvent('mousedown', {
+      bubbles: true,
+      composed: true
+    }));
+  })
+
+  it('handle noCheckmark property function handler', async () => {
+    const el = await nestedMenuFixture();
+    const menuEl = el.querySelector('auro-menu');
+    
+    const childMenu = document.createElement('auro-menu');
+    menuEl.appendChild(childMenu)
+    menuEl.setAttribute('noCheckmark', '');
+    
+    expect(menuEl.hasAttribute('noCheckmark')).to.be.true;
+  })
 });
 
 function getOptions(menu) {
   let options = menu.shadowRoot.querySelector('slot').assignedNodes();
 
-  for( var index = 0; index < options.length; index += 1) {
-    if ( JSON.stringify(options[index]) === '{}') {
+  for(let index = 0; index < options.length; index += 1) {
+    if (JSON.stringify(options[index]) === '{}') {
       options.splice(index, 1);
     }
   }
@@ -260,7 +327,7 @@ async function nestedMenuFixture() {
 async function customEventFixture() {
   return await fixture(html`
       <div>
-        <auro-menu>
+        <auro-menu matchword="o">
           <auro-menuoption value="option 1" event="uniqueEventName">option 1</auro-menuoption>
         </auro-menu>
       </div>
@@ -277,6 +344,17 @@ async function presetValueFixture() {
         <auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption>
         <auro-menuoption value="departures">Departures</auro-menuoption>
         <auro-menuoption value="arrivals">Arrivals</auro-menuoption>
+      </auro-menu>
+    </div>
+  `);
+}
+
+async function emptyItemsFixture() {
+  return await fixture(html`
+    <div>
+      <auro-menu aria-label="test">
+        <auro-menu aria-label="test-child" test-id="test-child">
+        </auro-menu>
       </auro-menu>
     </div>
   `);
