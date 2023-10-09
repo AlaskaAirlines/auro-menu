@@ -4,9 +4,9 @@
 // ---------------------------------------------------------------------
 
 // Import Auro tokens
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
-@import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/core';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SassCustomProperties';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/core';
 
 // Support for auroElement styles
 // @import "./../node_modules/@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement";
@@ -24,7 +24,7 @@
   vertical-align: middle;
 
   ::slotted(auro-menuoption) {
-    padding-left: calc(var(--auro-size-sm) + 24px + var(--auro-size-xs));
+    padding-left: calc(var(--ds-size-150) + 24px + var(--ds-size-100));
   }
 
   ::slotted([selected]) {
@@ -39,16 +39,16 @@
 
     overflow: visible !important;
 
-    margin: var(--auro-size-xs) 0 !important;
+    margin: var(--ds-size-100) 0 !important;
 
     border-width: 0 !important;
-    border-top: 1px solid var(--auro-color-border-divider-on-light) !important;
+    border-top: 1px solid var(--ds-color-border-divider-default) !important;
   }
 }
 
 :host([nocheckmark]) {
   ::slotted(auro-menuoption) {
-    padding-left: var(--auro-size-md);
+    padding-left: var(--ds-size-200);
   }
 }
 

@@ -3,8 +3,8 @@
 
 // ---------------------------------------------------------------------
 
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
-@import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/breakpoints';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
 
 /* stylelint-disable declaration-no-important, order/properties-order */
 
@@ -13,7 +13,7 @@
 
   align-items: center;
 
-  padding: var(--auro-size-xxs) var(--auro-size-md) var(--auro-size-xxs) 0;
+  padding: var(--ds-size-50) var(--ds-size-200) var(--ds-size-50) 0;
 
   cursor: pointer;
 
@@ -31,15 +31,15 @@
   }
 
   svg {
-    margin-right: var(--auro-size-sm);
-    margin-left: var(--auro-size-xs);
+    margin-right: var(--ds-size-150);
+    margin-left: var(--ds-size-100);
 
-    fill: var(--auro-color-icon-primary-on-light) !important;
+    fill: var(--ds-color-icon-primary-default) !important;
   }
 
   ::slotted(.nestingSpacer) {
     display: inline-block;
-    width: var(--auro-size-lg);
+    width: var(--ds-size-300);
   }
 
   ::slotted(strong) {
@@ -60,26 +60,26 @@
 }
 
 :host([disabled]) {
-  color: var(--auro-color-text-disabled-on-light);
+  color: var(--ds-color-text-disabled-default);
 
   user-select: none;
 }
 
 :host(:hover:not([disabled])),
 :host(.active:not([disabled])) {
-  background-color: var(--auro-color-ui-bkg-hover-on-light);
-  color: var(--auro-color-text-primary-on-light);
+  background-color: var(--ds-color-ui-bkg-hover-default);
+  color: var(--ds-color-text-primary-default);
 
   svg {
-    fill: var(--auro-color-icon-primary-on-light) !important;
+    fill: var(--ds-color-icon-primary-default) !important;
   }
 }
 
 :host([selected]:not([disabled])) {
-  background-color: var(--auro-color-alert-notification-on-light);
-  color: var(--auro-color-base-white);
+  background-color: var(--ds-color-alert-notification-default);
+  color: var(--ds-color-base-white);
 
   svg {
-    fill: var(--auro-color-base-white) !important;
+    fill: var(--ds-color-base-white) !important;
   }
 }
