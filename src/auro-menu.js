@@ -209,35 +209,37 @@ class AuroMenu extends LitElement {
       this.initItems();
     }
 
-    this.resetOptionsStates();
+    if (this.items[this.index] && !this.items[this.index].hasAttribute('disabled')) {
+      this.resetOptionsStates();
 
-    if (this.index >= 0) {
-      const option = this.items[this.index];
+      if (this.index >= 0) {
+        const option = this.items[this.index];
 
-      // only handle options that are not disabled, hidden or static
-      if (option && this.optionInteractive(option)) {
-        // fire custom event if defined otherwise make selection
-        if (option.hasAttribute('event')) {
-          this.dispatchEvent(new CustomEvent(option.getAttribute('event'), {
-            bubbles: true,
-            cancelable: false,
-            composed: true,
-          }));
+        // only handle options that are not disabled, hidden or static
+        if (option && this.optionInteractive(option)) {
+          // fire custom event if defined otherwise make selection
+          if (option.hasAttribute('event')) {
+            this.dispatchEvent(new CustomEvent(option.getAttribute('event'), {
+              bubbles: true,
+              cancelable: false,
+              composed: true,
+            }));
 
-          // this event needs to be removed after select and combobox are updated to use the new standard name
-          this.dispatchEvent(new CustomEvent('auroMenuCustomEventFired', {
-            bubbles: true,
-            cancelable: false,
-            composed: true,
-          }));
+            // this event needs to be removed after select and combobox are updated to use the new standard name
+            this.dispatchEvent(new CustomEvent('auroMenuCustomEventFired', {
+              bubbles: true,
+              cancelable: false,
+              composed: true,
+            }));
 
-          this.dispatchEvent(new CustomEvent('auroMenu-customEventFired', {
-            bubbles: true,
-            cancelable: false,
-            composed: true,
-          }));
-        } else {
-          this.handleLocalSelectState(option);
+            this.dispatchEvent(new CustomEvent('auroMenu-customEventFired', {
+              bubbles: true,
+              cancelable: false,
+              composed: true,
+            }));
+          } else {
+            this.handleLocalSelectState(option);
+          }
         }
       }
     }
