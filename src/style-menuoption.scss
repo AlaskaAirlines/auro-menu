@@ -6,6 +6,9 @@
 @import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
 
+// Support for fallback values
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
+
 /* stylelint-disable declaration-no-important, order/properties-order */
 
 :host {
@@ -13,7 +16,7 @@
 
   align-items: center;
 
-  padding: var(--ds-size-50) var(--ds-size-200) var(--ds-size-50) 0;
+  padding: var(--ds-size-50, $ds-size-50) var(--ds-size-200, $ds-size-200) var(--ds-size-50, $ds-size-50) 0;
 
   cursor: pointer;
 
@@ -31,15 +34,15 @@
   }
 
   svg {
-    margin-right: var(--ds-size-150);
-    margin-left: var(--ds-size-100);
+    margin-right: var(--ds-size-150, $ds-size-150);
+    margin-left: var(--ds-size-100, $ds-size-100);
 
-    fill: var(--ds-color-icon-primary-default) !important;
+    fill: var(--ds-color-icon-primary-default, $ds-color-icon-primary-default) !important;
   }
 
   ::slotted(.nestingSpacer) {
     display: inline-block;
-    width: var(--ds-size-300);
+    width: var(--ds-size-300, $ds-size-300);
   }
 
   ::slotted(strong) {
@@ -60,26 +63,26 @@
 }
 
 :host([disabled]) {
-  color: var(--ds-color-text-disabled-default);
+  color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
 
   user-select: none;
 }
 
 :host(:hover:not([disabled])),
 :host(.active:not([disabled])) {
-  background-color: var(--ds-color-ui-bkg-hover-default);
-  color: var(--ds-color-text-primary-default);
+  background-color: var(--ds-color-ui-bkg-hover-default, $ds-color-ui-bkg-hover-default);
+  color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
 
   svg {
-    fill: var(--ds-color-icon-primary-default) !important;
+    fill: var(--ds-color-icon-primary-default, $ds-color-icon-primary-default) !important;
   }
 }
 
 :host([selected]:not([disabled])) {
-  background-color: var(--ds-color-alert-notification-default);
-  color: var(--ds-color-base-white);
+  background-color: var(--ds-color-alert-notification-default, $ds-color-alert-notification-default);
+  color: var(--ds-color-base-white, $ds-color-base-white);
 
   svg {
-    fill: var(--ds-color-base-white) !important;
+    fill: var(--ds-color-base-white, $ds-color-base-white) !important;
   }
 }
