@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.10.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.10.0...v3.10.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* **disabled:** make disabled selected option state unchangeable [#174](https://github.com/AlaskaAirlines/auro-menu/issues/174) ([7a76aec](https://github.com/AlaskaAirlines/auro-menu/commit/7a76aecea2ee8613f10d2d35508efd62658eecce))
+
 # [3.10.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.9.5...v3.10.0) (2023-05-23)
 
 
