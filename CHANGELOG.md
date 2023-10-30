@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.10.2](https://github.com/AlaskaAirlines/auro-menu/compare/v3.10.1...v3.10.2) (2023-10-30)
+
+
+### Performance Improvements
+
+* **token:** update token per new theming [#184](https://github.com/AlaskaAirlines/auro-menu/issues/184) ([1040c24](https://github.com/AlaskaAirlines/auro-menu/commit/1040c2487da83e331d136290208d5e05c4258b3b))
+
 ## [3.10.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.10.0...v3.10.1) (2023-10-26)
 
 
