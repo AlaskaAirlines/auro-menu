@@ -1,764 +1,101 @@
+<!--
+The demo.md file is a compiled document. No edits should be made directly to this file.
+README.md is created by running `npm run build:docs`.
+This file is generated based on a template fetched from `./docs/partials/demo.md`
+-->
+
 # Menu
 
-The `auro-menu` element provides a list of options for a user to select from.
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
+<!-- The below content is automatically added from ./description.md -->
+`<auro-menu>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
 
-A list of options is created within the `<slot>` of the `auro-menu` element by using the `auro-menuoption` element to define options. Use a standard `<hr>` element to create dividers within the list of options.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis in tellus nec pellentesque. Integer bibendum ligula sit amet vehicula gravida. Maecenas accumsan, ligula vitae molestie iaculis, tellus mi laoreet ex [install instructions](https://auro.alaskaair.com/components/auro/button/install), ac malesuada velit dolor vel mi. Cras et rutrum urna. Sed mattis mi eu tortor ullamcorper, egestas bibendum mauris cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra eros eget neque commodo vulputate. In tempus eu velit at dictum.
 
-The `auro-menu` element is designed for contextual menus, e.g. a dropdown menus. They are not intended to be used for navigation menus which have a different semantic meaning. The `auro-menu` element does not support hide/show functionality within its scope. This functionality will be managed by a wrapping element such as a drop-down menu composite element.
+Nulla at augue facilisis `odio lobortis` molestie vitae a nulla.
+<!-- AURO-GENERATED-CONTENT:END -->
 
-## Default
+## auro-menu use cases
 
-A default `auro-menu` element with nested `auro-menuoption` elements to generate a list.
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./useCases.md) -->
+<!-- The below content is automatically added from ./useCases.md -->
+The `<auro-menu>` element should be used in situations where users may:
+
+* ...
+* ...
+* ...
+<!-- AURO-GENERATED-CONTENT:END -->
+
+## Additional Information
+
+> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam fermentum libero ipsum, ac tempor sapien blandit in. Nam tincidunt non felis molestie varius.
+
+|convallis|tristique|nisl dignissim|eleifend|
+|---|---|---|---|
+|√|√|||
+|||√|√|
+
+Aenean at blandit lorem. Fusce imperdiet mi nec gravida maximus. Quisque nisl libero, condimentum in nisi a, imperdiet lacinia arcu.
+
+```javascript
+toggleDialog = (elName) => {
+  let dialog = document.querySelector(elName);
+  const html = document.querySelector('html');
+
+  html.style.overflow = 'hidden';
+  dialog.removeAttribute("open");
+  dialog.setAttribute("open", true);
+}
+
+toggleDialogClose = (elName) => {
+  let dialog = document.querySelector(elName);
+  const html = document.querySelector('html');
+
+  html.style.overflow = '';
+  dialog.removeAttribute("open");
+}
+```
+
+## Example(s)
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/default.html) -->
-  <!-- The below content is automatically added from ./partials/default.html -->
-  <auro-menu>
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
+  <auro-menu>Hello World</auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/default.html) -->
-  <!-- The below code snippet is automatically added from ./partials/default.html -->
-  ```html
-  <auro-menu>
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
+```html
+<auro-menu>Hello World</auro-menu>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
+Having a closing statement about your example helps to really complete the thought with your reader.
 
-## Scroll
+## Recommended Use and Version Control
 
-When setting the `max-height` of `auro-menu`, all of the overflowing content can be accessed via a scrollbar.
+There are two important parts of every Auro component. The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">class</a> and the custom clement. The class is exported and then used as part of defining the Web Component. When importing this component as described in the <a href="#install">install</a> section, the class is imported and the `auro-menu` custom element is defined automatically.
 
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/scroll.html) -->
-  <!-- The below content is automatically added from ./partials/scroll.html -->
-  <auro-menu id="alpha" style="max-height: 200px">
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <hr>
-    <auro-menu id="beta">
-      <auro-menuoption value="apples">Apples</auro-menuoption>
-      <auro-menuoption value="oranges">Oranges</auro-menuoption>
-      <auro-menuoption value="pears">Pears</auro-menuoption>
-      <auro-menuoption value="grapes">Grapes</auro-menuoption>
-      <auro-menuoption value="kiwi">Kiwi</auro-menuoption>
-      <hr>
-      <auro-menu id="charlie">
-        <auro-menuoption value="person">Person</auro-menuoption>
-        <auro-menuoption value="woman">Woman</auro-menuoption>
-        <auro-menuoption value="man">Man</auro-menuoption>
-        <auro-menuoption value="camera">Camera</auro-menuoption>
-        <auro-menuoption value="tv">TV</auro-menuoption>
-      </auro-menu>
-    </auro-menu>
-    <hr>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-    <hr>
-    <auro-menu id="delta">
-      <auro-menuoption value="cars">Cars</auro-menuoption>
-      <auro-menuoption value="trucks">Trucks</auro-menuoption>
-      <auro-menuoption value="boats">Boats</auro-menuoption>
-      <auro-menuoption value="planes">Planes</auro-menuoption>
-      <auro-menuoption value="motorcycles">Motorcycles</auro-menuoption>
-    </auro-menu>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
+To protect from versioning conflicts with other instances of the component being loaded, it is recommended to use our `registerComponent(name)` method and pass in a unique name.
 
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
+```js
+import './node_modules/@alaskaairux/auro-menu';
+registerComponent('custom-menu');
+```
 
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/scroll.html) -->
-  <!-- The below code snippet is automatically added from ./partials/scroll.html -->
-  ```html
-  <auro-menu id="alpha" style="max-height: 200px">
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <hr>
-    <auro-menu id="beta">
-      <auro-menuoption value="apples">Apples</auro-menuoption>
-      <auro-menuoption value="oranges">Oranges</auro-menuoption>
-      <auro-menuoption value="pears">Pears</auro-menuoption>
-      <auro-menuoption value="grapes">Grapes</auro-menuoption>
-      <auro-menuoption value="kiwi">Kiwi</auro-menuoption>
-      <hr>
-      <auro-menu id="charlie">
-        <auro-menuoption value="person">Person</auro-menuoption>
-        <auro-menuoption value="woman">Woman</auro-menuoption>
-        <auro-menuoption value="man">Man</auro-menuoption>
-        <auro-menuoption value="camera">Camera</auro-menuoption>
-        <auro-menuoption value="tv">TV</auro-menuoption>
-      </auro-menu>
-    </auro-menu>
-    <hr>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-    <hr>
-    <auro-menu id="delta">
-      <auro-menuoption value="cars">Cars</auro-menuoption>
-      <auro-menuoption value="trucks">Trucks</auro-menuoption>
-      <auro-menuoption value="boats">Boats</auro-menuoption>
-      <auro-menuoption value="planes">Planes</auro-menuoption>
-      <auro-menuoption value="motorcycles">Motorcycles</auro-menuoption>
-    </auro-menu>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## noCheckmark
-
-Applying the `noCheckmark` attribute will prevent the check icon from being shown on the selected option. The left padding to reserve space for the checkmark is also removed.
+This will create a new custom element that you can use in your HTML that will function identically to the `auro-menu` element.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/nocheckmark.html) -->
-  <!-- The below content is automatically added from ./partials/nocheckmark.html -->
-  <auro-menu nocheckmark>
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <hr>
-    <auro-menu>
-      <auro-menuoption value="apples">Apples</auro-menuoption>
-      <auro-menuoption value="oranges">Oranges</auro-menuoption>
-      <auro-menuoption value="pears">Pears</auro-menuoption>
-      <auro-menuoption value="grapes">Grapes</auro-menuoption>
-      <auro-menuoption value="kiwi">Kiwi</auro-menuoption>
-      <hr>
-      <auro-menu>
-        <auro-menuoption value="person">Person</auro-menuoption>
-        <auro-menuoption value="woman">Woman</auro-menuoption>
-        <auro-menuoption value="man">Man</auro-menuoption>
-        <auro-menuoption value="camera">Camera</auro-menuoption>
-        <auro-menuoption value="tv">TV</auro-menuoption>
-      </auro-menu>
-    </auro-menu>
-    <hr>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-    <hr>
-    <auro-menu>
-      <auro-menuoption value="cars">Cars</auro-menuoption>
-      <auro-menuoption value="trucks">Trucks</auro-menuoption>
-      <auro-menuoption value="boats">Boats</auro-menuoption>
-      <auro-menuoption value="planes">Planes</auro-menuoption>
-      <auro-menuoption value="motorcycles">Motorcycles</auro-menuoption>
-    </auro-menu>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
+  <custom-header display="display">Salutations World!</custom-header>
 </div>
-
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/nocheckmark.html) -->
-  <!-- The below code snippet is automatically added from ./partials/nocheckmark.html -->
   ```html
-  <auro-menu nocheckmark>
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <hr>
-    <auro-menu>
-      <auro-menuoption value="apples">Apples</auro-menuoption>
-      <auro-menuoption value="oranges">Oranges</auro-menuoption>
-      <auro-menuoption value="pears">Pears</auro-menuoption>
-      <auro-menuoption value="grapes">Grapes</auro-menuoption>
-      <auro-menuoption value="kiwi">Kiwi</auro-menuoption>
-      <hr>
-      <auro-menu>
-        <auro-menuoption value="person">Person</auro-menuoption>
-        <auro-menuoption value="woman">Woman</auro-menuoption>
-        <auro-menuoption value="man">Man</auro-menuoption>
-        <auro-menuoption value="camera">Camera</auro-menuoption>
-        <auro-menuoption value="tv">TV</auro-menuoption>
-      </auro-menu>
-    </auro-menu>
-    <hr>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-    <hr>
-    <auro-menu>
-      <auro-menuoption value="cars">Cars</auro-menuoption>
-      <auro-menuoption value="trucks">Trucks</auro-menuoption>
-      <auro-menuoption value="boats">Boats</auro-menuoption>
-      <auro-menuoption value="planes">Planes</auro-menuoption>
-      <auro-menuoption value="motorcycles">Motorcycles</auro-menuoption>
-    </auro-menu>
-  </auro-menu>
+  <custom-header display="display">Salutations World!</custom-header>
   ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## Disabled
-
-The `auro-menu` element with `disabled` will mark all `auro-menuoption` elements as disabled.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/disabledMenu.html) -->
-  <!-- The below content is automatically added from ./partials/disabledMenu.html -->
-  <auro-menu disabled>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share">Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/disabledMenu.html) -->
-  <!-- The below code snippet is automatically added from ./partials/disabledMenu.html -->
-  ```html
-  <auro-menu disabled>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share">Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## Using matchWord to highlight displayValue string parts
-
-The `auro-menu` component supports the use of the `matchWord` attribute to highlight string parts of each menuoption that are equal to `matchWord`. The matching algorithm is case insensitive (e.g., `n` matches `N`).
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/matchWord.html) -->
-  <!-- The below content is automatically added from ./partials/matchWord.html -->
-  <auro-input id="matchWordInput" required>
-    <span slot="label">Enter a value to match in the menu</span>
-  </auro-input>
-  <br />
-  <auro-menu id="matchWordMenu">
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menu>
-      <auro-menuoption value="apples">Apples</auro-menuoption>
-      <auro-menuoption value="oranges">Oranges</auro-menuoption>
-      <auro-menuoption value="peaches">Peaches</auro-menuoption>
-    </auro-menu>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/matchWord.js) -->
-  <!-- The below code snippet is automatically added from ./partials/matchWord.js -->
-  ```js
-  function updateMatch() {
-    let matchWordMenu = document.querySelector('#matchWordMenu');
-  
-    matchWordMenu.matchWord = matchWordInput.value;
-  }
-  
-  export function auroMenuMatchWordExample() {
-    let matchWordInput = document.querySelector('#matchWordInput');
-  
-    matchWordInput.addEventListener('keyup', updateMatch);
-  }
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/matchWord.html) -->
-  <!-- The below code snippet is automatically added from ./partials/matchWord.html -->
-  ```html
-  <auro-input id="matchWordInput" required>
-    <span slot="label">Enter a value to match in the menu</span>
-  </auro-input>
-  <br />
-  <auro-menu id="matchWordMenu">
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menu>
-      <auro-menuoption value="apples">Apples</auro-menuoption>
-      <auro-menuoption value="oranges">Oranges</auro-menuoption>
-      <auro-menuoption value="peaches">Peaches</auro-menuoption>
-    </auro-menu>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## Options with horizontal separator
-
-To create a natural separation between options, simply use a `<hr>` element.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/hr.html) -->
-  <!-- The below content is automatically added from ./partials/hr.html -->
-  <auro-menu>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share">Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/hr.html) -->
-  <!-- The below code snippet is automatically added from ./partials/hr.html -->
-  ```html
-  <auro-menu>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share">Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## Nesting auro-menus to create sub-menus
-
-The `auro-menu` element supports the placement of an `auro-menu` inside of another `auro-menu`. There is no technical limit to the level of nesting.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/nestedMenu.html) -->
-  <!-- The below content is automatically added from ./partials/nestedMenu.html -->
-  <auro-menu id="alpha">
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <hr>
-    <auro-menu id="beta">
-      <auro-menuoption value="apples">Apples</auro-menuoption>
-      <auro-menuoption value="oranges">Oranges</auro-menuoption>
-      <auro-menuoption value="pears">Pears</auro-menuoption>
-      <auro-menuoption value="grapes">Grapes</auro-menuoption>
-      <auro-menuoption value="kiwi">Kiwi</auro-menuoption>
-      <hr>
-      <auro-menu id="charlie">
-        <auro-menuoption value="person">Person</auro-menuoption>
-        <auro-menuoption value="woman">Woman</auro-menuoption>
-        <auro-menuoption value="man">Man</auro-menuoption>
-        <auro-menuoption value="camera">Camera</auro-menuoption>
-        <auro-menuoption value="tv">TV</auro-menuoption>
-      </auro-menu>
-    </auro-menu>
-    <hr>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-    <hr>
-    <auro-menu id="delta">
-      <auro-menuoption value="cars">Cars</auro-menuoption>
-      <auro-menuoption value="trucks">Trucks</auro-menuoption>
-      <auro-menuoption value="boats">Boats</auro-menuoption>
-      <auro-menuoption value="planes">Planes</auro-menuoption>
-      <auro-menuoption value="motorcycles">Motorcycles</auro-menuoption>
-    </auro-menu>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/nestedMenu.html) -->
-  <!-- The below code snippet is automatically added from ./partials/nestedMenu.html -->
-  ```html
-  <auro-menu id="alpha">
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <hr>
-    <auro-menu id="beta">
-      <auro-menuoption value="apples">Apples</auro-menuoption>
-      <auro-menuoption value="oranges">Oranges</auro-menuoption>
-      <auro-menuoption value="pears">Pears</auro-menuoption>
-      <auro-menuoption value="grapes">Grapes</auro-menuoption>
-      <auro-menuoption value="kiwi">Kiwi</auro-menuoption>
-      <hr>
-      <auro-menu id="charlie">
-        <auro-menuoption value="person">Person</auro-menuoption>
-        <auro-menuoption value="woman">Woman</auro-menuoption>
-        <auro-menuoption value="man">Man</auro-menuoption>
-        <auro-menuoption value="camera">Camera</auro-menuoption>
-        <auro-menuoption value="tv">TV</auro-menuoption>
-      </auro-menu>
-    </auro-menu>
-    <hr>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-    <hr>
-    <auro-menu id="delta">
-      <auro-menuoption value="cars">Cars</auro-menuoption>
-      <auro-menuoption value="trucks">Trucks</auro-menuoption>
-      <auro-menuoption value="boats">Boats</auro-menuoption>
-      <auro-menuoption value="planes">Planes</auro-menuoption>
-      <auro-menuoption value="motorcycles">Motorcycles</auro-menuoption>
-    </auro-menu>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## An auro-menuoption element w/disabled state
-
-The `auro-menuoption` element supports the placement of the `disabled` attribute per option. A fully disabled list would be managed in an outer wrapping drop down menu element.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/disabled.html) -->
-  <!-- The below content is automatically added from ./partials/disabled.html -->
-  <auro-menu>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab" disabled>Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share" disabled>Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/disabled.html) -->
-  <!-- The below code snippet is automatically added from ./partials/disabled.html -->
-  ```html
-  <auro-menu>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab" disabled>Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share" disabled>Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## Menu with pre-selected menu option
-
-The `auro-menu` element supports a pre-selected option via the `selected` attribute on the `auro-menuoption` element.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/preselect.html) -->
-  <!-- The below content is automatically added from ./partials/preselect.html -->
-  <auro-menu>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window" selected>New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab" disabled>Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share" disabled>Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/preselect.html) -->
-  <!-- The below code snippet is automatically added from ./partials/preselect.html -->
-  ```html
-  <auro-menu>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window" selected>New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab" disabled>Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share" disabled>Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## Menu with restricted width and long option
-
-The `auro-menu` element supports scenarios where the outer parent element of the menu constrains its width and there are options with text longer than the pull down menu will support. Truncated content will be illustrated with an ellipsis.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/restrictedWidth.html) -->
-  <!-- The below content is automatically added from ./partials/restrictedWidth.html -->
-  <auro-menu style="width: 300px">
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as 'option_10_redevelopment_hover_scenario.png'</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share">Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/restrictedWidth.html) -->
-  <!-- The below code snippet is automatically added from ./partials/restrictedWidth.html -->
-  ```html
-  <auro-menu style="width: 300px">
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab">Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as 'option_10_redevelopment_hover_scenario.png'</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share">Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## Menu with hidden options
-
-The `auro-menuoption` element supports scenarios where the menu option needs to be hidden. e.g. the only visible menu options contain the `matchWord`.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/hidden.html) -->
-  <!-- The below content is automatically added from ./partials/hidden.html -->
-  <auro-menu>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab" hidden>Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share" disabled>Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/hidden.html) -->
-  <!-- The below code snippet is automatically added from ./partials/hidden.html -->
-  ```html
-  <auro-menu>
-    <auro-menuoption value="new tab">New tab</auro-menuoption>
-    <auro-menuoption value="new window">New window</auro-menuoption>
-    <auro-menuoption value="open file">Open file</auro-menuoption>
-    <auro-menuoption value="open location">Open location</auro-menuoption>
-    <hr>
-    <auro-menuoption value="close window">Close window</auro-menuoption>
-    <auro-menuoption value="close tab" hidden>Close tab</auro-menuoption>
-    <auro-menuoption value="save page as...">Save page as...</auro-menuoption>
-    <hr>
-    <auro-menuoption value="share" disabled>Share</auro-menuoption>
-    <hr>
-    <auro-menuoption value="print">Print</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-## Reset menu selection state
-
-The `auro-menu` may be reset to a state with no menuoption selected by setting the `value` to `undefined`.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/reset.html) -->
-  <!-- The below content is automatically added from ./partials/reset.html -->
-  <auro-menu id="resetExample">
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration" selected>Duration</auro-menuoption>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-  </auro-menu>
-  <br/><br/>
-  <auro-button id="resetExampleBtn">RESET</auro-button>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/reset.html) -->
-  <!-- The below code snippet is automatically added from ./partials/reset.html -->
-  ```html
-  <auro-menu id="resetExample">
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration" selected>Duration</auro-menuoption>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
-  </auro-menu>
-  <br/><br/>
-  <auro-button id="resetExampleBtn">RESET</auro-button>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/reset.js) -->
-  <!-- The below code snippet is automatically added from ./partials/reset.js -->
-  ```js
-  export function auroMenuResetExample() {
-    const resetExampleBtnElem = document.querySelector('#resetExampleBtn');
-    const resetExampleElem = document.querySelector('#resetExample');
-  
-    if (resetExampleElem && resetExampleBtnElem) {
-      resetExampleBtnElem.addEventListener('click', () => {
-        resetExampleElem.value = undefined;
-      })
-    }
-  }
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-
-## Menuoption with custom event
-
-The `auro-menuoption` element supports scenarios where a custom event should be fired in place of the standard `selectedOption`.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./partials/customEvent.html) -->
-  <!-- The below content is automatically added from ./partials/customEvent.html -->
-  <auro-menu id="customEvent">
-    <auro-menuoption value="stops">555 Address Way Seattle, WA 99999</auro-menuoption>
-    <auro-menuoption value="price">333 Some Street Seattle, WA 99999</auro-menuoption>
-    <auro-menuoption event="mycustomevent">Add new address</auro-menuoption>
-  </auro-menu>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/customEvent.js) -->
-  <!-- The below code snippet is automatically added from ./partials/customEvent.js -->
-  ```js
-  export function auroMenuCustomEventExample() {
-    let menuCustomEventEl = document.querySelector('auro-menu#customEvent');
-  
-    if (menuCustomEventEl) {
-      menuCustomEventEl.addEventListener('mycustomevent', () => {
-        console.warn('My Custom Event Fired');
-        alert(`My Custom Event Fired`);
-      });
-    }
-  }
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
-
-  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./partials/customEvent.html) -->
-  <!-- The below code snippet is automatically added from ./partials/customEvent.html -->
-  ```html
-  <auro-menu id="customEvent">
-    <auro-menuoption value="stops">555 Address Way Seattle, WA 99999</auro-menuoption>
-    <auro-menuoption value="price">333 Some Street Seattle, WA 99999</auro-menuoption>
-    <auro-menuoption event="mycustomevent">Add new address</auro-menuoption>
-  </auro-menu>
-  ```
-  <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>

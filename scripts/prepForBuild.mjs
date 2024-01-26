@@ -1,4 +1,5 @@
-const fs = require('fs');
+import fs from 'fs';
+
 const bundle = 'auro-menu__bundled.js';
 const indexFile = './build/index.html';
 

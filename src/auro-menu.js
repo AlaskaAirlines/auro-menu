@@ -33,7 +33,7 @@ import "mark.js/dist/mark.min";
 
 /* eslint-disable no-magic-numbers, max-lines */
 
-class AuroMenu extends LitElement {
+export class AuroMenu extends LitElement {
   constructor() {
     super();
     this.value = undefined;
