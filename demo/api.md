@@ -63,7 +63,7 @@ The auro-menu element provides users a way to select from a list of options.
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
@@ -122,7 +122,7 @@ Applying the `noCheckmark` attribute will prevent the check icon from being show
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noCheckmark.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/noCheckmark.html -->
@@ -186,7 +186,7 @@ The `auro-menu` element with `disabled` will mark all `auro-menuoption` elements
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/disabledMenu.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/disabledMenu.html -->
@@ -234,7 +234,7 @@ The `auro-menu` component supports the use of the `matchWord` attribute to highl
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/matchWord.js) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/matchWord.js -->
@@ -320,7 +320,7 @@ When setting the `max-height` of `auro-menu`, all of the overflowing content can
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/scroll.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/scroll.html -->
@@ -385,7 +385,7 @@ To create a natural separation between options, simply use a `<hr>` element.
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/hr.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/hr.html -->
@@ -450,7 +450,7 @@ The `auro-menu` element supports the placement of an `auro-menu` inside of anoth
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/nestedMenu.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/nestedMenu.html -->
@@ -515,7 +515,7 @@ The `auro-menuoption` element supports the placement of the `disabled` attribute
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/disabled.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/disabled.html -->
@@ -562,7 +562,7 @@ The `auro-menu` element supports a pre-selected option via the `selected` attrib
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/preselect.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/preselect.html -->
@@ -609,7 +609,7 @@ The `auro-menu` element supports scenarios where the outer parent element of the
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/restrictedWidth.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/restrictedWidth.html -->
@@ -656,7 +656,7 @@ The `auro-menuoption` element supports scenarios where the menu option needs to 
   </auro-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/hidden.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/hidden.html -->
@@ -698,7 +698,7 @@ The `auro-menu` may be reset to a state with no menuoption selected by setting t
   <auro-button id="resetExampleBtn">RESET</auro-button>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/reset.js) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/reset.js -->
