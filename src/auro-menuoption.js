@@ -4,7 +4,6 @@
 // ---------------------------------------------------------------------
 import { LitElement, html } from "lit";
 import styleCss from "./style-menuoption-css.js";
-import styleCssFixed from "./style-menuoption-fixed-css.js";
 import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 
 /**
@@ -67,10 +66,7 @@ class AuroMenuOption extends LitElement {
   }
 
   static get styles() {
-    return [
-      styleCss,
-      styleCssFixed
-    ];
+    return [styleCss];
   }
 
   firstUpdated() {

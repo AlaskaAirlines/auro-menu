@@ -5,7 +5,6 @@
 
 import { LitElement, html } from "lit";
 import styleCss from "./style-base-css.js";
-import styleCssFixed from "./style-base-fixed-css.js";
 import './auro-menuoption';
 import "mark.js/dist/mark.min";
 
@@ -68,10 +67,7 @@ export class AuroMenu extends LitElement {
   }
 
   static get styles() {
-    return [
-      styleCss,
-      styleCssFixed
-    ];
+    return [styleCss];
   }
 
   /**
