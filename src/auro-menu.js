@@ -3,7 +3,7 @@
 
 // ---------------------------------------------------------------------
 
-import { LitElement, html } from "lit-element";
+import { LitElement, html } from "lit";
 import styleCss from "./style-base-css.js";
 import styleCssFixed from "./style-base-fixed-css.js";
 import './auro-menuoption';
