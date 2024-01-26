@@ -42,35 +42,3 @@ The auro-menu element provides users a way to select from a list of options.
 | Name | Description                         |
 |------|-------------------------------------|
 |      | Slot for insertion of menu options. |
-
-
-# auro-menuoption
-
-The auro-menu element provides users a way to define a menu option.
-
-## Attributes
-
-| Attribute     | Type     | Description                                      |
-|---------------|----------|--------------------------------------------------|
-| `noCheckmark` | `String` | When true, selected option will not show the checkmark. |
-
-## Properties
-
-| Property      | Attribute     | Type      | Default | Description                                      |
-|---------------|---------------|-----------|---------|--------------------------------------------------|
-| `disabled`    | `disabled`    | `Boolean` | false   | When true specifies that the menuoption is disabled. |
-| `nocheckmark` | `nocheckmark` | `boolean` | false   |                                                  |
-| `selected`    | `selected`    | `Boolean` | false   | Specifies that an option is selected.            |
-| `value`       | `value`       | `String`  |         | Specifies the value to be sent to a server.      |
-
-## Events
-
-| Event                      | Type                | Description                                      |
-|----------------------------|---------------------|--------------------------------------------------|
-| `auroMenuOption-mouseover` | `CustomEvent<this>` | Notifies that this option has been hovered over. |
-
-## Slots
-
-| Name | Description                                      |
-|------|--------------------------------------------------|
-|      | Specifies text for an option, but is not the value. |
