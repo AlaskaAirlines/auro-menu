@@ -86,8 +86,8 @@ The auro-menu element provides users a way to select from a list of options.
 Applying the `noCheckmark` attribute will prevent the check icon from being shown on the selected option. The left padding to reserve space for the checkmark is also removed.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/noCheckmark.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/noCheckmark.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/nocheckmark.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/nocheckmark.html -->
   <auro-menu nocheckmark>
     <auro-menuoption value="stops">Stops</auro-menuoption>
     <auro-menuoption value="price">Price</auro-menuoption>
@@ -124,8 +124,8 @@ Applying the `noCheckmark` attribute will prevent the check icon from being show
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noCheckmark.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/noCheckmark.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/nocheckmark.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/nocheckmark.html -->
 
 ```html
 <auro-menu nocheckmark>

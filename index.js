@@ -1,4 +1,4 @@
-import { AuroMenu } from './src/auro-menu';
+import { AuroMenu } from './src/auro-menu.js';
 
 /**
  * Register Custom Element.
