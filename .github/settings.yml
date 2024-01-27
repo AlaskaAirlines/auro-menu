@@ -3,7 +3,7 @@ repository:
   # See https://github.com/apps/settings for app settings
 
   # A short description of the repository that will show up on GitHub
-  description: Custom element that ....
+  description: Custom element that provides a list of options for the user to choose from
 
   # A URL with more information about the repository
   homepage: https://auro.alaskaair.com/components/auro/menu

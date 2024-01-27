@@ -25,14 +25,14 @@
 Applying the `noCheckmark` attribute will prevent the check icon from being shown on the selected option. The left padding to reserve space for the checkmark is also removed.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/noCheckmark.html) -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/nocheckmark.html) -->
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noCheckmark.html) -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/nocheckmark.html) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
