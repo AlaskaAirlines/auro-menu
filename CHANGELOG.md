@@ -1,5 +1,24 @@
 # Semantic Release Automated Changelog
 
+# [3.11.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.10.2...v3.11.0) (2024-02-01)
+
+
+### Bug Fixes
+
+* **linters:** fix linting errors ([6df6730](https://github.com/AlaskaAirlines/auro-menu/commit/6df673000894a6f3c0d82a7391049700ed320a03))
+
+
+### Features
+
+* **modernize:** update repo with new generator build [#182](https://github.com/AlaskaAirlines/auro-menu/issues/182) [#188](https://github.com/AlaskaAirlines/auro-menu/issues/188) ([262eb22](https://github.com/AlaskaAirlines/auro-menu/commit/262eb22d2a2279347febaaddc7a3f5ceda87247f))
+
+
+### Performance Improvements
+
+* **docs:** update documentation format ([bad1e3b](https://github.com/AlaskaAirlines/auro-menu/commit/bad1e3b9d5381acb3a4f21e487a2e6e0e89930a3))
+* **lit:** update to lit 3.0 ([3a3e8b1](https://github.com/AlaskaAirlines/auro-menu/commit/3a3e8b1bb1df224cf37b4d1b7d16c8cb97c2c9e8))
+* **namespace:** update [@alaskaairux](https://github.com/alaskaairux) references ([a5c828e](https://github.com/AlaskaAirlines/auro-menu/commit/a5c828edbb095261548f26d0f049552113c74ea8))
+
 ## [3.10.2](https://github.com/AlaskaAirlines/auro-menu/compare/v3.10.1...v3.10.2) (2023-10-30)
 
 
