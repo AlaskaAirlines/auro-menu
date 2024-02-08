@@ -116,7 +116,9 @@
             "./package.json",
             "./CHANGELOG.md",
             "./README.md",
-            "./docs/api.md"
+            "./docs/api.md",
+            "./demo/demo.md",
+            "./demo/apiExamples.md"
           ]
         }
       ],
@@ -158,6 +160,7 @@
     "test": "wtr --coverage",
     "test:watch": "wtr --watch",
     "types": "tsc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postversion": "npm-run-all build:api build:docs"
   }
 }
