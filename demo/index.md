@@ -60,6 +60,48 @@ A basic `auro-menu` element with nested `auro-menuoption` elements to generate a
 </auro-accordion>
 Having a closing statement about your example helps to really complete the thought with your reader.
 
+### Highlight on Option
+
+The `auro-menu` component supports the use of the `selected` attribute. If you want to highlight the menu you want, add the `selected` attribute to `auro-menuoption`.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/selected.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/selected.html -->
+  <auro-menu>
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price" selected>Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menu>
+      <auro-menuoption value="apples">Apples</auro-menuoption>
+      <auro-menuoption value="oranges">Oranges</auro-menuoption>
+      <auro-menuoption value="peaches">Peaches</auro-menuoption>
+    </auro-menu>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+  <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/selected.html) -->
+  <!-- The below code snippet is automatically added from ./../../apiExamples/selected.html -->
+  ```html
+  <auro-menu>
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price" selected>Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menu>
+      <auro-menuoption value="apples">Apples</auro-menuoption>
+      <auro-menuoption value="oranges">Oranges</auro-menuoption>
+      <auro-menuoption value="peaches">Peaches</auro-menuoption>
+    </auro-menu>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+  </auro-menu>
+  ```
+  <!-- AURO-GENERATED-CONTENT:END -->
+</auro-accordion>
+
 ## Recommended Use and Version Control
 
 There are two important parts of every Auro component. The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">class</a> and the custom clement. The class is exported and then used as part of defining the Web Component. When importing this component as described in the <a href="#install">install</a> section, the class is imported and the `auro-menu` custom element is defined automatically.
