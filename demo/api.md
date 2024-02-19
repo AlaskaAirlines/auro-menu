@@ -82,7 +82,7 @@ The auro-menu element provides users a way to select from a list of options.
 
 ### Attribute Examples
 
-#### <a name="noCheckmark"></a>`noCheckmark`<a href="#" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a><a name="noCheckmark">
+#### noCheckmark<a name="noCheckmark"></a>
 Applying the `noCheckmark` attribute will prevent the check icon from being shown on the selected option. The left padding to reserve space for the checkmark is also removed.
 
 <div class="exampleWrapper">
@@ -164,7 +164,7 @@ Applying the `noCheckmark` attribute will prevent the check icon from being show
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-#### <a name="disabled"></a>`disabled`<a href="#" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a><a name="disabled">
+#### disabled<a name="disabled"></a>
 The `auro-menu` element with `disabled` will mark all `auro-menuoption` elements as disabled.
 
 <div class="exampleWrapper">
@@ -210,7 +210,7 @@ The `auro-menu` element with `disabled` will mark all `auro-menuoption` elements
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-#### <a name="matchWord"></a>`matchWord`<a href="#" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a><a name="matchWord">
+#### matchWord<a name="matchWord"></a>
 The `auro-menu` component supports the use of the `matchWord` attribute to highlight string parts of each menuoption that are equal to `matchWord`. The matching algorithm is case insensitive (e.g., `n` matches `N`).
 
 <div class="exampleWrapper">

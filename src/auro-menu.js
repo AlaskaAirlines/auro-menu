@@ -17,16 +17,16 @@ import "mark.js/dist/mark.min";
  * @attr {Boolean} noCheckmark - When true, selected option will not show the checkmark.
  * @attr {String} value - Value selected for the menu.
  * @prop {Boolean} ready - When false the component API should not be called.
- * @fires auroMenu-selectedOption - Notifies that a new menuoption selection has been made.
- * @fires selectedOption - (DEPRECATED) Notifies that a new menuoption selection has been made.
- * @fires auroMenu-activatedOption - Notifies that a menuoption has been made `active`.
- * @fires auroMenuActivatedOption - (DEPRECATED) Notifies that a menuoption has been made `active`.
- * @fires auroMenu-selectValueFailure - Notifies that a an attempt to select a menuoption by matching a value has failed.
- * @fires auroMenuSelectValueFailure - (DEPRECATED) Notifies that a an attempt to select a menuoption by matching a value has failed.
- * @fires auroMenu-customEventFired - Notifies that a custom event has been fired.
- * @fires auroMenuCustomEventFired - (DEPRECATED) Notifies that a custom event has been fired.
- * @fires auroMenu-ready - Notifies that the component has finished initializing.
- * @fires auroMenu-selectValueReset - Notifies that the component value has been reset.
+ * @event auroMenu-selectedOption - Notifies that a new menuoption selection has been made.
+ * @event selectedOption - (DEPRECATED) Notifies that a new menuoption selection has been made.
+ * @event auroMenu-activatedOption - Notifies that a menuoption has been made `active`.
+ * @event auroMenuActivatedOption - (DEPRECATED) Notifies that a menuoption has been made `active`.
+ * @event auroMenu-selectValueFailure - Notifies that a an attempt to select a menuoption by matching a value has failed.
+ * @event auroMenuSelectValueFailure - (DEPRECATED) Notifies that a an attempt to select a menuoption by matching a value has failed.
+ * @event auroMenu-customEventFired - Notifies that a custom event has been fired.
+ * @event auroMenuCustomEventFired - (DEPRECATED) Notifies that a custom event has been fired.
+ * @event auroMenu-ready - Notifies that the component has finished initializing.
+ * @event auroMenu-selectValueReset - Notifies that the component value has been reset.
  * @slot Slot for insertion of menu options.
  */
 

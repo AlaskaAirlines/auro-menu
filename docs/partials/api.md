@@ -20,7 +20,7 @@
 
 ### Attribute Examples
 
-#### `noCheckmark`<a name="noCheckmark">
+#### noCheckmark<a name="noCheckmark"></a>
 
 Applying the `noCheckmark` attribute will prevent the check icon from being shown on the selected option. The left padding to reserve space for the checkmark is also removed.
 
@@ -37,7 +37,7 @@ Applying the `noCheckmark` attribute will prevent the check icon from being show
 
 </auro-accordion>
 
-#### `disabled`<a name="disabled">
+#### disabled<a name="disabled"></a>
 
 The `auro-menu` element with `disabled` will mark all `auro-menuoption` elements as disabled.
 
@@ -54,7 +54,7 @@ The `auro-menu` element with `disabled` will mark all `auro-menuoption` elements
 
 </auro-accordion>
 
-#### `matchWord`<a name="matchWord">
+#### matchWord<a name="matchWord"></a>
 
 The `auro-menu` component supports the use of the `matchWord` attribute to highlight string parts of each menuoption that are equal to `matchWord`. The matching algorithm is case insensitive (e.g., `n` matches `N`).
 
