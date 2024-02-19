@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.11.2](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.1...v3.11.2) (2024-02-19)
+
+
+### Performance Improvements
+
+* **docs:** correct naming standards for docs ([ae83b6d](https://github.com/AlaskaAirlines/auro-menu/commit/ae83b6dcf24ff123cba5388cd2670cd56219410f))
+
 ## [3.11.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.0...v3.11.1) (2024-02-13)
 
 
