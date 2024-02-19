@@ -13,7 +13,7 @@ import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
  * @attr {String} noCheckmark - When true, selected option will not show the checkmark.
  * @attr {Boolean} disabled - When true specifies that the menuoption is disabled.
  * @attr {Boolean} selected - Specifies that an option is selected.
- * @fires auroMenuOption-mouseover - Notifies that this option has been hovered over.
+ * @event auroMenuOption-mouseover - Notifies that this option has been hovered over.
  * @slot Specifies text for an option, but is not the value.
  */
 class AuroMenuOption extends LitElement {
