@@ -47,9 +47,9 @@
     <script src="https://cdn.jsdelivr.net/npm@aurodesignsystem/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm@aurodesignsystem/auro-button@latest/dist/auro-button__bundled.js" type="module"></script>
-    <script src="./api.min.js"></script>
-    <script>
-      initMenuApiExamples();
+    <script type="module">
+      import { initExamples } from "./api.min.js"
+      initExamples();
     </script>
   </body>
 </html>
