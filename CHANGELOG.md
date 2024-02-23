@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.11.3](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.2...v3.11.3) (2024-02-23)
+
+
+### Performance Improvements
+
+* **examples:** refactor examples ([6549b3a](https://github.com/AlaskaAirlines/auro-menu/commit/6549b3a5a3953aa5e5bcb6a43aace8c3b136c2ae))
+
 ## [3.11.2](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.1...v3.11.2) (2024-02-19)
 
 
