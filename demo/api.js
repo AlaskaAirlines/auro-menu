@@ -1,20 +1,24 @@
+/* eslint-disable jsdoc/require-jsdoc, no-magic-numbers, no-param-reassign */
+
 import { auroMenuResetExample } from '../apiExamples/reset';
 import { auroMenuMatchWordExample } from '../apiExamples/matchWord';
 import { auroMenuCustomEventExample } from '../apiExamples/customEvent';
 
-export function initMenuApiExamples(initCount) {
+export function initExamples(initCount) {
   initCount = initCount || 0;
 
   try {
+    // javascript example function calls to be added here upon creation to test examples
     auroMenuResetExample();
     auroMenuMatchWordExample();
     auroMenuCustomEventExample();
-  } catch {
+  } catch (err) {
     if (initCount <= 20) {
       // setTimeout handles issue where content is sometimes loaded after the functions get called
       setTimeout(() => {
-        initMenuApiExamples(initCount + 1);
+        initExamples(initCount + 1);
       }, 100);
     }
   }
 }
+
