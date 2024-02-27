@@ -539,9 +539,8 @@ The `auro-menuoption` element supports the placement of the `disabled` attribute
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-#### Menu with pre-selected menu option
-
-The `auro-menu` element supports a pre-selected option via the `selected` attribute on the `auro-menuoption` element.
+#### <a name="selected"></a>`selected`<a href="#" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+Use the `selected` attribute to pre-select an option or highlight a specific `auro-menuoption` in the `auro-menu`.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/preselect.html) -->
