@@ -127,24 +127,26 @@ export class AuroMenu extends LitElement {
    * @returns {void} When called will update the DOM with visible suggest text matches.
    */
   markOptions() {
-    let itemsToMark = []; // eslint-disable-line prefer-const
+    if (this.items && this.items.length > 0) {
+      let itemsToMark = []; // eslint-disable-line prefer-const
 
-    this.items.forEach((item) => {
-      if (this.optionInteractive(item) && !item.hasAttribute('persistent')) {
-        itemsToMark.push(item);
-      }
-    });
-
-    const markInstance = new Mark(itemsToMark); // eslint-disable-line
-
-    markInstance.unmark();
-
-    if (this.matchWord && this.matchWord.length > 0) {
-      markInstance.mark(this.matchWord, {
-        'element': 'strong',
-        'separateWordSearch': false,
-        'acrossElements': true
+      this.items.forEach((item) => {
+        if (this.optionInteractive(item) && !item.hasAttribute('persistent')) {
+          itemsToMark.push(item);
+        }
       });
+
+      const markInstance = new Mark(itemsToMark); // eslint-disable-line
+
+      markInstance.unmark();
+
+      if (this.matchWord && this.matchWord.length > 0) {
+        markInstance.mark(this.matchWord, {
+          'element': 'strong',
+          'separateWordSearch': false,
+          'acrossElements': true
+        });
+      }
     }
   }
 
