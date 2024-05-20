@@ -263,7 +263,67 @@ describe('auro-menu', () => {
     
     expect(menuEl.hasAttribute('noCheckmark')).to.be.true;
   })
+
+  it('test selecting multiple option', async () => {
+    const el = await multipleMenuFixture();
+    const menuEl = el.querySelector('auro-menu');
+    const options = getOptions(menuEl);
+    let index = 0;
+    for (const option of options) {
+      menuEl.selectNextItem('down');
+
+      // select current option
+      menuEl.dispatchEvent(new KeyboardEvent('keydown', {
+        bubbles: true,
+        composed: true,
+        'key': 'Enter'
+      }));
+      
+      expect(option.hasAttribute('selected')).to.equal(true);
+      expect(option.hasAttribute('aria-selected')).to.equal(true);
+
+      index++;
+    }
+    await elementUpdated(menuEl);
+    
+    expect(menuEl.optionSelected.length).to.equal(6);
+  })
 });
+
+it('test select/deselect options in multiSelect', async () => {
+  const el = await multipleMenuFixture();
+  const menuEl = el.querySelector('auro-menu');
+  menuEl.selectNextItem('down');
+
+  // select first option
+  menuEl.dispatchEvent(new KeyboardEvent('keydown', {
+    bubbles: true,
+    composed: true,
+    'key': 'Enter'
+  }));
+  expect(menuEl.children[0].hasAttribute('selected')).to.equal(true);
+  expect(menuEl.children[0].hasAttribute('aria-selected')).to.equal(true);
+
+  // deselect first option
+  menuEl.dispatchEvent(new KeyboardEvent('keydown', {
+    bubbles: true,
+    composed: true,
+    'key': 'Enter'
+  }));
+  expect(menuEl.children[0].hasAttribute('selected')).to.equal(false);
+})
+
+it('test changing values after render in multiSelect', async () => {
+  const el = await multipleMenuFixture();
+  const menuEl = el.querySelector('auro-menu');
+  // set value to option 1 and option 2
+  menuEl.setAttribute('value', '["option 1", "option 2"]')
+
+  await elementUpdated(menuEl);
+  // check if option 1 and option 2 are selected
+  expect(menuEl.children[0].hasAttribute('selected')).to.be.true;
+  expect(menuEl.children[1].hasAttribute('selected')).to.be.true;
+})
 
 function getOptions(menu) {
   let options = menu.shadowRoot.querySelector('slot').assignedNodes();
@@ -354,6 +414,21 @@ async function emptyItemsFixture() {
       <auro-menu aria-label="test">
         <auro-menu aria-label="test-child" test-id="test-child">
         </auro-menu>
+      </auro-menu>
+    </div>
+  `);
+}
+
+async function multipleMenuFixture() {
+  return await fixture(html`
+    <div>
+      <auro-menu multiSelect aria-label="test">
+        <auro-menuoption value="option 1">option 1</auro-menuoption>
+        <auro-menuoption value="option 2">option 2</auro-menuoption>
+        <auro-menuoption value="option 3">option 3</auro-menuoption>
+        <auro-menuoption value="lorem ipsum lorem ipsum">lorem ipsum lorem ipsum</auro-menuoption>
+        <auro-menuoption value="departures">Departures</auro-menuoption>
+        <auro-menuoption value="arrivals">Arrivals</auro-menuoption>
       </auro-menu>
     </div>
   `);
