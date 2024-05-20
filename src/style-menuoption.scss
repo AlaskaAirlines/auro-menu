@@ -5,8 +5,11 @@
 
 /* stylelint-disable declaration-empty-line-before */
 
-@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
-@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
+@import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables";
+@import "./../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints";
+
+// Support for fallback values
+@import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss";
 
 /* stylelint-disable declaration-no-important, order/properties-order */
 
