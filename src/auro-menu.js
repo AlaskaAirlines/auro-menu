@@ -4,9 +4,13 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html } from "lit";
-import styleCss from "./style-base-css.js";
-import './auro-menuoption.js';
-import "mark.js/dist/mark.es6.min.js";
+
+import styleCss from "./style-menu-css.js";
+import colorCss from "./color-menu-css.js";
+import tokensCss from "./tokens-css.js";
+
+import './auro-menuoption';
+import "mark.js/dist/mark.min";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
@@ -67,7 +71,11 @@ export class AuroMenu extends LitElement {
   }
 
   static get styles() {
-    return [styleCss];
+    return [
+      styleCss,
+      colorCss,
+      tokensCss
+    ];
   }
 
   /**

@@ -732,3 +732,20 @@ export function auroMenuResetExample() {
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
+
+### Theme Support
+
+The component may be restyled using the following code sample and changing the values of the following token(s).
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../src/tokens.scss) -->
+<!-- The below code snippet is automatically added from ./../../src/tokens.scss -->
+
+```scss
+:host {
+  --ds-auro-menu-divider-color: var(--ds-color-border-divider-default, $ds-color-border-divider-default);
+  --ds-auro-menuoption-container-color: transparent;
+  --ds-auro-menuoption-icon-color: transparent;
+  --ds-auro-menuoption-text-color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
+}
+```
+<!-- AURO-GENERATED-CONTENT:END -->

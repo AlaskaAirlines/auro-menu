@@ -215,3 +215,10 @@ The `auro-menu` may be reset to a state with no menuoption selected by setting t
 
 </auro-accordion>
 
+### Theme Support
+
+The component may be restyled using the following code sample and changing the values of the following token(s).
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../src/tokens.scss) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
