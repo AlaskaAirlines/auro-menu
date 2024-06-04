@@ -47,7 +47,8 @@
     margin: var(--ds-size-100, $ds-size-100) 0 !important;
 
     border-width: 0 !important;
-    border-top: 1px solid var(--ds-color-border-divider-default, $ds-color-border-divider-default) !important;
+    border-top-width: 1px !important;
+    border-top-style: solid !important;
   }
 }
 

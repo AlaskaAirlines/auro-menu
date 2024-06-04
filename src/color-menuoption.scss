@@ -1,0 +1,33 @@
+// Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
+// See LICENSE in the project root for license information.
+
+// ---------------------------------------------------------------------
+
+/* stylelint-disable custom-property-empty-line-before, declaration-no-important */
+
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
+
+:host {
+  background-color: var(--ds-auro-menuoption-background-color);
+  color: var(--ds-auro-menuoption-text-color);
+
+  svg {
+    fill: var(--ds-auro-menuoption-icon-color) !important;
+  }
+}
+
+:host([disabled]) {
+  --ds-auro-menuoption-text-color: var(--ds-color-text-ui-disabled-default, #{$ds-color-text-ui-disabled-default});
+}
+
+:host(:hover),
+:host(.active) {
+  --ds-auro-menuoption-container-color: var(--ds-color-container-ui-secondary-hover-default, #{$ds-color-container-ui-secondary-hover-default});
+}
+
+:host([selected]) {
+  --ds-auro-menuoption-container-color: var(--ds-color-container-ui-primary-default-default, #{$ds-color-container-ui-primary-default-default});
+  --ds-auro-menuoption-text-color: var(--ds-color-text-primary-inverse, #{$ds-color-text-primary-inverse});
+  --ds-auro-menuoption-icon-color: var(--ds-color-icon-emphasis-inverse, #{$ds-color-icon-emphasis-inverse});
+}
+

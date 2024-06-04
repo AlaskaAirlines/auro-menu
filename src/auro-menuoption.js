@@ -4,13 +4,13 @@
 /* eslint-disable lit/binding-positions, lit/no-invalid-html */
 
 // ---------------------------------------------------------------------
-import { LitElement } from "lit";
-import { html } from 'lit/static-html.js';
-import styleCss from "./style-menuoption-css.js";
+import { LitElement, html } from "lit";
 
-import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
-import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
-import iconVersion from './iconVersion';
+import styleCss from "./style-menuoption-css.js";
+import colorCss from "./color-menuoption-css.js";
+import tokensCss from "./tokens-css.js";
+
+import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
 
 /**
  * The auro-menu element provides users a way to define a menu option.
@@ -69,7 +69,11 @@ class AuroMenuOption extends LitElement {
   }
 
   static get styles() {
-    return [styleCss];
+    return [
+      styleCss,
+      colorCss,
+      tokensCss
+    ];
   }
 
   firstUpdated() {
