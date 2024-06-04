@@ -38,8 +38,6 @@
   svg {
     margin-right: var(--ds-size-150, $ds-size-150);
     margin-left: var(--ds-size-100, $ds-size-100);
-
-    fill: var(--ds-color-icon-primary-default, $ds-color-icon-primary-default) !important;
   }
 
   ::slotted(.nestingSpacer) {
@@ -65,26 +63,6 @@
 }
 
 :host([disabled]) {
-  color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
-
   user-select: none;
-}
-
-:host(:hover:not([disabled])),
-:host(.active:not([disabled])) {
-  background-color: var(--ds-color-ui-bkg-hover-default, $ds-color-ui-bkg-hover-default);
-  color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
-
-  svg {
-    fill: var(--ds-color-icon-primary-default, $ds-color-icon-primary-default) !important;
-  }
-}
-
-:host([selected]:not([disabled])) {
-  background-color: var(--ds-color-alert-notification-default, $ds-color-alert-notification-default);
-  color: var(--ds-color-base-white, $ds-color-base-white);
-
-  svg {
-    fill: var(--ds-color-base-white, $ds-color-base-white) !important;
-  }
+  pointer-events: none;
 }
