@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [3.12.0-beta.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.4...v3.12.0-beta.1) (2024-06-24)
+
+
+### Features
+
+* refactor color tokens to use tier 3 tokens [#198](https://github.com/AlaskaAirlines/auro-menu/issues/198) ([9100c1d](https://github.com/AlaskaAirlines/auro-menu/commit/9100c1d97c3b4af43df90d353d070f2a40ceb57e))
+
 ## [3.11.4](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.3...v3.11.4) (2024-03-01)
 
 
