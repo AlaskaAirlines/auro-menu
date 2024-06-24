@@ -1,39 +1,11 @@
 # Semantic Release Automated Changelog
 
-## [3.11.9](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.8...v3.11.9) (2024-07-02)
+# [3.12.0-beta.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.4...v3.12.0-beta.1) (2024-06-24)
 
 
-### Performance Improvements
+### Features
 
-* **deps:** update to correct icon version ([1330bf2](https://github.com/AlaskaAirlines/auro-menu/commit/1330bf2fc6b0b61565cb341579138266e50604fb))
-
-## [3.11.8](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.7...v3.11.8) (2024-07-02)
-
-
-### Performance Improvements
-
-* **icon:** use auro-icon for selected check mark ([9d3ef07](https://github.com/AlaskaAirlines/auro-menu/commit/9d3ef07da6af5c7f55465b275c361c1d7fd832ff))
-
-## [3.11.7](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.6...v3.11.7) (2024-07-02)
-
-
-### Reverts
-
-* Revert "perf(icon): use auro-icon for selected check mark" ([fa75810](https://github.com/AlaskaAirlines/auro-menu/commit/fa75810528f5211961eb41f33424b1e47b064002))
-
-## [3.11.6](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.5...v3.11.6) (2024-07-02)
-
-
-### Performance Improvements
-
-* **icon:** use auro-icon for selected check mark ([180f905](https://github.com/AlaskaAirlines/auro-menu/commit/180f905f0f5557ac0c138a2cd048efba4a515eba))
-
-## [3.11.5](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.4...v3.11.5) (2024-06-27)
-
-
-### Bug Fixes
-
-* **imports:** update all imports to include extension in file path [#208](https://github.com/AlaskaAirlines/auro-menu/issues/208) ([cd1ebf9](https://github.com/AlaskaAirlines/auro-menu/commit/cd1ebf95350c9016d7a7ed2626aa162158e1cba8))
+* refactor color tokens to use tier 3 tokens [#198](https://github.com/AlaskaAirlines/auro-menu/issues/198) ([9100c1d](https://github.com/AlaskaAirlines/auro-menu/commit/9100c1d97c3b4af43df90d353d070f2a40ceb57e))
 
 ## [3.11.4](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.3...v3.11.4) (2024-03-01)
 
