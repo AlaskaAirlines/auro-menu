@@ -4,7 +4,7 @@
 // ---------------------------------------------------------------------
 import { LitElement, html } from "lit";
 import styleCss from "./style-menuoption-css.js";
-import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6';
+import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6.js';
 
 /**
  * The auro-menu element provides users a way to define a menu option.
