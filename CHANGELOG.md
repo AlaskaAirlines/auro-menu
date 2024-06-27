@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.11.5](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.4...v3.11.5) (2024-06-27)
+
+
+### Bug Fixes
+
+* **imports:** update all imports to include extension in file path [#208](https://github.com/AlaskaAirlines/auro-menu/issues/208) ([cd1ebf9](https://github.com/AlaskaAirlines/auro-menu/commit/cd1ebf95350c9016d7a7ed2626aa162158e1cba8))
+
 ## [3.11.4](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.3...v3.11.4) (2024-03-01)
 
 
