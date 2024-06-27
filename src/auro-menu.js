@@ -4,13 +4,9 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html } from "lit";
-
-import styleCss from "./style-menu-css.js";
-import colorCss from "./color-menu-css.js";
-import tokensCss from "./tokens-css.js";
-
-import './auro-menuoption';
-import "mark.js/dist/mark.min";
+import styleCss from "./style-base-css.js";
+import './auro-menuoption.js';
+import "mark.js/dist/mark.es6.min.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
