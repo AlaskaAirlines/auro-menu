@@ -1,23 +1,11 @@
 # Semantic Release Automated Changelog
 
-# [3.12.0-beta.2](https://github.com/AlaskaAirlines/auro-menu/compare/v3.12.0-beta.1...v3.12.0-beta.2) (2024-08-19)
+## [3.11.5](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.4...v3.11.5) (2024-06-27)
 
 
 ### Bug Fixes
 
-* **token:** update token name for container colors ([20e9bc5](https://github.com/AlaskaAirlines/auro-menu/commit/20e9bc5c352ce96e0e3deb059f7c6a7109797d9e))
-
-
-### Performance Improvements
-
-* update dependencies and use library scripts ([be1a5f8](https://github.com/AlaskaAirlines/auro-menu/commit/be1a5f89849f7ad7d4ac4ce25e2fa3e6761bd860))
-
-# [3.12.0-beta.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.4...v3.12.0-beta.1) (2024-06-24)
-
-
-### Features
-
-* refactor color tokens to use tier 3 tokens [#198](https://github.com/AlaskaAirlines/auro-menu/issues/198) ([9100c1d](https://github.com/AlaskaAirlines/auro-menu/commit/9100c1d97c3b4af43df90d353d070f2a40ceb57e))
+* **imports:** update all imports to include extension in file path [#208](https://github.com/AlaskaAirlines/auro-menu/issues/208) ([cd1ebf9](https://github.com/AlaskaAirlines/auro-menu/commit/cd1ebf95350c9016d7a7ed2626aa162158e1cba8))
 
 ## [3.11.4](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.3...v3.11.4) (2024-03-01)
 
