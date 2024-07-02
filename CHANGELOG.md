@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.11.8](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.7...v3.11.8) (2024-07-02)
+
+
+### Performance Improvements
+
+* **icon:** use auro-icon for selected check mark ([9d3ef07](https://github.com/AlaskaAirlines/auro-menu/commit/9d3ef07da6af5c7f55465b275c361c1d7fd832ff))
+
 ## [3.11.7](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.6...v3.11.7) (2024-07-02)
 
 
