@@ -35,11 +35,11 @@
     text-overflow: ellipsis;
   }
 
-  svg {
+  [auro-icon] {
+    height: var(--ds-size-300, $ds-size-300);
+    width: var(--ds-size-300, $ds-size-300);
     margin-right: var(--ds-size-150, $ds-size-150);
     margin-left: var(--ds-size-100, $ds-size-100);
-
-    fill: var(--ds-color-icon-primary-default, $ds-color-icon-primary-default) !important;
   }
 
   ::slotted(.nestingSpacer) {
