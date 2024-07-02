@@ -4,10 +4,13 @@
 /* eslint-disable lit/binding-positions, lit/no-invalid-html */
 
 // ---------------------------------------------------------------------
-import { LitElement, html } from "lit";
-
+import { LitElement } from "lit";
+import { html } from 'lit/static-html.js';
 import styleCss from "./style-menuoption-css.js";
-import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6.js';
+
+import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
+import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
+import iconVersion from './iconVersion';
 
 /**
  * The auro-menu element provides users a way to define a menu option.
