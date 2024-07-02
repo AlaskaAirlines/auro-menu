@@ -1,11 +1,16 @@
 // Copyright (c) 2021 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
-// ---------------------------------------------------------------------
-import { LitElement, html } from "lit";
+/* eslint-disable lit/binding-positions, lit/no-invalid-html */
 
+// ---------------------------------------------------------------------
+import { LitElement } from "lit";
+import { html } from 'lit/static-html.js';
 import styleCss from "./style-menuoption-css.js";
-import check from '@alaskaairux/icons/dist/icons/interface/check-sm_es6.js';
+
+import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
+import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
+import iconVersion from './iconVersion';
 
 /**
  * The auro-menu element provides users a way to define a menu option.
@@ -21,6 +26,13 @@ class AuroMenuOption extends LitElement {
   constructor() {
     super();
 
+    /**
+     * Generate unique names for dependency components.
+     */
+
+    const versioning = new AuroDependencyVersioning();
+    this.iconTag = versioning.generateTag('auro-icon', iconVersion, AuroIcon);
+
     this.nocheckmark = false;
     this.disabled = false;
     this.selected = false;
@@ -29,16 +41,6 @@ class AuroMenuOption extends LitElement {
      * @private
      */
     this.tabIndex = -1;
-
-    /**
-     * @private
-     */
-    this.dom = new DOMParser().parseFromString(check.svg, 'text/html');
-
-    /**
-     * @private
-     */
-    this.svg = this.dom.body.firstChild;
   }
 
   static get properties() {
@@ -89,7 +91,15 @@ class AuroMenuOption extends LitElement {
 
   render() {
     return html`
-      ${this.selected && !this.nocheckmark ? html`${this.svg}` : undefined}
+      ${this.selected && !this.nocheckmark ? html`
+        <${this.iconTag}
+          ondark
+          customSize
+          class="selected"
+          category="interface"
+          name="checkmark-sm">
+        </${this.iconTag}>
+      ` : undefined}
       <slot></slot>
     `;
   }
