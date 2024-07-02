@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.11.7](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.6...v3.11.7) (2024-07-02)
+
+
+### Reverts
+
+* Revert "perf(icon): use auro-icon for selected check mark" ([fa75810](https://github.com/AlaskaAirlines/auro-menu/commit/fa75810528f5211961eb41f33424b1e47b064002))
+
 ## [3.11.6](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.5...v3.11.6) (2024-07-02)
 
 
