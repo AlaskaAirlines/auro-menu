@@ -8,7 +8,7 @@
 @import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
 
 :host {
-  background-color: var(--ds-auro-menuoption-background-color);
+  background-color: var(--ds-auro-menuoption-container-color);
   color: var(--ds-auro-menuoption-text-color);
 
   svg {
