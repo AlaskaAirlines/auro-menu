@@ -66,6 +66,12 @@ There are two important parts of every Auro component. The <a href="https://deve
 
 To protect from versioning conflicts with other instances of the component being loaded, it is recommended to use our `registerComponent(name)` method and pass in a unique name.
 
+```js
+import { AuroMenu } from '../src/auro-menu.js';
+import * as RuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+RuntimeUtils.default.prototype.registerComponent('custom-menu', AuroMenu);
+```
+
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/custom.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/custom.html -->
