@@ -9,6 +9,8 @@ import styleCss from "./style-menu-css.js";
 import colorCss from "./color-menu-css.js";
 import tokensCss from "./tokens-css.js";
 
+import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+
 import './auro-menuoption.js';
 import "mark.js/dist/mark.es6.min.js";
 
@@ -50,6 +52,11 @@ export class AuroMenu extends LitElement {
      * @private
      */
     this.rootMenu = true;
+
+    /**
+     * @private
+     */
+    this.runtimeUtils = new AuroLibraryRuntimeUtils();
   }
 
   static get properties() {
@@ -100,6 +107,9 @@ export class AuroMenu extends LitElement {
   }
 
   firstUpdated() {
+    // Add the tag name as an attribute if it is different than the component name
+    this.runtimeUtils.handleComponentTagRename(this, 'auro-menu');
+
     this.addEventListener('keydown', this.handleKeyDown);
   }
 
