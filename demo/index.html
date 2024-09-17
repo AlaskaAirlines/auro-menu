@@ -42,8 +42,10 @@
     </script>
     
     <script type="module">
-      import { registerComponent } from '../index.js';
-      registerComponent('custom-menu');
+      import { AuroMenu } from '../src/auro-menu.js';
+      import * as RuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+
+      RuntimeUtils.default.prototype.registerComponent('custom-menu', AuroMenu);
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
