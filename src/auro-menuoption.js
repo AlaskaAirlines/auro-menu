@@ -10,8 +10,9 @@ import styleCss from "./style-menuoption-css.js";
 import colorCss from "./color-menuoption-css.js";
 import tokensCss from "./tokens-css.js";
 
-
+import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
 import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
+
 import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
 import iconVersion from './iconVersion';
 
@@ -32,7 +33,6 @@ class AuroMenuOption extends LitElement {
     /**
      * Generate unique names for dependency components.
      */
-
     const versioning = new AuroDependencyVersioning();
     this.iconTag = versioning.generateTag('auro-icon', iconVersion, AuroIcon);
 
@@ -44,6 +44,11 @@ class AuroMenuOption extends LitElement {
      * @private
      */
     this.tabIndex = -1;
+
+    /**
+     * @private
+     */
+    this.runtimeUtils = new AuroLibraryRuntimeUtils();
   }
 
   static get properties() {
@@ -80,6 +85,9 @@ class AuroMenuOption extends LitElement {
   }
 
   firstUpdated() {
+    // Add the tag name as an attribute if it is different than the component name
+    this.runtimeUtils.handleComponentTagRename(this, 'auro-menuoption');
+
     this.setAttribute('role', 'option');
 
     this.addEventListener('mouseover', () => {
