@@ -1,5 +1,39 @@
 # Semantic Release Automated Changelog
 
+# [4.0.0-beta.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.12.0-beta.2...v4.0.0-beta.1) (2024-09-30)
+
+
+### Bug Fixes
+
+* **imports:** update all imports to include extension in file path [#208](https://github.com/AlaskaAirlines/auro-menu/issues/208) ([6c973cb](https://github.com/AlaskaAirlines/auro-menu/commit/6c973cbfa56c5fcf9ff68eded96bff3d618e0afc))
+
+
+### Features
+
+* add component name as attribute during custom registration ([72eab39](https://github.com/AlaskaAirlines/auro-menu/commit/72eab3924f9874a6e9fcd28d76401ebddf735c91))
+* refactor color tokens to use tier 3 tokens [#198](https://github.com/AlaskaAirlines/auro-menu/issues/198) ([78f1435](https://github.com/AlaskaAirlines/auro-menu/commit/78f143504baa3d137b09e850afdb6807aca3335a))
+
+
+### Performance Improvements
+
+* **deps:** update to correct icon version ([973ddea](https://github.com/AlaskaAirlines/auro-menu/commit/973ddea94bfeb52fb1f8f2be2af87180e4121983))
+* **icon:** use auro-icon for selected check mark ([7326c17](https://github.com/AlaskaAirlines/auro-menu/commit/7326c172152362d24ef9f6bb99475f1cf12166cc))
+* **icon:** use auro-icon for selected check mark ([cd086de](https://github.com/AlaskaAirlines/auro-menu/commit/cd086de33c1ddaaf608c25cf196fc7c81824af10))
+* refactor custom registration config ([78c786f](https://github.com/AlaskaAirlines/auro-menu/commit/78c786f69c8a2f851520fe4959fb08adeef58b09))
+* update dependencies ([e61aa0e](https://github.com/AlaskaAirlines/auro-menu/commit/e61aa0e4537247a7034d2cc4263a3ba58fe7936e))
+* update dependencies and address lint issues ([dc36821](https://github.com/AlaskaAirlines/auro-menu/commit/dc3682153067ab455abeea7c97cc3367fd366b8a))
+* update dependencies and use library scripts ([8c94769](https://github.com/AlaskaAirlines/auro-menu/commit/8c94769704ff8806dfeeb3b19e59d851b1c34e9c))
+
+
+### Reverts
+
+* Revert "perf(icon): use auro-icon for selected check mark" ([9b426da](https://github.com/AlaskaAirlines/auro-menu/commit/9b426da0c0c2e32b4e59bc1633562795fd951abe))
+
+
+### BREAKING CHANGES
+
+* trigger major release for color theme support #198
+
 ### Bug Fixes
 
 * **token:** update token name for container colors ([20e9bc5](https://github.com/AlaskaAirlines/auro-menu/commit/20e9bc5c352ce96e0e3deb059f7c6a7109797d9e))
