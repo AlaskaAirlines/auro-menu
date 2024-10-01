@@ -1,5 +1,46 @@
 # Semantic Release Automated Changelog
 
+# [4.0.0](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.9...v4.0.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **imports:** update all imports to include extension in file path [#208](https://github.com/AlaskaAirlines/auro-menu/issues/208) ([b8c2507](https://github.com/AlaskaAirlines/auro-menu/commit/b8c25071a016358f551593a8a6c31202883eb22a))
+* **token:** update token name for container colors ([f6d072e](https://github.com/AlaskaAirlines/auro-menu/commit/f6d072e0a32cd8416cc5a83100eb94b3c73f3c54))
+
+
+### Features
+
+* add component name as attribute during custom registration ([af8bb94](https://github.com/AlaskaAirlines/auro-menu/commit/af8bb947c198871c1f81e9b31e0355c36dd3f45e))
+* refactor color tokens to use tier 3 tokens [#198](https://github.com/AlaskaAirlines/auro-menu/issues/198) ([1711058](https://github.com/AlaskaAirlines/auro-menu/commit/171105887eb31f3827b31d9627138a118cea11e9))
+* refactor color tokens to use tier 3 tokens [#198](https://github.com/AlaskaAirlines/auro-menu/issues/198) ([f98820c](https://github.com/AlaskaAirlines/auro-menu/commit/f98820c02ba09e680f6e8065ae9d7818c96271e7))
+
+
+### Performance Improvements
+
+* **deps:** update to correct icon version ([2cd1f4e](https://github.com/AlaskaAirlines/auro-menu/commit/2cd1f4e747f74f04e4a827797759c92a026f62d1))
+* **icon:** use auro-icon for selected check mark ([9304084](https://github.com/AlaskaAirlines/auro-menu/commit/930408444c695f9656b67d5dbab7946f7c2c08cf))
+* **icon:** use auro-icon for selected check mark ([c90916b](https://github.com/AlaskaAirlines/auro-menu/commit/c90916ba91cf0ebb82d6b951cd20066fde47edfd))
+* refactor custom registration config ([af78b41](https://github.com/AlaskaAirlines/auro-menu/commit/af78b419494e36f9f9918ceae37f1d78b4a96d31))
+* remove label colors from github settings ([81ff3b9](https://github.com/AlaskaAirlines/auro-menu/commit/81ff3b99d905a5da7628ae2c094592136bb9b7e7))
+* update dependencies ([7483ccc](https://github.com/AlaskaAirlines/auro-menu/commit/7483ccc3225fc2ca90ded4510db7bd45015fa590))
+* update dependencies ([c1254bf](https://github.com/AlaskaAirlines/auro-menu/commit/c1254bf102a3c9d22b14b65fdc214d1df5950609))
+* update dependencies and address lint issues ([d841f93](https://github.com/AlaskaAirlines/auro-menu/commit/d841f93753c0349ef802ec0c15754dbd03ae6fb7))
+* update dependencies and use library scripts ([a0ec762](https://github.com/AlaskaAirlines/auro-menu/commit/a0ec7622aa7adf3461231b63753023d9c1072439))
+* update dependencies and use library scripts ([5bbcb89](https://github.com/AlaskaAirlines/auro-menu/commit/5bbcb89b4222e619230e1d2f853b9a94f209cb1c))
+
+
+### Reverts
+
+* Revert "perf(icon): use auro-icon for selected check mark" ([bbcde9b](https://github.com/AlaskaAirlines/auro-menu/commit/bbcde9b7d86218403e4904458abbda51b8233be4))
+
+
+### BREAKING CHANGES
+
+* trigger major release for color theme support #198
+* force major release for theme support
+* trigger major release for color theme support #198
+
 # [4.0.0-beta.1](https://github.com/AlaskaAirlines/auro-menu/compare/v3.11.9...v4.0.0-beta.1) (2024-10-01)
 
 
