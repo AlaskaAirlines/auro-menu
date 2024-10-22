@@ -62,25 +62,27 @@ Having a closing statement about your example helps to really complete the thoug
 
 ## Recommended Use and Version Control
 
-There are two important parts of every Auro component. The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">class</a> and the custom clement. The class is exported and then used as part of defining the Web Component. When importing this component as described in the <a href="#install">install</a> section, the class is imported and the `auro-menu` custom element is defined automatically.
+There are two important parts of every Auro component. The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">class</a> and the custom element. The class is exported and then used as part of defining the Web Component. When importing this component as described in the <a href="#install">install</a> section, the class is imported and the `auro-menu` custom element is defined automatically.
 
-To protect from versioning conflicts with other instances of the component being loaded, it is recommended to use our `registerComponent(name)` method and pass in a unique name.
+To protect from versioning conflicts with other instances of the component being loaded, it is recommended to use our `AuroMenu.register(name)` method and pass in a unique name.
 
 ```js
 import { AuroMenu } from '../src/auro-menu.js';
-import * as RuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
-RuntimeUtils.default.prototype.registerComponent('custom-menu', AuroMenu);
+import { AuroMenuOption } from '../src/auro-menuoption.js';
+
+AuroMenu.register('custom-menu');
+AuroMenuOption.register('custom-menuoption');
 ```
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/custom.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/custom.html -->
   <custom-menu>
-    <auro-menuoption value="stops">Stops</auro-menuoption>
-    <auro-menuoption value="price">Price</auro-menuoption>
-    <auro-menuoption value="duration">Duration</auro-menuoption>
-    <auro-menuoption value="departure">Departure</auro-menuoption>
-    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+    <custom-menuoption value="stops">Stops</custom-menuoption>
+    <custom-menuoption value="price">Price</custom-menuoption>
+    <custom-menuoption value="duration">Duration</custom-menuoption>
+    <custom-menuoption value="departure">Departure</custom-menuoption>
+    <custom-menuoption value="arrival">Arrival</custom-menuoption>
   </custom-menu>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
@@ -91,11 +93,11 @@ RuntimeUtils.default.prototype.registerComponent('custom-menu', AuroMenu);
 
 ```html
 <custom-menu>
-  <auro-menuoption value="stops">Stops</auro-menuoption>
-  <auro-menuoption value="price">Price</auro-menuoption>
-  <auro-menuoption value="duration">Duration</auro-menuoption>
-  <auro-menuoption value="departure">Departure</auro-menuoption>
-  <auro-menuoption value="arrival">Arrival</auro-menuoption>
+  <custom-menuoption value="stops">Stops</custom-menuoption>
+  <custom-menuoption value="price">Price</custom-menuoption>
+  <custom-menuoption value="duration">Duration</custom-menuoption>
+  <custom-menuoption value="departure">Departure</custom-menuoption>
+  <custom-menuoption value="arrival">Arrival</custom-menuoption>
 </custom-menu>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->

@@ -26,7 +26,7 @@ import iconVersion from './iconVersion.js';
  * @event auroMenuOption-mouseover - Notifies that this option has been hovered over.
  * @slot Specifies text for an option, but is not the value.
  */
-class AuroMenuOption extends LitElement {
+export class AuroMenuOption extends LitElement {
   constructor() {
     super();
 
@@ -84,6 +84,18 @@ class AuroMenuOption extends LitElement {
     ];
   }
 
+  /**
+   * This will register this element with the browser.
+   * @param {string} [name="auro-menuoption"] - The name of element that you want to register to.
+   *
+   * @example
+   * AuroMenuOption.register("custom-menuoption") // this will register this element to <custom-menuoption/>
+   *
+   */
+  static register(name = "auro-menuoption") {
+    AuroLibraryRuntimeUtils.prototype.registerComponent(name, AuroMenuOption);
+  }
+
   firstUpdated() {
     // Add the tag name as an attribute if it is different than the component name
     this.runtimeUtils.handleComponentTagRename(this, 'auro-menuoption');
@@ -114,10 +126,4 @@ class AuroMenuOption extends LitElement {
       <slot></slot>
     `;
   }
-}
-
-/* istanbul ignore else */
-// define the name of the custom component
-if (!customElements.get("auro-menuoption")) {
-  customElements.define("auro-menuoption", AuroMenuOption);
 }

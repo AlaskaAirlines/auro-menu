@@ -22,7 +22,8 @@
 
   vertical-align: middle;
 
-  ::slotted(auro-menuoption) {
+  ::slotted(auro-menuoption),
+  ::slotted([auro-menuoption]) {
     padding-left: calc(var(--ds-size-150, $ds-size-150) + 24px + var(--ds-size-100, $ds-size-100));
   }
 

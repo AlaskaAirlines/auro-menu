@@ -2,6 +2,14 @@
 
 // import { auroMenuResetExample } from '../apiExamples/reset';
 
+import { AuroMenu } from '../src/auro-menu.js';
+import { AuroMenuOption } from '../src/auro-menuoption.js';
+
+AuroMenu.register();
+AuroMenuOption.register();
+AuroMenu.register('custom-menu');
+AuroMenuOption.register('custom-menuoption');
+
 export function initExamples(initCount) {
   initCount = initCount || 0;
 
