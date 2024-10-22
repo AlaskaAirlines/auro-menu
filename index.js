@@ -1,4 +1,5 @@
 import { AuroMenu } from './src/auro-menu.js';
-import * as RuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+import { AuroMenuOption } from './src/auro-menuoption.js';
 
-RuntimeUtils.default.prototype.registerComponent('custom-menu', AuroMenu);
+AuroMenu.register();
+AuroMenuOption.register();

@@ -1,6 +1,5 @@
 import { fixture, html, expect, oneEvent, elementUpdated } from '@open-wc/testing';
-import '../src/auro-menu.js';
-import '../src/auro-menuoption.js';
+import '../index.js';
 
 describe('auro-menu', () => {
   it('auro-menu custom element is defined', async () => {

@@ -86,19 +86,31 @@ export class AuroMenu extends LitElement {
   }
 
   /**
+   * This will register this element with the browser.
+   * @param {string} [name="auro-menu"] - The name of element that you want to register to.
+   *
+   * @example
+   * AuroMenu.register("custom-menu") // this will register this element to <custom-menu/>
+   *
+   */
+  static register(name = "auro-menu") {
+    AuroLibraryRuntimeUtils.prototype.registerComponent(name, AuroMenu);
+  }
+
+  /**
    * Passes the noCheckmark attribute to all nested auro-menuoptions.
    * @private
    * @returns {void}
    */
   handleNoCheckmarkAttr() {
     if (this.noCheckmark) {
-      const menus = this.querySelectorAll('auro-menu');
+      const menus = this.querySelectorAll('auro-menu, [auro-menu]');
 
       menus.forEach((menu) => {
         menu.setAttribute('noCheckmark', '');
       });
 
-      const options = this.querySelectorAll('auro-menuoption');
+      const options = this.querySelectorAll('auro-menuoption, [auro-menuoption]');
 
       options.forEach((option) => {
         option.setAttribute('noCheckmark', '');
@@ -123,7 +135,7 @@ export class AuroMenu extends LitElement {
     }
 
     if (changedProperties.has('disabled')) {
-      const options = Array.from(this.querySelectorAll('auro-menuoption'));
+      const options = Array.from(this.querySelectorAll('auro-menuoption, [auro-menuoption]'));
 
       for (const element of options) {
         element.disabled = this.disabled;
@@ -295,7 +307,7 @@ export class AuroMenu extends LitElement {
    * @private
    */
   initItems() {
-    this.items = Array.from(this.querySelectorAll('auro-menuoption'));
+    this.items = Array.from(this.querySelectorAll('auro-menuoption, [auro-menuoption]'));
     this.handleNoCheckmarkAttr();
   }
 
@@ -368,14 +380,14 @@ export class AuroMenu extends LitElement {
    * @param {String} menu - Root level menu object.
    */
   handleNestedMenus(menu) {
-    const nestedMenus = menu.querySelectorAll('auro-menu');
+    const nestedMenus = menu.querySelectorAll('auro-menu, [auro-menu');
 
     if (nestedMenus.length === 0) {
       return;
     }
 
     nestedMenus.forEach((nestedMenu) => {
-      const options = nestedMenu.querySelectorAll(':scope > auro-menuoption');
+      const options = nestedMenu.querySelectorAll(':scope > auro-menuoption, :scope > [auro-menuoption');
 
       options.forEach((option) => {
         option.innerHTML = `<span class="nestingSpacer"></span> ${option.innerHTML}`;
@@ -480,7 +492,7 @@ export class AuroMenu extends LitElement {
    */
   handleSlotItems() {
     // Determine if this is the root of the menu/submenu layout.
-    if (this.parentElement && this.parentElement.closest('auro-menu')) {
+    if (this.parentElement && this.parentElement.closest('auro-menu, [auro-menu]')) {
       this.rootMenu = false;
     }
 
@@ -527,10 +539,4 @@ export class AuroMenu extends LitElement {
       <slot @slotchange=${this.handleSlotItems}></slot>
     `;
   }
-}
-
-/* istanbul ignore else */
-// define the name of the custom component
-if (!customElements.get("auro-menu")) {
-  customElements.define("auro-menu", AuroMenu);
 }
