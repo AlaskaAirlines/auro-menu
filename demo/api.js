@@ -3,6 +3,7 @@
 import { auroMenuResetExample } from '../apiExamples/reset';
 import { auroMenuMatchWordExample } from '../apiExamples/matchWord';
 import { auroMenuCustomEventExample } from '../apiExamples/customEvent';
+import '../index.js';
 
 export function initExamples(initCount) {
   initCount = initCount || 0;
