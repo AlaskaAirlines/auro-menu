@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [4.1.0](https://github.com/AlaskaAirlines/auro-menu/compare/v4.0.1...v4.1.0) (2024-10-23)
+
+
+### Features
+
+* **api:** add register static method [#218](https://github.com/AlaskaAirlines/auro-menu/issues/218) ([c957097](https://github.com/AlaskaAirlines/auro-menu/commit/c95709787a798592cb572f2d1420104475500d64))
+
+
+### Performance Improvements
+
+* update dependency versions ([53461ce](https://github.com/AlaskaAirlines/auro-menu/commit/53461ce215892b547ba9074f1d636eeb3a75031e))
+
 ## [4.0.1](https://github.com/AlaskaAirlines/auro-menu/compare/v4.0.0...v4.0.1) (2024-10-08)
 
 
