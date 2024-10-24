@@ -117,7 +117,6 @@ export class AuroMenuOption extends LitElement {
       ${this.selected && !this.nocheckmark ? html`
         <${this.iconTag}
           ondark
-          customSize
           class="selected"
           category="interface"
           name="checkmark-sm">
