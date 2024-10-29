@@ -16,6 +16,9 @@ import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts
 import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
 import iconVersion from './iconVersion.js';
 
+
+import checkmarkIcon from '@alaskaairux/icons/dist/icons/interface/checkmark-sm.mjs';
+
 /**
  * The auro-menu element provides users a way to define a menu option.
  *
@@ -112,16 +115,26 @@ export class AuroMenuOption extends LitElement {
     });
   }
 
+
+  /**
+   * Generates an HTML element containing an SVG icon based on the provided `svgContent`.
+   *
+   * @private
+   * @param {string} svgContent - The SVG content to be embedded.
+   * @returns {Element} The HTML element containing the SVG icon.
+   */
+  generateIconHtml(svgContent) {
+    const dom = new DOMParser().parseFromString(svgContent, 'text/html');
+    const svg = dom.body.firstChild;
+
+    svg.setAttribute('slot', 'svg');
+
+    return html`<${this.iconTag} customColor customSvg slot="icon">${svg}</${this.iconTag}>`;
+  }
+
   render() {
     return html`
-      ${this.selected && !this.nocheckmark ? html`
-        <${this.iconTag}
-          ondark
-          class="selected"
-          category="interface"
-          name="checkmark-sm">
-        </${this.iconTag}>
-      ` : undefined}
+      ${this.selected && !this.nocheckmark ? this.generateIconHtml(checkmarkIcon.svg) : undefined}
       <slot></slot>
     `;
   }
