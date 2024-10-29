@@ -20,14 +20,12 @@
     "node": "^18.x || ^20.x"
   },
   "dependencies": {
+    "@alaskaairux/icons": "^4.43.0",
     "@aurodesignsystem/auro-icon": "^6.0.0",
     "@aurodesignsystem/auro-library": "^2.8.0",
-    "chalk": "^5.3.0",
-    "lit": "^3.2.1",
-    "mark.js": "8.11.0"
+    "lit": "^3.2.1"
   },
   "peerDependencies": {
-    "@alaskaairux/icons": "^4.43.0",
     "@aurodesignsystem/design-tokens": "^4.9.2",
     "@aurodesignsystem/webcorestylesheets": "^5.1.2"
   },
@@ -46,6 +44,7 @@
     "@web/dev-server": "^0.4.6",
     "@web/test-runner": "^0.19.0",
     "autoprefixer": "^10.4.20",
+    "chalk": "^5.3.0",
     "compression": "^1.7.4",
     "concat": "^1.0.3",
     "concurrently": "^9.0.1",
@@ -55,6 +54,7 @@
     "eslint-plugin-jsdoc": "^50.4.3",
     "husky": "^9.1.6",
     "lodash": "^4.17.21",
+    "mark.js": "8.11.0",
     "markdown-magic": "^2.6.1",
     "nodemon": "^3.1.7",
     "npm-run-all": "^4.1.5",
@@ -165,7 +165,7 @@
     "postinstall": "node packageScripts/postinstall.mjs",
     "sass:render": "sass-render src/*.css -t ./node_modules/@aurodesignsystem/auro-library/scripts/build/staticStyles-template.js",
     "serve": "web-dev-server --open demo/ --node-resolve --watch",
-    "sweep": "rm -rf ./demo/css ./dist | rm ./src/*.css ./src/*-css.js",
+    "sweep": "rm -rf ./demo/css ./dist | rm ./src/*.css ./src/*-css.js ./demo/*.md",
     "test": "wtr --coverage",
     "test:watch": "wtr --watch",
     "types": "tsc",
