@@ -1,5 +1,22 @@
 # Semantic Release Automated Changelog
 
+## [4.1.1](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.0...v4.1.1) (2024-10-30)
+
+
+### Bug Fixes
+
+* revert customsize and set width to follow new standard [#222](https://github.com/AlaskaAirlines/auro-menu/issues/222) ([f8c8fb0](https://github.com/AlaskaAirlines/auro-menu/commit/f8c8fb039a0ca798f308eab88b0402a714b29cfe))
+* specify `auro-libary` version to 2.8.0 ([9c31318](https://github.com/AlaskaAirlines/auro-menu/commit/9c31318037b80283dd2291f516fb4390f8fda34c))
+* **style:** use checkmark's default size instead of customizing ([eafeb77](https://github.com/AlaskaAirlines/auro-menu/commit/eafeb774e80debd124f99f253430dbc59f7aaf6b))
+* update `auro-icon` to 6.0.0 and set `--ds-auro-icon-size` for menuoption ([8f7ee75](https://github.com/AlaskaAirlines/auro-menu/commit/8f7ee751cedffc1be8ae16f176ee3389bd97a8bd))
+
+
+### Performance Improvements
+
+* directly pull checkmark svg without passing over name ([079e5b5](https://github.com/AlaskaAirlines/auro-menu/commit/079e5b526004c8c9c4228647cf678f4a8b4bfbd2))
+* update auri-icon to 6.0.1 ([3f17399](https://github.com/AlaskaAirlines/auro-menu/commit/3f17399718f0001b3db8c3d2475933f940801385))
+* update dependencies ([965c80e](https://github.com/AlaskaAirlines/auro-menu/commit/965c80e6ba05178775b25e8d673272771982d64d))
+
 # [4.1.0](https://github.com/AlaskaAirlines/auro-menu/compare/v4.0.1...v4.1.0) (2024-10-23)
 
 
