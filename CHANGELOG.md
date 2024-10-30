@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.1.2](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.1...v4.1.2) (2024-10-30)
+
+
+### Bug Fixes
+
+* move mark.js to a direct dependency ([6c4c956](https://github.com/AlaskaAirlines/auro-menu/commit/6c4c956d075b02f30d7116763c447edd2baedd49))
+
 ## [4.1.1](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.0...v4.1.1) (2024-10-30)
 
 
