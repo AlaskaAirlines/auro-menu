@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.1.3](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.2...v4.1.3) (2024-10-31)
+
+
+### Performance Improvements
+
+* update auro-icon version ([ae65eec](https://github.com/AlaskaAirlines/auro-menu/commit/ae65eecd8665a4c18d1423047150115c98dad539))
+
 ## [4.1.2](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.1...v4.1.2) (2024-10-30)
 
 
