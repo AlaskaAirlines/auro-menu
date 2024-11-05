@@ -56,6 +56,11 @@ export class AuroMenu extends LitElement {
      * @private
      */
     this.runtimeUtils = new AuroLibraryRuntimeUtils();
+
+    /**
+     * @private
+     */
+    this.nestingSpacer = '<span class="nestingSpacer"></span>';
   }
 
   static get properties() {
@@ -156,20 +161,22 @@ export class AuroMenu extends LitElement {
    * @returns {void} When called will update the DOM with visible suggest text matches.
    */
   markOptions() {
-    if (this.items && this.items.length > 0) {
+    if (this.items && this.items.length > 0 && (this.matchWord && this.matchWord.length > 0)) {
 
-      if (this.matchWord && this.matchWord.length > 0) {
+      // Escape special regex characters
+      const escapedWord = this.matchWord.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
 
-        // Global, case-insensitive, unicode matching
-        const regex = new RegExp(this.matchWord, 'giu');
+      // Global, case-insensitive, unicode matching regex pattern
+      const regexWord = new RegExp(escapedWord, 'giu');
 
-        this.items.forEach((item) => {
-          if (this.optionInteractive(item) && !item.hasAttribute('persistent')) {
-            item.innerHTML = item.textContent.replace(regex, (match) => `<strong>${match}</strong>`);
-          }
-        });
+      this.items.forEach((item) => {
+        if (this.optionInteractive(item) && !item.hasAttribute('persistent')) {
+          const nested = item.querySelectorAll('.nestingSpacer');
+          const nestingSpacerBundle = [...nested].map(() => this.nestingSpacer).join('');
 
-      }
+          item.innerHTML = nestingSpacerBundle + item.textContent.replace(regexWord, (match) => `<strong>${match}</strong>`);
+        }
+      });
     }
   }
 
@@ -383,7 +390,7 @@ export class AuroMenu extends LitElement {
       const options = nestedMenu.querySelectorAll(':scope > auro-menuoption, :scope > [auro-menuoption');
 
       options.forEach((option) => {
-        option.innerHTML = `<span class="nestingSpacer"></span> ${option.innerHTML}`;
+        option.innerHTML = this.nestingSpacer + option.innerHTML;
       });
 
       this.handleNestedMenus(nestedMenu);
