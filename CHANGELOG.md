@@ -1,5 +1,14 @@
 # Semantic Release Automated Changelog
 
+## [4.1.4](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.3...v4.1.4) (2024-11-05)
+
+
+### Performance Improvements
+
+* add logic for including nesting spacer spans [#226](https://github.com/AlaskaAirlines/auro-menu/issues/226) ([3451b3c](https://github.com/AlaskaAirlines/auro-menu/commit/3451b3c1f2fd2b99b5d9b8ce04df749826739fae))
+* replace mark package with simple regex and replace [#226](https://github.com/AlaskaAirlines/auro-menu/issues/226) ([f5c039e](https://github.com/AlaskaAirlines/auro-menu/commit/f5c039e532fe8614eae1ab8a0bd8620bb7554d3d))
+* revert match work api example [#226](https://github.com/AlaskaAirlines/auro-menu/issues/226) ([f0f7bd8](https://github.com/AlaskaAirlines/auro-menu/commit/f0f7bd8eace07b59e54028c268e1f8a5e583dd44))
+
 ## [4.1.3](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.2...v4.1.3) (2024-10-31)
 
 
