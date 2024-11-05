@@ -12,7 +12,6 @@ import tokensCss from "./tokens-css.js";
 import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
 
 import './auro-menuoption.js';
-import "mark.js/dist/mark.es6.min.js";
 
 // See https://git.io/JJ6SJ for "How to document your components using JSDoc"
 /**
@@ -158,24 +157,18 @@ export class AuroMenu extends LitElement {
    */
   markOptions() {
     if (this.items && this.items.length > 0) {
-      let itemsToMark = []; // eslint-disable-line prefer-const
-
-      this.items.forEach((item) => {
-        if (this.optionInteractive(item) && !item.hasAttribute('persistent')) {
-          itemsToMark.push(item);
-        }
-      });
-
-      const markInstance = new Mark(itemsToMark); // eslint-disable-line
-
-      markInstance.unmark();
 
       if (this.matchWord && this.matchWord.length > 0) {
-        markInstance.mark(this.matchWord, {
-          'element': 'strong',
-          'separateWordSearch': false,
-          'acrossElements': true
+
+        // Global, case-insensitive, unicode matching
+        const regex = new RegExp(this.matchWord, 'giu');
+
+        this.items.forEach((item) => {
+          if (this.optionInteractive(item) && !item.hasAttribute('persistent')) {
+            item.innerHTML = item.textContent.replace(regex, (match) => `<strong>${match}</strong>`);
+          }
         });
+
       }
     }
   }
