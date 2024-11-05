@@ -20,11 +20,10 @@
     "node": "^18.x || ^20.x"
   },
   "dependencies": {
-    "@alaskaairux/icons": "^4.43.0",
+    "@alaskaairux/icons": "^4.44.1",
     "@aurodesignsystem/auro-icon": "^6.0.2",
     "@aurodesignsystem/auro-library": "2.8.0",
-    "lit": "^3.2.1",
-    "mark.js": "8.11.0"
+    "lit": "^3.2.1"
   },
   "peerDependencies": {
     "@aurodesignsystem/design-tokens": "^4.9.2",
