@@ -6,8 +6,8 @@ This file is generated based on a template fetched from `./docs/partials/demo.md
 
 # Menu
 
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
-<!-- The below content is automatically added from ./description.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/description.md) -->
+<!-- The below content is automatically added from ./../docs/partials/description.md -->
 The `<auro-menu>` element provides a list of options for a user to select from.
 
 A list of options is created within the `<slot>` of the `<auro-menu>` element by using the `<auro-menuoption>` element to define options. Use a standard `<hr>` element to create dividers within the list of options.
@@ -17,8 +17,8 @@ The `<auro-menu>` element is designed for contextual menus, e.g. a dropdown menu
 
 ## auro-menu use cases
 
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./useCases.md) -->
-<!-- The below content is automatically added from ./useCases.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/useCases.md) -->
+<!-- The below content is automatically added from ./../docs/partials/useCases.md -->
 The `<auro-menu>` element should be used in situations where users may:
 
 * A user needs to select one option from a list of options.
@@ -31,8 +31,8 @@ The `<auro-menu>` element should be used in situations where users may:
 A basic `auro-menu` element with nested `auro-menuoption` elements to generate a list.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/basic.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/basic.html -->
   <auro-menu>
     <auro-menuoption value="stops">Stops</auro-menuoption>
     <auro-menuoption value="price">Price</auro-menuoption>
@@ -44,8 +44,8 @@ A basic `auro-menu` element with nested `auro-menuoption` elements to generate a
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
 
 ```html
 <auro-menu>
@@ -75,8 +75,8 @@ AuroMenuOption.register('custom-menuoption');
 ```
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/custom.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/custom.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/custom.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/custom.html -->
   <custom-menu>
     <custom-menuoption value="stops">Stops</custom-menuoption>
     <custom-menuoption value="price">Price</custom-menuoption>
@@ -88,8 +88,8 @@ AuroMenuOption.register('custom-menuoption');
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/custom.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/custom.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/custom.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/custom.html -->
 
 ```html
 <custom-menu>
