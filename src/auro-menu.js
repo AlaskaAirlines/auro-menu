@@ -380,14 +380,14 @@ export class AuroMenu extends LitElement {
    * @param {String} menu - Root level menu object.
    */
   handleNestedMenus(menu) {
-    const nestedMenus = menu.querySelectorAll('auro-menu, [auro-menu');
+    const nestedMenus = menu.querySelectorAll('auro-menu, [auro-menu]');
 
     if (nestedMenus.length === 0) {
       return;
     }
 
     nestedMenus.forEach((nestedMenu) => {
-      const options = nestedMenu.querySelectorAll(':scope > auro-menuoption, :scope > [auro-menuoption');
+      const options = nestedMenu.querySelectorAll(':scope > auro-menuoption, :scope > [auro-menuoption]');
 
       options.forEach((option) => {
         option.innerHTML = this.nestingSpacer + option.innerHTML;
