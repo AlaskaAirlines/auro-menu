@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.1.5](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.4...v4.1.5) (2024-11-12)
+
+
+### Bug Fixes
+
+* fix typo on attr selector in `handleNestedMenus` ([fca9e16](https://github.com/AlaskaAirlines/auro-menu/commit/fca9e1662a5616d8a78ec6f64ecc22f9216da46d))
+
 ## [4.1.4](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.3...v4.1.4) (2024-11-05)
 
 
