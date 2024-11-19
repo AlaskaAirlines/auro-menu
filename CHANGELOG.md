@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [4.2.0](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.5...v4.2.0) (2024-11-19)
+
+
+### Features
+
+* update auro-library to 3.0.1 ([eb8a4b6](https://github.com/AlaskaAirlines/auro-menu/commit/eb8a4b62bfb682e697f27e021748ed0a49786980))
+
+
+### Performance Improvements
+
+* update library to 3.0.2 ([69bfd90](https://github.com/AlaskaAirlines/auro-menu/commit/69bfd90c6f3c54dcf67b04168fecd05cdf89a4c7))
+
 ## [4.1.5](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.4...v4.1.5) (2024-11-12)
 
 
