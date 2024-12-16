@@ -5,7 +5,7 @@ labels:
   - 'Type: Question'
   - 'Type: Feature'
   - not-reviewed
-  - auro-menu
+  - 'auro-menu'
 body:
   - type: textarea
     id: request
