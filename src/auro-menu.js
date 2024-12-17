@@ -134,7 +134,7 @@ export class AuroMenu extends LitElement {
 
   /**
    * Handles component updates when properties change.
-   * @param {Map} changedProperties - Map of changed properties
+   * @param {Map} changedProperties - Map of changed properties.
    * @private
    */
   updated(changedProperties) {
