@@ -136,30 +136,30 @@ export class AuroMenu extends LitElement {
     if (changedProperties.has('matchWord')) {
       this.markOptions();
     }
-
-
     if (changedProperties.has('value')) {
       if (!this.multiSelect) {
         this.selectByValue(this.value);
-      } else {
+        // only parse if value exists and looks like JSON array
+      } else if (this.value &&
+          typeof this.value === 'string' &&
+          this.value.trim().startsWith('[') &&
+          this.value.trim().endsWith(']')) {
         try {
           const values = JSON.parse(this.value);
-          if (this.value && Array.isArray(values)) {
+          if (Array.isArray(values)) {
             values.forEach((val) => {
               this.selectByValue(val);
             });
           }
         } catch (error) {
           // eslint-disable-next-line no-console
-          console.error(error);
+          console.error('Failed to parse multiSelect values:', error);
         }
       }
     }
 
-
     if (changedProperties.has('disabled')) {
       const options = Array.from(this.querySelectorAll('auro-menuoption, [auro-menuoption]'));
-
       for (const element of options) {
         element.disabled = this.disabled;
       }

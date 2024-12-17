@@ -325,6 +325,23 @@ it('test changing values after render in multiSelect', async () => {
   expect(menuEl.children[1].hasAttribute('selected')).to.be.true;
 })
 
+it('handles undefined value in multiSelect mode', async () => {
+  const el = await multipleMenuFixture();
+  const menuEl = el.querySelector('auro-menu');
+  menuEl.value = undefined;
+  await elementUpdated(menuEl);
+  expect(menuEl.value).to.equal(undefined);
+});
+
+it('handles invalid JSON gracefully in multiSelect mode', async () => {
+  const el = await multipleMenuFixture();
+  const menuEl = el.querySelector('auro-menu');
+  menuEl.value = 'not json';
+  await elementUpdated(menuEl);
+  // Should not throw error and maintain previous state
+  expect(menuEl.value).to.equal('not json');
+});
+
 function getOptions(menu) {
   let options = menu.shadowRoot.querySelector('slot').assignedNodes();
 

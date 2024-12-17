@@ -10,12 +10,6 @@
 @import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SassCustomProperties";
 @import "./../node_modules/@aurodesignsystem/webcorestylesheets/src/core";
 
-// Support for auroElement styles
-// @import "./../node_modules/@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement";
-
-// Support for fallback values
-@import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss";
-
 /* stylelint-disable declaration-no-important, order/properties-order */
 
 // container styles - defines the look of the outer custom component
