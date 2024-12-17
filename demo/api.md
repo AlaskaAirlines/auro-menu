@@ -277,6 +277,39 @@ export function auroMenuMatchWordExample() {
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
+### Multi Select
+
+The `auro-menu` supports a multi-select option. To use, place the `multiSelect` attribute on the `<auro-menu>` element tag. When applied, the `value` attribute will become an Array versus String value.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/multiple.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/multiple.html -->
+  <auro-menu multiSelect>
+    <auro-menuoption value="stops">Stops</auro-menuoption>
+    <auro-menuoption value="price">Price</auro-menuoption>
+    <auro-menuoption value="duration">Duration</auro-menuoption>
+    <auro-menuoption value="departure">Departure</auro-menuoption>
+    <auro-menuoption value="arrival">Arrival</auro-menuoption>
+  </auro-menu>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/multiple.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/multiple.html -->
+
+```html
+<auro-menu multiSelect>
+  <auro-menuoption value="stops">Stops</auro-menuoption>
+  <auro-menuoption value="price">Price</auro-menuoption>
+  <auro-menuoption value="duration">Duration</auro-menuoption>
+  <auro-menuoption value="departure">Departure</auro-menuoption>
+  <auro-menuoption value="arrival">Arrival</auro-menuoption>
+</auro-menu>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+</auro-accordion>
+
 ### Common Use Cases
 
 #### Scroll

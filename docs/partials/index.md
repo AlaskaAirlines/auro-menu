@@ -33,8 +33,6 @@ A basic `auro-menu` element with nested `auro-menuoption` elements to generate a
 
 </auro-accordion>
 
-Having a closing statement about your example helps to really complete the thought with your reader.
-
 ## Recommended Use and Version Control
 
 There are two important parts of every Auro component. The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">class</a> and the custom element. The class is exported and then used as part of defining the Web Component. When importing this component as described in the <a href="#install">install</a> section, the class is imported and the `auro-menu` custom element is defined automatically.

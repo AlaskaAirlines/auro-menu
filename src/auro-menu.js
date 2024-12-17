@@ -20,7 +20,8 @@ import './auro-menuoption.js';
  * @attr {String} matchWord - Specifies the a string used to highlight matched string parts in options.
  * @attr {Boolean} disabled - When true, the entire menu and all options are disabled;
  * @attr {Boolean} noCheckmark - When true, selected option will not show the checkmark.
- * @attr {String} value - Value selected for the menu.
+ * @attr {Boolean} multiSelect - When true, the selected option can be multiple option.
+ * @attr {String} value - Value selected for the menu, can be String or Array if `multiSelect` is true.
  * @prop {Boolean} ready - When false the component API should not be called.
  * @event auroMenu-selectedOption - Notifies that a new menuoption selection has been made.
  * @event selectedOption - (DEPRECATED) Notifies that a new menuoption selection has been made.
@@ -46,6 +47,7 @@ export class AuroMenu extends LitElement {
     this.noCheckmark = false;
     this.ready = false;
     this.optionActive = undefined;
+    this.multiSelect = undefined;
 
     /**
      * @private
@@ -77,6 +79,7 @@ export class AuroMenu extends LitElement {
       optionActive:   { type: Object },
       matchWord:      { type: String },
       ready:          { type: Boolean },
+      multiSelect:    { type: Boolean },
       value:          { type: String }
     };
   }
@@ -129,21 +132,67 @@ export class AuroMenu extends LitElement {
     this.addEventListener('keydown', this.handleKeyDown);
   }
 
+  /**
+   * Handles component updates when properties change.
+   * @param {Map} changedProperties - Map of changed properties.
+   * @private
+   */
   updated(changedProperties) {
+    // handle matchWord changes
     if (changedProperties.has('matchWord')) {
       this.markOptions();
     }
 
+    // handle value changes
     if (changedProperties.has('value')) {
-      this.selectByValue(this.value);
+      this.handleValueChange();
     }
 
+    // handle disabled state changes
     if (changedProperties.has('disabled')) {
-      const options = Array.from(this.querySelectorAll('auro-menuoption, [auro-menuoption]'));
+      this.updateOptionsDisabledState();
+    }
+  }
 
-      for (const element of options) {
-        element.disabled = this.disabled;
+  /**
+   * Updates all menu options' disabled state.
+   * @private
+   */
+  updateOptionsDisabledState() {
+    const options = this.querySelectorAll('auro-menuoption, [auro-menuoption]');
+    options.forEach((element) => {
+      element.disabled = this.disabled;
+    });
+  }
+
+  /**
+   * Handles changes to the value property.
+   * @private
+   */
+  handleValueChange() {
+    if (!this.multiSelect) {
+      this.selectByValue(this.value);
+      return;
+    }
+
+    // handle multiSelect array values
+    if (!this.value || typeof this.value !== 'string') {
+      return;
+    }
+
+    const trimmedValue = this.value.trim();
+    if (!trimmedValue.startsWith('[') || !trimmedValue.endsWith(']')) {
+      return;
+    }
+
+    try {
+      const values = JSON.parse(trimmedValue);
+      if (Array.isArray(values)) {
+        values.forEach((val) => this.selectByValue(val));
       }
+    } catch (error) {
+      /* eslint-disable no-console */
+      console.error('Failed to parse multiSelect values:', error);
     }
   }
 
@@ -195,6 +244,50 @@ export class AuroMenu extends LitElement {
   }
 
   /**
+   * Toggle the selection state of the menuoption.
+   * @param {Object} option - The menuoption to toggle the selection state.
+   * @private
+   * @return {void}
+   */
+  toggleSelectionState(option) {
+    if (option.hasAttribute('selected')) {
+      this.handleDeselectState(option);
+    } else {
+      this.handleLocalSelectState(option);
+    }
+  }
+
+  /**
+   * De-select the menuoption, the menu value and stored option.
+   * @param {Object} option - The menuoption to be deselected.
+   * @private
+   * @return {void}
+   */
+  handleDeselectState(option) {
+    option.removeAttribute('selected');
+    option.classList.remove('active');
+    option.ariaSelected = false;
+
+    // remove from this.value if there is any, set to undefined if became empty array
+    if (this.multiSelect && Array.isArray(this.value)) {
+      this.value = this.value.filter((val) => val !== option.value);
+      if (this.value.length === 0) {
+        this.value = undefined;
+      }
+    }
+
+    // do the same for selected option DOM
+    if (this.multiSelect && Array.isArray(this.optionSelected)) {
+      this.optionSelected = this.optionSelected.filter((val) => val !== option);
+      if (this.optionSelected.length === 0) {
+        this.optionSelected = undefined;
+      }
+    }
+
+    this.index = this.items.indexOf(option);
+  }
+
+  /**
    * Set the attributes on the selected menuoption, the menu value and stored option.
    * @param {Object} option - The menuoption to be selected.
    * @private
@@ -204,8 +297,29 @@ export class AuroMenu extends LitElement {
     option.classList.add('active');
     option.ariaSelected = true;
 
-    this.value = option.value;
-    this.optionSelected = option;
+    if (this.multiSelect) {
+      // push option.value to this.value as an array if there is none yet in the value
+      if (!this.value) {
+        this.value = [option.value];
+      } else if (Array.isArray(this.value)) {
+        if (!this.value.includes(option.value)) {
+          this.value.push(option.value);
+        }
+      }
+
+      // do the same for selected option DOM
+      if (!this.optionSelected) {
+        this.optionSelected = [option];
+      } else if (Array.isArray(this.optionSelected)) {
+        if (!this.optionSelected.includes(option)) {
+          this.optionSelected.push(option);
+        }
+      }
+    } else {
+      this.value = option.value;
+      this.optionSelected = option;
+    }
+
     this.index = this.items.indexOf(option);
   }
 
@@ -238,7 +352,9 @@ export class AuroMenu extends LitElement {
     }
 
     if (this.items[this.index] && !this.items[this.index].hasAttribute('disabled')) {
-      this.resetOptionsStates();
+      if (!this.multiSelect) {
+        this.resetOptionsStates();
+      }
 
       if (this.index >= 0) {
         const option = this.items[this.index];
@@ -266,7 +382,7 @@ export class AuroMenu extends LitElement {
               composed: true,
             }));
           } else {
-            this.handleLocalSelectState(option);
+            this.toggleSelectionState(option);
           }
         }
       }
