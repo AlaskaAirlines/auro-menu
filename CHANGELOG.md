@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [4.3.0](https://github.com/AlaskaAirlines/auro-menu/compare/v4.2.0...v4.3.0) (2024-12-23)
+
+
+### Features
+
+* update auro deps post node 22 update ([21bcc25](https://github.com/AlaskaAirlines/auro-menu/commit/21bcc252572a48fbc91e1e75879ccaf1f25869e6))
+
+
+### Performance Improvements
+
+* update node to version 22 ([21927b7](https://github.com/AlaskaAirlines/auro-menu/commit/21927b7d93a20c6f16fc997e42bac1084c29626c))
+
 # [4.2.0](https://github.com/AlaskaAirlines/auro-menu/compare/v4.1.5...v4.2.0) (2024-11-19)
 
 
