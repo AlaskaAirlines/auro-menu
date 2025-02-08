@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [4.3.1](https://github.com/AlaskaAirlines/auro-menu/compare/v4.3.0...v4.3.1) (2025-02-08)
+
+
+### Performance Improvements
+
+* update dependencies ([da73063](https://github.com/AlaskaAirlines/auro-menu/commit/da73063b28ed4fee258356e654fd6260aaa2f27d))
+* update incorrect config ([4d1020b](https://github.com/AlaskaAirlines/auro-menu/commit/4d1020beba1fd2855440ba111746896d13ebe1d1))
+
 # [4.3.0](https://github.com/AlaskaAirlines/auro-menu/compare/v4.2.0...v4.3.0) (2024-12-23)
 
 
