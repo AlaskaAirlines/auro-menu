@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.3.2](https://github.com/AlaskaAirlines/auro-menu/compare/v4.3.1...v4.3.2) (2025-03-07)
+
+
+### Performance Improvements
+
+* **deprecation:** add deprecation warning to this package ([5e5af39](https://github.com/AlaskaAirlines/auro-menu/commit/5e5af39a6122febb7d67eea6794b7019ce502569))
+
 ## [4.3.1](https://github.com/AlaskaAirlines/auro-menu/compare/v4.3.0...v4.3.1) (2025-02-08)
 
 
